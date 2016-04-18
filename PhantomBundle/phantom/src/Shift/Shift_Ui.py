@@ -178,7 +178,7 @@ def send_transaction(postparams):
             nrg = False
 
         if 'password' in pd and len(pd['password']) == 0:
-            Error_Msg.error_response("empty_password")
+            return Error_Msg.error_response("empty_password")
         else:
             res = client.unlock_account(pd['from'], pd['password'])
 
