@@ -29,6 +29,10 @@ class Client(object):
         response = self._make_request("personal_newAccount", [password])
         return response
 
+    def get_accounts(self):
+        response = self._make_request("shf_accounts", [])
+        return response
+
 
     def send_transaction(self, sender, receiver, amount, nrg, data):
 

@@ -1,0 +1,22 @@
+{
+  "15JSD7gHvospCwnogcHPAXPNRV7qC6o1pr": {
+    "added": 1461104064, 
+    "auth_key": "008c0ab127016bbdccdf58d693a089a4e20d946fcbbd4fdc3be8ddf404bed0c0", 
+    "modified": 1461104064.719482, 
+    "own": true, 
+    "peers": 0, 
+    "permissions": [], 
+    "serving": true, 
+    "size": 55, 
+    "wrapper_key": "fc95071d3cb4c383a5ad31d5675a4dd538f01a8d4bdac0e66abd71bedf3d62ec"
+  }, 
+  "1KSVsFWcPGBmm6ktZZHXgDnENRjjVJ7t7r": {
+    "auth_key": "28c453a117ababfd144fec441593f9fca87a983455aa8827bbaf95b5b3a4f95f", 
+    "own": false, 
+    "peers": 0, 
+    "permissions": [], 
+    "serving": true, 
+    "size": 0, 
+    "wrapper_key": "8cf3176489e743fb9db4e97b45d0f1430db4c2b322999995e4b90fb44292960a"
+  }
+}
