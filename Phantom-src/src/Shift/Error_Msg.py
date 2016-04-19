@@ -22,5 +22,7 @@ def error_response(error_type):
         return  {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not create site directory"]}
     elif error_type == "err_create_site":
         return  {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not create site"]}
+    elif error_type == "no_params_allowed":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "No parameters allowed for this method"]}
     else:
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Unknown error"]}

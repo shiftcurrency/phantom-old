@@ -58,7 +58,6 @@ def validate_postdata(postdata):
 
 def run_method(postparams):
 
-    print postparams
 
     client = IPC_Client.Client()
 
@@ -86,6 +85,10 @@ def run_method(postparams):
         res = send_transaction(postparams)
         return res
 
+    elif postparams['method'] == 'get_accounts':
+        res = get_accounts(postparams)
+        return res
+
 
 def get_shiftbase(postparams):
 
@@ -96,6 +99,8 @@ def get_shiftbase(postparams):
             return res
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")
+    else:
+        return Error_Msg.error_response("no_params_allowed")
 
 
 def rr_ptr(postparams):
@@ -105,6 +110,18 @@ def rr_ptr(postparams):
             return Error_Msg.error_response("invalid_domain")
         else:
             pass
+
+def get_accounts(postparams):
+
+    if len(postparams['params']) == 0:
+        client = IPC_Client.Client()
+        try:
+            res = client.get_accounts()
+            return res
+        except Exception as e:
+            return Error_Msg.error_response("ipc_call_error")
+    else:
+        return Error_Msg.error_response("no_params_allowed")
 
 
 def unlock_account(addr, password):
