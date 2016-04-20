@@ -33,6 +33,14 @@ class Client(object):
         response = self._make_request("shf_accounts", [])
         return response
 
+    def get_peercount(self):
+        response = self._make_request("net_peerCount", [])
+        return response
+
+    def get_blocknumber(self):
+        response = self._make_request("shf_blockNumber", [])
+        return response
+
 
     def send_transaction(self, sender, receiver, amount, nrg, data):
 
