@@ -146,6 +146,26 @@ def get_accounts(postparams):
     return Error_Msg.error_response("")
 
 
+def sign_publish_site(self, address, privatekey, inner_path="content.json", publish=True):
+
+    from Site import Site
+
+    if len(privatekey) > 0 and len(address) > 0:
+        site = Site(address, allow_create=False)
+        try:
+            succ = site.content_manager.sign(inner_path=inner_path, privatekey=privatekey, update_changed_files=True)
+            if succ and publish:
+                self.sitePublish(address, inner_path=inner_path)
+        except Exception as e:
+            return Error_Msg.error_response("err_sign_site")
+    else:
+        return Error_Msg.error_response("sign_missing_params")
+        
+
+    return {"jsonrpc": "2.0", "id": "1", "result": ["true", str(address)]}
+
+
+
 def unlock_account(addr, password):
 
     try:
