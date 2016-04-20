@@ -38,4 +38,8 @@ def execute(postparams):
         res = Shift_Ui.get_blocknumber(postparams)
         return res
 
+    elif postparams['method'] == 'sign_and_publish':
+        res = Shift_Ui.sign_publish_site(postparams)
+        return res
+
     return Error_Msg.error_response("no_method")

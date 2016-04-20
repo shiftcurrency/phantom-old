@@ -146,20 +146,23 @@ def get_accounts(postparams):
     return Error_Msg.error_response("")
 
 
-def sign_publish_site(self, address, privatekey, inner_path="content.json", publish=True):
+def sign_publish_site(self, postparams):
 
     from Site import Site
 
-    if len(privatekey) > 0 and len(address) > 0:
-        site = Site(address, allow_create=False)
-        try:
-            succ = site.content_manager.sign(inner_path=inner_path, privatekey=privatekey, update_changed_files=True)
-            if succ and publish:
-                self.sitePublish(address, inner_path=inner_path)
-        except Exception as e:
-            return Error_Msg.error_response("err_sign_site")
-    else:
+    if not len(postparams['params']) == 2 and not len(postparams['params'][0]) == 34:
         return Error_Msg.error_response("sign_missing_params")
+
+    address = postparams['params'][0]
+    privatekey = postparams['params'][1]
+
+    site = Site(address, allow_create=False)
+    try:
+        success = site.content_manager.sign(inner_path="content.json", privatekey=privatekey, update_changed_files=True)
+        if success:
+            self.sitePublish(address, inner_path=inner_path)
+    except Exception as e:
+        return Error_Msg.error_response("err_sign_site")
         
 
     return {"jsonrpc": "2.0", "id": "1", "result": ["true", str(address)]}
