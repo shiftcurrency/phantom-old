@@ -42,4 +42,8 @@ def execute(postparams):
         res = Shift_Ui.sign_publish_site(postparams)
         return res
 
+    elif postparams['method'] == 'get_balance':
+        res = Shift_Ui.get_balance(postparams)
+        return res
+
     return Error_Msg.error_response("no_method")

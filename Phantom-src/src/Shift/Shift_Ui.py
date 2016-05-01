@@ -119,7 +119,6 @@ def get_blocknumber(postparams):
     return Error_Msg.error_response("")
 
 
-
 def rr_ptr(postparams):
 
     if len(postparams['params']) == 1:
@@ -129,6 +128,7 @@ def rr_ptr(postparams):
             pass
 
     return Error_Msg.error_response("")
+
 
 def get_accounts(postparams):
 
@@ -145,6 +145,32 @@ def get_accounts(postparams):
 
     return Error_Msg.error_response("")
 
+
+def get_balance(postparams):
+
+    if len(postparams['params']) == 2:
+        addr = postparams['params'][0]
+        when = postparams['params'][1]
+
+        try:
+            int(addr, 16) 
+        except ValueError as e:
+            return Error_Msg.error_response("invalid_wallet_addr")
+
+        if when == "latest" or when == "pending" or when == "earliest":
+
+            try:
+                client = IPC_Client.Client()
+                res = client.get_balance(addr, when)
+                if 'result' in res:
+                    res['result'] = str(int(res['result'], 16))
+                return res
+            except Exception as e:
+                return Error_Msg.error_response("ipc_call_error")
+    
+    return Error_Msg.error_response("missing_params")
+            
+ 
 
 def sign_publish_site(self, postparams):
 

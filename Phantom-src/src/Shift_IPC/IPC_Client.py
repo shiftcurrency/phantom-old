@@ -41,6 +41,10 @@ class Client(object):
         response = self._make_request("shf_blockNumber", [])
         return response
 
+    def get_balance(self, account, when):
+        response = self._make_request("shf_getBalance", [account,when])
+        return response
+
 
     def send_transaction(self, sender, receiver, amount, nrg, data):
 
