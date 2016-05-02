@@ -59,7 +59,6 @@ def validate_postdata(postdata):
 
 def run_method(postparams):
 
-    client = IPC_Client.Client()
     res = Run_Method.execute(postparams)
     return res
 
@@ -67,23 +66,20 @@ def run_method(postparams):
 def get_shiftbase(postparams):
 
     if len(postparams['params']) == 0:
-        
         try:
+            client = IPC_Client.Client()
             res = client.get_shiftbase()
             return res
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")
-    else:
-        return Error_Msg.error_response("no_params_allowed")
-
-    return Error_Msg.error_response("")
+    return Error_Msg.error_response("no_params_allowed")
 
 
 def get_peercount(postparams):
     
     if len(postparams['params']) == 0:
-        client = IPC_Client.Client()
         try:
+            client = IPC_Client.Client()
             res = client.get_peercount()
             if 'result' in res:
                 res['result'] = str(int(res['result'], 16))
@@ -92,18 +88,15 @@ def get_peercount(postparams):
         except Exception as e:
             print e
             return Error_Msg.error_response("ipc_call_error")
-    else:
-        return Error_Msg.error_response("no_params_allowed")
+    return Error_Msg.error_response("no_params_allowed")
 
-
-    return Error_Msg.error_response("")
 
 
 def get_blocknumber(postparams):
     
     if len(postparams['params']) == 0:
-        client = IPC_Client.Client()
         try:
+            client = IPC_Client.Client()
             res = client.get_blocknumber()
             if 'result' in res:
                 res['result'] = str(int(res['result'], 16))
@@ -112,11 +105,7 @@ def get_blocknumber(postparams):
         except Exception as e:
             print e
             return Error_Msg.error_response("ipc_call_error")
-    else:
-        return Error_Msg.error_response("no_params_allowed")
-
-
-    return Error_Msg.error_response("")
+    return Error_Msg.error_response("no_params_allowed")
 
 
 def rr_ptr(postparams):
@@ -133,17 +122,13 @@ def rr_ptr(postparams):
 def get_accounts(postparams):
 
     if len(postparams['params']) == 0:
-        client = IPC_Client.Client()
         try:
+            client = IPC_Client.Client()
             res = client.get_accounts()
             return res
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")
-    else:
-        return Error_Msg.error_response("no_params_allowed")
-
-
-    return Error_Msg.error_response("")
+    return Error_Msg.error_response("no_params_allowed")
 
 
 def get_balance(postparams):
@@ -167,7 +152,6 @@ def get_balance(postparams):
                 return res
             except Exception as e:
                 return Error_Msg.error_response("ipc_call_error")
-    
     return Error_Msg.error_response("missing_params")
             
  
@@ -210,12 +194,26 @@ def unlock_account(addr, password):
 
     else:
         try:
+            client = IPC_Client.Client()
             res = client.unlock_account(addr, password)
             return res
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")
 
-    return Error_Msg.error_response("")
+
+def lock_account(addr):
+
+    try:
+        int(addr, 16)
+    except ValueError as e:
+        return Error_Msg.error_response("invalid_wallet_addr")
+
+    try:
+        client = IPC_Client.Client()
+        res = client.lock_account(addr)
+        return res
+    except Exception as e:
+        return Error_Msg.error_response("ipc_call_error")
 
 
 def create_site(postparams):
@@ -229,15 +227,26 @@ def create_site(postparams):
 def create_account(postparams):
 
     if len(postparams['params']) == 1:
-        if len(postparams['params'][0]) < 0:
+        if len(postparams['params'][0]) == 0:
             return Error_Msg.error_response("empty_password")
         try:
+            client = IPC_Client.Client()
             res = client.create_account(postparams['params'][0])
             return res
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")
 
-    return Error_Msg.error_response("")
+
+def net_listening(postparams):
+
+    if len(postparams['params']) == 0:
+        try:
+            client = IPC_Client.Client()
+            res = client.net_listening()
+            return res
+        except Exception as e:
+            return Error_Msg.error_response("ipc_call_error")
+    return Error_Msg.error_response("no_params_allowed")
 
 
 def send_transaction(postparams):
@@ -245,7 +254,6 @@ def send_transaction(postparams):
     if len(postparams['params']) == 1:
 
         pd = postparams['params'][0]
-        client = IPC_Client.Client()
         
         try:
             int(pd['from'], 16)
@@ -271,6 +279,8 @@ def send_transaction(postparams):
         else:
             nrg = False
 
+        client = IPC_Client.Client()
+
         if 'password' in pd and len(pd['password']) == 0:
             return Error_Msg.error_response("empty_password")
         else:
@@ -281,8 +291,6 @@ def send_transaction(postparams):
             return res
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")
-
-    return Error_Msg.error_response("")
 
 
 def run(postdata):

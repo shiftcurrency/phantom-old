@@ -1,4 +1,5 @@
 import Shift_Ui
+import Error_Msg
 
 def execute(postparams):
 
@@ -11,8 +12,16 @@ def execute(postparams):
         return res
 
     elif postparams['method'] == 'unlock_account':
-        res = Shift_Ui.unlock_account(postparams)
-        return res
+        if 'params' in postparams and len(postparams['params']) == 2:
+            res = Shift_Ui.unlock_account(postparams['params'][0], postparams['params'][1])
+            return res
+        return Error_Msg.error_response("missing_params")
+
+    elif postparams['method'] == 'lock_account':
+        if 'params' in postparams and len(postparams['params']) == 1:
+            res = Shift_Ui.lock_account(postparams['params'][0])
+            return res
+        return Error_Msg.error_response("missing_params")
 
     elif postparams['method'] == 'create_site':
         res = Shift_Ui.create_site(postparams)
@@ -30,8 +39,12 @@ def execute(postparams):
         res = Shift_Ui.get_accounts(postparams)
         return res
 
-    elif postparams['method'] == 'get_peercount':
+    elif postparams['method'] == 'net_peercount':
         res = Shift_Ui.get_peercount(postparams)
+        return res
+
+    elif postparams['method'] == 'net_listening':
+        res = Shift_Ui.net_listening(postparams)
         return res
     
     elif postparams['method'] == 'get_blocknumber':

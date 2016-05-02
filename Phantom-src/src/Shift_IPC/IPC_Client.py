@@ -24,6 +24,10 @@ class Client(object):
         response = self._make_request("personal_unlockAccount", [account,password,60])
         return response
 
+    def lock_account(self, account):
+        """ Method not implemented ? """
+        response = self._make_request("personal_lockAccount", [account])
+        return response
 
     def create_account(self, password):
         response = self._make_request("personal_newAccount", [password])
@@ -35,6 +39,10 @@ class Client(object):
 
     def get_peercount(self):
         response = self._make_request("net_peerCount", [])
+        return response
+
+    def net_listening(self):
+        response = self._make_request("net_listening", [])
         return response
 
     def get_blocknumber(self):
@@ -113,6 +121,7 @@ class Client(object):
             raise ValueError("No JSON returned by socket")
 
         response = json.loads(response_raw)
+        print response
 
         if "error" in response:
             raise ValueError(response["error"]["message"])
