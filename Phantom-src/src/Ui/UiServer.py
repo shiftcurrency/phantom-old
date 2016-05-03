@@ -13,7 +13,7 @@ from UiRequest import UiRequest
 from Site import SiteManager
 from Config import config
 from Debug import Debug
-from Shift import Shift_Ui
+from Phantom import Phantom_Ui
 
 
 # Skip websocket handler if not necessary
@@ -83,7 +83,7 @@ class UiServer:
             async = AsyncResult()
 
             ''' Wait for the IPC call to finish without blocking further processing. '''
-            async.set(Shift_Ui.run(env['wsgi.input'].read()))
+            async.set(Phantom_Ui.run(env['wsgi.input'].read()))
             ipc_response = async.get()
             response_string = json.dumps(ipc_response)
 

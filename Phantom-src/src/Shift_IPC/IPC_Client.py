@@ -121,7 +121,6 @@ class Client(object):
             raise ValueError("No JSON returned by socket")
 
         response = json.loads(response_raw)
-        print response
 
         if "error" in response:
             raise ValueError(response["error"]["message"])
