@@ -55,6 +55,10 @@ def execute(postparams):
         res = Phantom_Ui.sign_publish_site(postparams)
         return res
 
+    elif postparams['method'] == 'get_blockdata':
+        res = Phantom_Ui.get_block_data(postparams)
+        return res
+
     elif postparams['method'] == 'get_balance':
         res = Phantom_Ui.get_balance(postparams)
         return res

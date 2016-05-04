@@ -53,6 +53,14 @@ class Client(object):
         response = self._make_request("shf_getBalance", [account,when])
         return response
 
+    def get_block_data(self, blknum, fulldata):
+        if fulldata == "true":
+            response = self._make_request("shf_getBlockByNumber", [hex(int(blknum)), True])
+        else:
+            response = self._make_request("shf_getBlockByNumber", [hex(int(blknum)), False])
+            
+        return response
+
 
     def send_transaction(self, sender, receiver, amount, nrg, data):
 
