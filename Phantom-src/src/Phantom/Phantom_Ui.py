@@ -108,6 +108,21 @@ def get_blocknumber(postparams):
     return Error_Msg.error_response("no_params_allowed")
 
 
+def get_block_data(postparams):
+
+    if len(postparams['params']) == 2:
+        if type(postparams['params'][0]) is int and postparams['params'][1] == "true" or \
+                postparams['params'][1] == "false":
+            try:
+                client = IPC_Client.Client()
+                res = client.get_block_data(postparams)
+                return res
+            except Exception as e:
+                return Error_Msg.error_response("ipc_call_error")
+        return Error_Msg.error_response("invalid_parameters")
+    return Error_Msg.error_response("missing_params")
+
+
 def rr_ptr(postparams):
 
     if len(postparams['params']) == 1:
