@@ -74,6 +74,10 @@ class Client(object):
         response = self._make_request("shf_sendTransaction", trans_params)
         return response
 
+    def send_rawtransaction(self, data):
+        response = self._make_request("shf_sendRawTransaction", data)
+        return response
+
 
     def construct_json_request(self, method, params):
         request = json.dumps({"jsonrpc": "2.0","method": method, "params": params,"id": "1"})
@@ -102,7 +106,7 @@ class Client(object):
         _socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         _socket.connect(self.ipc_path)
         # Tell the socket not to block on reads.
-        _socket.settimeout(2)
+        _socket.settimeout(1)
         return _socket
 
 

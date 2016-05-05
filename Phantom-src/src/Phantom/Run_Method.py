@@ -35,6 +35,10 @@ def execute(postparams):
         res = Phantom_Ui.send_transaction(postparams)
         return res
 
+    elif postparams['method'] == 'send_rawtransaction':
+        res = Phantom_Ui.send_rawtransaction(postparams)
+        return res
+
     elif postparams['method'] == 'get_accounts':
         res = Phantom_Ui.get_accounts(postparams)
         return res

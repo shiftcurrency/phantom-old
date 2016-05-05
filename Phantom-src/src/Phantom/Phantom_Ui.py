@@ -266,9 +266,7 @@ def net_listening(postparams):
 def send_transaction(postparams):
 
     if len(postparams['params']) == 1:
-
         pd = postparams['params'][0]
-        
         try:
             int(pd['from'], 16)
             int(pd['to'], 16)
@@ -283,15 +281,11 @@ def send_transaction(postparams):
         except Exception as e:
             return Error_Msg.error_response("invalid_amount")
 
-        if 'data' in pd and len(pd['data']) > 0:
-            data = pd['data']
-        else:
-            data = False
+        if 'data' in pd and len(pd['data']) > 0: data = pd['data']
+        else: data = False
 
-        if 'nrg' in pd and len(pd['nrg']) > 0:
-            nrg = pd['nrg']
-        else:
-            nrg = False
+        if 'nrg' in pd and len(pd['nrg']) > 0: nrg = pd['nrg']
+        else: nrg = False
 
         client = IPC_Client.Client()
 
@@ -305,6 +299,22 @@ def send_transaction(postparams):
             return res
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")
+
+
+def send_rawtransaction(postparams):
+
+    if len(postparams['params']) == 1:
+        try:
+            int(postparams['params'][0], 16)
+        except Exception as e:
+            Error_Msg.error_response("invalid_hex_string")
+        
+        try:
+            res = client.send_transaction(postparams['params'][0])
+            return res
+        except Exception as e:
+            return Error_Msg.error_response("ipc_call_error")
+    return Error_Msg.error_response("invalid_parameters")
 
 
 def run(postdata):

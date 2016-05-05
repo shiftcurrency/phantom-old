@@ -26,6 +26,8 @@ def error_response(error_type):
         return  {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not sign site"]}
     elif error_type == "invalid_parameters":
         return  {"jsonrpc": "2.0", "id": "1", "result": ["false", "Invalid parameter(s)"]}
+    elif error_type == "invalid_hex_string":
+        return  {"jsonrpc": "2.0", "id": "1", "result": ["false", "Not a valid hex string as parameter"]}
     elif error_type == "no_params_allowed":
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "No parameters allowed for this method"]}
     elif error_type == "sign_missing_params":
