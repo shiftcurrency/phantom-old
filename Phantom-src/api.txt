@@ -34,3 +34,7 @@ Returns site address (bitcoin hash) and the private key (needs to be save to be 
 curl -X POST --data '{"jsonrpc":"2.0","method": "net_peercount","params":[]}' http://localhost:53903
 
 Returns number of connected peers
+
+curl -X POST --data '{"jsonrpc":"2.0","method": "get_blocknumber","params":[]}' http://localhost:53903
+
+Returns block number as integer

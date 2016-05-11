@@ -317,6 +317,18 @@ def send_rawtransaction(postparams):
     return Error_Msg.error_response("invalid_parameters")
 
 
+def new_message_addr(postparams):
+
+    if len(postparams['params']) == 0:
+        client = IPC_Client.Client()
+        try:
+            res = client.new_message_addr()
+            return res
+        except Exception as e:
+            return Error_Msg.error_response("ipc_call_error")
+    return Error_Msg.error_response("no_params_allowed")
+
+
 def run(postdata):
     res = validate_postdata(postdata)
 

@@ -53,6 +53,10 @@ class Client(object):
         response = self._make_request("shf_getBalance", [account,when])
         return response
 
+    def new_message_addr(self):
+        response = self._make_request("shh_newIdentity", [])
+        return response
+
     def get_block_data(self, blknum, fulldata):
         if fulldata == "true":
             response = self._make_request("shf_getBlockByNumber", [hex(int(blknum)), True])
