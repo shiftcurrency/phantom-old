@@ -1,0 +1,36 @@
+curl -X POST --data '{"jsonrpc":"2.0","method":"get_blockdata","params":["200", "false"]}' http://localhost:53903
+
+Parameter list: [0] == block number
+Parameter list: [1] == true/false. If set to true it returns full block data.
+
+curl -X POST --data '{"jsonrpc":"2.0","method":"create_account","params":["password"]}' http://localhost:53903
+
+Returns account address
+
+curl -X POST --data '{"jsonrpc":"2.0","method":"unlock_account","params":["0x2e201bf5a75ba5d58af0ae919ab580995cf63f9b", "password"]}' http://localhost:53903
+
+Returns true or false
+
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[]}' http://localhost:53903
+
+Returns true or false
+
+curl -X POST --data '{"jsonrpc":"2.0","method":"send_transaction","params":[{"from": "0x83b5f6de85e6d5482992ee467808682b01a95e25", "to": "0x2e201bf5a75ba5d58af0ae919ab580995cf63f9b","amount": "1", "password" : "password" }]}' http://localhost:53903
+
+Returns transaction hash
+
+curl -X POST --data '{"jsonrpc":"2.0","method":"get_balance","params":["0x2e201bf5a75ba5d58af0ae919ab580995cf63f9b", "latest"]}' http://localhost:53903
+
+Returns balance of account
+
+curl -X POST --data '{"jsonrpc":"2.0","method":"get_accounts","params":[]}' http://localhost:53903
+
+Returns a list of accounts
+
+curl -X POST --data '{"jsonrpc":"2.0","method": "create_site","params":[]}' http://localhost:53903
+
+Returns site address (bitcoin hash) and the private key (needs to be save to be able to edit and sign website)
+
+curl -X POST --data '{"jsonrpc":"2.0","method": "net_peercount","params":[]}' http://localhost:53903
+
+Returns number of connected peers
