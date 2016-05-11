@@ -24,6 +24,10 @@ class Client(object):
         response = self._make_request("personal_unlockAccount", [account,password,60])
         return response
 
+    def lock_account(self, account):
+        """ Method not implemented ? """
+        response = self._make_request("personal_lockAccount", [account])
+        return response
 
     def create_account(self, password):
         response = self._make_request("personal_newAccount", [password])
@@ -31,6 +35,30 @@ class Client(object):
 
     def get_accounts(self):
         response = self._make_request("shf_accounts", [])
+        return response
+
+    def get_peercount(self):
+        response = self._make_request("net_peerCount", [])
+        return response
+
+    def net_listening(self):
+        response = self._make_request("net_listening", [])
+        return response
+
+    def get_blocknumber(self):
+        response = self._make_request("shf_blockNumber", [])
+        return response
+
+    def get_balance(self, account, when):
+        response = self._make_request("shf_getBalance", [account,when])
+        return response
+
+    def get_block_data(self, blknum, fulldata):
+        if fulldata == "true":
+            response = self._make_request("shf_getBlockByNumber", [hex(int(blknum)), True])
+        else:
+            response = self._make_request("shf_getBlockByNumber", [hex(int(blknum)), False])
+            
         return response
 
 
@@ -44,6 +72,10 @@ class Client(object):
             trans_params = [{"from": sender, "to": receiver, "value": hex(int(amount))}]
 
         response = self._make_request("shf_sendTransaction", trans_params)
+        return response
+
+    def send_rawtransaction(self, data):
+        response = self._make_request("shf_sendRawTransaction", data)
         return response
 
 
@@ -74,13 +106,14 @@ class Client(object):
         _socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         _socket.connect(self.ipc_path)
         # Tell the socket not to block on reads.
+        """ Two seconds seems to be enough. One second is not enough when creating accounts """
         _socket.settimeout(2)
         return _socket
 
 
     def _make_request(self, method, params):
         request = self.construct_json_request(method, params)
-
+        
         for _ in range(3):
             self._socket.sendall(request)
             response_raw = ""
