@@ -322,6 +322,5 @@ def run(postdata):
 
     if 'result' in res and res['result'][0] == "false":
         return res
-
     http_response = run_method(res)
     return http_response

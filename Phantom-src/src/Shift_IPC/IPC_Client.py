@@ -106,13 +106,14 @@ class Client(object):
         _socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         _socket.connect(self.ipc_path)
         # Tell the socket not to block on reads.
-        _socket.settimeout(1)
+        """ Two seconds seems to be enough. One second is not enough when creating accounts """
+        _socket.settimeout(2)
         return _socket
 
 
     def _make_request(self, method, params):
         request = self.construct_json_request(method, params)
-
+        
         for _ in range(3):
             self._socket.sendall(request)
             response_raw = ""
