@@ -317,16 +317,32 @@ def send_rawtransaction(postparams):
     return Error_Msg.error_response("invalid_parameters")
 
 
-def new_message_addr(postparams):
+def new_message_ident(postparams):
 
     if len(postparams['params']) == 0:
         client = IPC_Client.Client()
         try:
-            res = client.new_message_addr()
+            res = client.new_message_ident()
             return res
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")
     return Error_Msg.error_response("no_params_allowed")
+
+
+def message_ident_exists(postparams):
+    if len(postparams['params']) == 1:
+        try:
+            int(postparams['params'][0], 16)
+        except:
+            Error_Msg.error_response("invalid_hex_string")
+
+        client = IPC_Client.Client()
+        try:
+            res = client.message_ident_exists(postparams['params'][0])
+            return res 
+        except Exception as e:
+            return Error_Msg.error_response("ipc_call_error")
+    return Error_Msg.error_response("missing_params")
 
 
 def run(postdata):

@@ -38,3 +38,14 @@ Returns number of connected peers
 curl -X POST --data '{"jsonrpc":"2.0","method": "get_blocknumber","params":[]}' http://localhost:53903
 
 Returns block number as integer
+
+
+
+Create a new message identity, returns a hash.
+
+curl -X POST --data '{"jsonrpc":"2.0","method": "new_message_ident","params":[]}' http://localhost:53903
+
+
+Check if the identity still exists and can be used (only valid locally, no point in checking this in the network, it wont show up)
+
+curl -X POST --data '{"jsonrpc":"2.0","method": "message_ident_exists","params":["0x041c5af06aad7f1b141e1ad81c74acff2d6c8b49e680ac4c3c885ee60649a0cf400d86cfdab168c71219d1c4e28a8e9693fa4552fd9d508c8faef19e80083632d4"]}' http://localhost:53903

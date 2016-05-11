@@ -67,8 +67,12 @@ def execute(postparams):
         res = Phantom_Ui.get_balance(postparams)
         return res
 
-    elif postparams['method'] == 'new_message_addr':
-        res = Phantom_Ui.new_message_addr(postparams)
+    elif postparams['method'] == 'new_message_ident':
+        res = Phantom_Ui.new_message_ident(postparams)
+        return res
+
+    elif postparams['method'] == 'message_ident_exists':
+        res = Phantom_Ui.message_ident_exists(postparams)
         return res
 
     return Error_Msg.error_response("no_method")

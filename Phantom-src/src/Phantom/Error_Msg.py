@@ -17,7 +17,7 @@ def error_response(error_type):
     elif error_type == "missing_params":
         return  {"jsonrpc": "2.0", "id": "1", "result": ["false", "Missing parameters in JSON array"]}
     elif error_type == "no_method":
-        return  {"jsonrpc": "2.0", "id": "1", "result": ["false", "No method specified"]}
+        return  {"jsonrpc": "2.0", "id": "1", "result": ["false", "Method not recognized or specified"]}
     elif error_type == "err_create_sitedir":
         return  {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not create site directory"]}
     elif error_type == "err_create_site":
