@@ -32,5 +32,7 @@ def error_response(error_type):
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "No parameters allowed for this method"]}
     elif error_type == "sign_missing_params":
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Site address and private key is needed for publishing a new site"]}
+    elif error_type == "err_gen_ident":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not generate new identity for messaging"]}
     else:
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Unhandled exception. Please check the log file and report to Shift"]}

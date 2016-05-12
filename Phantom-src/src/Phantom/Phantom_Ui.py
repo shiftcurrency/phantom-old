@@ -345,6 +345,39 @@ def message_ident_exists(postparams):
     return Error_Msg.error_response("missing_params")
 
 
+def send_message(postparams):
+
+    if len(postparams['params']) == 1:
+        pd = postparams['params'][0]
+
+        if 'to' in pd and 'type' in pd and 'topic' in pd and 'data' in pd:
+            try:
+                int(pd['from'], 16) 
+                int(pd['to'], 16)
+            except:
+                Error_Msg.error_response("invalid_hex_string")
+
+            from_ident = new_message_ident({'params':''})
+            if not 'result' in from_ident or len(from_ident['result']) == 130:
+                return Error_Msg.error_response("err_gen_ident")
+
+            try:
+                client = IPC_Client.Client()
+                res = client.send_message(postparams)
+                return res 
+            except Exception as e:
+                return Error_Msg.error_response("ipc_call_error")
+    return Error_Msg.error_response("missing_params")
+
+
+        ##{'type':'c','store-encrypted':'true'}".encode("hex")
+        ##"shf-chat".encode("hex")
+        ##"hello world".encode("hex")
+        ##priority: "0x64",
+        ##ttl: "0x64",
+
+
+
 def run(postdata):
     res = validate_postdata(postdata)
 
