@@ -111,12 +111,17 @@ class Client(object):
 
 
     def get_socket(self):
-        _socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-        _socket.connect(self.ipc_path)
-        # Tell the socket not to block on reads.
-        """ Two seconds seems to be enough. One second is not enough when creating accounts """
-        _socket.settimeout(2)
-        return _socket
+        try:
+            _socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+            _socket.connect(self.ipc_path)
+            # Tell the socket not to block on reads.
+            """ Two seconds seems to be enough. One second is not enough when creating accounts """
+            _socket.settimeout(2)
+            return _socket
+        except Exception as e:
+            return False
+
+            
 
 
     def _make_request(self, method, params):
