@@ -75,4 +75,8 @@ def execute(postparams):
         res = Phantom_Ui.message_ident_exists(postparams)
         return res
 
+    elif postparams['method'] == 'send_message':
+        res = Phantom_Ui.send_message(postparams)
+        return res
+
     return Error_Msg.error_response("no_method")

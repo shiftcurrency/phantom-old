@@ -61,6 +61,10 @@ class Client(object):
         response = self._make_request("shh_hasIdentity", [ident])
         return response
 
+    def send_message(self, params):
+        response = self._make_request("shh_post", [params])
+        return response
+
     def get_block_data(self, blknum, fulldata):
         if fulldata == "true":
             response = self._make_request("shf_getBlockByNumber", [hex(int(blknum)), True])
