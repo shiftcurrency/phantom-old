@@ -317,6 +317,28 @@ def send_rawtransaction(postparams):
     return Error_Msg.error_response("invalid_parameters")
 
 
+def create_shh_filter(postparams):
+
+    if len(postparams['params']) == 1:
+        pd = postparams['params'][0]
+        if 'to' in pd and 'match' in pd:
+            try:
+                int(pd['to'], 16)
+            except:
+                return Error_Msg.error_response("invalid_hex_string")
+
+            if pd['match'] == "":
+                return Error_Msg.error_response("err_create_filter")
+            params = [{"to": str(pd['to']), "topics": [str(pd['match'].encode("hex"))]}]
+            client = IPC_Client.Client()
+            try:
+                res = client.create_shh_filter(params)
+                return res
+            except Exception as e:
+                return Error_Msg.error_response("ipc_call_error")
+    return Error_Msg.error_response("missing_params")
+
+
 def new_message_ident(postparams):
 
     if len(postparams['params']) == 0:
@@ -365,6 +387,13 @@ def send_message(postparams):
             pd['priority'] = "0x64"
             pd['ttl'] = "0x64"
             pd['message'] = pd['message'].encode("hex")
+
+            """ Create filter to wait for incoming answers """
+            res  = self.create_shh_filter(postparams)
+            if 'result' in res and len(res['result']) == 2:
+                return Error_Msg.error_response("err_create_filter")
+
+            filter_id = res['result']
 
             try:
                 client = IPC_Client.Client()

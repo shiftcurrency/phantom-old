@@ -34,5 +34,7 @@ def error_response(error_type):
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Site address and private key is needed for publishing a new site"]}
     elif error_type == "err_gen_ident":
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not generate new identity for messaging"]}
+    elif error_type == "err_create_filter":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not create filter"]}
     else:
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Unhandled exception. Please check the log file and report to Shift"]}
