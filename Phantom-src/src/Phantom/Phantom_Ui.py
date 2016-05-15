@@ -321,15 +321,15 @@ def create_shh_filter(postparams):
 
     if len(postparams['params']) == 1:
         pd = postparams['params'][0]
-        if 'to' in pd and 'match' in pd:
+        if 'to' in pd and 'topics' in pd:
             try:
                 int(pd['to'], 16)
             except:
                 return Error_Msg.error_response("invalid_hex_string")
 
-            if pd['match'] == "":
+            if pd['topics'] == "":
                 return Error_Msg.error_response("err_create_filter")
-            params = [{"to": str(pd['to']), "topics": [str(pd['match'].encode("hex"))]}]
+            params = [{"to": str(pd['to']), "topics": [str(pd['topics'].encode("hex"))]}]
             client = IPC_Client.Client()
             try:
                 res = client.create_shh_filter(params)
@@ -388,7 +388,7 @@ def send_message(postparams):
             pd['ttl'] = "0x64"
             pd['message'] = pd['message'].encode("hex")
 
-            """ Create filter to wait for incoming answers """
+            """ Create filter to wait for incoming answers. Use postparams with the unhexed strings. """
             res  = self.create_shh_filter(postparams)
             if 'result' in res and len(res['result']) == 2:
                 return Error_Msg.error_response("err_create_filter")
