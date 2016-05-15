@@ -65,6 +65,10 @@ class Client(object):
         response = self._make_request("shh_post", [params])
         return response
 
+    def create_shh_filter(self, params):
+        response = self._make_request("shh_newFilter", [params])
+        return response
+
     def get_block_data(self, blknum, fulldata):
         if fulldata == "true":
             response = self._make_request("shf_getBlockByNumber", [hex(int(blknum)), True])

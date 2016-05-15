@@ -2,6 +2,7 @@ import json
 import Error_Msg
 import Run_Method
 from Shift_IPC import IPC_Client
+import Phantom_Db
 
 
 def create_phantom_site():
@@ -329,7 +330,7 @@ def create_shh_filter(postparams):
 
             if pd['topics'] == "":
                 return Error_Msg.error_response("err_create_filter")
-            params = [{"to": str(pd['to']), "topics": [str(pd['topics'].encode("hex"))]}]
+            params = {"to": str(pd['to']), "topics": [str(pd['topics'][0].encode("hex"))]}
             client = IPC_Client.Client()
             try:
                 res = client.create_shh_filter(params)
@@ -389,12 +390,19 @@ def send_message(postparams):
             pd['message'] = pd['message'].encode("hex")
 
             """ Create filter to wait for incoming answers. Use postparams with the unhexed strings. """
-            res  = self.create_shh_filter(postparams)
-            if 'result' in res and len(res['result']) == 2:
+            res  = create_shh_filter(postparams)
+
+            try:
+                int(res['result'], 16)
+            except:
                 return Error_Msg.error_response("err_create_filter")
 
-            filter_id = res['result']
-
+            phantomdb = Phantom_Db.PhantomDb()
+            store = {'to':pd['to'], 'filter_id' : int(res['result'], 16)}
+            res_datastore = phantomdb.store_data(store)
+            if not res_datastore:
+                return res_datastore
+                
             try:
                 client = IPC_Client.Client()
                 res = client.send_message(pd)
