@@ -35,3 +35,15 @@ class PhantomDb(object):
                     return False
                 return True
         return False
+
+    
+    def get_latest_filter(self):
+
+        try:
+            self.c.execute('SELECT filter_id FROM messaging ORDER BY filter_id DESC LIMIT 1')
+            res = c.fetchall()
+        except Exception as e:
+            return False
+
+        return res
+

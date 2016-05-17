@@ -412,17 +412,23 @@ def send_message(postparams):
     return Error_Msg.error_response("missing_params")
 
 
-def get_messages(postparams):
+def get_shh_messages(postparams):
     
     if len(postparams['params']) == 1:
-        try:
-            int(postparams['params'][0])
-        except:
-            return Error_Msg.error_response("invalid_parameters")
+        if postparams['params'][0] == "latest_filter":
+            phantomdb = Phantom_Db.PhantomDb()
+            latest_filter = phantomdb.get_latest_filter()
+            if not len(latest_filter) > 0:
+                return Error_Msg.error_response("no_filters")
+        else:
+            try:
+                latest_filter = int(postparams['params'][0])
+            except:
+                return Error_Msg.error_response("invalid_parameters")
             
         try:
             client = IPC_Client.Client()
-            res = client.send_message(postparams['params'][0])
+            res = client.get_shh_messages(latest_filter)
             return res
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")
