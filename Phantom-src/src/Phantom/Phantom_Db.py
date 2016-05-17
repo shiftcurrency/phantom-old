@@ -41,7 +41,7 @@ class PhantomDb(object):
 
         try:
             self.c.execute('SELECT filter_id FROM messaging ORDER BY filter_id DESC LIMIT 1')
-            res = c.fetchall()
+            res = self.c.fetchall()
         except Exception as e:
             return False
 

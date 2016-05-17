@@ -418,20 +418,24 @@ def get_shh_messages(postparams):
         if postparams['params'][0] == "latest_filter":
             phantomdb = Phantom_Db.PhantomDb()
             res = phantomdb.get_latest_filter()
-            latest_filter = str(res[0].encode("hex"))
-            if not latest_filter:
+            
+            if res == False:
                 return Error_Msg.error_response("err_select_data")
-            elif latest_filter and not len(latest_filter) > 0:
+            if len(res) == 0:
                 return Error_Msg.error_response("no_filters")
+
+            """ By now "res" will always contain a list of tuples that it got from sqlite3 """
+            filter_id = hex(res[0][0])
+
         else:
             try:
-                latest_filter = postparams['params'][0].encode("hex")
+                filter_id = hex(int(postparams['params'][0]))
             except:
                 return Error_Msg.error_response("invalid_parameters")
             
         try:
             client = IPC_Client.Client()
-            res = client.get_shh_messages(latest_filter)
+            res = client.get_shh_messages(filter_id)
             return res
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")

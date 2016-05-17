@@ -70,7 +70,7 @@ class Client(object):
         return response
 
     def get_shh_messages(self, params):
-        response = self._make_request("shh_getFilterChanges"):
+        response = self._make_request("shh_getFilterChanges", [params])
         return response
 
     def get_block_data(self, blknum, fulldata):
