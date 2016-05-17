@@ -38,5 +38,7 @@ def error_response(error_type):
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not create filter"]}
     elif error_type == "err_store_data":
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not store data in phantom database"]}
+    elif error_type == "err_select_data":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not retrieve data from phantom database"]}
     else:
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Unhandled exception. Please check the log file and report to Shift"]}

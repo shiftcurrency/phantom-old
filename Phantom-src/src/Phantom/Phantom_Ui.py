@@ -417,12 +417,15 @@ def get_shh_messages(postparams):
     if len(postparams['params']) == 1:
         if postparams['params'][0] == "latest_filter":
             phantomdb = Phantom_Db.PhantomDb()
-            latest_filter = phantomdb.get_latest_filter()
-            if not len(latest_filter) > 0:
+            res = phantomdb.get_latest_filter()
+            latest_filter = str(res[0].encode("hex"))
+            if not latest_filter:
+                return Error_Msg.error_response("err_select_data")
+            elif latest_filter and not len(latest_filter) > 0:
                 return Error_Msg.error_response("no_filters")
         else:
             try:
-                latest_filter = int(postparams['params'][0])
+                latest_filter = postparams['params'][0].encode("hex")
             except:
                 return Error_Msg.error_response("invalid_parameters")
             
