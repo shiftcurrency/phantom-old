@@ -11,8 +11,7 @@ class PhantomDb(object):
             self.c.execute('CREATE TABLE IF NOT EXISTS messaging (identity TEXT, filter_id INTEGER)')
             self.conn.commit()
         except Exception as e:
-            return Error_Msg.error_response("err_store_data")
-
+            return False
         return True
 
 
@@ -21,8 +20,7 @@ class PhantomDb(object):
             self.c.execute('DELETE FROM messaging')
             self.conn.commit()
         except Exception as e:
-            return Error_Msg.error_response("err_store_data")
-        
+            return False
         return True
 
 
@@ -34,7 +32,6 @@ class PhantomDb(object):
                     self.c.execute(sql)
                     self.conn.commit()
                 except Exception as e:
-                    return Error_Msg.error_response("err_store_data")
-                
+                    return False
                 return True
-        return Error_Msg.error_response("err_store_data")
+        return False

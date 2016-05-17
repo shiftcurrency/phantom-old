@@ -401,7 +401,7 @@ def send_message(postparams):
             store = {'to':pd['to'], 'filter_id' : int(res['result'], 16)}
             res_datastore = phantomdb.store_data(store)
             if not res_datastore:
-                return res_datastore
+                return Error_Msg.error_response("err_store_data")
                 
             try:
                 client = IPC_Client.Client()
@@ -409,6 +409,23 @@ def send_message(postparams):
                 return res
             except Exception as e:
                 return Error_Msg.error_response("ipc_call_error")
+    return Error_Msg.error_response("missing_params")
+
+
+def get_messages(postparams):
+    
+    if len(postparams['params']) == 1:
+        try:
+            int(postparams['params'][0])
+        except:
+            return Error_Msg.error_response("invalid_parameters")
+            
+        try:
+            client = IPC_Client.Client()
+            res = client.send_message(postparams['params'][0])
+            return res
+        except Exception as e:
+            return Error_Msg.error_response("ipc_call_error")
     return Error_Msg.error_response("missing_params")
 
 

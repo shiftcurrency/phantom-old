@@ -79,4 +79,8 @@ def execute(postparams):
         res = Phantom_Ui.send_message(postparams)
         return res
 
+    elif postparams['method'] == 'create_shh_filter':
+        res = Phantom_Ui.create_shh_filter(postparams)
+        return res
+
     return Error_Msg.error_response("no_method")
