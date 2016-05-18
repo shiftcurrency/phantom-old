@@ -1,41 +1,16 @@
 {
-  "15JSD7gHvospCwnogcHPAXPNRV7qC6o1pr": {
-    "added": 1461104064, 
-    "auth_key": "008c0ab127016bbdccdf58d693a089a4e20d946fcbbd4fdc3be8ddf404bed0c0", 
-    "modified": 1461104064.719482, 
+  "15ubuFHsWWuAM5rhgXHo5TCm4oU6JR2hh7": {
+    "added": 1463608065, 
+    "auth_key": "5e7de8c37d0b67e546b221f18c4153f4de94fc0683fd367db2ff183d5d90c827", 
+    "modified": 1463609628.263058, 
     "own": true, 
     "peers": 0, 
-    "permissions": [], 
+    "permissions": [
+      "ADMIN"
+    ], 
     "serving": true, 
-    "size": 55, 
-    "wrapper_key": "fc95071d3cb4c383a5ad31d5675a4dd538f01a8d4bdac0e66abd71bedf3d62ec"
-  }, 
-  "15qQ2bdTMP2hTb2CHFEqLjjmqkVeXhSWkR": {
-    "added": 1462961663, 
-    "auth_key": "83e97ab9400b28a29e4b91077a480753d09b1d0c4f6612a165ee64e6df099a49", 
-    "own": true, 
-    "permissions": [], 
-    "serving": true, 
-    "size": 860, 
-    "wrapper_key": "dd27366df0c7de545bbbc4b16ba30b2b5d441e557c5cca2a5fa8aabe944b6cb0"
-  }, 
-  "181DFR2bSNaZ8AKXzZDbjkSACKkoENZx5x": {
-    "added": 1463593784, 
-    "auth_key": "db1b1cfa930273d79b5a5fd0f4951dc53152bf5b20ca37c3c9217b6ba79a91d3", 
-    "own": true, 
-    "permissions": [], 
-    "serving": true, 
-    "size": 860, 
-    "wrapper_key": "e27019d0382a9bbc526e02f1caa1999de48cf896cb4d7a94c806db31808ded86"
-  }, 
-  "1JfxKrTc8N8euzB8EZs6sX7KZowEswd9qp": {
-    "added": 1463593791, 
-    "auth_key": "ed850ccb39f5bd46d019bacd99275182d1f3707dfad63d0d1c3f48bbb159373e", 
-    "own": true, 
-    "permissions": [], 
-    "serving": true, 
-    "size": 861, 
-    "wrapper_key": "a8617221120f891ef659faf720c701c6dc1f741b445b2b3d4c022b2eb8591192"
+    "size": 6982700, 
+    "wrapper_key": "6bcc9d3ac5bf798a1b99594f1abead9293be89eff79c3fcc3b2ed056b92be016"
   }, 
   "1KSVsFWcPGBmm6ktZZHXgDnENRjjVJ7t7r": {
     "auth_key": "28c453a117ababfd144fec441593f9fca87a983455aa8827bbaf95b5b3a4f95f", 

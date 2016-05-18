@@ -6,7 +6,11 @@
       "115TpkMri4wSFYeLHbMLXTN67eReUnGqPQ": {
         "auth_address": "14eFBQxSWaJp8Wa2AtfpsnTwy2L7zqgYSf", 
         "auth_privatekey": "5JwKnZeQtCJ3d8ZNWkWT5k8tacjzqRBAYFvsREAqbjLDZ3op671"
+      }, 
+      "15ubuFHsWWuAM5rhgXHo5TCm4oU6JR2hh7": {
+        "auth_address": "17akmeav2t9c7GpjzYLATWfpKb6V5Ui7et", 
+        "auth_privatekey": "5JnE1Mk5W8TVPo7coTkV1tXBAZAPs58YG97sULMG3zx3UqzWDPv"
       }
     }
-}
+  }
 }

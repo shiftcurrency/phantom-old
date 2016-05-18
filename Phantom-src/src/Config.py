@@ -136,7 +136,7 @@ class Config(object):
         self.parser.add_argument('--ui_restrict', help='Restrict web access', default=False, metavar='ip', nargs='*')
         self.parser.add_argument('--open_browser', help='Open homepage in web browser automatically',
                                  nargs='?', const="default_browser", metavar='browser_name')
-        self.parser.add_argument('--homepage', help='Web interface Homepage', default='1HeLLo4uzjaLetFx6NH3PMwFP3qbRbTf3D',
+        self.parser.add_argument('--homepage', help='Web interface Homepage', default='15ubuFHsWWuAM5rhgXHo5TCm4oU6JR2hh7',
                                  metavar='address')
         self.parser.add_argument('--size_limit', help='Default site size limit in MB', default=10, metavar='size')
         self.parser.add_argument('--connected_limit', help='Max connected peer per site', default=15, metavar='connected_limit')

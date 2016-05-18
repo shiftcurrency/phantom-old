@@ -3,6 +3,7 @@ import Error_Msg
 import Run_Method
 from Shift_IPC import IPC_Client
 import Phantom_Db
+import main
 
 
 def create_phantom_site():
@@ -171,22 +172,26 @@ def get_balance(postparams):
             
  
 
-def sign_publish_site(self, postparams):
+def sign_publish_site(postparams):
 
     from Site import Site
 
     if not len(postparams['params']) == 2 and not len(postparams['params'][0]) == 34:
         return Error_Msg.error_response("sign_missing_params")
 
+
     address = postparams['params'][0]
     privatekey = postparams['params'][1]
-
     site = Site(address, allow_create=False)
+
     try:
-        success = site.content_manager.sign(inner_path="content.json", privatekey=privatekey, update_changed_files=True)
+        inner_path="content.json"
+        success = site.content_manager.sign(inner_path, privatekey=privatekey, update_changed_files=True)
         if success:
-            self.sitePublish(address, inner_path=inner_path)
+            publisher = main.Actions()
+            publisher.sitePublish(address, inner_path=inner_path)
     except Exception as e:
+        print e
         return Error_Msg.error_response("err_sign_site")
         
 
