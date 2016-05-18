@@ -1,7 +1,4 @@
 from subprocess import Popen, PIPE
-import os
-import signal
-
 
 def start():
     try:
@@ -9,4 +6,4 @@ def start():
         print "- Started gshift."
         return process
     except Exception as e:
-        print e
+        return False

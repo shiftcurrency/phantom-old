@@ -127,6 +127,8 @@ class UiServer:
         """ Start gshift. When phantom recieves ctrl+c gshift will also recieve this signal."""
         from Phantom import Run_Gshift
         gshift_process = Run_Gshift.start()
+        if gshift_process == False:
+            print "- Could not start gshift. Try to start it manually."
 
         if config.debug:
             # Auto reload UiRequest on change
