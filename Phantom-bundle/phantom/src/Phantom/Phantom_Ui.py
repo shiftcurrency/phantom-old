@@ -2,6 +2,7 @@ import json
 import Error_Msg
 import Run_Method
 from Shift_IPC import IPC_Client
+import Phantom_Db
 
 
 def create_phantom_site():
@@ -315,6 +316,130 @@ def send_rawtransaction(postparams):
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")
     return Error_Msg.error_response("invalid_parameters")
+
+
+def create_shh_filter(postparams):
+
+    if len(postparams['params']) == 1:
+        pd = postparams['params'][0]
+        if 'to' in pd and 'topics' in pd:
+            try:
+                int(pd['to'], 16)
+            except:
+                return Error_Msg.error_response("invalid_hex_string")
+
+            if pd['topics'] == "":
+                return Error_Msg.error_response("err_create_filter")
+            params = {"to": str(pd['to']), "topics": [str(pd['topics'][0].encode("hex"))]}
+            client = IPC_Client.Client()
+            try:
+                res = client.create_shh_filter(params)
+                return res
+            except Exception as e:
+                return Error_Msg.error_response("ipc_call_error")
+    return Error_Msg.error_response("missing_params")
+
+
+def new_message_ident(postparams):
+
+    if len(postparams['params']) == 0:
+        client = IPC_Client.Client()
+        try:
+            res = client.new_message_ident()
+            return res
+        except Exception as e:
+            return Error_Msg.error_response("ipc_call_error")
+    return Error_Msg.error_response("no_params_allowed")
+
+
+def message_ident_exists(postparams):
+    if len(postparams['params']) == 1:
+        try:
+            int(postparams['params'][0], 16)
+        except:
+            Error_Msg.error_response("invalid_hex_string")
+
+        client = IPC_Client.Client()
+        try:
+            res = client.message_ident_exists(postparams['params'][0])
+            return res 
+        except Exception as e:
+            return Error_Msg.error_response("ipc_call_error")
+    return Error_Msg.error_response("missing_params")
+
+
+def send_message(postparams):
+
+    if len(postparams['params']) == 1:
+        pd = postparams['params'][0]
+
+        if 'to' in pd and 'message' in pd and pd['message'] != "":
+            try:
+                int(pd['to'], 16)
+            except:
+                Error_Msg.error_response("invalid_hex_string")
+
+            from_ident = new_message_ident({'params':''})
+            if 'result' in from_ident and len(from_ident['result']) == 2:
+                return Error_Msg.error_response("err_gen_ident")
+
+            pd['from'] = from_ident['result']
+            pd['topics'] = ['{"type":"c","store-encrypted":"true"}'.encode("hex")]
+            pd['priority'] = "0x64"
+            pd['ttl'] = "0x64"
+            pd['message'] = pd['message'].encode("hex")
+
+            """ Create filter to wait for incoming answers. Use postparams with the unhexed strings. """
+            res  = create_shh_filter(postparams)
+
+            try:
+                int(res['result'], 16)
+            except:
+                return Error_Msg.error_response("err_create_filter")
+
+            phantomdb = Phantom_Db.PhantomDb()
+            store = {'to':pd['to'], 'filter_id' : int(res['result'], 16)}
+            res_datastore = phantomdb.store_data(store)
+            if not res_datastore:
+                return Error_Msg.error_response("err_store_data")
+                
+            try:
+                client = IPC_Client.Client()
+                res = client.send_message(pd)
+                return res
+            except Exception as e:
+                return Error_Msg.error_response("ipc_call_error")
+    return Error_Msg.error_response("missing_params")
+
+
+def get_shh_messages(postparams):
+    
+    if len(postparams['params']) == 1:
+        if postparams['params'][0] == "latest_filter":
+            phantomdb = Phantom_Db.PhantomDb()
+            res = phantomdb.get_latest_filter()
+            
+            if res == False:
+                return Error_Msg.error_response("err_select_data")
+            if len(res) == 0:
+                return Error_Msg.error_response("no_filters")
+
+            """ By now "res" will always contain a list of tuples that it got from sqlite3 """
+            filter_id = hex(res[0][0])
+
+        else:
+            try:
+                filter_id = hex(int(postparams['params'][0]))
+            except:
+                return Error_Msg.error_response("invalid_parameters")
+            
+        try:
+            client = IPC_Client.Client()
+            res = client.get_shh_messages(filter_id)
+            return res
+        except Exception as e:
+            return Error_Msg.error_response("ipc_call_error")
+    return Error_Msg.error_response("missing_params")
 
 
 def run(postdata):

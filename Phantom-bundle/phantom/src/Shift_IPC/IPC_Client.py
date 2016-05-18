@@ -53,6 +53,26 @@ class Client(object):
         response = self._make_request("shf_getBalance", [account,when])
         return response
 
+    def new_message_ident(self):
+        response = self._make_request("shh_newIdentity", [])
+        return response
+
+    def message_ident_exists(self, ident):
+        response = self._make_request("shh_hasIdentity", [ident])
+        return response
+
+    def send_message(self, params):
+        response = self._make_request("shh_post", [params])
+        return response
+
+    def create_shh_filter(self, params):
+        response = self._make_request("shh_newFilter", [params])
+        return response
+
+    def get_shh_messages(self, params):
+        response = self._make_request("shh_getFilterChanges", [params])
+        return response
+
     def get_block_data(self, blknum, fulldata):
         if fulldata == "true":
             response = self._make_request("shf_getBlockByNumber", [hex(int(blknum)), True])
@@ -103,12 +123,17 @@ class Client(object):
 
 
     def get_socket(self):
-        _socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-        _socket.connect(self.ipc_path)
-        # Tell the socket not to block on reads.
-        """ Two seconds seems to be enough. One second is not enough when creating accounts """
-        _socket.settimeout(2)
-        return _socket
+        try:
+            _socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+            _socket.connect(self.ipc_path)
+            # Tell the socket not to block on reads.
+            """ Two seconds seems to be enough. One second is not enough when creating accounts """
+            _socket.settimeout(2)
+            return _socket
+        except Exception as e:
+            return False
+
+            
 
 
     def _make_request(self, method, params):

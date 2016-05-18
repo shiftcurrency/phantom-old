@@ -17,7 +17,7 @@ def error_response(error_type):
     elif error_type == "missing_params":
         return  {"jsonrpc": "2.0", "id": "1", "result": ["false", "Missing parameters in JSON array"]}
     elif error_type == "no_method":
-        return  {"jsonrpc": "2.0", "id": "1", "result": ["false", "No method specified"]}
+        return  {"jsonrpc": "2.0", "id": "1", "result": ["false", "Method not recognized or specified"]}
     elif error_type == "err_create_sitedir":
         return  {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not create site directory"]}
     elif error_type == "err_create_site":
@@ -32,5 +32,15 @@ def error_response(error_type):
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "No parameters allowed for this method"]}
     elif error_type == "sign_missing_params":
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Site address and private key is needed for publishing a new site"]}
+    elif error_type == "err_gen_ident":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not generate new identity for messaging"]}
+    elif error_type == "err_create_filter":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not create filter"]}
+    elif error_type == "err_store_data":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not store data in phantom database"]}
+    elif error_type == "err_select_data":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not retrieve data from phantom database"]}
+    elif error_type == "no_filters":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "No filter id's could be found in phantom database"]}
     else:
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Unhandled exception. Please check the log file and report to Shift"]}

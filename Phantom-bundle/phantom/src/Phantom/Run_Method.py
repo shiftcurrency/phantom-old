@@ -67,4 +67,24 @@ def execute(postparams):
         res = Phantom_Ui.get_balance(postparams)
         return res
 
+    elif postparams['method'] == 'new_message_ident':
+        res = Phantom_Ui.new_message_ident(postparams)
+        return res
+
+    elif postparams['method'] == 'message_ident_exists':
+        res = Phantom_Ui.message_ident_exists(postparams)
+        return res
+
+    elif postparams['method'] == 'send_message':
+        res = Phantom_Ui.send_message(postparams)
+        return res
+
+    elif postparams['method'] == 'create_shh_filter':
+        res = Phantom_Ui.create_shh_filter(postparams)
+        return res
+
+    elif postparams['method'] == 'get_shh_messages':
+        res = Phantom_Ui.get_shh_messages(postparams)
+        return res
+
     return Error_Msg.error_response("no_method")
