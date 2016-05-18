@@ -14,6 +14,7 @@ from Site import SiteManager
 from Config import config
 from Debug import Debug
 from Phantom import Phantom_Ui
+from Phantom import Phantom_Db
 
 
 # Skip websocket handler if not necessary
@@ -178,6 +179,13 @@ class UiServer:
                 self.log.debug("Http connection close error: %s" % err)
         self.log.debug("Socket closed: %s" % sock_closed)
         time.sleep(0.1)
+
+        phantom_db = Phantom_Db.PhantomDb()
+        try:
+            if phantom_db.clear_database():
+                print "- Removed filter id(s) from Phantom database."
+        except:
+            pass
 
         self.server.socket.close()
         self.server.stop()
