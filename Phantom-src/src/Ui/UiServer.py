@@ -124,6 +124,10 @@ class UiServer:
     def start(self):
         handler = self.handleRequest
 
+        """ Start gshift. When phantom recieves ctrl+c gshift will also recieve this signal."""
+        from Phantom import Run_Gshift
+        gshift_process = Run_Gshift.start()
+
         if config.debug:
             # Auto reload UiRequest on change
             from Debug import DebugReloader
@@ -186,6 +190,8 @@ class UiServer:
                 print "- Removed filter id(s) from Phantom database."
         except:
             pass
+
+
 
         self.server.socket.close()
         self.server.stop()
