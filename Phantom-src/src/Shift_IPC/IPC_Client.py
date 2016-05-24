@@ -113,7 +113,7 @@ class Client(object):
         elif sys.platform == 'linux2':
             ipc_path = os.path.expanduser("~/.gshift/gshift.ipc")
         elif sys.platform == 'win32':
-            ipc_path = os.path.expanduser("\\~\\AppData\\Roaming\\gshift")
+            ipc_path = os.path.expanduser("\\.\pipe\gshift.ipc")
         else:
             raise ValueError(
                 "Unsupported platform.  Only darwin/linux2/win32 are "
