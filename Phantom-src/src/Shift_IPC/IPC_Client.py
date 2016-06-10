@@ -1,3 +1,4 @@
+from ctypes import *
 import socket
 import json
 import os
@@ -136,7 +137,7 @@ class Client(object):
 
     def _make_request(self, method, params):
 
-        request = self.construct_json_request(method, params
+        request = self.construct_json_request(method, params)
 
         if sys.platform == 'win32':
             res = ipc_socket_windows(request)
@@ -149,7 +150,6 @@ class Client(object):
 
     def ipc_socket_windows(self, request):
 
-        from ctypes import *
         import Error_Msg
 
         GENERIC_READ = 0x80000000
@@ -177,7 +177,7 @@ class Client(object):
         cbWritten = c_ulong(0)
         fSuccess = windll.kernel32.WriteFile(hPipe, c_char_p(request), len(request), byref(cbWritten), None)
 
-        if fSuccess == 0 or (len(request) != cbWritten.value)):
+        if fSuccess == 0 or (len(request) != cbWritten.value):
             return Error_Msg.error_response("ipc_err_write")
 
         chBuf = create_string_buffer(BUFSIZE)
