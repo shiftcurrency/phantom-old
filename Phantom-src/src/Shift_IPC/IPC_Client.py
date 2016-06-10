@@ -114,7 +114,7 @@ class Client(object):
         elif sys.platform == 'linux2':
             ipc_path = os.path.expanduser("~/.gshift/gshift.ipc")
         elif sys.platform == 'win32':
-            ipc_path = os.path.expanduser("\\\\.\\pipe\\gshift.ipc")
+            ipc_path = r"\\.\pipe\gshift.ipc"
         else:
             raise ValueError(
                 "Unsupported platform.  Only darwin/linux2/win32 are "
@@ -140,17 +140,17 @@ class Client(object):
         request = self.construct_json_request(method, params)
 
         if sys.platform == 'win32':
-            res = ipc_socket_windows(request)
+            res = self.ipc_socket_windows(request)
             return res
             
         elif sys.platform == 'darwin' or sys.platform == 'linux2':
-            res = ipc_socket(request)
+            res = self.ipc_socket(request)
             return res
 
 
     def ipc_socket_windows(self, request):
 
-        import Error_Msg
+        from Phantom import Error_Msg
 
         GENERIC_READ = 0x80000000
         GENERIC_WRITE = 0x40000000
@@ -185,11 +185,11 @@ class Client(object):
 
         while True:
             fSuccess = windll.kernel32.ReadFile(hPipe, chBuf, BUFSIZE, byref(cbRead), None)
-            if fSuccess == 1 and cbRead.value > c_ulong(0):
+            if fSuccess == 1:
                 """ Successfully wrote and read data from named pipe """
                 return chBuf.value
 
-            elif (windll.kernel32.GetLastError() != ERROR_MORE_DATA):
+            elif (windll.kernel32.GetLastError() == ERROR_MORE_DATA):
                 return Error_Msg.error_response("ipc_buff_overflow")
 
         windll.kernel32.CloseHandle(hPipe)
@@ -197,7 +197,7 @@ class Client(object):
 
 
     def ipc_socket(self, request):
-        
+
         for _ in range(3):
             self._socket.sendall(request)
             response_raw = ""
@@ -218,7 +218,6 @@ class Client(object):
             raise ValueError("No JSON returned by socket")
 
         response = json.loads(response_raw)
-        print response
 
         if "error" in response:
             raise ValueError(response["error"]["message"])

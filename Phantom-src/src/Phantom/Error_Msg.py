@@ -50,5 +50,7 @@ def error_response(error_type):
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not set pipe handle state"]}
     elif error_type == "ipc_err_write":
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not write to named pipe"]}
+    elif error_type == "ipc_buff_overflow":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not retrieve more data from named pipe, buffer overflow."]}
     else:
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Unhandled exception. Please check the log file and report to Shift"]}
