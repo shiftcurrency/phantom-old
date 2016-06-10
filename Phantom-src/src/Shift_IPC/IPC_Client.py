@@ -133,12 +133,70 @@ class Client(object):
         except Exception as e:
             return False
 
-            
-
 
     def _make_request(self, method, params):
-        request = self.construct_json_request(method, params)
-        print request
+
+        request = self.construct_json_request(method, params
+
+        if sys.platform == 'win32':
+            res = ipc_socket_windows(request)
+            return res
+            
+        elif sys.platform == 'darwin' or sys.platform == 'linux2':
+            res = ipc_socket(request)
+            return res
+
+
+    def ipc_socket_windows(self, request):
+
+        from ctypes import *
+        import Error_Msg
+
+        GENERIC_READ = 0x80000000
+        GENERIC_WRITE = 0x40000000
+        OPEN_EXISTING = 0x3
+        INVALID_HANDLE_VALUE = -1
+        PIPE_READMODE_MESSAGE = 0x2
+        ERROR_PIPE_BUSY = 231
+        ERROR_MORE_DATA = 234
+        BUFSIZE = 1024
+
+        while True:
+            hPipe = windll.kernel32.CreateFileA(self.ipc_path, GENERIC_READ | GENERIC_WRITE, 0, None, OPEN_EXISTING, 0, None)
+            if (hPipe != INVALID_HANDLE_VALUE):
+                break
+            else:
+                return Error_Msg.error_response("ipc_inv_handle")
+
+            if (windll.kernel32.GetLastError() != ERROR_PIPE_BUSY):
+                return Error_Msg.error_response("ipc_err_open")
+
+            elif ((windll.kernel32.WaitNamedPipeA(self.ipc_path, 20000)) == 0):
+                return Error_Msg.error_response("ipc_err_open")
+
+        cbWritten = c_ulong(0)
+        fSuccess = windll.kernel32.WriteFile(hPipe, c_char_p(request), len(request), byref(cbWritten), None)
+
+        if fSuccess == 0 or (len(request) != cbWritten.value)):
+            return Error_Msg.error_response("ipc_err_write")
+
+        chBuf = create_string_buffer(BUFSIZE)
+        cbRead = c_ulong(0)
+
+        while True:
+            fSuccess = windll.kernel32.ReadFile(hPipe, chBuf, BUFSIZE, byref(cbRead), None)
+            if fSuccess == 1 and cbRead.value > c_ulong(0):
+                """ Successfully wrote and read data from named pipe """
+                return chBuf.value
+
+            elif (windll.kernel32.GetLastError() != ERROR_MORE_DATA):
+                return Error_Msg.error_response("ipc_buff_overflow")
+
+        windll.kernel32.CloseHandle(hPipe)
+        return Error_Msg.error_response("ipc_err_write")
+
+
+    def ipc_socket(self, request):
         
         for _ in range(3):
             self._socket.sendall(request)

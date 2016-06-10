@@ -42,5 +42,13 @@ def error_response(error_type):
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not retrieve data from phantom database"]}
     elif error_type == "no_filters":
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "No filter id's could be found in phantom database"]}
+    elif error_type == "ipc_inv_handle":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Invalid IPC handle value"]}
+    elif error_type == "ipc_err_open":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not open IPC named pipe"]}
+    elif error_type == "ipc_setstate_err":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not set pipe handle state"]}
+    elif error_type == "ipc_err_write":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not write to named pipe"]}
     else:
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Unhandled exception. Please check the log file and report to Shift"]}
