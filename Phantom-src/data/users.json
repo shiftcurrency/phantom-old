@@ -7,9 +7,17 @@
         "auth_address": "14eFBQxSWaJp8Wa2AtfpsnTwy2L7zqgYSf", 
         "auth_privatekey": "5JwKnZeQtCJ3d8ZNWkWT5k8tacjzqRBAYFvsREAqbjLDZ3op671"
       }, 
+      "137Pk4cqNJTXf9mCayUeAYbAY6jRh7ZW4B": {
+        "auth_address": "1NpcGkWnJjePDWAtAohCAKjFaokwxhr54K", 
+        "auth_privatekey": "5KXiaGx4aqsMEWDy93sGNhdyKntb5cYSYNaVTMpWmhmDD6ZcEqc"
+      }, 
       "15ubuFHsWWuAM5rhgXHo5TCm4oU6JR2hh7": {
         "auth_address": "17akmeav2t9c7GpjzYLATWfpKb6V5Ui7et", 
         "auth_privatekey": "5JnE1Mk5W8TVPo7coTkV1tXBAZAPs58YG97sULMG3zx3UqzWDPv"
+      }, 
+      "1JYg9iefP5KdqRYogK8EFhwVQ7B9g6xMLz": {
+        "auth_address": "1QJy9ssxFy3BesqqtqncxtMkLWTKvLaPVN", 
+        "auth_privatekey": "5JDQ4G6Squs1zLEw51zuSR5jtthb6owsuifLk5o5xPyioiSHXBM"
       }
     }
   }

@@ -138,6 +138,7 @@ class Client(object):
 
     def _make_request(self, method, params):
         request = self.construct_json_request(method, params)
+        print request
         
         for _ in range(3):
             self._socket.sendall(request)
@@ -159,6 +160,7 @@ class Client(object):
             raise ValueError("No JSON returned by socket")
 
         response = json.loads(response_raw)
+        print response
 
         if "error" in response:
             raise ValueError(response["error"]["message"])
