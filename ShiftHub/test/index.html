@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SHIFT Phantom tests</title>
+  
+  <script src="js/jquery.min.js"></script>
+
+</head>
+
+<body>
+  <div class='wrapper'>
+    <ul id='post'></ul>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+		alert('JSON2');
+
+		$.ajax({
+			url: 'http://127.0.0.1:53903',
+			type:'GET',
+			dataType: 'json',
+//			crossDomain : true,
+			data: JSON.stringify({
+				"jsonrpc" : "2.0",
+				"method" : "get_accounts",
+				"params": []
+			}),
+			success: function(res) {
+				alert(res);                
+			},
+			error: function(error) {
+				alert(error.statusText); 
+			}
+		});		
+		return; 
+		
+/*		$.ajax({
+			url: 'http://127.0.0.1:53903',
+			dataType: 'json',
+			type: 'POST',
+			contentType: 'application/json',
+			data: "{jsonrpc:'2.0',method:'get_accounts', params:[], id:'jsonrpc'}",
+			timeout: 15000,
+			success: function(data) {
+				alert(data);                
+			},
+			error: function(error) {
+				alert(error.statusText); 
+			}
+		});	
+*/		
+		$.ajax({
+		  method: "POST",
+		  url: "/",
+/*		  url: "http://localhost:53903/",
+		  crossOrigin: true,
+          xhrFields: { withCredentials: true },
+          accept: 'application/json',
+*/		  crossDomain: false,
+		  data: JSON.stringify ({jsonrpc:'2.0',method:'get_accounts', params:[], id:"jsonrpc"} ),  // id is needed !!
+//		  data: "{jsonrpc:'2.0',method:'get_accounts', params:[], id:'jsonrpc'}",
+          dataType: 'jsonp', // jsonp
+        }).done(function (data) {
+            alert(data);                
+        }).fail(function (xhr, textStatus, error) {
+            var title, message;
+            switch (xhr.status) {
+                case 403:
+                    title = xhr.responseJSON.errorSummary;
+                    message = 'Please login to your server before running the test.';
+                    break;
+                default:
+                    title = 'Invalid URL or Cross-Origin Request Blocked';
+                    message = 'You must explictly add this site (' + window.location.origin + ') to the list of allowed websites in your server.';
+					alert(title+"\n"+message);
+                    break;
+            }
+        });
+    });
+  </script>  
+</body>
+
+</html>
