@@ -187,7 +187,7 @@ class Client(object):
             fSuccess = windll.kernel32.ReadFile(hPipe, chBuf, BUFSIZE, byref(cbRead), None)
             if fSuccess == 1:
                 """ Successfully wrote and read data from named pipe """
-                return chBuf.value
+                return json.loads(chBuf.value)
 
             elif (windll.kernel32.GetLastError() == ERROR_MORE_DATA):
                 return Error_Msg.error_response("ipc_buff_overflow")

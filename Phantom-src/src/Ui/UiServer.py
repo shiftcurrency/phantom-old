@@ -89,6 +89,7 @@ class UiServer:
             response_string = json.dumps(ipc_response)
 
             response_headers = [('Content-Type', 'application/json'),
+                    ('Access-Control-Allow-Origin', 'null'),
                     ('Content-Length', str(len(response_string)))]
 
             start_response("200", response_headers)
