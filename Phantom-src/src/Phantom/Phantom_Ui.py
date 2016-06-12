@@ -19,6 +19,7 @@ import Error_Msg
 import Run_Method
 from Shift_IPC import IPC_Client
 import Phantom_Db
+import logging
 import main
 
 
@@ -49,9 +50,8 @@ def create_phantom_site():
         site.saveSettings()
     except Exception as e:
         return Error_Msg.error_response("err_create_site")
-
     return {"jsonrpc": "2.0", "id": "1", "result": ["true", str(address), str(privatekey)]}
-        
+
 
 def validate_postdata(postdata):
 
@@ -207,6 +207,7 @@ def sign_publish_site(postparams):
             publisher = main.Actions()
             publisher.sitePublish(address, inner_path=inner_path)
     except Exception as e:
+        print "except"
         print e
         return Error_Msg.error_response("err_sign_site")
         
@@ -318,10 +319,13 @@ def send_transaction(postparams):
 
         try:
             res = client.send_transaction(pd['from'], pd['to'], pd['amount'], nrg, data)
-            return res
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")
 
+        phantomdb = Phantom_Db.PhantomDb()
+        res_trans_hist = phantomdb.store_transaction_hist(pd['from'], pd['to'], pd['amount'])
+
+        return res
 
 def send_rawtransaction(postparams):
 
@@ -420,7 +424,7 @@ def send_message(postparams):
 
             phantomdb = Phantom_Db.PhantomDb()
             store = {'to':pd['to'], 'filter_id' : int(res['result'], 16)}
-            res_datastore = phantomdb.store_data(store)
+            res_datastore = phantomdb.store_filter(store)
             if not res_datastore:
                 return Error_Msg.error_response("err_store_data")
                 
