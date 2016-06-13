@@ -23,25 +23,48 @@ var HUB = (function(HUB, $, undefined) {
     
     HUB.login = function(account,password,keepUnlocked){
         HUB.activeAccount = account;
-        if(typeof password !== 'undefined') {
-			// Let's comment the unlocking for now
-/*			var data =  HUB.startRequest("unlock_account",'["'+account+'","'+password+'"]',1);
+		
+        if (typeof password !== 'undefined') {
+			var error, 
+				data = HUB.startRequest("unlock_account",'["'+account+'","'+password+'"]',1);
+				
+			if (typeof data.error != 'undefined') {
+				error = data.error.message;
+			} else if (typeof data.result[1] != 'undefined' && data.result[1].length > 0) {
+				error = data.result[1];
+			}
+			
             if (data.result != true) {
-                $("#PasswordError").show();
+				Site.cmd("wrapperNotification", ["error", error, 5000])
+				$("#PasswordError").text(error).show();
                 return;
-            }
-*/
-        }
-		
- 		// Submit
-		var form = $('form[name="login"]')[0];
-		form.action+= 'address='+$('#LoginAccount').val();
-//		form.submit();
-		window.location.href = form.action;
-		
-        if(keepUnlocked === true) {
-            HUB.keepUnlocked = true;
-            HUB.password = password;
+            } else {
+				if (keepUnlocked === true) {
+					HUB.keepUnlocked = true;
+					HUB.password = password;
+				}
+				
+				// Submit (load html page with ZeroFrame)
+				var form = $('form[name="login"]');
+//				form.action += 'address='+$('#LoginAccount').val();
+//				form.submit();
+//				window.location.href = form.action;
+				
+				window.Site.cmd("wrapperNotification", ["done", "Login Succesful", 5000])
+				window.Site.writeStorage('{ "activeAccount" : "'+HUB.activeAccount+'" }');
+				$('#login').fadeOut('slow', function() {
+					window.Site.loadData(form.attr('action').split("?")[0]); 
+					window.Site.cmd("fileGet", { "inner_path": "html/home.html", "required": true }, function (html) { 
+						document.open();
+						document.write(html);
+						document.close();
+						
+						$('.body').hide().fadeIn('slow', function(){
+							$(this).show();
+						});
+					});
+				});
+			}
         }
     }
     
@@ -59,10 +82,15 @@ var HUB = (function(HUB, $, undefined) {
             
         }
     });
+	
+	$('form[name="login"]').on("submit", function(e) {
+		HUB.login($("#LoginAccount").val(),$("#LoginPassword").val(),$("#LoginKeepAccountUnlocked").is(":checked"));	
+		return false;
+	});	
     
     $("#LoginSubmit").on("click", function(e){
-        e.preventDefault();
-        HUB.login($("#LoginAccount").val(),$("#LoginPassword").val(),$("#LoginKeepAccountUnlocked").is(":checked"));
+		e.preventDefault();
+		$('form[name="login"]').submit();
     });
     
     $("#PasswordError").hide();

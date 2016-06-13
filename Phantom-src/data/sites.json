@@ -37,7 +37,7 @@
     "auth_key": "5e7de8c37d0b67e546b221f18c4153f4de94fc0683fd367db2ff183d5d90c827", 
     "modified": 1465634417.836, 
     "own": true, 
-    "peers": 0, 
+    "peers": 1, 
     "permissions": [
       "ADMIN"
     ], 
@@ -103,11 +103,12 @@
   "1JYg9iefP5KdqRYogK8EFhwVQ7B9g6xMLz": {
     "added": 1464599041, 
     "auth_key": "6aab2726aef61a6bf0387be9dc7156a49cf2bd84b8b31b662a49d0bec0da9fe9", 
+    "modified": 1465848276.2, 
     "own": false, 
-    "peers": 0, 
+    "peers": 1, 
     "permissions": [], 
     "serving": true, 
-    "size": 0, 
+    "size": 2205651, 
     "wrapper_key": "54bb2c51345780db540427589d3c3438e77d212c88bc302e829af4a979ffa143"
   }, 
   "1KSVsFWcPGBmm6ktZZHXgDnENRjjVJ7t7r": {

@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>SHIFTHUB</title>
-
+ 
   <!-- Bootstrap core CSS -->
 
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -21,8 +21,13 @@
   <link href="css/custom.css" rel="stylesheet">
   <link href="css/icheck/flat/green.css" rel="stylesheet">
 
+  <script src="js/jquery-2.2.4.js"></script>
+
+  <script src="js/shift/hub.js"></script>
+  <script src="js/shift/hub.server.js"></script> 
+  
   <!--[if lt IE 9]>
-        <script src="../assets/js/ie8-responsive-file-warning.js"></script>
+        <script src="js/ie8-responsive-file-warning.js"></script>
         <![endif]-->
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -46,7 +51,7 @@
         <div id="wrapper">
             <div id="login" class="animate form">
             <section class="login_content">
-                <form name="login" action="home.html?" method="GET">
+                <form name="login" action="html/home.html?" method="GET">
                 <h1>Login Form</h1>
                 <div id="PasswordError" class="error">
                     Could not unlock account
@@ -57,9 +62,9 @@
                     </select>
                 </div>
                 <div>
-                    <input type="password" class="form-control" placeholder="Password (keep empty, unlock disabled for now)" id="LoginPassword" />
+                    <input type="password" class="form-control" placeholder="Wallet Password" id="LoginPassword" />
                 </div>
-                <label for="LoginKeepAccountUnlocked">
+                <label for="LoginKeepAccountUnlocked" style="display:none">
                     Keep account unlocked
                     <input type="checkbox" class="form-control" id="LoginKeepAccountUnlocked" />
                 </label>
@@ -122,16 +127,15 @@
     </div>
     <!-- LOGIN -->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/shift/hub.js"></script>
-    <script src="js/shift/hub.server.js"></script>
     <script src="js/shift/hub.login.js"></script>
-
 	<script>
 	  $(document).ready(function() {
 		HUB.init();
 		HUB.loadLogin();
-	  });	
+	  });
 	</script>
+	
+	<script src="js/zero.js"></script>
+
 </body>
 </html>

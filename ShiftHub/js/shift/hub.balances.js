@@ -14,7 +14,7 @@ var HUB = (function(HUB, $, undefined) {
 		balance = HUB.startRequest("get_balance",'["'+account+'", "latest"]'); // earliest
 		if (balance.result[0] != 'false') {
 			if (typeof balance.result != 'undefined')
-				confirmed_balance = balance.result;
+				confirmed_balance = balance.result * 1;
 		} else {
 			alert(balance.result[1]);
 			return false;
@@ -23,28 +23,32 @@ var HUB = (function(HUB, $, undefined) {
 		balance = HUB.startRequest("get_balance",'["'+account+'", "pending"]');
 		if (balance.result[0] != 'false') {
 			if (typeof balance.result != 'undefined')
-				pending_balance = balance.result - confirmed_balance;
+				pending_balance = balance.result - confirmed_balance * 1;
 		} else {
 			alert(balance.result[1]);
 			return false;
 		}
-						
+							
 		if (confirmed_balance > 0 || pending_balance > 0) {
-			BigNumber.config({ DECIMAL_PLACES: 8 })
+
+			BigNumber.config({ DECIMAL_PLACES: 8 });
 			bigfloat = new BigNumber(confirmed_balance);
 			confirmed_balance = bigfloat.toFixed() / 1000000000000000000; // Quick alternative for: web3.Convert.FromWei()
 			
 			bigfloat = new BigNumber(pending_balance);
 			pending_balance = bigfloat.toFixed() / 1000000000000000000;
 			
-			window.setTimeout(function(){
-			  $('#balance_confirmed').attr('data-value',format(confirmed_balance)).text(format(confirmed_balance));
-			  $('#balance_unconfirmed').attr('data-value',format(pending_balance)).text(format(pending_balance));
+			$('#balance_confirmed').attr('data-value',format(confirmed_balance)).text(format(confirmed_balance));
+			$('#balance_unconfirmed').attr('data-value',format(pending_balance)).text(format(pending_balance));
 			  
-			  window.updateTotal();
-			  
-			  demoAnimations(); // Temp: nice delayed balance increase
-			}, 100);
+			window.updateTotal();
+			
+			// Temp: nice delayed balance increase
+			window.setTimeout(function() {
+				window.Site.cmd("wrapperConfirm", ["Shall I play some random demo animations?"], function (res) { 
+					if (res) demoAnimations();
+				});
+			}, 5000);
 		}
 
     }
