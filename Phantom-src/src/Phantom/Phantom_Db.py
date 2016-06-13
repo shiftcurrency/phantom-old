@@ -51,6 +51,7 @@ class PhantomDb(object):
 
 
     def store_transaction_hist(self, from_account, to_account, amount):
+        
         try:
             self.c.execute('SELECT CURRENT_TIMESTAMP')
             date = self.c.fetchall()
@@ -64,3 +65,12 @@ class PhantomDb(object):
             return False
         return True
 
+
+    def get_transaction_hist(self):
+        
+        try:
+            self.c.execute('SELECT * FROM trans_history')
+            res = self.c.fetchall()
+        except Exception as e:
+            return False
+        return res

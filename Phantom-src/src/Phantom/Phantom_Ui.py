@@ -104,7 +104,6 @@ def get_peercount(postparams):
             return res
 
         except Exception as e:
-            print e
             return Error_Msg.error_response("ipc_call_error")
     return Error_Msg.error_response("no_params_allowed")
 
@@ -121,7 +120,6 @@ def get_blocknumber(postparams):
             return res 
 
         except Exception as e:
-            print e
             return Error_Msg.error_response("ipc_call_error")
     return Error_Msg.error_response("no_params_allowed")
 
@@ -207,8 +205,6 @@ def sign_publish_site(postparams):
             publisher = main.Actions()
             publisher.sitePublish(address, inner_path=inner_path)
     except Exception as e:
-        print "except"
-        print e
         return Error_Msg.error_response("err_sign_site")
         
 
@@ -465,6 +461,20 @@ def get_shh_messages(postparams):
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")
     return Error_Msg.error_response("missing_params")
+
+
+def get_transaction_history(postparams):
+    
+    if len(postparams['params']) == 0:
+        try:
+            phantomdb = Phantom_Db.PhantomDb()
+            res = phantomdb.get_transaction_hist()
+            if res and len(res) >= 1:
+                return {"jsonrpc": "2.0", "id": "1", "result": list(res)}
+            return {"jsonrpc": "2.0", "id": "1", "result": []}
+        except Exception as e:
+            return Error_Msg.error_response("err_trans_hist")
+    return Error_Msg.error_response("no_params_allowed")
 
 
 def run(postdata):

@@ -51,6 +51,8 @@ def error_response(error_type):
     elif error_type == "ipc_err_write":
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not write to named pipe"]}
     elif error_type == "ipc_buff_overflow":
-        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not retrieve more data from named pipe, buffer overflow."]}
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not retrieve more data from named pipe, buffer overflow"]}
+    elif error_type == "err_trans_hist":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not retrieve any transaction history"]}
     else:
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Unhandled exception. Please check the log file and report to Shift"]}

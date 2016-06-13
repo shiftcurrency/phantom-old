@@ -87,4 +87,8 @@ def execute(postparams):
         res = Phantom_Ui.get_shh_messages(postparams)
         return res
 
+    elif postparams['method'] == 'get_transaction_history':
+        res = Phantom_Ui.get_transaction_history(postparams)
+        return res
+
     return Error_Msg.error_response("no_method")
