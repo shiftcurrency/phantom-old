@@ -43,7 +43,7 @@ def error_response(error_type):
     elif error_type == "no_filters":
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "No filter id's could be found in phantom database"]}
     elif error_type == "ipc_inv_handle":
-        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Invalid IPC handle value"]}
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Invalid IPC handle. Could not connect to Gshift"]}
     elif error_type == "ipc_err_open":
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not open IPC named pipe"]}
     elif error_type == "ipc_setstate_err":
