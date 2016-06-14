@@ -37,7 +37,7 @@
     "auth_key": "5e7de8c37d0b67e546b221f18c4153f4de94fc0683fd367db2ff183d5d90c827", 
     "modified": 1465634417.836, 
     "own": true, 
-    "peers": 1, 
+    "peers": 0, 
     "permissions": [
       "ADMIN"
     ], 

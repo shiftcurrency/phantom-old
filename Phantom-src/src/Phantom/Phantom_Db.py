@@ -12,6 +12,8 @@ class PhantomDb(object):
             self.conn.commit()
             self.c.execute('CREATE TABLE IF NOT EXISTS trans_history (date TEXT, from_account TEXT, to_account TEXT, amount TEXT)')
             self.conn.commit()
+            self.c.execute('CREATE TABLE IF NOT EXISTS address_book (toaddress TEXT, alias TEXT)')
+            self.conn.commit()
         except Exception as e:
             return False
         return True
@@ -64,6 +66,25 @@ class PhantomDb(object):
         except Exception as e:
             return False
         return True
+
+    def store_address_book(self, to_account, alias):
+
+        try:
+            sql = "INSERT OR IGNORE INTO address_book (toaddress, alias) VALUES (\"%s\", \"%s\")" % (to_account, alias)
+            self.c.execute(sql)
+            self.conn.commit()
+        except Exception as e:
+            return False
+        return True
+
+    def get_address_book(self):
+        
+        try:
+            self.c.execute('SELECT * FROM address_book')
+            res = self.c.fetchall()
+        except Exception as e:
+            return False
+        return res
 
 
     def get_transaction_hist(self):

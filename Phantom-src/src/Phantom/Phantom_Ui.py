@@ -477,6 +477,25 @@ def get_transaction_history(postparams):
     return Error_Msg.error_response("no_params_allowed")
 
 
+def store_address_book(postparams):
+    
+    if len(postparams['params']) == 2:
+        try:
+            int(postparams['params'][0], 16)
+        except:
+            Error_Msg.error_response("invalid_hex_string")
+
+        if len(postparams['params'][1]) > 0:
+            try:
+                phantomdb = Phantom_Db.PhantomDb()
+                res = phantomdb.store_address_book(postparams['params'][0], postparams['params'][1])
+                if res:
+                    return {"jsonrpc": "2.0", "id": "1", "result": ["true"]}
+            except Exception as e:
+                return Error_Msg.error_response("err_store_addrbook")
+    return Error_Msg.error_response("missing_params")
+
+
 def run(postdata):
     res = validate_postdata(postdata)
 

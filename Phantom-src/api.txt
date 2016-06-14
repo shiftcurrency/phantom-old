@@ -54,3 +54,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method": "message_ident_exists","params":
 Get transaction history
 
 curl -X POST --data '{"jsonrpc":"2.0","method": "get_transaction_history","params":[]}' http://localhost:53903
+
+Store address and alias in address book
+
+curl -X POST --data '{"jsonrpc":"2.0","method": "store_address_book","params":["asdf",""]}' http://localhost:53903

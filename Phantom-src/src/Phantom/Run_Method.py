@@ -91,4 +91,8 @@ def execute(postparams):
         res = Phantom_Ui.get_transaction_history(postparams)
         return res
 
+    elif postparams['method'] == 'store_address_book':
+        res = Phantom_Ui.store_address_book(postparams)
+        return res
+
     return Error_Msg.error_response("no_method")
