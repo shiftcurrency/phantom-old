@@ -4,9 +4,9 @@ from sys import platform
 def start():
     try:
         if platform == 'win32':
-            command = ['gshift.exe', '--shh', '--rpccorsdomain="*"']
+            command = ['gshift.exe', '--shh']
         else:
-            command = ['gshift', '--shh', '--rpccorsdomain="*"']
+            command = ['gshift', '--shh']
 
         process = Popen(command, stdout=PIPE, stderr=PIPE, shell=False)
         print "- Started gshift."
