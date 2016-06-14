@@ -496,6 +496,20 @@ def store_address_book(postparams):
     return Error_Msg.error_response("missing_params")
 
 
+def get_address_book(postparams):
+    
+    if len(postparams['params']) == 0:
+        try:
+            phantomdb = Phantom_Db.PhantomDb()
+            res = phantomdb.get_address_book()
+            if res and len(res) >= 1:
+                return {"jsonrpc": "2.0", "id": "1", "result": list(res)}
+            return {"jsonrpc": "2.0", "id": "1", "result": []}
+        except Exception as e:
+            return Error_Msg.error_response("err_addr_book")
+    return Error_Msg.error_response("no_params_allowed")
+  
+
 def run(postdata):
     res = validate_postdata(postdata)
 
