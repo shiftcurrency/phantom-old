@@ -57,4 +57,4 @@ curl -X POST --data '{"jsonrpc":"2.0","method": "get_transaction_history","param
 
 Store address and alias in address book
 
-curl -X POST --data '{"jsonrpc":"2.0","method": "store_address_book","params":["asdf",""]}' http://localhost:53903
+curl -X POST --data '{"jsonrpc":"2.0","method": "store_address_book","params":["0a05debe9ddc4f705b460ec1bdba3cbf63637f42","dlow"]}' http://localhost:53903
