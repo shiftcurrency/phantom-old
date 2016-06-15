@@ -80,10 +80,8 @@ class UiServer:
             print "-Stopping Gshift."
             try:
                 res = Popen("TASKKILL /F /PID {pid} /T".format(pid=self.gshift_process.pid))
-                print res 
             except Exception as e:
-                print e
-
+                pass
 
     # After WebUI started
     def afterStarted(self):

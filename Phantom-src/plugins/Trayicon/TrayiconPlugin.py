@@ -67,7 +67,7 @@ class ActionsPlugin(object):
         from Ui import UiServer
         proc = UiServer.UiServer()
         res = proc.stopGshift_Windows()
-        
+
         self.icon.die()
         time.sleep(0.1)
         sys.exit()
