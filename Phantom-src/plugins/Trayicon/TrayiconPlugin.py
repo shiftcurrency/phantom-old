@@ -63,6 +63,11 @@ class ActionsPlugin(object):
         icon._die = True
 
     def quit(self):
+
+        from Ui import UiServer
+        proc = UiServer.UiServer()
+        res = proc.stopGshift_Windows()
+        
         self.icon.die()
         time.sleep(0.1)
         sys.exit()

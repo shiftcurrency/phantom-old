@@ -69,6 +69,22 @@ class UiServer:
         self.rate_counter = 0
         self.gshift_process = Run_Gshift.start()
 
+
+    def stopGshift_Windows(self):
+
+        """ Stop Gshift process on windows by sending a kill signal. """
+        from subprocess import Popen
+        from sys import platform
+
+        if platform == 'win32':
+            print "-Stopping Gshift."
+            try:
+                res = Popen("TASKKILL /F /PID {pid} /T".format(pid=self.gshift_process.pid))
+                print res 
+            except Exception as e:
+                print e
+
+
     # After WebUI started
     def afterStarted(self):
         from util import Platform
@@ -188,18 +204,6 @@ class UiServer:
                 self.log.debug("Http connection close error: %s" % err)
         self.log.debug("Socket closed: %s" % sock_closed)
         time.sleep(0.1)
-
-        """ Stop Gshift process on windows by sending a kill signal. """
-        from subprocess import Popen
-        from sys import platform
-
-        if platform == 'win32':
-            print "-Stopping Gshift."
-            try:
-                res = Popen("TASKKILL /F /PID {pid} /T".format(pid=self.gshift_process.pid))
-                print res
-            except Exception as e:
-                print e
 
         """ Clear the database from unused filters for shh messaging """
         phantom_db = Phantom_Db.PhantomDb()
