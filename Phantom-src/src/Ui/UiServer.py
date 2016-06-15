@@ -56,6 +56,9 @@ class UiWSGIHandler(WSGIHandler):
 class UiServer:
 
     def __init__(self):
+        
+        from Phantom import Run_Gshift
+
         self.ip = config.ui_ip
         self.port = config.ui_port
         if self.ip == "*":
@@ -64,6 +67,7 @@ class UiServer:
         self.sites = SiteManager.site_manager.list()
         self.log = logging.getLogger(__name__)
         self.rate_counter = 0
+        self.gshift_process = Run_Gshift.start()
 
     # After WebUI started
     def afterStarted(self):
@@ -126,9 +130,7 @@ class UiServer:
         handler = self.handleRequest
 
         """ Start gshift. When phantom recieves ctrl+c gshift will also recieve this signal."""
-        from Phantom import Run_Gshift
-        gshift_process = Run_Gshift.start()
-        if gshift_process == False:
+        if not self.gshift_process:
             print "- Could not start gshift. Try to start it manually."
 
         if config.debug:
@@ -187,6 +189,19 @@ class UiServer:
         self.log.debug("Socket closed: %s" % sock_closed)
         time.sleep(0.1)
 
+        """ Stop Gshift process on windows by sending a kill signal. """
+        from subprocess import Popen
+        from sys import platform
+
+        if platform == 'win32':
+            print "-Stopping Gshift."
+            try:
+                res = Popen("TASKKILL /F /PID {pid} /T".format(pid=self.gshift_process.pid))
+                print res
+            except Exception as e:
+                print e
+
+        """ Clear the database from unused filters for shh messaging """
         phantom_db = Phantom_Db.PhantomDb()
         try:
             if phantom_db.clear_database():
