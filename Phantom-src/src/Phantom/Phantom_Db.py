@@ -17,8 +17,6 @@ class PhantomDb(object):
         try:
             self.c.execute('CREATE TABLE IF NOT EXISTS messaging (identity TEXT, filter_id INTEGER)')
             self.conn_phantom.commit()
-            self.c.execute('CREATE TABLE IF NOT EXISTS trans_history (date TEXT, from_account TEXT, to_account TEXT, amount TEXT)')
-            self.conn_phantom.commit()
             self.c.execute('CREATE TABLE IF NOT EXISTS address_book (toaddress TEXT, alias TEXT)')
             self.conn_phantom.commit()
         except Exception as e:

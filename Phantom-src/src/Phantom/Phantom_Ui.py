@@ -318,9 +318,6 @@ def send_transaction(postparams):
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")
 
-        phantomdb = Phantom_Db.PhantomDb()
-        res_trans_hist = phantomdb.store_transaction_hist(pd['from'], pd['to'], pd['amount'])
-
         return res
 
 def send_rawtransaction(postparams):
