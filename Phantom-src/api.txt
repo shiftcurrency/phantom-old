@@ -51,9 +51,9 @@ Check if the identity still exists and can be used (only valid locally, no point
 curl -X POST --data '{"jsonrpc":"2.0","method": "message_ident_exists","params":["0x041c5af06aad7f1b141e1ad81c74acff2d6c8b49e680ac4c3c885ee60649a0cf400d86cfdab168c71219d1c4e28a8e9693fa4552fd9d508c8faef19e80083632d4"]}' http://localhost:53903
 
 
-Get transaction history
+Get transaction history (use account without prepending "0x" as parameter)
 
-curl -X POST --data '{"jsonrpc":"2.0","method": "get_transaction_history","params":[]}' http://localhost:53903
+curl -X POST --data '{"jsonrpc":"2.0","method": "get_transaction_history","params":["0a05debe9ddc4f705b460ec1bdba3cbf63637f42"]}' http://localhost:53903
 
 Store address and alias in address book
 
