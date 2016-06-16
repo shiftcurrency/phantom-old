@@ -139,6 +139,24 @@ class Client(object):
             )
         return ipc_path
 
+    def get_shiftdb_path(self):
+        
+        """ Return the path to the shift sql database """
+
+        if sys.platform == 'darwin':
+            shiftdb = os.path.expanduser("~/Library/gshift/shift.db")
+        elif sys.platform == 'linux2':
+            shiftdb = os.path.expanduser("~/.gshift/shift.db")
+        elif sys.platform == 'win32':
+            shiftdb = ""
+        else:
+            raise ValueError(
+                "Unsupported platform.  Only darwin/linux2/win32 are "
+                "supported.  You must specify the ipc_path"
+            )
+        return shiftdb
+   
+
 
     def get_socket(self):
         try:

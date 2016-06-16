@@ -465,16 +465,21 @@ def get_shh_messages(postparams):
 
 def get_transaction_history(postparams):
     
-    if len(postparams['params']) == 0:
+    if len(postparams['params']) == 1:
+        try:
+            int(postparams['params'][0], 16)
+        except:
+            Error_Msg.error_response("invalid_hex_string")
+
         try:
             phantomdb = Phantom_Db.PhantomDb()
-            res = phantomdb.get_transaction_hist()
+            res = phantomdb.get_transaction_hist(postparams['params'][0])
             if res and len(res) >= 1:
                 return {"jsonrpc": "2.0", "id": "1", "result": list(res)}
             return {"jsonrpc": "2.0", "id": "1", "result": []}
         except Exception as e:
             return Error_Msg.error_response("err_trans_hist")
-    return Error_Msg.error_response("no_params_allowed")
+    return Error_Msg.error_response("missing_params")
 
 
 def store_address_book(postparams):

@@ -1,19 +1,26 @@
 import sqlite3
 import Error_Msg
+from Shift_IPC import IPC_Client
 
 class PhantomDb(object):
 
-    conn = sqlite3.connect('src/Phantom/phantom.db')
-    c = conn.cursor()
+    conn_phantom = sqlite3.connect('src/Phantom/phantom.db')
+    c = conn_phantom.cursor()
+
+    client = IPC_Client.Client()
+    shiftdb = client.get_shiftdb_path()
+    print shiftdb
+    conn_shiftdb = sqlite3.connect(shiftdb)
+    x = conn_shiftdb.cursor()
 
     def init_database(self):
         try:
             self.c.execute('CREATE TABLE IF NOT EXISTS messaging (identity TEXT, filter_id INTEGER)')
-            self.conn.commit()
+            self.conn_phantom.commit()
             self.c.execute('CREATE TABLE IF NOT EXISTS trans_history (date TEXT, from_account TEXT, to_account TEXT, amount TEXT)')
-            self.conn.commit()
+            self.conn_phantom.commit()
             self.c.execute('CREATE TABLE IF NOT EXISTS address_book (toaddress TEXT, alias TEXT)')
-            self.conn.commit()
+            self.conn_phantom.commit()
         except Exception as e:
             return False
         return True
@@ -22,7 +29,7 @@ class PhantomDb(object):
     def clear_database(self):
         try:
             self.c.execute('DELETE FROM messaging')
-            self.conn.commit()
+            self.conn_phantom.commit()
         except Exception as e:
             return False
         return True
@@ -34,7 +41,7 @@ class PhantomDb(object):
                 try:
                     sql = "INSERT OR IGNORE INTO messaging (identity, filter_id) VALUES (\"%s\",%i)" % (store_dict['to'], store_dict['filter_id'])
                     self.c.execute(sql)
-                    self.conn.commit()
+                    self.conn_phantom.commit()
                 except Exception as e:
                     return False
                 return True
@@ -62,7 +69,7 @@ class PhantomDb(object):
         try:
             sql = "INSERT OR IGNORE INTO trans_history (date, from_account, to_account, amount) VALUES (\"%s\", \"%s\", \"%s\", \"%s\")" % (date[0][0], from_account, to_account, amount)
             self.c.execute(sql)
-            self.conn.commit()
+            self.conn_phantom.commit()
         except Exception as e:
             return False
         return True
@@ -72,7 +79,7 @@ class PhantomDb(object):
         try:
             sql = "INSERT OR IGNORE INTO address_book (toaddress, alias) VALUES (\"%s\", \"%s\")" % (to_account, alias)
             self.c.execute(sql)
-            self.conn.commit()
+            self.conn_phantom.commit()
         except Exception as e:
             return False
         return True
@@ -87,11 +94,12 @@ class PhantomDb(object):
         return res
 
 
-    def get_transaction_hist(self):
+    def get_transaction_hist(self, account):
         
         try:
-            self.c.execute('SELECT * FROM trans_history')
-            res = self.c.fetchall()
+            sql = "SELECT * FROM txs WHERE sender = \"%s\" OR recipient = \"%s\"" % (account, account)
+            self.x.execute(sql)
+            res = self.x.fetchall()
         except Exception as e:
             return False
         return res
