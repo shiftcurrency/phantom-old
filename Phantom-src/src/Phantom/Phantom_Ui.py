@@ -296,12 +296,9 @@ def send_transaction(postparams):
             Error_Msg.error_response("invalid_wallet_addr")
 
         try:
-            int(pd['amount'])
+            pd['amount'] = int(pd['amount']*1000000000000000000)
         except Exception as e:
             return Error_Msg.error_response("invalid_amount")
-
-        """ convert amount to shift """
-        pd['amount'] = int(pd['amount']*1000000000000000000)
 
         if 'data' in pd and len(pd['data']) > 0: data = pd['data']
         else: data = False
