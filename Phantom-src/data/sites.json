@@ -103,12 +103,12 @@
   "1JYg9iefP5KdqRYogK8EFhwVQ7B9g6xMLz": {
     "added": 1464599041, 
     "auth_key": "6aab2726aef61a6bf0387be9dc7156a49cf2bd84b8b31b662a49d0bec0da9fe9", 
-    "modified": 1465848276.2, 
+    "modified": 1466281625.326, 
     "own": false, 
-    "peers": 1, 
+    "peers": 0, 
     "permissions": [], 
     "serving": true, 
-    "size": 2205651, 
+    "size": 3739288, 
     "wrapper_key": "54bb2c51345780db540427589d3c3438e77d212c88bc302e829af4a979ffa143"
   }, 
   "1KSVsFWcPGBmm6ktZZHXgDnENRjjVJ7t7r": {

@@ -300,6 +300,9 @@ def send_transaction(postparams):
         except Exception as e:
             return Error_Msg.error_response("invalid_amount")
 
+        """ convert amount to shift """
+        pd['amount'] = int(pd['amount']*1000000000000000000)
+
         if 'data' in pd and len(pd['data']) > 0: data = pd['data']
         else: data = False
 
