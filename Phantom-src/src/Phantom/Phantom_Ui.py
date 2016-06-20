@@ -296,7 +296,7 @@ def send_transaction(postparams):
             Error_Msg.error_response("invalid_wallet_addr")
 
         try:
-            pd['amount'] = int(pd['amount']*1000000000000000000)
+            pd['amount'] = int(float(pd['amount'])*1000000000000000000)
         except Exception as e:
             return Error_Msg.error_response("invalid_amount")
 

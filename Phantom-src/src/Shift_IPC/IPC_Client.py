@@ -102,12 +102,14 @@ class Client(object):
 
     def send_transaction(self, sender, receiver, amount, nrg, data):
 
+        amount = "0x" + format(amount, 'x')
+
         if nrg and not data:
-            trans_params = [{"from": sender, "to": receiver, "value": hex(int(amount)), "gas": hex(int(nrg))}]
+            trans_params = [{"from": sender, "to": receiver, "value": amount, "gas": hex(int(nrg))}]
         elif nrg and data:
-            trans_params = [{"from": sender, "to": receiver, "value": hex(int(amount)), "gas": hex(int(nrg)), "data" : data}]
+            trans_params = [{"from": sender, "to": receiver, "value": amount, "gas": hex(int(nrg)), "data" : data}]
         else:
-            trans_params = [{"from": sender, "to": receiver, "value": hex(int(amount))}]
+            trans_params = [{"from": sender, "to": receiver, "value": amount}]
 
         response = self._make_request("shf_sendTransaction", trans_params)
         return response
