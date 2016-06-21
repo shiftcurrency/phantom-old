@@ -1,6 +1,7 @@
 import sqlite3
 import Error_Msg
 from Shift_IPC import IPC_Client
+from time import sleep
 
 class PhantomDb(object):
 
@@ -9,8 +10,15 @@ class PhantomDb(object):
 
     client = IPC_Client.Client()
     shiftdb = client.get_shiftdb_path()
-    conn_shiftdb = sqlite3.connect(shiftdb)
-    x = conn_shiftdb.cursor()
+
+    for i in range(2):
+        try:
+            conn_shiftdb = sqlite3.connect(shiftdb)
+            x = conn_shiftdb.cursor()
+        except Exception as e:
+            print "Waiting for shift.db..."
+            sleep(5)
+        
 
     def init_database(self):
         try:
