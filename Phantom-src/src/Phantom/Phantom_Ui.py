@@ -297,6 +297,7 @@ def send_transaction(postparams):
 
         try:
             pd['amount'] = int(float(pd['amount'])*1000000000000000000)
+            amount = "0x" + format(pd['amount'], 'x')
         except Exception as e:
             return Error_Msg.error_response("invalid_amount")
 
@@ -314,7 +315,7 @@ def send_transaction(postparams):
             res = client.unlock_account(pd['from'], pd['password'])
 
         try:
-            res = client.send_transaction(pd['from'], pd['to'], pd['amount'], nrg, data)
+            res = client.send_transaction(pd['from'], pd['to'], amount, nrg, data)
         except Exception as e:
             return Error_Msg.error_response("ipc_call_error")
 

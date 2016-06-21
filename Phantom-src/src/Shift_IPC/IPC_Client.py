@@ -102,8 +102,6 @@ class Client(object):
 
     def send_transaction(self, sender, receiver, amount, nrg, data):
 
-        amount = "0x" + format(amount, 'x')
-
         if nrg and not data:
             trans_params = [{"from": sender, "to": receiver, "value": amount, "gas": hex(int(nrg))}]
         elif nrg and data:

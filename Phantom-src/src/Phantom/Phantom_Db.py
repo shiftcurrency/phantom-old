@@ -9,7 +9,6 @@ class PhantomDb(object):
 
     client = IPC_Client.Client()
     shiftdb = client.get_shiftdb_path()
-    print shiftdb
     conn_shiftdb = sqlite3.connect(shiftdb)
     x = conn_shiftdb.cursor()
 
