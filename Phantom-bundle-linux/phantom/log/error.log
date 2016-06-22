@@ -1,0 +1,62 @@
+
+Traceback (most recent call last):
+  File "phantom.py", line 16, in main
+    main.start()
+  File "src/main.py", line 419, in start
+    actions.call(config.action, action_kwargs)
+  File "src/main.py", line 116, in call
+    func(**kwargs)
+  File "src/main.py", line 123, in main
+    from Ui import UiServer
+  File "src/Ui/__init__.py", line 1, in <module>
+    from UiServer import UiServer
+  File "src/Ui/UiServer.py", line 16, in <module>
+    from Phantom import Phantom_Ui
+  File "src/Phantom/Phantom_Ui.py", line 481
+    def run(postdata):
+                     ^
+IndentationError: unexpected unindent
+Traceback (most recent call last):
+  File "phantom.py", line 16, in main
+    main.start()
+  File "src/main.py", line 419, in start
+    actions.call(config.action, action_kwargs)
+  File "src/main.py", line 116, in call
+    func(**kwargs)
+  File "src/main.py", line 123, in main
+    from Ui import UiServer
+  File "src/Ui/__init__.py", line 1, in <module>
+    from UiServer import UiServer
+  File "src/Ui/UiServer.py", line 16, in <module>
+    from Phantom import Phantom_Ui
+  File "src/Phantom/Phantom_Ui.py", line 480
+    response[pos] = (values['date'] = i[0])
+                                    ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "phantom.py", line 16, in main
+    main.start()
+  File "src/main.py", line 419, in start
+    actions.call(config.action, action_kwargs)
+  File "src/main.py", line 116, in call
+    func(**kwargs)
+  File "src/main.py", line 123, in main
+    from Ui import UiServer
+  File "src/Ui/__init__.py", line 1, in <module>
+    from UiServer import UiServer
+  File "src/Ui/UiServer.py", line 16, in <module>
+    from Phantom import Phantom_Ui
+  File "src/Phantom/Phantom_Ui.py", line 479
+    response[pos] = {'date' : i[0], 'from' : i[1], 'to' = i[2], 'amount' = i[3]}
+                                                        ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "phantom.py", line 15, in main
+    import main
+  File "src/main.py", line 6, in <module>
+    from Phantom import Phantom_Db
+  File "src/Phantom/Phantom_Db.py", line 5, in <module>
+    class PhantomDb(object):
+  File "src/Phantom/Phantom_Db.py", line 7, in PhantomDb
+    conn_phantom = sqlite3.conn_phantomect('src/Phantom/phantom.db')
+AttributeError: 'module' object has no attribute 'conn_phantomect'

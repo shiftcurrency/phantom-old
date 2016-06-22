@@ -1,0 +1,520 @@
+[2016-06-22 13:07:06,168] DEBUG    PluginManager Loading plugin: CryptMessage
+[2016-06-22 13:07:06,190] DEBUG    - opensslVerify loaded: <CDLL 'libssl.so.1.0.0', handle 283f5f0 at 7f0678a8f250>
+[2016-06-22 13:07:06,191] INFO     - OpenSSL loaded, version: 01000106F
+[2016-06-22 13:07:06,191] DEBUG    PluginManager New plugin registered to: UiWebsocket
+[2016-06-22 13:07:06,191] DEBUG    PluginManager New plugin registered to: User
+[2016-06-22 13:07:06,191] DEBUG    PluginManager Loading plugin: AnnounceZero
+[2016-06-22 13:07:06,192] DEBUG    PluginManager New plugin registered to: Site
+[2016-06-22 13:07:06,192] DEBUG    PluginManager Loading plugin: Stats
+[2016-06-22 13:07:06,193] DEBUG    PluginManager New plugin registered to: UiRequest
+[2016-06-22 13:07:06,193] DEBUG    PluginManager Loading plugin: Newsfeed
+[2016-06-22 13:07:06,194] DEBUG    PluginManager New plugin registered to: UiWebsocket
+[2016-06-22 13:07:06,194] DEBUG    PluginManager New plugin registered to: User
+[2016-06-22 13:07:06,194] DEBUG    PluginManager Loading plugin: Trayicon
+[2016-06-22 13:07:06,194] DEBUG    PluginManager Loading plugin: Sidebar
+[2016-06-22 13:07:06,195] DEBUG    PluginManager New plugin registered to: UiRequest
+[2016-06-22 13:07:06,195] DEBUG    PluginManager New plugin registered to: UiWebsocket
+[2016-06-22 13:07:06,195] DEBUG    - Config: Config(action='main', batch=False, coffeescript_compiler=None, config_file='phantom.conf', connected_limit=15, data_dir='data', debug=False, debug_gevent=False, debug_socket=False, disable_db=False, disable_encryption=False, disable_sslcompression=True, disable_udp=False, fileserver_ip='*', fileserver_port=15441, homepage='15ubuFHsWWuAM5rhgXHo5TCm4oU6JR2hh7', ip_external=None, keep_ssl_cert=False, log_dir='log', max_files_opened=2048, msgpack_purepython=True, open_browser=None, proxy=None, size_limit=10, stream_downloads=False, tor='disable', tor_controller='127.0.0.1:9051', tor_proxy='127.0.0.1:9050', trackers=['zero://boot3rdez4rzn36x.onion:15441', 'zero://boot.zeronet.io#f36ca555bee6ba216b14d10f38c16f7769ff064e0e37d887603548cc2e64191d:15441', 'udp://tracker.coppersurfer.tk:6969', 'udp://tracker.leechers-paradise.org:6969', 'udp://9.rarbg.com:2710', 'http://tracker.aletorrenty.pl:2710/announce', 'http://explodie.org:6969/announce', 'http://torrent.gresille.org/announce'], trackers_file=False, ui_ip='127.0.0.1', ui_port=53903, ui_restrict=False, use_openssl=True, use_tempfiles=False, verbose=False)
+[2016-06-22 13:07:06,195] INFO     - Version: 0.3.6 r1098, Python 2.7.6 (default, Jun 22 2015, 17:58:13) 
+[GCC 4.8.2], Gevent: 1.0
+[2016-06-22 13:07:06,200] DEBUG    PluginManager New class accepts plugins: Site (Loaded plugins: [<class 'AnnounceZero.AnnounceZeroPlugin.SitePlugin'>, <class 'Site.Site.Site'>])
+[2016-06-22 13:07:06,205] DEBUG    - Disabled SSL compression on <CDLL 'libssl.so.1.0.0', handle 283f5f0 at 7f067878cd90>
+[2016-06-22 13:07:06,205] DEBUG    - Python SSL version: OpenSSL 1.0.1f 6 Jan 2014
+[2016-06-22 13:07:06,213] DEBUG    PluginManager New class accepts plugins: User (Loaded plugins: [<class 'Newsfeed.NewsfeedPlugin.UserPlugin'>, <class 'CryptMessage.CryptMessagePlugin.UserPlugin'>, <class 'User.User.User'>])
+[2016-06-22 13:07:06,214] DEBUG    PluginManager New class accepts plugins: UiWebsocket (Loaded plugins: [<class 'Sidebar.SidebarPlugin.UiWebsocketPlugin'>, <class 'Newsfeed.NewsfeedPlugin.UiWebsocketPlugin'>, <class 'CryptMessage.CryptMessagePlugin.UiWebsocketPlugin'>, <class 'Ui.UiWebsocket.UiWebsocket'>])
+[2016-06-22 13:07:06,214] DEBUG    PluginManager New class accepts plugins: UiRequest (Loaded plugins: [<class 'Sidebar.SidebarPlugin.UiRequestPlugin'>, <class 'Stats.StatsPlugin.UiRequestPlugin'>, <class 'Ui.UiRequest.UiRequest'>])
+[2016-06-22 13:07:06,214] INFO     - Creating FileServer....
+[2016-06-22 13:07:06,214] INFO     - Creating UiServer....
+[2016-06-22 13:07:06,215] DEBUG    - Loading sites...
+[2016-06-22 13:07:06,217] DEBUG    - Loaded site 1Kw1SuE84uCpUCtY7oR5f6xbZw3P8eb1qN in 0.002s
+[2016-06-22 13:07:06,217] DEBUG    - SiteManager added 1 sites
+[2016-06-22 13:07:06,364] INFO     - Removing old SSL certs...
+[2016-06-22 13:07:06,364] INFO     - - Starting servers....
+[2016-06-22 13:07:06,364] INFO     Ui.UiServer --------------------------------------
+[2016-06-22 13:07:06,364] INFO     Ui.UiServer Web interface: http://127.0.0.1:53903/
+[2016-06-22 13:07:06,364] INFO     Ui.UiServer --------------------------------------
+[2016-06-22 13:07:06,365] DEBUG    - Current RLIMIT_NOFILE: 1024, changing to 2048...
+[2016-06-22 13:07:06,589] DEBUG    - Generating RSA cert and key PEM files...Generating a 2048 bit RSA private key
+........+++
+..........................................................................................................................+++
+unable to write 'random state'
+writing new private key to 'data/key-rsa.pem'
+-----
+[2016-06-22 13:07:06,589] DEBUG    FileServer Binding to: *:15441, (msgpack: 0.4.6), supported crypt: ['tls-rsa']
+[2016-06-22 13:07:06,589] DEBUG    FileServer Checking sites...
+[2016-06-22 13:07:06,590] DEBUG    FileServer Conn# 1 boot.zeronet.io [?] > Connecting...
+[2016-06-22 13:07:06,815] DEBUG    Site:1Kw1Su..b1qN Http tracker http://tracker.aletorrenty.pl:2710/announce?uploaded=0&downloaded=0&numwant=30&compact=1&event=started&peer_id=-ZN0036-dIP0EBGUofBn&port=0&info_hash=%E8%FE%E3%D1X%E9%EAi4bx%B9%AB%DC%DE0K%0ElT&left=0 error: [Errno 104] Connection reset by peer
+[2016-06-22 13:07:07,536] DEBUG    FileServer Removing Conn# 1 boot.zeronet.io [v2]...
+[2016-06-22 13:07:07,662] DEBUG    Site:1Kw1Su..b1qN Announced types [] in mode startup to 6 trackers in 1.073s, errors: ['http://tracker.aletorrenty.pl:2710/announce'], slow: []
+[2016-06-22 13:07:07,666] INFO     FileServer Checking port 15441 using portchecker.co...
+[2016-06-22 13:07:08,012] INFO     FileServer [BAD :(] Port closed: Port 15441 is closed.
+[2016-06-22 13:07:08,013] INFO     FileServer Trying to open port using UpnpPunch...
+[2016-06-22 13:07:08,015] DEBUG    - Found local ips: ['192.168.1.12']
+[2016-06-22 13:07:08,016] DEBUG    - Trying using local ip: 192.168.1.12
+[2016-06-22 13:07:09,772] INFO     Site:1Kw1Su..b1qN Opening site data directory: data/1Kw1SuE84uCpUCtY7oR5f6xbZw3P8eb1qN/...
+[2016-06-22 13:07:09,773] INFO     Site:1Kw1Su..b1qN - e_commerce.html (SHA512: 626bbdd5325187ce9c0b24a82ac96f8eee9ef453dfdb776d21c8387db63839bd)
+[2016-06-22 13:07:09,774] INFO     Site:1Kw1Su..b1qN - tables_dynamic.html (SHA512: 7c7ee57da0d37efe107c98a28c168044eb8e684b6f90f97de9d7b7f27d49d805)
+[2016-06-22 13:07:09,774] INFO     Site:1Kw1Su..b1qN - widgets.html (SHA512: d58f1ac5552831591ac41e2159ee24969bb05cb0bfd82aace4815fbdd0bc3aa9)
+[2016-06-22 13:07:09,775] INFO     Site:1Kw1Su..b1qN - invoice.html (SHA512: 19a1fa0ef789ad561b9d03ddc6353a699df1b7186cfe81571f3c0c242f1782f7)
+[2016-06-22 13:07:09,775] INFO     Site:1Kw1Su..b1qN - tables.html (SHA512: 9a7f39b0bc7029bcb889e9efb72a44eb1deffc5bb35e0fff5edf29e7ffa6b904)
+[2016-06-22 13:07:09,775] INFO     Site:1Kw1Su..b1qN - empty.html (SHA512: d7c1ff4dfb9a52bfdb337f8f8a57049edbbb6513b9502081c06883b494743bf2)
+[2016-06-22 13:07:09,775] INFO     Site:1Kw1Su..b1qN - form_upload.html (SHA512: c7c295050e64f066a3232e637164f2cc3f0be289af094db77df5f800a585cb74)
+[2016-06-22 13:07:09,776] INFO     Site:1Kw1Su..b1qN - xx.html (SHA512: 5640564080c0f880936ff929e8810e84d8d608cfe716b82d820e34ce5a1e1aeb)
+[2016-06-22 13:07:09,776] INFO     Site:1Kw1Su..b1qN - index2.html (SHA512: d12e0c75e2fcfc44e7885c5c7b0b02172ddf47048d987d9a695507570bb86c60)
+[2016-06-22 13:07:09,776] INFO     Site:1Kw1Su..b1qN - echarts.html (SHA512: f261516c1450257e571564c46bb3efe77dadee7ba0184e7ddd5ff73c6c0ef53f)
+[2016-06-22 13:07:09,777] INFO     Site:1Kw1Su..b1qN - profile.html (SHA512: 4b297d70ec6c72dfe3cd84d09da30b2cd5405c20fc7253007078dcc535789222)
+[2016-06-22 13:07:09,777] INFO     Site:1Kw1Su..b1qN - form_advanced.html (SHA512: a6246293101a62222f337dd1a64ff3b57ce2c1b4b3d3dca7927a8c632051e222)
+[2016-06-22 13:07:09,778] INFO     Site:1Kw1Su..b1qN - login.html (SHA512: 58737019458afd01cd284e514a349d1c31df514fa82ba5a1b9cd131e0cd8b2a8)
+[2016-06-22 13:07:09,778] INFO     Site:1Kw1Su..b1qN - calender.html (SHA512: cd651bd323a1ca57ef658b13ccdeb6ba42120cd0318830866cf2ad52f4a1f947)
+[2016-06-22 13:07:09,779] INFO     Site:1Kw1Su..b1qN - icons.html (SHA512: d95197f829241cd06c75aa602bbd3c9ad305458e3feb30f1753c028a58a1702c)
+[2016-06-22 13:07:09,779] INFO     Site:1Kw1Su..b1qN - chartjs.html (SHA512: fdfc6d3b23ddce167be9c77fad592a74f8bb1b0921e40b2304803d7c1cacbd45)
+[2016-06-22 13:07:09,779] INFO     Site:1Kw1Su..b1qN - sign_up.html (SHA512: 37546fdbc7fbe5715764daaf7d9710f2d9910c14c5019305fbb4d1b94a85a051)
+[2016-06-22 13:07:09,779] INFO     Site:1Kw1Su..b1qN - pricing_tables.html (SHA512: e3cc8c305f84716525dff775e6eac89d03179565275dbb526d466efde9192e77)
+[2016-06-22 13:07:09,780] INFO     Site:1Kw1Su..b1qN - morisjs.html (SHA512: 56a12e8ae3db4e426966e2a2ef97c7216a8c926871aec17ec4538d68bef94c16)
+[2016-06-22 13:07:09,780] INFO     Site:1Kw1Su..b1qN - page_404.html (SHA512: 25ce456fae91cc291ddbfc97898b06f457700b2b4e07f56820b9bc658a0ec507)
+[2016-06-22 13:07:09,780] INFO     Site:1Kw1Su..b1qN - map.html (SHA512: b0c980068157aea0cf1b4e168e675fe94dd57a5a128bc73e26cf42c45edf3a6e)
+[2016-06-22 13:07:09,780] INFO     Site:1Kw1Su..b1qN - typography.html (SHA512: 2c01616452fdec650c3a8b2e522072cdc367a6f8895ddc3f2839704ff1f6c783)
+[2016-06-22 13:07:09,781] INFO     Site:1Kw1Su..b1qN - general_elements.html (SHA512: e693e3cdbcdb347391715cb4023cdf6f27f3ec2abe054f4c098eb479704643df)
+[2016-06-22 13:07:09,781] INFO     Site:1Kw1Su..b1qN - [SKIPPED] content.json
+[2016-06-22 13:07:09,781] INFO     Site:1Kw1Su..b1qN - chartjs2.html (SHA512: 3f4fe7bc1c22a1e5503c697e83e761f3df00c6512e8fb6c7273cec3cf0f15133)
+[2016-06-22 13:07:09,781] INFO     Site:1Kw1Su..b1qN - form_buttons.html (SHA512: 176841f2e32d176a20b6e442ba6e67cc5d952ddfad990c6321545ab0d839f885)
+[2016-06-22 13:07:09,782] INFO     Site:1Kw1Su..b1qN - index.html (SHA512: b36043f9d72098aac39b4fcbfae9a3a22e4510f3ca1a6f8a39207fdf71a9ce14)
+[2016-06-22 13:07:09,782] INFO     Site:1Kw1Su..b1qN - page_500.html (SHA512: 5e51b121aa613c14d5e5071dc630eb86cacf284009d42df81c3073e9dd53bf12)
+[2016-06-22 13:07:09,782] INFO     Site:1Kw1Su..b1qN - inbox.html (SHA512: 9eb461c55786e77427b483da7ec4ced74128fbb41a08a4f2a564c08a5b938438)
+[2016-06-22 13:07:09,782] INFO     Site:1Kw1Su..b1qN - contacts.html (SHA512: 82c1ba324f8f245169f60d535cd08d3290b3122f8ca904315749c582b66ef989)
+[2016-06-22 13:07:09,782] INFO     Site:1Kw1Su..b1qN - index3.html (SHA512: b8a391914abecc4a0b51895489cb81d087088f839d03d78333a4f871ad694699)
+[2016-06-22 13:07:09,783] INFO     Site:1Kw1Su..b1qN - plain_page.html (SHA512: fcb7038e5d98683bd595a8406bf2357214ff28e069f1777f12d70aa996c3bb44)
+[2016-06-22 13:07:09,783] INFO     Site:1Kw1Su..b1qN - project_detail.html (SHA512: b349d8de797070244abce3bd093eca1f3455ea980271fc31523b5baba3afd492)
+[2016-06-22 13:07:09,783] INFO     Site:1Kw1Su..b1qN - other_charts.html (SHA512: 328ea2c7367fd9882d7651983101aacd931b1752ed377c22efda7a26de05acac)
+[2016-06-22 13:07:09,783] INFO     Site:1Kw1Su..b1qN - form_wizards.html (SHA512: 021f3cc6bed9e164b9a946954c5bd0a21a2dbf73955776fe46144b2957437c18)
+[2016-06-22 13:07:09,783] INFO     Site:1Kw1Su..b1qN - form.html (SHA512: 272070e2fdf453605aae680b4f1fdfff84718832ca65b0abfd69c02a1f0bcc83)
+[2016-06-22 13:07:09,784] INFO     Site:1Kw1Su..b1qN - media_gallery.html (SHA512: d9e7e2f7406f0d386a1d15c657b28fa431130635683927a0b9fc72141788ac24)
+[2016-06-22 13:07:09,784] INFO     Site:1Kw1Su..b1qN - glyphicons.html (SHA512: 06cb31b51b55684088caf0d7018ef81db759c2a416e0268ec8c97e0c5241a563)
+[2016-06-22 13:07:09,784] INFO     Site:1Kw1Su..b1qN - form_validation.html (SHA512: cd002aa46aba17a8b66d5115f5ac35d454b595f450f4025d3460d5e94aae1585)
+[2016-06-22 13:07:09,785] INFO     Site:1Kw1Su..b1qN - projects.html (SHA512: e0b6f7c04b2d78a30e5b6aa7d211d452dc62aec0d8864a1971eae3b12f4efe11)
+[2016-06-22 13:07:09,786] INFO     Site:1Kw1Su..b1qN - css/animate.min.css (SHA512: fd6ae650673343fd6e691d3f2af1e7ef8eb01558c50ad161950ee459541d4736)
+[2016-06-22 13:07:09,786] INFO     Site:1Kw1Su..b1qN - css/floatexamples.css (SHA512: ebcb2060b2e48ad60bca196eb2bd43b39ae5891cabf6cac217db8604983f1392)
+[2016-06-22 13:07:09,786] INFO     Site:1Kw1Su..b1qN - css/custom.css (SHA512: 608a461f6059955788fd211fb59e50b2d7b54560d64442f242de9c295ed22512)
+[2016-06-22 13:07:09,787] INFO     Site:1Kw1Su..b1qN - css/normalize.css (SHA512: 7edf8c0b0f9cdd4589498d75b107223b458843c25612ca644fff2e0ab854c81e)
+[2016-06-22 13:07:09,787] INFO     Site:1Kw1Su..b1qN - css/ion.rangeSlider.skinFlat.css (SHA512: c3f7588cfb44817ab8c4cf911ebc358c77ffd22e128332dd2c21a451851f38a2)
+[2016-06-22 13:07:09,787] INFO     Site:1Kw1Su..b1qN - css/ion.rangeSlider.css (SHA512: af5caa3b30e71adbf92d03500ec05c2df30a843452b62a98fd6804d0b9c255f9)
+[2016-06-22 13:07:09,788] INFO     Site:1Kw1Su..b1qN - css/bootstrap.min.css (SHA512: 2fb945eed8476b5aaec35b6000be386ee7c4f1222dd6cea7beaacafd60e264bf)
+[2016-06-22 13:07:09,788] INFO     Site:1Kw1Su..b1qN - css/nprogress.css (SHA512: 0da9dfc5605ab10b6af91b643401034dd5f843a04f08943f91ec62fd17ed70fd)
+[2016-06-22 13:07:09,788] INFO     Site:1Kw1Su..b1qN - css/datatables/tools/css/dataTables.tableTools.css (SHA512: 947c70c096d95231b32e8260ade92d7470b61f2bf4b2983d2a782453771a8e86)
+[2016-06-22 13:07:09,788] INFO     Site:1Kw1Su..b1qN - css/datatables/css/demo_table.css (SHA512: 95ac771e922dd58c2b4b91326d8c4c743253a8b95a03d06f7b5f1c916c11c78e)
+[2016-06-22 13:07:09,788] INFO     Site:1Kw1Su..b1qN - css/datatables/css/demo_page.css (SHA512: 4add5a556976b69fcdff08ec201cb22f7e0b3bf710b3d6c7763616a52599e870)
+[2016-06-22 13:07:09,789] INFO     Site:1Kw1Su..b1qN - css/datatables/css/jquery.dataTables_themeroller.css (SHA512: 6a498989dbc21ad5a8407eba1d47f3fa8e2f74c8624931ed3792a255f74ddd3e)
+[2016-06-22 13:07:09,789] INFO     Site:1Kw1Su..b1qN - css/datatables/css/jquery.dataTables.css (SHA512: d4ac7b8bef984a83e2702295c7deec0e6d46604fa7e320e7132ecf968d4e841b)
+[2016-06-22 13:07:09,789] INFO     Site:1Kw1Su..b1qN - css/datatables/css/demo_table_jui.css (SHA512: c3193c3de7c461ece5283a16dd60c9cf83dc5af07f7441a241a55460751c1878)
+[2016-06-22 13:07:09,789] INFO     Site:1Kw1Su..b1qN - css/datatables/images/favicon.ico (SHA512: c7e267d4ad328344709a326855f2101ad2696e2d3b64da533667ce01ecd14870)
+[2016-06-22 13:07:09,789] INFO     Site:1Kw1Su..b1qN - css/datatables/images/back_disabled.png (SHA512: 71cc68605026df75b7f20b298c756b2b1afbfc814265228a47d2c5581ceb2129)
+[2016-06-22 13:07:09,790] INFO     Site:1Kw1Su..b1qN - css/datatables/images/back_enabled_hover.png (SHA512: 34b7a927224af301ea1ac85b0500f9141eb080ccd46b8a19ce0d05ad635d6de3)
+[2016-06-22 13:07:09,790] INFO     Site:1Kw1Su..b1qN - css/datatables/images/sort_both.png (SHA512: 930a565602a56822c9a32491aaf82fb7818f6dea92ab1f9e0482a4393e0b3b1b)
+[2016-06-22 13:07:09,790] INFO     Site:1Kw1Su..b1qN - css/datatables/images/sort_desc.png (SHA512: 59c30ee89a68d401c08f3e64a4d10267385e0450b5236694cc6a18afe51374a8)
+[2016-06-22 13:07:09,790] INFO     Site:1Kw1Su..b1qN - css/datatables/images/forward_enabled_hover.png (SHA512: dd2105efaac2a08275a45770701a71eb036f46591bfdbbb8c8b54907bf8cdef8)
+[2016-06-22 13:07:09,790] INFO     Site:1Kw1Su..b1qN - css/datatables/images/sort_asc.png (SHA512: 36ea21f01e81b861cd7c431c10705902822bf47aa0df6f269ca66ef2c9fce68f)
+[2016-06-22 13:07:09,790] INFO     Site:1Kw1Su..b1qN - css/datatables/images/forward_enabled.png (SHA512: 58a9cdf84782163891515f8baef3a09b74e007399220dc8c23b19375bb1af728)
+[2016-06-22 13:07:09,790] INFO     Site:1Kw1Su..b1qN - css/datatables/images/sort_desc_disabled.png (SHA512: c1636112d0820f9c7041d5a34c926d261da30398d35bbcd9e8df2b281b9f6d9d)
+[2016-06-22 13:07:09,791] INFO     Site:1Kw1Su..b1qN - css/datatables/images/sort_asc_disabled.png (SHA512: e73d163138a393137c34a838a95e979659df04cdf6ac57c11f6a1652b0a0f612)
+[2016-06-22 13:07:09,791] INFO     Site:1Kw1Su..b1qN - css/datatables/images/back_enabled.png (SHA512: dff31a2e2f27d3736d7c5ee2254804a0fe59b4bd78c3ff102b7d3e7ff037aea6)
+[2016-06-22 13:07:09,791] INFO     Site:1Kw1Su..b1qN - css/datatables/images/forward_disabled.png (SHA512: 7f3ee9de1cc3fcfa7e30acd1286b7431fd3e02c9714fc631d938aec9b443bc67)
+[2016-06-22 13:07:09,791] INFO     Site:1Kw1Su..b1qN - css/colorpicker/bootstrap-colorpicker.min.css (SHA512: 503e5c8f796d623c359012785b1cf68c1accf7706e82e1a14d0ab06e1ea662cd)
+[2016-06-22 13:07:09,791] INFO     Site:1Kw1Su..b1qN - css/colorpicker/img/bootstrap-colorpicker/hue.png (SHA512: 3e74e1aa966e281fd47800a827e5704376b9de89bcad7312eed7c3089a94ac84)
+[2016-06-22 13:07:09,791] INFO     Site:1Kw1Su..b1qN - css/colorpicker/img/bootstrap-colorpicker/alpha-horizontal.png (SHA512: fe5faf1e260d8bcc305b26698653674acace09f14b24ab9343f4648f83167535)
+[2016-06-22 13:07:09,792] INFO     Site:1Kw1Su..b1qN - css/colorpicker/img/bootstrap-colorpicker/alpha.png (SHA512: 89bfb73183b07299b73c204c17e7892a3cbbb7874b7db95d362d77fcd7ff33ba)
+[2016-06-22 13:07:09,792] INFO     Site:1Kw1Su..b1qN - css/colorpicker/img/bootstrap-colorpicker/saturation.png (SHA512: 009d6e9bc6f7b0711cd42c0d19eec18198c167a9a886167ef8c16d339060b71b)
+[2016-06-22 13:07:09,792] INFO     Site:1Kw1Su..b1qN - css/colorpicker/img/bootstrap-colorpicker/hue-horizontal.png (SHA512: 2d2a04145c196386803dafbd24dd5d6860a855d1e5bf76b889db753bdb59a477)
+[2016-06-22 13:07:09,792] INFO     Site:1Kw1Su..b1qN - css/switchery/switchery.min.css (SHA512: 1fde1f4efb2ad0dfebb25414e1f84272fc1b6da593b26d139b38320f61af365f)
+[2016-06-22 13:07:09,793] INFO     Site:1Kw1Su..b1qN - css/maps/jquery-jvectormap-2.0.3.css (SHA512: 9639a040bd2ccf3657ae4a1a3de9966243264c76ed3ba0732898da7017ca6927)
+[2016-06-22 13:07:09,793] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/grey.png (SHA512: 2381d4a8fccc0ea48a524b5e3f20516c9729f6061135ec2ad74ff274337690f4)
+[2016-06-22 13:07:09,793] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/pink@2x.png (SHA512: 06fafedfe263d3a6ff8fbcd796b3d37e914144ee698bc1b70f51a3ad27e21395)
+[2016-06-22 13:07:09,794] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/flat.png (SHA512: 38f24b282b08cbbe4c5b22f737d26c4c059ca92e085d10fe96901d63cf353e3c)
+[2016-06-22 13:07:09,794] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/green.png (SHA512: ca38e77dd58a0ecc94bffa0eab42166824abc0c7a5d123f3de53d03f27a7e14d)
+[2016-06-22 13:07:09,794] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/red@2x.png (SHA512: 61d8e91a2c2081cc23b7a3655421f8a9b0a798cffd6a504e4f951b038fa99ce6)
+[2016-06-22 13:07:09,794] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/green.css (SHA512: c27b85f2d0d471547b4304f8d61f4c5c517e0fb688062d157abee6640d58c169)
+[2016-06-22 13:07:09,795] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/blue@2x.png (SHA512: 0402644c2cd7134843edb62e327ed082367fb84d131e1461016d69a742b0cbc8)
+[2016-06-22 13:07:09,795] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/grey@2x.png (SHA512: 63a59352fd60cd370af829b8a478966074e4bcda4d608c96955efe2fc3f385a4)
+[2016-06-22 13:07:09,795] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/orange.css (SHA512: 144526f261eae863e737852a272bc503c8b2f13f815b13c317ebec536f7988ec)
+[2016-06-22 13:07:09,795] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/purple.png (SHA512: d96e03c3635cda69519911c8ede018b89b4d349ba37ebb304f6d240aaf837c22)
+[2016-06-22 13:07:09,795] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/purple@2x.png (SHA512: a0b47a193e74908686a83f6f0f23099b4caed251335e8b6d01e9127c96218574)
+[2016-06-22 13:07:09,795] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/red.css (SHA512: 0bf3b617d26b9a073ed248bf8f37f84d0b351198f167ec9ec472339d50f81c55)
+[2016-06-22 13:07:09,796] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/grey.css (SHA512: 20515c04336dea415f042a5f5dc64082fa92be4e39967bace8e43de42e4e1671)
+[2016-06-22 13:07:09,796] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/yellow@2x.png (SHA512: bcb80b8afdadf47c32583574a162da11e5f026d24457e56b629498eb26fd77e4)
+[2016-06-22 13:07:09,796] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/pink.css (SHA512: fd2e32d0203b1e77e0df15001b577ac5997d9dee455413f8e59886362b4d2b44)
+[2016-06-22 13:07:09,797] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/yellow.css (SHA512: f1e368bd85dabf4fa373a3095b352d19d1c41c668f8b56f0003fa40f0eba568c)
+[2016-06-22 13:07:09,797] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/blue.png (SHA512: b8207bcde197b823d1c6c8066afbe32f34e12b457f350d88c6851e169fe1788f)
+[2016-06-22 13:07:09,797] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/flat@2x.png (SHA512: 1ede09bdbec35a6fc3e75a1cd1c4321955def817aa4a219ba30e48068664e221)
+[2016-06-22 13:07:09,797] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/yellow.png (SHA512: 1bbfabf74cdae20b339544d72bfb59b76bd8a8c3d998b6d70e31f2517eb77510)
+[2016-06-22 13:07:09,797] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/aero.css (SHA512: 62bd63540e56d8d70c30746eec8fb3b08c0e944277afa3d458dbb13c37c204ec)
+[2016-06-22 13:07:09,798] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/green@2x.png (SHA512: 08325d5e39c82125f55ab8c6f58ae1c1b8dc2fc975af737c01db20a5abf86164)
+[2016-06-22 13:07:09,798] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/aero@2x.png (SHA512: eadedc2968a8e872764d9e0aa1b475931054963a3627ed5da01f1d927d013247)
+[2016-06-22 13:07:09,798] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/aero.png (SHA512: e535a494e84d49682e73c9473730c59e0e9abd0063d003ca3e915b53156af9e0)
+[2016-06-22 13:07:09,798] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/blue.css (SHA512: 298ea327819685c033224b30e47ef5c6ef000b32169b3148a5876c927857e1eb)
+[2016-06-22 13:07:09,798] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/_all.css (SHA512: c72d317f0fc1a450e6b6d61b746704b9b4415427de4dc88f0cab58edb0667eff)
+[2016-06-22 13:07:09,799] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/orange.png (SHA512: 500d7c79db4afddc9faae095353d0ca07badcb6d58ab57ad7ea637684d253fdd)
+[2016-06-22 13:07:09,799] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/flat.css (SHA512: 277c34683acc1f83b746eec5cb9f79816c5a358d8edda2e59aa108754b21072e)
+[2016-06-22 13:07:09,799] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/pink.png (SHA512: 55a6c63fc9dca3d1df8b33844832a77649affa7e550919e2fa2de4ccc0aa78a1)
+[2016-06-22 13:07:09,799] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/orange@2x.png (SHA512: c7793a6ea45788132d941bb52dd3dc49db59e21d96fab219cf95d84b3e60206c)
+[2016-06-22 13:07:09,799] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/purple.css (SHA512: b5b3bfefacafb12de62cd591622ef83f90e72e6c5c49f58eb3b214494634745f)
+[2016-06-22 13:07:09,799] INFO     Site:1Kw1Su..b1qN - css/icheck/flat/red.png (SHA512: 0bebcaef4226c0d50393047928cb96a3b044bff39d6a1c9842faab9cd6c75814)
+[2016-06-22 13:07:09,799] INFO     Site:1Kw1Su..b1qN - css/progressbar/bootstrap-progressbar-3.3.0.css (SHA512: 32f863d8c40e5ac5be0b09e4e33136495ffec63d5c1d744908e621869146310c)
+[2016-06-22 13:07:09,800] INFO     Site:1Kw1Su..b1qN - css/select/select2.min.css (SHA512: 1c631271d6778e878e9ef2bf7b167efc039bdc4563a1a3bbac2c1d483cf360df)
+[2016-06-22 13:07:09,800] INFO     Site:1Kw1Su..b1qN - css/editor/index.css (SHA512: 54006c886856521a0cd640f5b224e9e055aab0c732644f40e2723944898b7d3f)
+[2016-06-22 13:07:09,800] INFO     Site:1Kw1Su..b1qN - css/editor/external/google-code-prettify/prettify.css (SHA512: 4f6dc2f451f7b12c3e5b4d246d96ef5adf21fcfd61f04ba3ddc92598f49935ec)
+[2016-06-22 13:07:09,800] INFO     Site:1Kw1Su..b1qN - css/calendar/fullcalendar.min.css (SHA512: db38e7865d5f4d3f75bcb4638894b980a54517ab973d59d58e7a557c425175a0)
+[2016-06-22 13:07:09,800] INFO     Site:1Kw1Su..b1qN - css/calendar/fullcalendar.print.css (SHA512: 010329f30a3abd120d2487fc4e9d2a789bb740e38e67e916088cbb86a7b9e270)
+[2016-06-22 13:07:09,801] INFO     Site:1Kw1Su..b1qN - css/calendar/fullcalendar.css (SHA512: c7e26bdf8e0d2a1d2ea7357a86cb8119ecd75f88a173ada81dc24ad9bc372d15)
+[2016-06-22 13:07:09,801] INFO     Site:1Kw1Su..b1qN - js/bootstrap.min.js (SHA512: d9ef2aab411371f5912381c9073422037528c8593ab5b3721bea926880592f25)
+[2016-06-22 13:07:09,801] INFO     Site:1Kw1Su..b1qN - js/custom.js (SHA512: f87d043879259a87a49515b4f5f1e6c14acf199466cbad27f9d6f5818396971a)
+[2016-06-22 13:07:09,801] INFO     Site:1Kw1Su..b1qN - js/nprogress.js (SHA512: cfb2fc829825702ed7fc04385ca5015878c51ca41acdd5eac6e94aa95b91c4d7)
+[2016-06-22 13:07:09,802] INFO     Site:1Kw1Su..b1qN - js/jquery.min.js (SHA512: c40111c3cc0754e90cf71f72f7f16f43b835b7e808423dfd99f90dd5177538b7)
+[2016-06-22 13:07:09,802] INFO     Site:1Kw1Su..b1qN - js/datatables/buttons.bootstrap.min.js (SHA512: 619682d99758da78101953e657a1e692c31ebbcd2df74e3dffa25aaf409e76b8)
+[2016-06-22 13:07:09,802] INFO     Site:1Kw1Su..b1qN - js/datatables/jquery.dataTables.min.js (SHA512: a5151794d57d975a11e3f2498671ac9737edb5591e681512238812af0972429f)
+[2016-06-22 13:07:09,803] INFO     Site:1Kw1Su..b1qN - js/datatables/dataTables.scroller.min.js (SHA512: 738492b6c9d6cf074384bdac006bad43127aedf1e6a52f7ce2398d8f0348df39)
+[2016-06-22 13:07:09,803] INFO     Site:1Kw1Su..b1qN - js/datatables/jquery.dataTables.min.css (SHA512: ba7137d94c1601ce68360f87b567edcab7cbec721ce0bf3e58704db2aeae74dc)
+[2016-06-22 13:07:09,803] INFO     Site:1Kw1Su..b1qN - js/datatables/dataTables.responsive.min.js (SHA512: 6c0f8547ad5810186a3c50e7aec41da84dc9dab75a9ec389436f26abf754415d)
+[2016-06-22 13:07:09,804] INFO     Site:1Kw1Su..b1qN - js/datatables/pdfmake.min.js (SHA512: 79d4c58480a037c145e87ef4b4ac9c6ebd35c5dbbadd4abcdb9f7a7295e819df)
+[2016-06-22 13:07:09,805] INFO     Site:1Kw1Su..b1qN - js/datatables/dataTables.buttons.min.js (SHA512: 7e9462ca0a384da60d4f35648d0f1d7f72c8bf405a2860e561a2dcd9395f267c)
+[2016-06-22 13:07:09,807] INFO     Site:1Kw1Su..b1qN - js/datatables/vfs_fonts.js (SHA512: f328eaac8ff685f947027346f9acecfbdbd3fa322c515314260b3801fd95ddbb)
+[2016-06-22 13:07:09,807] INFO     Site:1Kw1Su..b1qN - js/datatables/dataTables.fixedHeader.min.js (SHA512: a3d885d74dc67417ca66e57451f3cd95efd7892e752e84d54a52fa9867fae275)
+[2016-06-22 13:07:09,807] INFO     Site:1Kw1Su..b1qN - js/datatables/buttons.html5.min.js (SHA512: b8bec07fe86a1d8b628818c810c092ebb258c4d6146795877416c4a11d968fc7)
+[2016-06-22 13:07:09,807] INFO     Site:1Kw1Su..b1qN - js/datatables/responsive.bootstrap.min.css (SHA512: cca8a352a71b5fdd30c88c99a5b7d7560f7d35f424e6c3a9d5e5f7b547bb17e2)
+[2016-06-22 13:07:09,807] INFO     Site:1Kw1Su..b1qN - js/datatables/scroller.bootstrap.min.css (SHA512: 7aa7dd070999d2a8adf7cec5f01e2b45e6fa8feb45828ae3cd9ba24a5751d884)
+[2016-06-22 13:07:09,807] INFO     Site:1Kw1Su..b1qN - js/datatables/dataTables.bootstrap.js (SHA512: 55847d644b3ece8be8c250a866debc6913178ffef2a110a8b1f9b77bcdc8457b)
+[2016-06-22 13:07:09,807] INFO     Site:1Kw1Su..b1qN - js/datatables/responsive.bootstrap.min.js (SHA512: 9d1939f49e20e015ead20b3c9a7bef68cbb320d25e5e382537b82ad2f8462b32)
+[2016-06-22 13:07:09,808] INFO     Site:1Kw1Su..b1qN - js/datatables/jszip.min.js (SHA512: e2c89c3d5cd8a324228fe43ef777e571f32321ad9b8272be92af7c06b547af41)
+[2016-06-22 13:07:09,808] INFO     Site:1Kw1Su..b1qN - js/datatables/dataTables.keyTable.min.js (SHA512: 5a6b02e70dfde271c1051c4d93bfcae5c703a21cdfefedb2a8d0a3114fb30f40)
+[2016-06-22 13:07:09,808] INFO     Site:1Kw1Su..b1qN - js/datatables/buttons.print.min.js (SHA512: 4d3cbad372d6cd0b16583610c417ba0ce86ab6d0ad34efb9da953afd9983babe)
+[2016-06-22 13:07:09,808] INFO     Site:1Kw1Su..b1qN - js/datatables/fixedHeader.bootstrap.min.css (SHA512: 537ea44e443bda6cc8f2239a964ebad065d14874e8ebf3d9a0ce66a4f27ffba9)
+[2016-06-22 13:07:09,808] INFO     Site:1Kw1Su..b1qN - js/datatables/buttons.bootstrap.min.css (SHA512: 170cf3d4e6b03874935be70a1cbaca0ef07481e8334b1e9769f8c0ea71d0751d)
+[2016-06-22 13:07:09,809] INFO     Site:1Kw1Su..b1qN - js/datatables/json/scroller-demo.json (SHA512: 1fad974eb2ea68e603df942cf37714022de13943e5b11e657e37dd2bb6175f78)
+[2016-06-22 13:07:09,809] INFO     Site:1Kw1Su..b1qN - js/colorpicker/docs.js (SHA512: 5fa456fb225be8e5881feac90c9d56ffaa5066159c0dd772f3922dd39b4c0d72)
+[2016-06-22 13:07:09,809] INFO     Site:1Kw1Su..b1qN - js/colorpicker/bootstrap-colorpicker.min.js (SHA512: 3361b383259a01a293d09e0a1efaf7967c6c1f9cdb736408b44aee95059b5ade)
+[2016-06-22 13:07:09,810] INFO     Site:1Kw1Su..b1qN - js/wizard/jquery.smartWizard.js (SHA512: ec578cfb6f4fac098b7725e3d2d6acb7cb8e156d24e1aacf722768d6c3bb2351)
+[2016-06-22 13:07:09,810] INFO     Site:1Kw1Su..b1qN - js/switchery/switchery.min.js (SHA512: d55464fe0e2e052b729387cc39dbf3854ad6830befbd76f7ad74f2fdafb6afa7)
+[2016-06-22 13:07:09,810] INFO     Site:1Kw1Su..b1qN - js/autocomplete/countries.js (SHA512: ebe873bf876ec3e4d126f99f1bf9756240b23cc08b21373fea7725c0cdfff410)
+[2016-06-22 13:07:09,810] INFO     Site:1Kw1Su..b1qN - js/autocomplete/jquery.autocomplete.js (SHA512: 74798780a87328b00db2758501319ee04f12a304e764fbefdc7698bf3d66b511)
+[2016-06-22 13:07:09,810] INFO     Site:1Kw1Su..b1qN - js/echart/green.js (SHA512: 0bd8ba3881f212139ef09933c0f7a77c8de76015d4a2f9b8e2f173a8bfcc59f3)
+[2016-06-22 13:07:09,814] INFO     Site:1Kw1Su..b1qN - js/echart/echarts-all.js (SHA512: fa997d4f4ce73f578bfc30fd4088d55295ef9596b2b4ededf43a7da49f391787)
+[2016-06-22 13:07:09,814] INFO     Site:1Kw1Su..b1qN - js/moment/moment.min.js (SHA512: 97b8e880c388e9959924463b95112315d42e9b8eb2dbe929a7f9a76c9c7b3be8)
+[2016-06-22 13:07:09,814] INFO     Site:1Kw1Su..b1qN - js/flot/jquery.flot.stack.js (SHA512: a42fc09ae3958d8489535ad369cfe7ef70315d39c09cc51f2ef3ce354c60e3bc)
+[2016-06-22 13:07:09,814] INFO     Site:1Kw1Su..b1qN - js/flot/jquery.flot.resize.js (SHA512: da4db9b7131e8d7e6c441d5b0cf08ac75002ebba7254f635e69784b5b70a29fd)
+[2016-06-22 13:07:09,814] INFO     Site:1Kw1Su..b1qN - js/flot/jquery.flot.orderBars.js (SHA512: f2e2f4f01dcf703da3e10acc60e0e8fb2a76ce7e9a1786400a80fecef81dd02f)
+[2016-06-22 13:07:09,814] INFO     Site:1Kw1Su..b1qN - js/flot/jquery.flot.pie.js (SHA512: bec1f9334452ba8cb399c16e4ba9122aca38e4aa85ec9ba10e9d5a899a07724e)
+[2016-06-22 13:07:09,815] INFO     Site:1Kw1Su..b1qN - js/flot/jquery.flot.spline.js (SHA512: 944dd22816d3076bf623142990cd806ba6932a57dcbe5a9fc47356ddd1e19c57)
+[2016-06-22 13:07:09,815] INFO     Site:1Kw1Su..b1qN - js/flot/curvedLines.js (SHA512: 13790da98dd98459e91f19cb8a09310bd327d6633c35398f8018646d3f447a0d)
+[2016-06-22 13:07:09,815] INFO     Site:1Kw1Su..b1qN - js/flot/date.js (SHA512: ad89eeb47e3d3f03c8b1d4389112ab4fc89d7f937fb5bd2164f6198e7f90348a)
+[2016-06-22 13:07:09,815] INFO     Site:1Kw1Su..b1qN - js/flot/jquery.flot.time.min.js (SHA512: e96f29b9dc6ab2dc3e8722b04c680cc4a7e5600a9be579149e00e5576f33bcac)
+[2016-06-22 13:07:09,815] INFO     Site:1Kw1Su..b1qN - js/flot/jquery.flot.tooltip.min.js (SHA512: f3bc1745ee607605bd6f0c968ccde3f64d4a3fcfabf3ba6d5d764c4ec822020e)
+[2016-06-22 13:07:09,815] INFO     Site:1Kw1Su..b1qN - js/flot/jquery.flot.js (SHA512: e4008ffe2065ae96c534ea513194a0d5527d5599afc7c42ab543b71e847e5a98)
+[2016-06-22 13:07:09,816] INFO     Site:1Kw1Su..b1qN - js/maps/jquery-jvectormap-world-mill-en.js (SHA512: c4ecf24048178cff73a66dd333af3aa4603ab457e47170f4a45e6584259af483)
+[2016-06-22 13:07:09,816] INFO     Site:1Kw1Su..b1qN - js/maps/us-unemployment.json (SHA512: 9944f001ee56b49fda8233dcead8d6d641e0df4b26bd550dd70b9f87e7a42f0d)
+[2016-06-22 13:07:09,816] INFO     Site:1Kw1Su..b1qN - js/maps/jquery-jvectormap-2.0.3.min.js (SHA512: 90c94a7ddb779858d2cd83f4c73ea8613b775f80f416e7f301e10b96cc6087d5)
+[2016-06-22 13:07:09,817] INFO     Site:1Kw1Su..b1qN - js/maps/jquery-jvectormap-us-aea-en.js (SHA512: 64f7603ef36f7936009c7c2352caab353097f25ab95cc028c98a1eefcd03d881)
+[2016-06-22 13:07:09,817] INFO     Site:1Kw1Su..b1qN - js/maps/gdp-data.js (SHA512: acf70e0be899371f2b6e2e53860a8494809ff8003e03f54885e7eae216c79d39)
+[2016-06-22 13:07:09,817] INFO     Site:1Kw1Su..b1qN - js/notify/pnotify.buttons.js (SHA512: a9a4c1843dbffc3db20c5836c3a2a4bbfc3330c01caff3e4d012be36bbe3fa41)
+[2016-06-22 13:07:09,817] INFO     Site:1Kw1Su..b1qN - js/notify/pnotify.nonblock.js (SHA512: 4033c1e00dc75f6f966dd6b6b4f893607c100201f08818ededc5ae3bd67d0b7b)
+[2016-06-22 13:07:09,817] INFO     Site:1Kw1Su..b1qN - js/notify/pnotify.core.js (SHA512: efa3adf707fb0242e47ed07b9f3b7a81a1f234a27be4411f47ccaeb3cef7c94b)
+[2016-06-22 13:07:09,818] INFO     Site:1Kw1Su..b1qN - js/sidebar/component.css (SHA512: d781e10993e20e6f594f12ff5f5e2c119eab8d5c68c206e584bdcfbd7026da74)
+[2016-06-22 13:07:09,818] INFO     Site:1Kw1Su..b1qN - js/sidebar/modernizr.custom.js (SHA512: 4702e180f24e3c612874fc940de2b3dd9b631bb0d46ff71d2be6fd749e55995c)
+[2016-06-22 13:07:09,818] INFO     Site:1Kw1Su..b1qN - js/sidebar/classie.js (SHA512: af0a8d2bdd0b1b4d5a45bc8bf586adcbc644a87aa5fe8287c63db2759b155efd)
+[2016-06-22 13:07:09,818] INFO     Site:1Kw1Su..b1qN - js/sidebar/sidebarEffects.js (SHA512: 41f00938f7a429e0b8a3e6f2742f66c17f82b2b0cb3e71221bf2521a963b7aa3)
+[2016-06-22 13:07:09,818] INFO     Site:1Kw1Su..b1qN - js/sparkline/jquery.sparkline.min.js (SHA512: dcf4552e6a0162e0436c21288e0e6a76677d52190f8b2a1ccd21588e72e115bd)
+[2016-06-22 13:07:09,819] INFO     Site:1Kw1Su..b1qN - js/cropping/cropper.min.js (SHA512: 910f5484f9f6b6ddd65b43adaebe89f27f2f1e93776e7d54dc6eadd7d7d56fad)
+[2016-06-22 13:07:09,819] INFO     Site:1Kw1Su..b1qN - js/cropping/main2.js (SHA512: 3b653498e0dc3f8f2e15af32d191db6deb94acd584f481b7e688e7f18bd4d55d)
+[2016-06-22 13:07:09,819] INFO     Site:1Kw1Su..b1qN - js/cropping/main.js (SHA512: 75bf9e2c68575c578c5b282ef30d175632a6721976dc47373f0ce1598362e1b8)
+[2016-06-22 13:07:09,819] INFO     Site:1Kw1Su..b1qN - js/icheck/icheck.min.js (SHA512: ed6ca5f20f8ea04d374e9a61c49af53d39046c8a010e162d0f9eed067a818b70)
+[2016-06-22 13:07:09,820] INFO     Site:1Kw1Su..b1qN - js/chartjs/chart.min.js (SHA512: 335222d72c7f08a2b7207e80aa861851e936b8c49bc37dd2d6ba818eb0df6feb)
+[2016-06-22 13:07:09,820] INFO     Site:1Kw1Su..b1qN - js/progressbar/bootstrap-progressbar.min.js (SHA512: 03ef16ba810124909076668eb5b6f2401f0a45ef09b76f18d0914b6bbd6264a1)
+[2016-06-22 13:07:09,820] INFO     Site:1Kw1Su..b1qN - js/datepicker/daterangepicker.js (SHA512: 9ee4ec9e5daa5c7b3d6f837a20cae5604aad1a65d271a878fe07300f8c89166b)
+[2016-06-22 13:07:09,820] INFO     Site:1Kw1Su..b1qN - js/select/select2.full.js (SHA512: 0b0b1486b5f393a14f47504e262112a3ea1b9b5d1d0d44672a2f734834be3bca)
+[2016-06-22 13:07:09,821] INFO     Site:1Kw1Su..b1qN - js/validator/validator.js (SHA512: 266928fd8bf9aadafa00a13307349f3ac2fcbe68872d7ae63bf90d2f93080dba)
+[2016-06-22 13:07:09,821] INFO     Site:1Kw1Su..b1qN - js/ion_range/ion.rangeSlider.min.js (SHA512: 97589ded13665375fee4b0e67c735d961a5d4fae3ec61151b1ddcf7594420381)
+[2016-06-22 13:07:09,821] INFO     Site:1Kw1Su..b1qN - js/editor/bootstrap-wysiwyg.js (SHA512: c68c7cf28471b9309b82ab7605eb19088f3752002396cc8c52859049f360db16)
+[2016-06-22 13:07:09,821] INFO     Site:1Kw1Su..b1qN - js/editor/external/jquery.hotkeys.js (SHA512: 2fbba549f6e476b44bc34757d866b11630d6e0c9787633093405413ff7153c70)
+[2016-06-22 13:07:09,821] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/run_prettify.js (SHA512: b40e271e3fb03b1812193b06874d21f7a207fe444f19ee7369714992623824fc)
+[2016-06-22 13:07:09,822] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-rd.js (SHA512: b2c92a729b4e08a24fd3b5b3a3cb39bcfc9265920747793c4c67c89f42d9141a)
+[2016-06-22 13:07:09,822] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-vhdl.js (SHA512: 96555650eb5d58255497a5e7a4d570055172c2df4e0182c8aa3dbd2fe35c80ae)
+[2016-06-22 13:07:09,822] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-clj.js (SHA512: 2cfe6fb79e507662e827362f7501da64505a4863040bd994af5179224a7c821a)
+[2016-06-22 13:07:09,822] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-scala.js (SHA512: cc02a5fdd4690a6c0ff2086a88427eb59784fc04959f454edd44b10c05e7f6b6)
+[2016-06-22 13:07:09,822] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-pascal.js (SHA512: 927eb922a242e03e3a1233e67fb1ac6990eed57af1105a16e229a9d853f19110)
+[2016-06-22 13:07:09,822] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-wiki.js (SHA512: 2eaea62c544af9040a868879909d66cad2c2c8fd9caeeef9cb11dcf136b51248)
+[2016-06-22 13:07:09,822] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-llvm.js (SHA512: 158e7e8889f9beb8646767f265cf761fb7fe00a8d8f9cd6ae35ea02f11bd9eb2)
+[2016-06-22 13:07:09,822] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-css.js (SHA512: b21b739648e19d904bd01b0bb1bb14cdc48c5d7da6da2070d91fa09947d92422)
+[2016-06-22 13:07:09,823] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/prettify.js (SHA512: 5c881a2bf8aaa8d7e22639570e2270d14412f02decce85149d07a40b2ed290db)
+[2016-06-22 13:07:09,823] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-proto.js (SHA512: 54efb104d0fd1db5454262f31714a6840a87f1d1a21bd2b9fe90f7f9ce2e3c95)
+[2016-06-22 13:07:09,823] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-erlang.js (SHA512: 3aabd03d752cb567093daa1ba5d7ac47c52ef05aca72ea05aa44e9bddebb8777)
+[2016-06-22 13:07:09,823] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-sql.js (SHA512: e76324cf2e75c0e6eff7da76d59e0303caad03e780e118d4cd59a1ee32193ba7)
+[2016-06-22 13:07:09,823] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-xq.js (SHA512: e5138e5cf99a429bf8226eedba8e40f117b7dcf2151df37115ca3e5ae0e88850)
+[2016-06-22 13:07:09,823] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-basic.js (SHA512: 33303952617bb4a1684d75fa5855433bef740d8d23379a933c0f0d1dc0fe706d)
+[2016-06-22 13:07:09,823] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-dart.js (SHA512: a3e02d7b3b4420049a6a7b61729170b31f96093b16ade5aa9fc236d60d6f64d1)
+[2016-06-22 13:07:09,824] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-mumps.js (SHA512: 4c31835b66f3e0463a5d0eb03949f9bed0c61c8d80c694b9d7ca0cb0855f1b43)
+[2016-06-22 13:07:09,824] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-tcl.js (SHA512: 5930699f3003d358b8f5a929535f4f00341b9c6dca666a3100ec6ddd3b8ad3af)
+[2016-06-22 13:07:09,824] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-go.js (SHA512: f6128e25d80952fa3ec4528a3b122916ceb52c33dd61d33fbc405d4ddbd052ac)
+[2016-06-22 13:07:09,824] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-apollo.js (SHA512: a6c59cbaed9b19802f3325480ac76335200c8337c8438c008a3a61100d3b6356)
+[2016-06-22 13:07:09,824] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-matlab.js (SHA512: b7425489063aa69bdfa29df8494052d9d031309ffb4be77bde722d3b5cf3bd61)
+[2016-06-22 13:07:09,824] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-lisp.js (SHA512: a570da032d1ac6d2179f68b66b86a8ec6cf24257d15d9d631a326e6f1d831c6c)
+[2016-06-22 13:07:09,824] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-lua.js (SHA512: 4eb4f03581433ef6f74348a54cffd56fc36017d6cd5d8e042452eeef65d30f4d)
+[2016-06-22 13:07:09,824] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-yaml.js (SHA512: 6379f0b60ad6cd1c0a88758a91a66712acd26f2d07fda24c96f0c82d6d611a54)
+[2016-06-22 13:07:09,825] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-tex.js (SHA512: 57343818a34c5f1553569f1bf52b95000c54661fc7ef3f55826f7779fac1952b)
+[2016-06-22 13:07:09,825] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-n.js (SHA512: 02da46386fd30e8e4b6663d21bded94441956d11f150437d5a4206df01341e3a)
+[2016-06-22 13:07:09,825] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-ml.js (SHA512: ad62db6a4b37512d0cb11b9f54759c6668313c99d0b463ad771dba503b8866a8)
+[2016-06-22 13:07:09,825] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-vb.js (SHA512: a20358e9db4189f15101570d948ae28790fe3dd5b6016d4e2230791bc166366a)
+[2016-06-22 13:07:09,825] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-hs.js (SHA512: e3c67b86ffdcadc86f82f80b1bf233ae0aa77d6f3200ef83d5dc0d3d59556cb9)
+[2016-06-22 13:07:09,825] INFO     Site:1Kw1Su..b1qN - js/editor/external/google-code-prettify/lang-r.js (SHA512: 4e58cb03117c0c8271653f5134bedef12abbff21736cf5fd809a78b05095201d)
+[2016-06-22 13:07:09,825] INFO     Site:1Kw1Su..b1qN - js/textarea/autosize.min.js (SHA512: 551f7bcf035957b38017709b5dfd8598bd8bbfcb32cde08b5d698d3386fc3fa6)
+[2016-06-22 13:07:09,826] INFO     Site:1Kw1Su..b1qN - js/parsley/parsley.min.js (SHA512: b8564ace84caf2a85f4a0b0d03f90b76c6285c45d2909745c727a6e9e33ba624)
+[2016-06-22 13:07:09,826] INFO     Site:1Kw1Su..b1qN - js/calendar/fullcalendar.min.js (SHA512: 4d551961e3b425de9ba3f3504645772f679c925d86c47995d0ac0a45e6b504c2)
+[2016-06-22 13:07:09,826] INFO     Site:1Kw1Su..b1qN - js/input_mask/jquery.inputmask.js (SHA512: 7e25e0a0871cc04eab86d8ccc5086577a66f88c4712162afc350452eb6403c45)
+[2016-06-22 13:07:09,826] INFO     Site:1Kw1Su..b1qN - js/easypie/jquery.easypiechart.min.js (SHA512: ec724ca591c5277d8c3a74a2cc2909d4eba51c29078a30293d287f952773c475)
+[2016-06-22 13:07:09,827] INFO     Site:1Kw1Su..b1qN - js/gauge/gauge_demo.js (SHA512: fc7cd4eb94dc908597c2f24959dfac00fac074da563d04fc3e748b7ed6e3db91)
+[2016-06-22 13:07:09,827] INFO     Site:1Kw1Su..b1qN - js/gauge/gauge.min.js (SHA512: 3ff188eb3bc663723f912a51ab9e71634d28ae9913f6ac5a143f5bdc45539e53)
+[2016-06-22 13:07:09,827] INFO     Site:1Kw1Su..b1qN - js/pace/pace.min.js (SHA512: 38308eb206ba526cee6eec184848681f26c71e60cc86bc3f64911ce53939df1a)
+[2016-06-22 13:07:09,827] INFO     Site:1Kw1Su..b1qN - js/tags/jquery.tagsinput.min.js (SHA512: 0fb17b162c7d8afd609bc6a67f595295700787449126de914da37efcb48eeb0b)
+[2016-06-22 13:07:09,827] INFO     Site:1Kw1Su..b1qN - js/dropzone/dropzone.js (SHA512: 86bdb799ddbe1855ab448e8c6203ee6553bbeb5fb012f98e8ad0969e6c2025e2)
+[2016-06-22 13:07:09,828] INFO     Site:1Kw1Su..b1qN - js/moris/raphael-min.js (SHA512: bc450ac436904cd172b1917bb209fd16190b4ccbfbfaad60eacf20223cd1413d)
+[2016-06-22 13:07:09,828] INFO     Site:1Kw1Su..b1qN - js/moris/example.js (SHA512: 751acea1d8131994d55b50eb841a7442897f6dd5f2a1b08e0f6c446c65e483b9)
+[2016-06-22 13:07:09,828] INFO     Site:1Kw1Su..b1qN - js/moris/morris.min.js (SHA512: f5e8b71a25174c93eb84d8106707f514d987dea2ea1eda1c5c04040e48d58d08)
+[2016-06-22 13:07:09,828] INFO     Site:1Kw1Su..b1qN - js/skycons/skycons.min.js (SHA512: 2ce93a9ad13648258d4ec840b4791da6bfa0fa367ac57ec83dcd585d5e3f8d0a)
+[2016-06-22 13:07:09,829] INFO     Site:1Kw1Su..b1qN - js/nicescroll/jquery.nicescroll.min.js (SHA512: 2eafc0e7ebf3ade25a067c4d6ffc6381bdaf42af9db01d7a49f63bac88cd3064)
+[2016-06-22 13:07:09,829] INFO     Site:1Kw1Su..b1qN - js/knob/jquery.knob.min.js (SHA512: 361459ccf77330e31fd34e5799de09a27c0f7edcf83def7d99155c15e44371d0)
+[2016-06-22 13:07:09,829] INFO     Site:1Kw1Su..b1qN - fonts/glyphicons-halflings-regular.svg (SHA512: c2e77eab327af1469097c31bc0daf820c066b0222059d8ff0ecebca974b62b75)
+[2016-06-22 13:07:09,830] INFO     Site:1Kw1Su..b1qN - fonts/glyphicons-halflings-regular.eot (SHA512: efc910c96b9f5c58ea11a84577cf60ae995503b1ee670bb7e7d4a413b7403769)
+[2016-06-22 13:07:09,830] INFO     Site:1Kw1Su..b1qN - fonts/glyphicons-halflings-regular.ttf (SHA512: 2b066e06506ef20d69698d37cdec552176ef3f64a1151a99a1d02d72d39ce12c)
+[2016-06-22 13:07:09,830] INFO     Site:1Kw1Su..b1qN - fonts/glyphicons-halflings-regular.woff2 (SHA512: 3811804f56ec3c82f0bef35de0a9250e546a1e357fb59e2784f610d638fec355)
+[2016-06-22 13:07:09,830] INFO     Site:1Kw1Su..b1qN - fonts/glyphicons-halflings-regular.woff (SHA512: f5366ab255afefe3fe06150e8509e776b5618ff50fe3e0fa8e4d715d645b1e44)
+[2016-06-22 13:07:09,830] INFO     Site:1Kw1Su..b1qN - fonts/scss/_stacked.scss (SHA512: 25492b5ff68a6d2c8f9ddcebbea75b1f14a7f47d599bea5d75e1f5fabdb5e3d4)
+[2016-06-22 13:07:09,831] INFO     Site:1Kw1Su..b1qN - fonts/scss/_list.scss (SHA512: d8b110a513c41ba8a00620143aa01b2bca59f21306b64e96cb82e4739ea88bed)
+[2016-06-22 13:07:09,831] INFO     Site:1Kw1Su..b1qN - fonts/scss/_bordered-pulled.scss (SHA512: 01095953afd37d399f8715168a67a2e60c23623f3ead4eb4360f8800e30cb957)
+[2016-06-22 13:07:09,831] INFO     Site:1Kw1Su..b1qN - fonts/scss/_core.scss (SHA512: 78b807ddc8ac17eebfd4f59eb923a7f8bac8e7b76bc83985d593382b1964f1d9)
+[2016-06-22 13:07:09,831] INFO     Site:1Kw1Su..b1qN - fonts/scss/_path.scss (SHA512: 9eaa7d29bb402c790bf1ad40ee849e26743d198bff3cfce0182c2320afd9d47f)
+[2016-06-22 13:07:09,831] INFO     Site:1Kw1Su..b1qN - fonts/scss/_spinning.scss (SHA512: 0fb5466cf27a0d8f4a21ab14b27c62431dbee2f587932a0f77060b956c3cb861)
+[2016-06-22 13:07:09,831] INFO     Site:1Kw1Su..b1qN - fonts/scss/_variables.scss (SHA512: b86626ea361115c6705283854f0065a03f8e71051cf641e9650ebf57ea74fc34)
+[2016-06-22 13:07:09,831] INFO     Site:1Kw1Su..b1qN - fonts/scss/_icons.scss (SHA512: e8d5d9c9093cd0b2ef0f9d9ea5ca8cc8de98c7cfcaca7e9d269be23d7bfa703f)
+[2016-06-22 13:07:09,832] INFO     Site:1Kw1Su..b1qN - fonts/scss/_rotated-flipped.scss (SHA512: 89a2a4009628540c88c9375c7f04bade6bb9b901575c12fe22d0031c10011f4c)
+[2016-06-22 13:07:09,832] INFO     Site:1Kw1Su..b1qN - fonts/scss/_fixed-width.scss (SHA512: 27392694f9bd1a671cd21517721a86c24725c51fcad4acaf09cb75a9e36bea34)
+[2016-06-22 13:07:09,832] INFO     Site:1Kw1Su..b1qN - fonts/scss/_animated.scss (SHA512: 5d8be64ce5136d02dcc2dc38341491c2cafca5633a8bbcf6bc6931da2ec95e2e)
+[2016-06-22 13:07:09,832] INFO     Site:1Kw1Su..b1qN - fonts/scss/_mixins.scss (SHA512: d1b8762d284b021502fbaf52ed48a0b2f84149dae1bf7b21468a75cf9c628db5)
+[2016-06-22 13:07:09,832] INFO     Site:1Kw1Su..b1qN - fonts/scss/_larger.scss (SHA512: ed6e63e7cdc9bae34810146c3dfd52b912f7b20219555994249f6f3dbd528673)
+[2016-06-22 13:07:09,832] INFO     Site:1Kw1Su..b1qN - fonts/scss/font-awesome.scss (SHA512: a64a2878822db68ce3b087bdc73a45d6d8afb5f830fb5907829f3e2524f3a98e)
+[2016-06-22 13:07:09,832] INFO     Site:1Kw1Su..b1qN - fonts/css/font-awesome.css (SHA512: 11a6a5760819b780cf28c6016b5e37bf15d0a8bab92c4dbd0c6ff43a855e9e8c)
+[2016-06-22 13:07:09,833] INFO     Site:1Kw1Su..b1qN - fonts/css/font-awesome.min.css (SHA512: f8be32cba15170319b5c9f663c6f0c4ffdd4083cf047d80f7b214d302b489eca)
+[2016-06-22 13:07:09,833] INFO     Site:1Kw1Su..b1qN - fonts/fonts/FontAwesome.otf (SHA512: 4c46571059f4e4cbe17afd1a046ef21f151f0776624ad04a108b67225cc24703)
+[2016-06-22 13:07:09,834] INFO     Site:1Kw1Su..b1qN - fonts/fonts/fontawesome-webfont.ttf (SHA512: 94a693ab2ce3c59f7a1d35b4bcc0fd08322dad24ce84203060ceceaf3dac44c4)
+[2016-06-22 13:07:09,834] INFO     Site:1Kw1Su..b1qN - fonts/fonts/fontawesome-webfont.woff2 (SHA512: 17222f02957b3335849e3fe277b17c21c4aaf0c76cd3da01a4ca39c035629695)
+[2016-06-22 13:07:09,834] INFO     Site:1Kw1Su..b1qN - fonts/fonts/fontawesome-webfont.woff (SHA512: 0b9bdac9f99cc9f9e95039213f6c265a39f53f880792015b43b224661f253da9)
+[2016-06-22 13:07:09,835] INFO     Site:1Kw1Su..b1qN - fonts/fonts/fontawesome-webfont.eot (SHA512: 47f19282f19cfc7a40a31c6af428f100c7011167858b46b415556fd9b65d48da)
+[2016-06-22 13:07:09,836] INFO     Site:1Kw1Su..b1qN - fonts/fonts/fontawesome-webfont.svg (SHA512: e13afecebf1c4519f325a589d0ec953c4b4e9418dc259e98496282ea7ee9b3c5)
+[2016-06-22 13:07:09,836] INFO     Site:1Kw1Su..b1qN - fonts/less/icons.less (SHA512: 36681dab950c4f3a370a5fb9c327a06e54e56aed8d690561850e1dbb7de6646d)
+[2016-06-22 13:07:09,837] INFO     Site:1Kw1Su..b1qN - fonts/less/spinning.less (SHA512: fd2dfd61dd8148214252fb9b33158d383aa6a4888d5db1bfdc3edc679674b6d2)
+[2016-06-22 13:07:09,837] INFO     Site:1Kw1Su..b1qN - fonts/less/list.less (SHA512: a13c48c3ab87469b5e720287f5f1720f0588bb45a0700968879cbba7ba008d07)
+[2016-06-22 13:07:09,837] INFO     Site:1Kw1Su..b1qN - fonts/less/larger.less (SHA512: 5ba01d3b3c917dfcc0bf20a283397e677d420addb83c74d29f81d77658105c8d)
+[2016-06-22 13:07:09,837] INFO     Site:1Kw1Su..b1qN - fonts/less/core.less (SHA512: 88b310200bdd13129f343e8f9b581e3a376fd5aec4c7a604815101774d31ca3f)
+[2016-06-22 13:07:09,837] INFO     Site:1Kw1Su..b1qN - fonts/less/path.less (SHA512: 5aedb307ec6cf9bb8f83a5654f6da30274e510640f3731415145d3669ebb7650)
+[2016-06-22 13:07:09,837] INFO     Site:1Kw1Su..b1qN - fonts/less/animated.less (SHA512: 285de8b339ae691c8c95230462b8760949850ecbd1a4f8b98b0f85347f1187ca)
+[2016-06-22 13:07:09,837] INFO     Site:1Kw1Su..b1qN - fonts/less/font-awesome.less (SHA512: e4e4e36f349e9cc0c6aecaac8ffbf8339ddd05c64ae3d3109f19783ea94a04b2)
+[2016-06-22 13:07:09,837] INFO     Site:1Kw1Su..b1qN - fonts/less/stacked.less (SHA512: 0f07e1507d430c8ade9cbf2460c8148d69fdce6b5b7c659247953e0e0235c512)
+[2016-06-22 13:07:09,837] INFO     Site:1Kw1Su..b1qN - fonts/less/variables.less (SHA512: 4a9e14d4ac1f9f1e0b741cefc0c98e763b81abb3360f8fbe08c1d7d3261ecdac)
+[2016-06-22 13:07:09,838] INFO     Site:1Kw1Su..b1qN - fonts/less/mixins.less (SHA512: 365476ecd1a9bcb0f10172c01fe855bbcb2aa03b67ff670d76e352ab880ac860)
+[2016-06-22 13:07:09,838] INFO     Site:1Kw1Su..b1qN - fonts/less/fixed-width.less (SHA512: b7bf0de65815043012e95e8b1bac895e85c9a07c047c99ba4f5c132a00ace5ae)
+[2016-06-22 13:07:09,838] INFO     Site:1Kw1Su..b1qN - fonts/less/rotated-flipped.less (SHA512: a906cde529bac0abc118201866c6e81ceed53ea5859795ebe87e52e1d04f1c32)
+[2016-06-22 13:07:09,838] INFO     Site:1Kw1Su..b1qN - fonts/less/bordered-pulled.less (SHA512: 666a33697b525aa25d773c94360b96dd6ff833dedf99178af931b040aa93239c)
+[2016-06-22 13:07:09,838] INFO     Site:1Kw1Su..b1qN - less/custom.css (SHA512: 91f3786be7190d76b2807bf6eb18ea350f9a6f3e8d7714ba7b847e5905850f5f)
+[2016-06-22 13:07:09,839] INFO     Site:1Kw1Su..b1qN - images/prod2.jpg (SHA512: 99fa42c4cd9f12b1707cf2a5ca798c264aaf89dcacaedebff122094ef947fcc1)
+[2016-06-22 13:07:09,839] INFO     Site:1Kw1Su..b1qN - images/favicon.ico (SHA512: c7e267d4ad328344709a326855f2101ad2696e2d3b64da533667ce01ecd14870)
+[2016-06-22 13:07:09,839] INFO     Site:1Kw1Su..b1qN - images/back_disabled.png (SHA512: 71cc68605026df75b7f20b298c756b2b1afbfc814265228a47d2c5581ceb2129)
+[2016-06-22 13:07:09,839] INFO     Site:1Kw1Su..b1qN - images/mastercard.png (SHA512: ac0f9ddf62e8c7b26461f04e9148463102c62d5dc5cd95f695ab001040eb07e9)
+[2016-06-22 13:07:09,839] INFO     Site:1Kw1Su..b1qN - images/icons.png (SHA512: d58696b16cb355f1e13c15208087da5f4437f316de44bf5c56eac91d022399b6)
+[2016-06-22 13:07:09,839] INFO     Site:1Kw1Su..b1qN - images/paypal2.png (SHA512: b5af0c8a1c74d67d605ca761a9ea8bcb8ad7816d90d3c6081a728172389f7e83)
+[2016-06-22 13:07:09,840] INFO     Site:1Kw1Su..b1qN - images/prod1.jpg (SHA512: bdb8547f92c4da26f6289f0a77e0473a812da04406d149bb60f283bcd00b2d0c)
+[2016-06-22 13:07:09,840] INFO     Site:1Kw1Su..b1qN - images/back_enabled_hover.png (SHA512: 34b7a927224af301ea1ac85b0500f9141eb080ccd46b8a19ce0d05ad635d6de3)
+[2016-06-22 13:07:09,840] INFO     Site:1Kw1Su..b1qN - images/4.jpg (SHA512: 0e3c5372fe442e2c0ce4ce4066ec822fe49dc4ed852244c803fb29c5d637a665)
+[2016-06-22 13:07:09,840] INFO     Site:1Kw1Su..b1qN - images/sprite-skin-modern.png (SHA512: 80502e9445f7a6f218f62914aa1911547b4fa6eafb4f5d420fc83e848e7d5ed2)
+[2016-06-22 13:07:09,841] INFO     Site:1Kw1Su..b1qN - images/user.png (SHA512: c85304d65e2b5a6c91cb93270f1b826a34a46b057955875cf029d18ea6f5ca25)
+[2016-06-22 13:07:09,841] INFO     Site:1Kw1Su..b1qN - images/sprite-skin-simple.png (SHA512: d7c70849abb90201ad1169324515c77886ee6072853f348b0d39c46e659185f4)
+[2016-06-22 13:07:09,841] INFO     Site:1Kw1Su..b1qN - images/picture2.jpg (SHA512: 6b8e57d0dfd7165fdad9a1c811c53942e7b23c9ccc95bd0d9e283b98b1d61ac2)
+[2016-06-22 13:07:09,841] INFO     Site:1Kw1Su..b1qN - images/forward_enabled_hover.png (SHA512: dd2105efaac2a08275a45770701a71eb036f46591bfdbbb8c8b54907bf8cdef8)
+[2016-06-22 13:07:09,841] INFO     Site:1Kw1Su..b1qN - images/american-express.png (SHA512: 7317142b8ec145013157b07871f2d093af3fd13f3d2cc2e5b7f7be82011b64af)
+[2016-06-22 13:07:09,841] INFO     Site:1Kw1Su..b1qN - images/sprite-skin-flat.png (SHA512: a582c87756815374056b810ba50a10d875d110a66e74dc1b8504c8160b2c3371)
+[2016-06-22 13:07:09,841] INFO     Site:1Kw1Su..b1qN - images/visa.png (SHA512: bbee0fb6aadfca2c85bde05394352f6870d6d1be8dea412103cf315b9360d549)
+[2016-06-22 13:07:09,842] INFO     Site:1Kw1Su..b1qN - images/prod4.jpg (SHA512: 28d57728f000d25956a4a54a734d2d8bd836b63abdb819cc9f7d6c3d511a5872)
+[2016-06-22 13:07:09,842] INFO     Site:1Kw1Su..b1qN - images/forward_enabled.png (SHA512: 58a9cdf84782163891515f8baef3a09b74e007399220dc8c23b19375bb1af728)
+[2016-06-22 13:07:09,842] INFO     Site:1Kw1Su..b1qN - images/picture.jpg (SHA512: 8bab7785951d0d068e47e379ed0ff378632f9b1aa31b8bec792d76a94982b823)
+[2016-06-22 13:07:09,842] INFO     Site:1Kw1Su..b1qN - images/picture-2.jpg (SHA512: cb8d485c506c666d7362d138affd991546c924babf4f609e70d02208b9b1e0f4)
+[2016-06-22 13:07:09,842] INFO     Site:1Kw1Su..b1qN - images/back_enabled.png (SHA512: dff31a2e2f27d3736d7c5ee2254804a0fe59b4bd78c3ff102b7d3e7ff037aea6)
+[2016-06-22 13:07:09,843] INFO     Site:1Kw1Su..b1qN - images/prod5.jpg (SHA512: fa7d5cd513910908fe4e306ec935badf1f5f6bcf7ff467a3b32c495285358280)
+[2016-06-22 13:07:09,843] INFO     Site:1Kw1Su..b1qN - images/loading.gif (SHA512: c0c239e09cac6263f017ca2d9c7e16f5f40a6963f2c5ac7c2574856c055471cd)
+[2016-06-22 13:07:09,843] INFO     Site:1Kw1Su..b1qN - images/img.jpg (SHA512: 09427edd681d3083aa6723591e723907a603847d5022dd91a8ef11969abbee90)
+[2016-06-22 13:07:09,843] INFO     Site:1Kw1Su..b1qN - images/data.png (SHA512: c2601ff9a54237e47a44bbb7e83dff06b00784e5d64a369b7f6be4f9b3e829ab)
+[2016-06-22 13:07:09,843] INFO     Site:1Kw1Su..b1qN - images/prod3.jpg (SHA512: 8724fe39882ca22f534e3efef9e11480594e94187b76ea0d493575a48e496f44)
+[2016-06-22 13:07:09,844] INFO     Site:1Kw1Su..b1qN - images/1.png (SHA512: 264c6008f61ba108e3633537cba98395062794e6aaa874cff147a5ad51000e8b)
+[2016-06-22 13:07:09,844] INFO     Site:1Kw1Su..b1qN - images/sprite-skin-nice.png (SHA512: 2000743e81eb77dd2a7f582c901ab9ed49f149ecd78665acf52a3c481d4103b0)
+[2016-06-22 13:07:09,844] INFO     Site:1Kw1Su..b1qN - images/forward_disabled.png (SHA512: 7f3ee9de1cc3fcfa7e30acd1286b7431fd3e02c9714fc631d938aec9b443bc67)
+[2016-06-22 13:07:09,845] INFO     Site:1Kw1Su..b1qN - images/bootstrap-colorpicker/hue.png (SHA512: 3e74e1aa966e281fd47800a827e5704376b9de89bcad7312eed7c3089a94ac84)
+[2016-06-22 13:07:09,845] INFO     Site:1Kw1Su..b1qN - images/bootstrap-colorpicker/alpha-horizontal.png (SHA512: fe5faf1e260d8bcc305b26698653674acace09f14b24ab9343f4648f83167535)
+[2016-06-22 13:07:09,845] INFO     Site:1Kw1Su..b1qN - images/bootstrap-colorpicker/alpha.png (SHA512: 89bfb73183b07299b73c204c17e7892a3cbbb7874b7db95d362d77fcd7ff33ba)
+[2016-06-22 13:07:09,845] INFO     Site:1Kw1Su..b1qN - images/bootstrap-colorpicker/saturation.png (SHA512: 009d6e9bc6f7b0711cd42c0d19eec18198c167a9a886167ef8c16d339060b71b)
+[2016-06-22 13:07:09,845] INFO     Site:1Kw1Su..b1qN - images/bootstrap-colorpicker/hue-horizontal.png (SHA512: 2d2a04145c196386803dafbd24dd5d6860a855d1e5bf76b889db753bdb59a477)
+[2016-06-22 13:07:09,846] DEBUG    Site:1Kw1Su..b1qN Changed files: ['content.json']
+[2016-06-22 13:07:09,846] INFO     Site:1Kw1Su..b1qN Adding timestamp and sha512sums to new content.json...
+[2016-06-22 13:07:09,846] INFO     Site:1Kw1Su..b1qN Verifying private key...
+[2016-06-22 13:07:09,851] INFO     Site:1Kw1Su..b1qN Correct 1Kw1SuE84uCpUCtY7oR5f6xbZw3P8eb1qN in valid signers: [u'1Kw1SuE84uCpUCtY7oR5f6xbZw3P8eb1qN']
+[2016-06-22 13:07:09,856] INFO     Site:1Kw1Su..b1qN Signing content.json...
+[2016-06-22 13:07:09,884] INFO     Site:1Kw1Su..b1qN Saving to content.json...
+[2016-06-22 13:07:09,889] INFO     Site:1Kw1Su..b1qN File content.json signed!
+[2016-06-22 13:07:09,889] INFO     - Loading site...
+[2016-06-22 13:07:09,889] INFO     - Creating FileServer....
+[2016-06-22 13:07:09,889] DEBUG    FileServer Binding to: *:15441, (msgpack: 0.4.6), supported crypt: ['tls-rsa', 'tls-rsa']
+[2016-06-22 13:07:09,889] INFO     FileServer StreamServer bind error, must be running already: [Errno 98] Address already in use: ('', 15441)
+[2016-06-22 13:07:09,889] DEBUG    FileServer Stopped.
+[2016-06-22 13:07:09,891] INFO     - Sending siteReload
+[2016-06-22 13:07:09,891] DEBUG    FileServer Conn# 1 127.0.0.1    [?] > Connecting...
+[2016-06-22 13:07:09,891] DEBUG    FileServer Conn# 2 127.0.0.1    [?] > Incoming connection...
+[2016-06-22 13:07:09,892] DEBUG    FileServer Conn# 2 127.0.0.1    [v2] > Crypt in connection using: tls-rsa (server side: True)...
+[2016-06-22 13:07:09,892] DEBUG    FileServer Conn# 1 127.0.0.1    [v2] > Crypt out connection using: tls-rsa (server side: False)...
+[2016-06-22 13:07:09,909] INFO     - {'to': 1, 'cmd': 'response', 'ok': 'Reloaded'}
+[2016-06-22 13:07:09,909] INFO     - Sending sitePublish
+[2016-06-22 13:07:09,909] INFO     Site:1Kw1Su..b1qN Publishing content.json to 8/0 peers (connected: 0)...
+[2016-06-22 13:07:09,909] INFO     - {'to': 2, 'cmd': 'response', 'ok': 'Successfuly published to 0 peers'}
+[2016-06-22 13:07:09,910] INFO     - Done.
+[2016-06-22 13:07:09,910] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-06-22 13:07:09] "POST / HTTP/1.1" 200 227 0.141020
+[2016-06-22 13:07:10,663] DEBUG    Site:1Kw1Su..b1qN Small number of peers detected...query all of peers using pex
+[2016-06-22 13:07:10,663] DEBUG    Site:1Kw1Su..b1qN Queried pex from 0 peers got 0 new peers.
+[2016-06-22 13:07:12,665] DEBUG    Site:1Kw1Su..b1qN Waiting for peers...
+[2016-06-22 13:07:13,017] DEBUG    - UDP SSDP M-SEARCH send error using ip 192.168.1.12: timed out
+[2016-06-22 13:07:13,017] DEBUG    - No IGD response
+[2016-06-22 13:07:13,017] DEBUG    - Trying using local ip: 192.168.1.12
+[2016-06-22 13:07:18,021] DEBUG    - UDP SSDP M-SEARCH send error using ip 192.168.1.12: timed out
+[2016-06-22 13:07:18,021] DEBUG    - No IGD response
+[2016-06-22 13:07:18,022] DEBUG    - Trying using local ip: 192.168.1.12
+[2016-06-22 13:07:18,666] DEBUG    Site:1Kw1Su..b1qN Waiting for peers...
+[2016-06-22 13:07:23,024] DEBUG    - UDP SSDP M-SEARCH send error using ip 192.168.1.12: timed out
+[2016-06-22 13:07:23,024] DEBUG    - No IGD response
+[2016-06-22 13:07:23,028] INFO     FileServer Checking port 15441 using portchecker.co...
+[2016-06-22 13:07:23,492] INFO     FileServer [BAD :(] Port closed: Port 15441 is closed.
+[2016-06-22 13:07:23,492] INFO     FileServer Checking port 15441 using canyouseeme.org...
+[2016-06-22 13:07:23,990] INFO     FileServer [BAD :(] Port closed: Error: I could not see your service on 62.101.36.14 on port (15441) Reason: Connection refused
+[2016-06-22 13:07:23,991] INFO     FileServer Upnp mapping failed :( Please forward port 15441 on your router to your ipaddress
+[2016-06-22 13:07:25,667] DEBUG    Site:1Kw1Su..b1qN Waiting for peers...
+[2016-06-22 13:07:26,886] ERROR    - Unhandled exception
+None
+[2016-06-22 13:07:26,886] DEBUG    Ui.UiServer Stopping...
+[2016-06-22 13:07:26,886] DEBUG    Ui.UiServer Socket closed: 0
+[2016-06-22 13:07:27,192] DEBUG    Ui.UiServer Stopped.
+[2016-06-22 13:07:33,672] DEBUG    Site:1Kw1Su..b1qN Waiting for peers...
+[2016-06-22 13:07:42,675] DEBUG    Site:1Kw1Su..b1qN Waiting for peers...
+[2016-06-22 13:07:52,676] DEBUG    Site:1Kw1Su..b1qN Waiting for peers...
+[2016-06-22 13:08:03,685] DEBUG    Site:1Kw1Su..b1qN Waiting for peers...
+[2016-06-22 13:08:15,691] DEBUG    Site:1Kw1Su..b1qN Waiting for peers...
+[2016-06-22 13:08:28,695] DEBUG    Site:1Kw1Su..b1qN Waiting for peers...
+[2016-06-22 13:08:42,697] DEBUG    Site:1Kw1Su..b1qN Waiting for peers...
+[2016-06-22 13:08:42,697] DEBUG    Site:1Kw1Su..b1qN Try to get listModifications from peers: [] since: 1466507229.85
+[2016-06-22 13:08:42,798] DEBUG    Site:1Kw1Su..b1qN Queried listModifications from: []
+[2016-06-22 13:08:42,811] DEBUG    Site:1Kw1Su..b1qN Checked files in 0.01s... Found bad files: 0, Quick:True
+[2016-06-22 13:09:39,101] DEBUG    Site:1Kw1Su..b1qN Announced types ['ip4'] in mode update to 1 trackers in 0.505s, errors: [], slow: []
+[2016-06-22 13:09:39,101] DEBUG    Site:1Kw1Su..b1qN Need connections: 0, Current: 0, Total: 0
+[2016-06-22 13:09:41,897] DEBUG    Site:1Kw1Su..b1qN Need connections: 0, Current: 0, Total: 0
+[2016-06-22 13:11:22,667] ERROR    - Unhandled exception
+None
+[2016-06-22 13:11:22,667] DEBUG    Ui.UiServer Stopping...
+[2016-06-22 13:11:22,668] DEBUG    Ui.UiServer Socket closed: 0
+[2016-06-22 13:11:23,249] ERROR    - Unhandled exception
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/gevent/greenlet.py", line 327, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "src/Ui/UiServer.py", line 216, in stop
+    self.server.socket.close()
+AttributeError: 'WSGIServer' object has no attribute 'socket'
+[2016-06-22 13:11:25,083] ERROR    - Unhandled exception
+None
+[2016-06-22 13:11:25,084] DEBUG    Ui.UiServer Stopping...
+[2016-06-22 13:11:25,084] DEBUG    Ui.UiServer Socket closed: 0
+[2016-06-22 13:11:25,425] ERROR    - Unhandled exception
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/gevent/greenlet.py", line 327, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "src/Ui/UiServer.py", line 216, in stop
+    self.server.socket.close()
+AttributeError: 'WSGIServer' object has no attribute 'socket'
+[2016-06-22 13:11:25,538] ERROR    - Unhandled exception
+None
+[2016-06-22 13:11:25,538] DEBUG    Ui.UiServer Stopping...
+[2016-06-22 13:11:25,538] DEBUG    Ui.UiServer Socket closed: 0
+[2016-06-22 13:11:25,803] ERROR    - Unhandled exception
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/gevent/greenlet.py", line 327, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "src/Ui/UiServer.py", line 216, in stop
+    self.server.socket.close()
+AttributeError: 'WSGIServer' object has no attribute 'socket'
+[2016-06-22 13:11:25,959] ERROR    - Unhandled exception
+None
+[2016-06-22 13:11:25,960] DEBUG    Ui.UiServer Stopping...
+[2016-06-22 13:11:25,960] DEBUG    Ui.UiServer Socket closed: 0
+[2016-06-22 13:11:26,326] ERROR    - Unhandled exception
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/gevent/greenlet.py", line 327, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "src/Ui/UiServer.py", line 216, in stop
+    self.server.socket.close()
+AttributeError: 'WSGIServer' object has no attribute 'socket'
+[2016-06-22 13:11:26,460] ERROR    - Unhandled exception
+None
+[2016-06-22 13:11:26,460] DEBUG    Ui.UiServer Stopping...
+[2016-06-22 13:11:26,460] DEBUG    Ui.UiServer Socket closed: 0
+[2016-06-22 13:11:26,491] ERROR    - Unhandled exception
+None
+[2016-06-22 13:11:26,492] DEBUG    Ui.UiServer Stopping...
+[2016-06-22 13:11:26,492] DEBUG    Ui.UiServer Socket closed: 0
+[2016-06-22 13:11:26,525] ERROR    - Unhandled exception
+None
+[2016-06-22 13:11:26,526] DEBUG    Ui.UiServer Stopping...
+[2016-06-22 13:11:26,526] DEBUG    Ui.UiServer Socket closed: 0
+[2016-06-22 13:11:26,555] ERROR    - Unhandled exception
+None
+[2016-06-22 13:11:26,555] DEBUG    Ui.UiServer Stopping...
+[2016-06-22 13:11:26,556] DEBUG    Ui.UiServer Socket closed: 0
+[2016-06-22 13:11:26,825] ERROR    - Unhandled exception
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/gevent/greenlet.py", line 327, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "src/Ui/UiServer.py", line 216, in stop
+    self.server.socket.close()
+AttributeError: 'WSGIServer' object has no attribute 'socket'
+[2016-06-22 13:11:26,959] ERROR    - Unhandled exception
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/gevent/greenlet.py", line 327, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "src/Ui/UiServer.py", line 216, in stop
+    self.server.socket.close()
+AttributeError: 'WSGIServer' object has no attribute 'socket'
+[2016-06-22 13:11:27,093] ERROR    - Unhandled exception
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/gevent/greenlet.py", line 327, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "src/Ui/UiServer.py", line 216, in stop
+    self.server.socket.close()
+AttributeError: 'WSGIServer' object has no attribute 'socket'
+[2016-06-22 13:11:27,227] ERROR    - Unhandled exception
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/gevent/greenlet.py", line 327, in run
+    result = self._run(*self.args, **self.kwargs)
+  File "src/Ui/UiServer.py", line 216, in stop
+    self.server.socket.close()
+AttributeError: 'WSGIServer' object has no attribute 'socket'
+[2016-06-22 13:11:27,243] ERROR    - Unhandled exception
+None
+[2016-06-22 13:11:27,243] DEBUG    Ui.UiServer Stopping...
+[2016-06-22 13:11:27,243] DEBUG    Ui.UiServer Socket closed: 0
+[2016-06-22 13:11:27,273] ERROR    - Unhandled exception
+None
+[2016-06-22 13:11:27,274] DEBUG    Ui.UiServer Stopping...
+[2016-06-22 13:11:27,274] DEBUG    Ui.UiServer Socket closed: 0
+[2016-06-22 13:11:27,303] ERROR    - Unhandled exception
+None
+[2016-06-22 13:11:27,303] DEBUG    Ui.UiServer Stopping...
+[2016-06-22 13:11:27,303] DEBUG    Ui.UiServer Socket closed: 0
+[2016-06-22 13:11:27,333] ERROR    - Unhandled exception
+None
+[2016-06-22 13:11:27,333] DEBUG    Ui.UiServer Stopping...
+[2016-06-22 13:11:27,333] DEBUG    Ui.UiServer Socket closed: 0
