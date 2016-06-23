@@ -469,6 +469,9 @@ def get_transaction_history(postparams):
         except:
             Error_Msg.error_response("invalid_hex_string")
 
+        if not len(postparams['params'][0]) == 42: 
+            Error_Msg.error_response("invalid_wallet_addr")
+
         try:
             phantomdb = Phantom_Db.PhantomDb()
             res = phantomdb.get_transaction_hist(postparams['params'][0])
@@ -488,6 +491,9 @@ def store_address_book(postparams):
         except:
             Error_Msg.error_response("invalid_hex_string")
 
+        if not len(postparams['params'][0]) == 42: 
+            Error_Msg.error_response("invalid_wallet_addr")
+
         if len(postparams['params'][1]) > 0:
             try:
                 phantomdb = Phantom_Db.PhantomDb()
@@ -496,6 +502,27 @@ def store_address_book(postparams):
                     return {"jsonrpc": "2.0", "id": "1", "result": ["true"]}
             except Exception as e:
                 return Error_Msg.error_response("err_store_addrbook")
+    return Error_Msg.error_response("missing_params")
+
+
+def del_address_book(postparams):
+    
+    if len(postparams['params']) == 1:
+        try:
+            int(postparams['params'][0], 16)
+        except:
+            Error_Msg.error_response("invalid_hex_string")
+
+        if not len(postparams['params'][0]) == 42:
+            Error_Msg.error_response("invalid_wallet_addr")
+
+        try:
+            phantomdb = Phantom_Db.PhantomDb()
+            res = phantomdb.del_address_book(postparams['params'][0])
+            if res:
+                return {"jsonrpc": "2.0", "id": "1", "result": ["true"]}
+        except Exception as e:
+            return Error_Msg.error_response("err_del_addrbook")
     return Error_Msg.error_response("missing_params")
 
 

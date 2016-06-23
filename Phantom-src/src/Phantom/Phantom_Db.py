@@ -79,10 +79,20 @@ class PhantomDb(object):
             return False
         return True
 
+    def del_address_book(self, to_account):
+        
+        try:
+            sql = "DELETE FROM address_book WHERE toaddress = \"%s\"" % (to_account)
+            self.c.execute(sql)
+            self.conn_phantom.commit()
+        except Exception as e:
+            return False
+        return True
+        
     def store_address_book(self, to_account, alias):
 
         try:
-            sql = "INSERT OR IGNORE INTO address_book (toaddress, alias) VALUES (\"%s\", \"%s\")" % (to_account, alias)
+            sql = "INSERT OR REPLACE INTO address_book (toaddress, alias) VALUES (\"%s\", \"%s\")" % (to_account, alias)
             self.c.execute(sql)
             self.conn_phantom.commit()
         except Exception as e:
