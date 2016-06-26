@@ -538,6 +538,39 @@ def get_address_book(postparams):
         except Exception as e:
             return Error_Msg.error_response("err_addr_book")
     return Error_Msg.error_response("no_params_allowed")
+
+
+def get_balance_by_block(postparams):
+    
+    if len(postparams['params']) == 2:
+
+        try:
+            int(postparams['params'][0], 16)
+        except:
+            Error_Msg.error_response("invalid_hex_string")
+
+        if not len(postparams['params'][0]) == 42:
+            Error_Msg.error_response("invalid_wallet_addr")
+
+        if type(postparams['params'][1]) is not list:
+            return Error_Msg.error_response("missing_params")
+
+        try:
+            phantomdb = Phantom_Db.PhantomDb()
+            results = []
+
+            for block_number in postparams['params'][1]:
+                if type(postparams['params'][1][0]) is not int:
+                    Error_Msg.error_response("invalid_block_number")
+
+                res = phantomdb.get_balance_by_block(postparams['params'][0],block_number)
+                if res and len(res) >= 1:
+                    results.append(res)
+        except Exception as e:
+            return Error_Msg.error_response("err_get_balance_block")
+
+        return {"jsonrpc": "2.0", "id": "1", "result": results}
+    return Error_Msg.error_response("missing_params")
   
 
 def run(postdata):
