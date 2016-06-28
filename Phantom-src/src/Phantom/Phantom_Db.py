@@ -1,5 +1,4 @@
 import sqlite3
-import Error_Msg
 from Shift_IPC import IPC_Client
 from time import sleep
 

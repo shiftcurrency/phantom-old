@@ -102,8 +102,10 @@ class UiServer:
             ''' Create an instance of async '''
             async = AsyncResult()
 
+            self.phantom_ui = Phantom_Ui.Phantom_Ui()
+
             ''' Wait for the IPC call to finish without blocking further processing. '''
-            async.set(Phantom_Ui.run(env['wsgi.input'].read()))
+            async.set(self.phantom_ui.run(env['wsgi.input'].read()))
             ipc_response = async.get()
             response_string = json.dumps(ipc_response)
 
@@ -142,7 +144,10 @@ class UiServer:
 
     # Bind and run the server
     def start(self):
+
         handler = self.handleRequest
+        self.phantom_ui = Phantom_Ui.Phantom_Ui()
+        res = self.phantom_ui.create_static_nodefile()
 
         """ Start gshift. When phantom recieves ctrl+c gshift will also recieve this signal."""
         if not self.gshift_process:

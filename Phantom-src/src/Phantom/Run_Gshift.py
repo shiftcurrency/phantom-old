@@ -14,11 +14,11 @@ class Run_Gshift:
         self.log.info("Starting gshift...")
         try:
             if platform == 'win':
-                command = ['gshift.exe', '--shh']
-                self.process = Popen(command, stdout=PIPE, stderr=PIPE, shell=False)
+                command = ['gshift.exe', '--shh', '--bootnodes static_nodes.json']
+                self.process = Popen(command, stdout=PIPE, stderr=PIPE, shell=True)
             else:
-                command = ['gshift', '--shh']
-                self.process = Popen(command, stdout=PIPE, stderr=PIPE, shell=False)
+                command = ['gshift', '--shh', '--bootnodes static_nodes.json']
+                self.process = Popen(command, stdout=PIPE, stderr=PIPE, shell=True)
 
                 # Terminate on exit
                 atexit.register(self.stop)

@@ -122,6 +122,43 @@ class Client(object):
         return request
 
 
+    def create_static_nodefile(self):
+
+        if not os.path.exists(self.get_default_node_path()):
+
+            static_node_string = '["enode://4c8635f108dae8a997697d9c22ddca36969e7f9bc57d9fc01102d7e7d9633231331ae7f7307aceb1aa19130b5bdd4afe397db616c76e7ffc1c69302ba0d09a39@45.32.182.61:53900",' + \
+                                  '"enode://80d0ce5c992f8cc83cdbfd6d832b2dff2e82fee1f8b58762cd858eaacfcc99d5a8a837648bd28a2d508cc1da305c15cf4e531546034ed1a8ccd07ff51a71abd6@108.61.177.0:53900",' + \
+                                  '"enode://f019da062a635a4e9e89ec93edc7ca11c06fdfec0574f1cb001126a82dc6ffa6ca05f924a683934ff5d01fc5d4b0ac9507349a945c97121b2a355d39b1781cd7@104.238.157.156:53900"]'
+            filepath = self.get_default_node_path()
+            try:
+                with open(filepath, 'w') as x:
+                    x.write(static_node_string)
+                x.close()
+            except Exception as e:
+                print e
+                return False
+        return True
+
+
+    def get_default_node_path(self):
+
+        ''' Return the path of the static node file depending on OS '''
+
+        if sys.platform == 'darwin':
+            node_path = os.path.expanduser("~/Library/gshift/static-nodes.json")
+        elif sys.platform == 'linux2':
+            node_path = os.path.expanduser("~/.gshift/static-nodes.json")
+        elif sys.platform == 'win32':
+            node_path = ""
+        else:
+            raise ValueError(
+                "Unsupported platform.  Only darwin/linux2/win32 are "
+                "supported.  You must specify the ipc_path"
+            )   
+        return node_path
+
+
+
     def get_default_ipc_path(self):
 
         ''' Return the path of shift IPC file depending on OS '''
@@ -148,7 +185,7 @@ class Client(object):
         elif sys.platform == 'linux2':
             shiftdb = os.path.expanduser("~/.gshift/shift.db")
         elif sys.platform == 'win32':
-            shiftdb = os.path.expanduser("\~\AppData\Roaming\gshift\shift.db")
+            shiftdb = os.path.expanduser("\\~\AppData\Roaming\gshift\shift.db")
         else:
             raise ValueError(
                 "Unsupported platform.  Only darwin/linux2/win32 are "
