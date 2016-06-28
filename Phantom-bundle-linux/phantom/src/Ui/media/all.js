@@ -938,6 +938,7 @@ jQuery.extend( jQuery.easing,
     };
 
     Wrapper.prototype.displayOpenerDialog = function() {
+      return;
       var elem;
       elem = $("<div class='opener-overlay'><div class='dialog'>You have opened this page by clicking on a link. Please, confirm if you want to load this site.<a href='?' target='_blank' class='button'>Open site</a></div></div>");
       elem.find('a').on("click", function() {

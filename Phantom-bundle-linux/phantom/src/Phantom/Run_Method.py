@@ -95,8 +95,16 @@ def execute(postparams):
         res = Phantom_Ui.store_address_book(postparams)
         return res
 
+    elif postparams['method'] == 'del_address_book':
+        res = Phantom_Ui.del_address_book(postparams)
+        return res
+
     elif postparams['method'] == 'get_address_book':
         res = Phantom_Ui.get_address_book(postparams)
+        return res
+
+    elif postparams['method'] == 'get_balance_by_block':
+        res = Phantom_Ui.get_balance_by_block(postparams)
         return res
 
     return Error_Msg.error_response("no_method")

@@ -60,3 +60,99 @@ Traceback (most recent call last):
   File "src/Phantom/Phantom_Db.py", line 7, in PhantomDb
     conn_phantom = sqlite3.conn_phantomect('src/Phantom/phantom.db')
 AttributeError: 'module' object has no attribute 'conn_phantomect'
+Traceback (most recent call last):
+  File "phantom.py", line 15, in main
+    import main
+  File "src/main.py", line 6, in <module>
+    from Phantom import Phantom_Db
+  File "src/Phantom/Phantom_Db.py", line 118
+    ecept Exception as e:
+        ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "phantom.py", line 16, in main
+    main.start()
+  File "src/main.py", line 419, in start
+    actions.call(config.action, action_kwargs)
+  File "src/main.py", line 116, in call
+    func(**kwargs)
+  File "src/main.py", line 123, in main
+    from Ui import UiServer
+  File "src/Ui/__init__.py", line 1, in <module>
+    from UiServer import UiServer
+  File "src/Ui/UiServer.py", line 16, in <module>
+    from Phantom import Phantom_Ui
+  File "src/Phantom/Phantom_Ui.py", line 570
+    except Exception as e:
+         ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "phantom.py", line 16, in main
+    main.start()
+  File "src/main.py", line 419, in start
+    actions.call(config.action, action_kwargs)
+  File "src/main.py", line 116, in call
+    func(**kwargs)
+  File "src/main.py", line 128, in main
+    ui_server = UiServer()
+  File "src/Ui/UiServer.py", line 70, in __init__
+    self.gshift_process = Run_Gshift.start()
+AttributeError: 'module' object has no attribute 'start'
+Traceback (most recent call last):
+  File "phantom.py", line 16, in main
+    main.start()
+  File "src/main.py", line 419, in start
+    actions.call(config.action, action_kwargs)
+  File "src/main.py", line 116, in call
+    func(**kwargs)
+  File "src/main.py", line 128, in main
+    ui_server = UiServer()
+  File "src/Ui/UiServer.py", line 71, in __init__
+    self.gshift_process = gshift.start()
+NameError: global name 'gshift' is not defined
+Traceback (most recent call last):
+  File "phantom.py", line 16, in main
+    main.start()
+  File "src/main.py", line 419, in start
+    actions.call(config.action, action_kwargs)
+  File "src/main.py", line 116, in call
+    func(**kwargs)
+  File "src/main.py", line 177, in siteSign
+    site = Site(address, allow_create=False)
+  File "src/Site/Site.py", line 52, in __init__
+    self.loadSettings()  # Load settings from sites.json
+  File "src/Site/Site.py", line 79, in loadSettings
+    sites_settings = json.load(open("%s/sites.json" % config.data_dir))
+  File "/usr/lib/python2.7/json/__init__.py", line 290, in load
+    **kw)
+  File "/usr/lib/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.7/json/decoder.py", line 384, in raw_decode
+    raise ValueError("No JSON object could be decoded")
+ValueError: No JSON object could be decoded
+Traceback (most recent call last):
+  File "phantom.py", line 16, in main
+    main.start()
+  File "src/main.py", line 419, in start
+    actions.call(config.action, action_kwargs)
+  File "src/main.py", line 116, in call
+    func(**kwargs)
+  File "src/main.py", line 128, in main
+    ui_server = UiServer()
+  File "src/Ui/UiServer.py", line 67, in __init__
+    self.sites = SiteManager.site_manager.list()
+  File "src/Site/SiteManager.py", line 90, in list
+    self.load()
+  File "src/Site/SiteManager.py", line 25, in load
+    for address in json.load(open("%s/sites.json" % config.data_dir)):
+  File "/usr/lib/python2.7/json/__init__.py", line 290, in load
+    **kw)
+  File "/usr/lib/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.7/json/decoder.py", line 384, in raw_decode
+    raise ValueError("No JSON object could be decoded")
+ValueError: No JSON object could be decoded

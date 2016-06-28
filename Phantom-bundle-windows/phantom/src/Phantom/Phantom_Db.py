@@ -24,7 +24,7 @@ class PhantomDb(object):
         try:
             self.c.execute('CREATE TABLE IF NOT EXISTS messaging (identity TEXT, filter_id INTEGER)')
             self.conn_phantom.commit()
-            self.c.execute('CREATE TABLE IF NOT EXISTS address_book (toaddress TEXT, alias TEXT)')
+            self.c.execute('CREATE TABLE IF NOT EXISTS address_book (toaddress TEXT PRIMARY KEY NOT NULL, alias TEXT)')
             self.conn_phantom.commit()
         except Exception as e:
             return False
@@ -52,7 +52,7 @@ class PhantomDb(object):
                 return True
         return False
 
-    
+
     def get_latest_filter(self):
 
         try:
@@ -79,10 +79,20 @@ class PhantomDb(object):
             return False
         return True
 
+    def del_address_book(self, to_account):
+        
+        try:
+            sql = "DELETE FROM address_book WHERE toaddress = \"%s\"" % (to_account)
+            self.c.execute(sql)
+            self.conn_phantom.commit()
+        except Exception as e:
+            return False
+        return True
+        
     def store_address_book(self, to_account, alias):
 
         try:
-            sql = "INSERT OR IGNORE INTO address_book (toaddress, alias) VALUES (\"%s\", \"%s\")" % (to_account, alias)
+            sql = "INSERT OR REPLACE INTO address_book (toaddress, alias) VALUES (\"%s\", \"%s\")" % (to_account, alias)
             self.c.execute(sql)
             self.conn_phantom.commit()
         except Exception as e:
@@ -108,3 +118,22 @@ class PhantomDb(object):
         except Exception as e:
             return False
         return res
+
+
+    def get_balance_by_block(self, account, blocknum):
+
+        try:
+            sql_sent_amount = "SELECT datetime,max(blocknumber),hash,sum(amount) FROM txs WHERE sender = \"%s\" AND blocknumber <= %i" % (account, blocknum)
+            sql_rec_amount = "SELECT datetime,max(blocknumber),hash,sum(amount) FROM txs WHERE recipient = \"%s\" AND blocknumber <= %i" % (account, blocknum)
+            self.x.execute(sql_sent_amount)
+            sent = self.x.fetchall()
+            self.x.execute(sql_rec_amount)
+            rec = self.x.fetchall()
+
+        except Exception as e:
+            return False
+
+        if len(sent) == 1 and len(sent[0]) == 4:
+            if len(rec) == 1 and len(rec[0]) == 4:
+                return [ str(sent[0][0]), str(sent[0][1]), str(sent[0][2]), str(float(sent[0][3])/1000000000000000000) ]
+        return False

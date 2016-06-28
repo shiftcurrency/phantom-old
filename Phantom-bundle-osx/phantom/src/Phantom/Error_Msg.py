@@ -56,7 +56,13 @@ def error_response(error_type):
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not retrieve any transaction history"]}
     elif error_type == "err_store_addrbook":
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not store address and alias in address book"]}
+    elif error_type == "err_del_addrbook":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not remove address and alias in address book"]}
     elif error_type == "err_addr_book":
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not retrieve address book"]}
+    elif error_type == "err_get_balance_block":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not calculate balance"]}
+    elif error_type == "invalid_block_number":
+        return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Invalid block number. The block number must be a positive integer"]}
     else:
         return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Unhandled exception. Please check the log file and report to Shift"]}

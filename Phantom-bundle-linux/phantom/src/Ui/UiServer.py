@@ -67,7 +67,8 @@ class UiServer:
         self.sites = SiteManager.site_manager.list()
         self.log = logging.getLogger(__name__)
         self.rate_counter = 0
-        self.gshift_process = Run_Gshift.start()
+        self.gshift = Run_Gshift.Run_Gshift()
+        self.gshift_process = self.gshift.start()
 
 
     def stopGshift_Windows(self):
@@ -107,7 +108,7 @@ class UiServer:
             response_string = json.dumps(ipc_response)
 
             response_headers = [('Content-Type', 'application/json'),
-                    ('Access-Control-Allow-Origin', 'null'),
+                    ('Access-Control-Allow-Origin', '*'),
                     ('Content-Length', str(len(response_string)))]
 
             start_response("200", response_headers)
@@ -185,6 +186,7 @@ class UiServer:
 
     def stop(self):
         self.log.debug("Stopping...")
+        self.gshift_process = self.gshift.stop()
         # Close WS sockets
         if "clients" in dir(self.server):
             for client in self.server.clients.values():

@@ -148,7 +148,7 @@ class Client(object):
         elif sys.platform == 'linux2':
             shiftdb = os.path.expanduser("~/.gshift/shift.db")
         elif sys.platform == 'win32':
-            shiftdb = os.path.expanduser("\\~\\AppData\\Roaming\\gshift\\shift.db")
+            shiftdb = os.path.expanduser("\~\AppData\Roaming\gshift\shift.db")
         else:
             raise ValueError(
                 "Unsupported platform.  Only darwin/linux2/win32 are "

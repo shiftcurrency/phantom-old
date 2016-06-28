@@ -62,3 +62,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method": "store_address_book","params":["
 Get address book data
 
 curl -X POST --data '{"jsonrpc":"2.0","method": "get_address_book","params":[]}' http://localhost:53903
+
+Delete entry in address book
+
+curl -X POST --data '{"jsonrpc":"2.0","method": "del_address_book","params":["0a05debe9ddc4f705b460ec1bdba3cbf63637f42"]}' http://localhost:53903
