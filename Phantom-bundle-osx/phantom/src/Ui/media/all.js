@@ -474,6 +474,7 @@ jQuery.extend( jQuery.easing,
 
   Fixbutton = (function() {
     function Fixbutton() {
+      $('.fixbutton').hide();
       this.dragging = false;
       $(".fixbutton-bg").on("mouseover", function() {
         $(".fixbutton-bg").stop().animate({

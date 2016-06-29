@@ -1,24 +1,18 @@
 import sqlite3
-import Error_Msg
 from Shift_IPC import IPC_Client
 from time import sleep
 
 class PhantomDb(object):
 
-    conn_phantom = sqlite3.connect('src/Phantom/phantom.db')
-    c = conn_phantom.cursor()
+    def __init__(self):
+        self.conn_phantom = sqlite3.connect('src/Phantom/phantom.db')
+        self.c = self.conn_phantom.cursor()
 
-    client = IPC_Client.Client()
-    shiftdb = client.get_shiftdb_path()
+        self.client = IPC_Client.Client()
+        self.shiftdb = self.client.get_shiftdb_path()
 
-    for i in range(2):
-        try:
-            conn_shiftdb = sqlite3.connect(shiftdb)
-            x = conn_shiftdb.cursor()
-        except Exception as e:
-            print "Waiting for shift.db..."
-            sleep(5)
-        
+        self.conn_shiftdb = sqlite3.connect(self.shiftdb)
+        self.x = self.conn_shiftdb.cursor()
 
     def init_database(self):
         try:
@@ -57,7 +51,7 @@ class PhantomDb(object):
 
         try:
             self.c.execute('SELECT filter_id FROM messaging ORDER BY filter_id DESC LIMIT 1')
-            res = self.c.fetchall()
+            res = c.fetchall()
         except Exception as e:
             return False
 
@@ -68,7 +62,7 @@ class PhantomDb(object):
         
         try:
             self.c.execute('SELECT CURRENT_TIMESTAMP')
-            date = self.c.fetchall()
+            date = c.fetchall()
         except Exception as e:
             return False
         try:
@@ -96,6 +90,7 @@ class PhantomDb(object):
             self.c.execute(sql)
             self.conn_phantom.commit()
         except Exception as e:
+            print e
             return False
         return True
 
