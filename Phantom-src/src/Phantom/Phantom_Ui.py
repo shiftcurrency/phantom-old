@@ -242,7 +242,7 @@ class Phantom_Ui(object):
                 return self.error_msg.error_response("ipc_call_error")
 
 
-    def lock_account(addr):
+    def lock_account(self, addr):
 
         try:
             int(addr, 16)
