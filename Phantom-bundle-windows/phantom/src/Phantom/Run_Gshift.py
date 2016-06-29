@@ -22,6 +22,7 @@ class Run_Gshift:
                 command = ['gshift', '--shh']
                 self.process = Popen(command, stdout=self.fnull, stderr=self.fnull, shell=False)
 
+            atexit.register(self.stop)
             return self.process
 
         except Exception, err:
