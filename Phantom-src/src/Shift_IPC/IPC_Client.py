@@ -149,7 +149,7 @@ class Client(object):
         elif sys.platform == 'linux2':
             node_path = os.path.expanduser("~/.gshift/static-nodes.json")
         elif sys.platform == 'win32':
-            node_path = ("~\AppData\Roaming\gshift\static-nodes.json")
+            node_path = os.path.expanduser("~\AppData\Roaming\gshift\static-nodes.json")
         else:
             raise ValueError(
                 "Unsupported platform.  Only darwin/linux2/win32 are "
