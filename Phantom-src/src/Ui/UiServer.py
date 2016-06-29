@@ -78,11 +78,7 @@ class UiServer:
         from sys import platform
 
         if platform == 'win32':
-            print "-Stopping Gshift."
-            try:
-                res = Popen("TASKKILL /F /PID {pid} /T".format(pid=self.gshift_process.pid))
-            except Exception as e:
-                pass
+            self.gshift.stop()
 
     # After WebUI started
     def afterStarted(self):
