@@ -1,0 +1,16 @@
+{
+  "1CQTfYmebR1bP75PCUata417NffWyL6AXf": {
+    "added": 1467112218, 
+    "auth_key": "f7a70cb3006d390ac1b88e6e95b626e06ae144ff9aea2a3476bbb672d59aacdc", 
+    "bytes_sent": 6530, 
+    "modified": 1467184945.067567, 
+    "own": true, 
+    "peers": 0, 
+    "permissions": [
+      "ADMIN"
+    ], 
+    "serving": true, 
+    "size": 3894230, 
+    "wrapper_key": "a9a6d71296ad88f1168544d2a906d1a5e8701506150548fd15832345d50b365f"
+  }
+}
