@@ -60,7 +60,6 @@ class Phantom_Ui(object):
 
     def validate_postdata(self,postdata):
 
-        print postdata
 
         try:
             """ 
