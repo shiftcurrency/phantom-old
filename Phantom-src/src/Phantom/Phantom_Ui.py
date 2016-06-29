@@ -202,16 +202,17 @@ class Phantom_Ui(object):
 
 
         address = postparams['params'][0]
-        self.privatekey = postparams['params'][1]
-        self.site = Site(address, allow_create=False)
+        privatekey = postparams['params'][1]
+        site = Site(address, allow_create=False)
 
         try:
-            self.inner_path="content.json"
-            self.success = site.content_manager.sign(self.inner_path, privatekey=self.privatekey, update_changed_files=True)
-            if self.success:
-                self.publisher = main.Actions()
-                self.publisher.sitePublish(address, inner_path=self.inner_path)
+            inner_path="content.json"
+            success = site.content_manager.sign(inner_path, privatekey=privatekey, update_changed_files=True)
+            if success:
+                publisher = main.Actions()
+                publisher.sitePublish(address, inner_path=inner_path)
         except Exception as e:
+            print e
             return self.error_msg.error_response("err_sign_site")
         
 
