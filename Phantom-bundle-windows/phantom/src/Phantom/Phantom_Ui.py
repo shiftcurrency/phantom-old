@@ -293,37 +293,37 @@ class Phantom_Ui(object):
     def send_transaction(self,postparams):
 
         if len(postparams['params']) == 1:
-            self.self.pd = postparams['params'][0]
+            self.pd = postparams['params'][0]
             try:
-                int(self.self.pd['from'], 16)
-                int(self.self.pd['to'], 16)
+                int(self.pd['from'], 16)
+                int(self.pd['to'], 16)
             except ValueError as e:
                 return self.error_msg.error_response("invalid_wallet_addr")
 
-            if not len(self.self.pd['from']) == 42 or not len(self.self.pd['to']) == 42:
+            if not len(self.pd['from']) == 42 or not len(self.pd['to']) == 42:
                 self.error_msg.error_response("invalid_wallet_addr")
 
             try:
-                self.self.pd['amount'] = int(float(self.self.pd['amount'])*1000000000000000000)
-                self.amount = "0x" + format(self.self.pd['amount'], 'x')
+                self.pd['amount'] = int(float(self.pd['amount'])*1000000000000000000)
+                self.amount = "0x" + format(self.pd['amount'], 'x')
             except Exception as e:
                 return self.error_msg.error_response("invalid_amount")
 
-            if 'data' in self.self.pd and len(self.self.pd['data']) > 0: self.data = self.self.pd['data']
+            if 'data' in self.pd and len(self.pd['data']) > 0: self.data = self.pd['data']
             else: self.data = False
 
-            if 'nrg' in self.self.pd and len(self.self.pd['nrg']) > 0: self.nrg = self.self.pd['nrg']
+            if 'nrg' in self.pd and len(self.pd['nrg']) > 0: self.nrg = self.pd['nrg']
             else: self.nrg = False
 
             self.client = IPC_Client.Client()
 
-            if 'password' in self.self.pd and len(self.self.pd['password']) == 0:
+            if 'password' in self.pd and len(self.pd['password']) == 0:
                 return self.error_msg.error_response("empty_password")
             else:
-                self.res = self.client.unlock_account(self.self.pd['from'], self.self.pd['password'])
+                self.res = self.client.unlock_account(self.pd['from'], self.pd['password'])
 
             try:
-                self.res = self.client.send_transaction(self.self.pd['from'], self.self.pd['to'], self.amount, self.nrg, self.data)
+                self.res = self.client.send_transaction(self.pd['from'], self.pd['to'], self.amount, self.nrg, self.data)
             except Exception as e:
                 return self.error_msg.error_response("ipc_call_error")
 
@@ -348,8 +348,8 @@ class Phantom_Ui(object):
     def create_shh_filter(self,postparams):
     
         if len(postparams['params']) == 1:
-            self.self.pd = postparams['params'][0]
-            if 'to' in self.self.pd and 'topics' in self.pd:
+            self.pd = postparams['params'][0]
+            if 'to' in self.pd and 'topics' in self.pd:
                 try:
                     int(self.pd['to'], 16)
                 except:
