@@ -17,13 +17,12 @@ class Run_Gshift:
         try:
             if platform == 'win':
                 command = ['gshift.exe', '--shh']
-                self.process = Popen(command, stdout=self.fnull, stderr=self.fnull, shell=False, close_fds=True)
+                self.process = Popen(command, stdout=self.fnull, stderr=self.fnull, shell=False)
             else:
                 command = ['gshift', '--shh']
-                self.process = Popen(command, stdout=self.fnull, stderr=self.fnull, shell=False, close_fds=True)
+                self.process = Popen(command, stdout=self.fnull, stderr=self.fnull, shell=False)
 
-                # Terminate on exit
-                atexit.register(self.stop)
+            atexit.register(self.stop)
             return self.process
 
         except Exception, err:
