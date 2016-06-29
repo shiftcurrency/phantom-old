@@ -90,6 +90,7 @@ class PhantomDb(object):
             self.c.execute(sql)
             self.conn_phantom.commit()
         except Exception as e:
+            print e
             return False
         return True
 
@@ -97,7 +98,7 @@ class PhantomDb(object):
         
         try:
             self.c.execute('SELECT * FROM address_book')
-            res = c.fetchall()
+            res = self.c.fetchall()
         except Exception as e:
             return False
         return res
