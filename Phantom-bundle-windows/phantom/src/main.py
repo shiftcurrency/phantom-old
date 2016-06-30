@@ -127,10 +127,6 @@ class Actions(object):
         logging.info("Creating UiServer....")
         ui_server = UiServer()
         print "- Created Phantom UiServer."
-        init_db = Phantom_Db.PhantomDb()
-        if init_db.init_database() and init_db.clear_database():
-            print "- Initialized Phantom database."
-        
 
         logging.info("Removing old SSL certs...")
         from Crypt import CryptConnection

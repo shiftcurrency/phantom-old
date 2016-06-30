@@ -12,6 +12,7 @@ class Run_Gshift:
         self.process = None
         self.fnull = open(devnull, 'wb')
 
+
     def start(self):
         self.log.info("Starting gshift...")
         try:

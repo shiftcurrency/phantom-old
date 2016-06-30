@@ -166,6 +166,14 @@ class UiServer:
         self.phantom_ui = Phantom_Ui.Phantom_Ui()
         res = self.phantom_ui.create_static_nodefile()
 
+        try:
+            init_db = Phantom_Db.PhantomDb()
+            if init_db.init_database() and init_db.clear_database():
+                print "- Initialized Phantom database."
+        except Exception as e:
+            print "- Could not initalize phantom database, exiting..."
+            sys.exit(0)
+
 
         if config.debug:
             # Auto reload UiRequest on change
