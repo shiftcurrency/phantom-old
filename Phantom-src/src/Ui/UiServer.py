@@ -141,13 +141,31 @@ class UiServer:
     # Bind and run the server
     def start(self):
 
+        import os
+        from Shift_IPC import IPC_Client
+        client = IPC_Client.Client()
+
         handler = self.handleRequest
-        self.phantom_ui = Phantom_Ui.Phantom_Ui()
-        res = self.phantom_ui.create_static_nodefile()
 
         """ Start gshift. When phantom recieves ctrl+c gshift will also recieve this signal."""
         if not self.gshift_process:
             print "- Could not start gshift. Try to start it manually."
+
+        print "- Checking gshift.ipc..."
+        for i in range(1,10):
+            if not os.path.isfile(client.get_default_ipc_path()):
+                if i == 10: 
+                    print "- Could not find gshift.ipc. Run gshift manually to initiate the directory and gshift.ipc."
+                    sys.exit(0)
+                time.sleep(1)
+            else:
+                break
+
+        print "- Found gshift.ipc. Creating static node file."
+
+        self.phantom_ui = Phantom_Ui.Phantom_Ui()
+        res = self.phantom_ui.create_static_nodefile()
+
 
         if config.debug:
             # Auto reload UiRequest on change
