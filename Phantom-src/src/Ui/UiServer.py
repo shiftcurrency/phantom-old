@@ -155,18 +155,17 @@ class UiServer:
         self.running = self.gshift.check_running_proc("gshift")
         if self.running:
             print "- Found running gshift process with process id: %i" % self.running[0]
-            
-        print "- Checking if gshift.ipc exists..."
-        for i in range(1,10):
-            if not os.path.isfile(client.get_default_ipc_path()):
-                if i == 10: 
-                    print "- Could not find gshift.ipc. Run gshift manually to initiate the directory and gshift.ipc."
-                    sys.exit(0)
-                time.sleep(1)
-            else:
-                break
-
-        print "- Found gshift.ipc. Creating static node file."
+            print "- Checking if gshift.ipc exists..."
+            for i in range(1,10):
+                if not os.path.isfile(client.get_default_ipc_path()):
+                    if i == 10: 
+                        print "- Could not find gshift.ipc. Run gshift manually to initiate the directory and gshift.ipc."
+                    time.sleep(1)
+                else:
+                    break
+            print "- Found gshift.ipc. Creating static node file."
+        else:
+            print "- Could not find a running gshift process. Start gshift manually."
 
         self.phantom_ui = Phantom_Ui.Phantom_Ui()
         res = self.phantom_ui.create_static_nodefile()
