@@ -151,7 +151,12 @@ class UiServer:
         if not self.gshift_process:
             print "- Could not start gshift. Try to start it manually."
 
-        print "- Checking gshift.ipc..."
+        print "- Checking if gshift is running..."
+        self.running = self.gshift.check_running_proc("gshift")
+        if self.running:
+            print "- Found running gshift process with process id: %i" % self.running[0]
+            
+        print "- Checking if gshift.ipc exists..."
         for i in range(1,10):
             if not os.path.isfile(client.get_default_ipc_path()):
                 if i == 10: 
