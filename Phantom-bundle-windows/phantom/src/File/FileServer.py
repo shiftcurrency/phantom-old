@@ -71,7 +71,6 @@ class FileServer(ConnectionServer):
             upnp_punch = UpnpPunch.open_port(self.port, 'Phantom')
             upnp_punch = True
         except Exception, err:
-            self.log.error("UpnpPunch run error: %s" % Debug.formatException(err))
             upnp_punch = False
 
         if upnp_punch and self.testOpenport(port)["result"] is True:

@@ -1,14 +1,15 @@
 #!/bin/bash
 
-root_dir=$(pwd);
-python_app="../Python/python";
-phantom_dir="$root_dir/phantom/"
-
-if [[ -f "$python_app" ]] && [[ -d "$phantom_dir" ]]; then
-    cd $phantom_dir && $python_app phantom.py "$@" || { echo "Could not open phantom. Please report to Shift Team"; exit 1; }
+cd "$(dirname "$0")"
+if [ x$DISPLAY != x ] || [[ "$OSTYPE" == "darwin"* ]]; then
+    # Has gui, open browser
+    SCRIPT="start.py"
 else
-    echo "Missing either python or phantom software. Exiting.";
-    exit 1
+    # No gui
+    SCRIPT="phantom.py"
 fi
 
-exit 0
+if [ -d "phantom" ]; then
+    cd "$(dirname "$0")/phantom"
+    ../Python/python $SCRIPT "$@"
+fi

@@ -52,6 +52,7 @@ var HUB = (function(HUB, $, undefined) {
 		
 		var error,
 			txs = {},
+			prefix = '0x',
 			data = HUB.startRequest("get_transaction_history",'["'+account+'"]'); // [txid, block, sender, recepient, amount]
 			
 		if (typeof data.error != 'undefined') {
@@ -80,7 +81,7 @@ var HUB = (function(HUB, $, undefined) {
 				blocknr = tx[1]*1;
 				amount = tx[4]*1;
 				amount = amount.toFixed() / 1000000000000000000; // Caution: already a bignumber!
-				incoming = HUB.activeAccount == tx[3];
+				incoming = HUB.activeAccount == prefix+''+tx[3];
 				
 				if (incoming) received++;
 				else sent++;

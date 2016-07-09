@@ -86,7 +86,7 @@ var HUB = (function(HUB, $, undefined) {
 				if (typeof data.error != 'undefined') {
 					error = data.error.message;
 				} else if (typeof data.result != 'undefined' && data.result[0] != 'true') {
-					error = data.result[1]+".\n"+HUB.runError;
+					error = data.result[1];
 				} else {
 					HUB.generate(address, alias, $('#'+address).length > 0);
 				} 
