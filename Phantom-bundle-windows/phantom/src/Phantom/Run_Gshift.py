@@ -34,18 +34,17 @@ class Run_Gshift:
 
 
     def check_running_proc(self,name):
+        
+        import time
 
         for i in range(1,10):
             try:
                 pidlist = map(int, check_output(["pidof", name]).split())
             except Exception as e:
                 return False
-
-            if len(pidlist) > 0:
-                return pidlist
-            if i == 10:
-                break
-
+            if len(pidlist) > 0: return pidlist
+            if i == 10: break
+            time.sleep(1)
         return False
 
 
