@@ -39,7 +39,9 @@ class Run_Gshift:
 
         for i in range(1,10):
             try:
-                pidlist = map(int, check_output(["pidof", name]).split())
+                if platform == 'win':
+                    pidlist = map(int, check_output(["tasklist"]).split())
+                    print pidlist
             except Exception as e:
                 return False
             if len(pidlist) > 0: return pidlist

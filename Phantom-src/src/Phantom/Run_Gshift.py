@@ -39,12 +39,22 @@ class Run_Gshift:
 
         for i in range(1,10):
             try:
-                pidlist = map(int, check_output(["pidof", name]).split())
+                if platform == 'win' or platform == 'win32':
+                   pidlist = list(check_output(["tasklist"]).split('\n'))
+                   for i in pidlist:
+                       if "gshift.exe" in i:
+                           proclist = [x for x in i.split(" ") if x != '']
+                           if len(proclist) >= 1: return [proclist[1]]
+                else: 
+                    pidlist = map(int, check_output(["pidof", name]).split())
+                    if len(pidlist) > 0: return pidlist
+
             except Exception as e:
                 return False
-            if len(pidlist) > 0: return pidlist
+
             if i == 10: break
             time.sleep(1)
+
         return False
 
 
