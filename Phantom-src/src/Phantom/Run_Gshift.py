@@ -17,8 +17,8 @@ class Run_Gshift:
     def start(self):
         self.log.info("Starting gshift...")
         try:
-            if platform == 'win':
-                command = [abspath('gshift.exe'), '--shh']
+            if platform == 'win32':
+                command = ['gshift.exe', '--shh']
                 self.process = Popen(command, stdout=self.fnull, stderr=self.fnull, shell=False)
             else:
                 command = [abspath('gshift'), '--shh']
@@ -39,7 +39,7 @@ class Run_Gshift:
 
         for i in range(1,10):
             try:
-                if platform == 'win' or platform == 'win32':
+                if platform == 'win32':
                    pidlist = list(check_output(["tasklist"]).split('\n'))
                    for i in pidlist:
                        if "gshift.exe" in i:
