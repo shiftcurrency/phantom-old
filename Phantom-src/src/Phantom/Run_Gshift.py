@@ -13,6 +13,7 @@ class Run_Gshift:
         self.log = logging.getLogger("gshift")
         self.process = None
         self.fnull = open(devnull, 'wb')
+        self.pidlist = []
 
     def start(self):
         self.log.info("Starting gshift...")
@@ -40,14 +41,14 @@ class Run_Gshift:
         for i in range(1,10):
             try:
                 if platform == 'win32':
-                   pidlist = list(check_output(["tasklist"]).split('\n'))
-                   for i in pidlist:
+                   self.pidlist = list(check_output(["tasklist"]).split('\n'))
+                   for i in self.pidlist:
                        if "gshift.exe" in i:
-                           proclist = [x for x in i.split(" ") if x != '']
-                           if len(proclist) >= 1: return [proclist[1]]
+                           self.proclist = [x for x in i.split(" ") if x != '']
+                           if len(self.proclist) >= 1: return [self.proclist[1]]
                 else: 
-                    pidlist = map(int, check_output(["pidof", name]).split())
-                    if len(pidlist) > 0: return pidlist
+                    self.pidlist = map(int, check_output(["pidof", name]).split())
+                    if len(self.pidlist) > 0: return self.pidlist
 
             except Exception as e:
                 return False
