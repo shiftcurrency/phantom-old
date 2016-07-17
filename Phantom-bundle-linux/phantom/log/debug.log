@@ -1,1 +1,106 @@
-
+[2016-07-17 23:36:53,156] DEBUG    PluginManager Loading plugin: CryptMessage
+[2016-07-17 23:36:53,168] DEBUG    - opensslVerify loaded: <CDLL '../lib/libcrypto.so', handle 182d350 at 7f04e8eee210>
+[2016-07-17 23:36:53,169] INFO     - OpenSSL loaded, version: 01000207F
+[2016-07-17 23:36:53,169] DEBUG    PluginManager New plugin registered to: UiWebsocket
+[2016-07-17 23:36:53,170] DEBUG    PluginManager New plugin registered to: User
+[2016-07-17 23:36:53,170] DEBUG    PluginManager Loading plugin: AnnounceZero
+[2016-07-17 23:36:53,170] DEBUG    PluginManager New plugin registered to: Site
+[2016-07-17 23:36:53,170] DEBUG    PluginManager Loading plugin: Stats
+[2016-07-17 23:36:53,171] DEBUG    PluginManager New plugin registered to: UiRequest
+[2016-07-17 23:36:53,171] DEBUG    PluginManager Loading plugin: Newsfeed
+[2016-07-17 23:36:53,171] DEBUG    PluginManager New plugin registered to: UiWebsocket
+[2016-07-17 23:36:53,171] DEBUG    PluginManager New plugin registered to: User
+[2016-07-17 23:36:53,172] DEBUG    PluginManager Loading plugin: Trayicon
+[2016-07-17 23:36:53,172] DEBUG    PluginManager Loading plugin: Sidebar
+[2016-07-17 23:36:53,172] DEBUG    PluginManager New plugin registered to: UiRequest
+[2016-07-17 23:36:53,172] DEBUG    PluginManager New plugin registered to: UiWebsocket
+[2016-07-17 23:36:53,173] DEBUG    - Config: Config(action='main', batch=False, coffeescript_compiler=None, config_file='phantom.conf', connected_limit=15, data_dir='data', debug=False, debug_gevent=False, debug_socket=False, disable_db=False, disable_encryption=False, disable_sslcompression=True, disable_udp=False, fileserver_ip='*', fileserver_port=15441, homepage='1CQTfYmebR1bP75PCUata417NffWyL6AXf', ip_external=None, keep_ssl_cert=False, log_dir='log', max_files_opened=2048, msgpack_purepython=True, open_browser=None, proxy=None, size_limit=10, stream_downloads=False, tor='disable', tor_controller='127.0.0.1:9051', tor_proxy='127.0.0.1:9050', trackers=['zero://boot3rdez4rzn36x.onion:15441', 'zero://boot.zeronet.io#f36ca555bee6ba216b14d10f38c16f7769ff064e0e37d887603548cc2e64191d:15441', 'udp://tracker.coppersurfer.tk:6969', 'udp://tracker.leechers-paradise.org:6969', 'udp://9.rarbg.com:2710', 'http://tracker.aletorrenty.pl:2710/announce', 'http://explodie.org:6969/announce', 'http://torrent.gresille.org/announce'], trackers_file=False, ui_ip='127.0.0.1', ui_port=53903, ui_restrict=False, use_openssl=True, use_tempfiles=False, verbose=False)
+[2016-07-17 23:36:53,173] INFO     - Version: 0.1a r1098, Python 2.7.11 |Continuum Analytics, Inc.| (default, Dec  6 2015, 18:08:32) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)], Gevent: 1.0.2
+[2016-07-17 23:36:53,178] DEBUG    PluginManager New class accepts plugins: Site (Loaded plugins: [<class 'AnnounceZero.AnnounceZeroPlugin.SitePlugin'>, <class 'Site.Site.Site'>])
+[2016-07-17 23:36:53,183] DEBUG    - Disabled SSL compression on <CDLL 'libssl.so.1.0.0', handle 182cea0 at 7f04e89f6890>
+[2016-07-17 23:36:53,193] DEBUG    - Missing SSLwrap, readded.
+[2016-07-17 23:36:53,194] DEBUG    - Python SSL version: OpenSSL 1.0.2g  1 Mar 2016
+[2016-07-17 23:36:53,201] DEBUG    PluginManager New class accepts plugins: User (Loaded plugins: [<class 'Newsfeed.NewsfeedPlugin.UserPlugin'>, <class 'CryptMessage.CryptMessagePlugin.UserPlugin'>, <class 'User.User.User'>])
+[2016-07-17 23:36:53,202] DEBUG    PluginManager New class accepts plugins: UiWebsocket (Loaded plugins: [<class 'Sidebar.SidebarPlugin.UiWebsocketPlugin'>, <class 'Newsfeed.NewsfeedPlugin.UiWebsocketPlugin'>, <class 'CryptMessage.CryptMessagePlugin.UiWebsocketPlugin'>, <class 'Ui.UiWebsocket.UiWebsocket'>])
+[2016-07-17 23:36:53,202] DEBUG    PluginManager New class accepts plugins: UiRequest (Loaded plugins: [<class 'Sidebar.SidebarPlugin.UiRequestPlugin'>, <class 'Stats.StatsPlugin.UiRequestPlugin'>, <class 'Ui.UiRequest.UiRequest'>])
+[2016-07-17 23:36:53,202] INFO     - Creating FileServer....
+[2016-07-17 23:36:53,203] INFO     - Creating UiServer....
+[2016-07-17 23:36:53,203] DEBUG    - Loading sites...
+[2016-07-17 23:36:53,204] DEBUG    - Loaded site 1CQTfYmebR1bP75PCUata417NffWyL6AXf in 0.001s
+[2016-07-17 23:36:53,205] DEBUG    - SiteManager added 1 sites
+[2016-07-17 23:36:53,205] INFO     gshift Starting gshift...
+[2016-07-17 23:36:53,207] INFO     - Removing old SSL certs...
+[2016-07-17 23:36:53,207] INFO     - - Starting servers....
+[2016-07-17 23:36:53,419] DEBUG    - Generating RSA cert and key PEM files...Generating a 2048 bit RSA private key
+.......................................................................+++
+.......................................+++
+unable to write 'random state'
+writing new private key to 'data/key-rsa.pem'
+-----
+[2016-07-17 23:36:53,419] DEBUG    FileServer Binding to: *:15441, (msgpack: 0.4.6), supported crypt: ['tls-rsa']
+[2016-07-17 23:36:53,419] DEBUG    FileServer Checking sites...
+[2016-07-17 23:36:53,419] DEBUG    FileServer Conn# 1 boot.zeronet.io [?] > Connecting...
+[2016-07-17 23:36:53,497] DEBUG    Site:1CQTfY..6AXf Found 24 peers, new: 14
+[2016-07-17 23:36:53,668] DEBUG    Site:1CQTfY..6AXf Http tracker http://tracker.aletorrenty.pl:2710/announce?uploaded=0&downloaded=0&numwant=30&compact=1&event=started&peer_id=-ZN001a-2kocJ7ivJHp5&port=0&info_hash=m%07S%40%9C%1A%C7F%2F%2A%02%F5%C7%DD%D7%16%93%21%E8.&left=0 error: [Errno 104] Connection reset by peer
+[2016-07-17 23:36:53,930] DEBUG    Site:1CQTfY..6AXf Found 20 peers, new: 1
+[2016-07-17 23:36:54,419] INFO     FileServer Checking port 15441 using portchecker.co...
+[2016-07-17 23:36:54,787] INFO     FileServer [BAD :(] Port closed: Port 15441 is closed.
+[2016-07-17 23:36:54,787] INFO     FileServer Trying to open port using UpnpPunch...
+[2016-07-17 23:36:54,788] DEBUG    - Found local ips: ['192.168.1.12']
+[2016-07-17 23:36:54,788] DEBUG    - Trying using local ip: 192.168.1.12
+[2016-07-17 23:36:59,790] DEBUG    - UDP SSDP M-SEARCH send error using ip 192.168.1.12: timed out
+[2016-07-17 23:36:59,790] DEBUG    - No IGD response
+[2016-07-17 23:36:59,790] DEBUG    - Trying using local ip: 192.168.1.12
+[2016-07-17 23:37:02,371] INFO     Ui.UiServer --------------------------------------
+[2016-07-17 23:37:02,371] INFO     Ui.UiServer Web interface: http://127.0.0.1:53903/
+[2016-07-17 23:37:02,371] INFO     Ui.UiServer --------------------------------------
+[2016-07-17 23:37:02,372] DEBUG    - Current RLIMIT_NOFILE: 1024, changing to 2048...
+[2016-07-17 23:37:03,546] DEBUG    Site:1CQTfY..6AXf Announced types [] in mode startup to 4 trackers in 10.126s, errors: ['http://tracker.aletorrenty.pl:2710/announce'], slow: ['10s+ zero://boot.zeronet.io#f36ca555bee6ba216b14d10f38c16f7769ff064e0e37d887603548cc2e64191d:15441', '10s+ http://explodie.org:6969/announce']
+[2016-07-17 23:37:03,547] DEBUG    Site:1CQTfY..6AXf Try to get listModifications from peers: [<Peer:77.162.75.30>, <Peer:86.2.60.49  >, <Peer:70.122.22.247>, <Peer:86.5.90.211 >, <Peer:194.0.129.18>] since: 1467308953.07
+[2016-07-17 23:37:03,547] DEBUG    FileServer Conn# 2 77.162.75.30 [?] > Connecting...
+[2016-07-17 23:37:03,547] DEBUG    FileServer Conn# 3 86.2.60.49   [?] > Connecting...
+[2016-07-17 23:37:03,547] DEBUG    FileServer Conn# 4 70.122.22.247 [?] > Connecting...
+[2016-07-17 23:37:03,640] DEBUG    FileServer Conn# 2 77.162.75.30 [v2] > Crypt out connection using: tls-rsa (server side: False)...
+[2016-07-17 23:37:03,664] DEBUG    FileServer Conn# 3 86.2.60.49   [v2] > Crypt out connection using: tls-rsa (server side: False)...
+[2016-07-17 23:37:03,711] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:37:03] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/home.html HTTP/1.1" 200 2708 0.001034
+[2016-07-17 23:37:03,768] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:37:03] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/home.html?wrapper_nonce=6b5f8b0b3bd2dd0187ef3ab3c23dabb171ce84c0154fc2aff8e123dfee5e7f08 HTTP/1.1" 200 25208 0.004919
+[2016-07-17 23:37:03,793] DEBUG    FileServer Conn# 5 86.5.90.211  [?] > Connecting...
+[2016-07-17 23:37:03,810] DEBUG    - UserManager added 1 users
+[2016-07-17 23:37:03,891] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:37:03] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/fonts/fonts/fontawesome-webfont.woff2?v=4.5.0 HTTP/1.1" 200 66970 0.000868
+[2016-07-17 23:37:03,924] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:37:03] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18366 0.000415
+[2016-07-17 23:37:03,933] DEBUG    FileServer Conn# 5 86.5.90.211  [v2] > Crypt out connection using: tls-rsa (server side: False)...
+[2016-07-17 23:37:04,791] DEBUG    - UDP SSDP M-SEARCH send error using ip 192.168.1.12: timed out
+[2016-07-17 23:37:04,791] DEBUG    - No IGD response
+[2016-07-17 23:37:04,792] DEBUG    - Trying using local ip: 192.168.1.12
+[2016-07-17 23:37:06,752] DEBUG    Site:1CQTfY..6AXf Queried pex from 2 peers got 6 new peers.
+[2016-07-17 23:37:09,792] DEBUG    - UDP SSDP M-SEARCH send error using ip 192.168.1.12: timed out
+[2016-07-17 23:37:09,793] DEBUG    - No IGD response
+[2016-07-17 23:37:09,793] INFO     FileServer Checking port 15441 using portchecker.co...
+[2016-07-17 23:37:10,250] INFO     FileServer [BAD :(] Port closed: Port 15441 is closed.
+[2016-07-17 23:37:10,250] INFO     FileServer Checking port 15441 using canyouseeme.org...
+[2016-07-17 23:37:10,759] INFO     FileServer [BAD :(] Port closed: Error: I could not see your service on 62.101.36.14 on port (15441) Reason: Connection refused
+[2016-07-17 23:37:10,760] INFO     FileServer Upnp mapping failed :( Please forward port 15441 on your router to your ipaddress
+[2016-07-17 23:37:13,650] DEBUG    Site:1CQTfY..6AXf Queried listModifications from: [<Peer:77.162.75.30>, <Peer:86.2.60.49  >, <Peer:86.5.90.211 >]
+[2016-07-17 23:37:13,662] DEBUG    Site:1CQTfY..6AXf Checked files in 0.01s... Found bad files: 0, Quick:True
+[2016-07-17 23:37:13,664] DEBUG    Site:1CQTfY..6AXf Need connections: 3, Current: 3, Total: 21
+[2016-07-17 23:37:18,452] DEBUG    Site:1CQTfY..6AXf Http tracker http://explodie.org:6969/announce?uploaded=0&downloaded=0&numwant=30&compact=1&event=started&peer_id=-ZN001a-2kocJ7ivJHp5&port=0&info_hash=m%07S%40%9C%1A%C7F%2F%2A%02%F5%C7%DD%D7%16%93%21%E8.&left=0 error: <urlopen error [Errno 101] Network is unreachable>
+[2016-07-17 23:38:23,339] DEBUG    FileServer Removing Conn# 1 boot.zeronet.io [v2]...
+[2016-07-17 23:38:49,161] DEBUG    FileServer Removing Conn# 2 77.162.75.30 [v2]...
+[2016-07-17 23:38:53,211] DEBUG    FileServer Conn# 4 70.122.22.247 [?] > [Cleanup] Connect timeout: 109.663872004
+[2016-07-17 23:38:53,212] DEBUG    FileServer Removing Conn# 4 70.122.22.247 [?]...
+[2016-07-17 23:38:53,212] DEBUG    FileServer 70.122.22.247 Connect error: error: [Errno 9] File descriptor was closed in another greenlet in ConnectionServer.py line 139 > Connection.py line 95 > socket.py line 349 > socket.py line 300 > hub.py line 348 > hub.py line 575 > hub.py line 338
+[2016-07-17 23:39:25,893] DEBUG    Site:1CQTfY..6AXf Announced types [] in mode update to 1 trackers in 0.466s, errors: [], slow: []
+[2016-07-17 23:39:25,893] DEBUG    Site:1CQTfY..6AXf Need connections: 3, Current: 2, Total: 21
+[2016-07-17 23:41:58,400] DEBUG    Site:1CQTfY..6AXf Announced types [] in mode update to 1 trackers in 0.503s, errors: [], slow: []
+[2016-07-17 23:41:58,401] DEBUG    Site:1CQTfY..6AXf Need connections: 3, Current: 2, Total: 21
+[2016-07-17 23:42:53,237] INFO     FileServer Internet offline
+[2016-07-17 23:43:43,265] ERROR    - Unhandled exception
+None
+[2016-07-17 23:43:43,265] DEBUG    Ui.UiServer Stopping...
+[2016-07-17 23:43:43,265] INFO     gshift Stopping gshift...
+[2016-07-17 23:43:43,266] DEBUG    Ui.UiServer Socket closed: 1
+[2016-07-17 23:43:43,266] DEBUG    FileServer Stopped.
+[2016-07-17 23:43:43,266] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:43:43] "GET /Websocket?wrapper_key=a9a6d71296ad88f1168544d2a906d1a5e8701506150548fd15832345d50b365f HTTP/1.1" 101 129 399.456463
+[2016-07-17 23:43:43,800] DEBUG    Ui.UiServer Stopped.
+[2016-07-17 23:43:43,800] INFO     gshift Stopping gshift...

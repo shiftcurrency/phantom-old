@@ -1,1 +1,174 @@
-
+[2016-07-17 23:31:21,748] DEBUG    PluginManager Loading plugin: CryptMessage
+[2016-07-17 23:31:21,761] DEBUG    - opensslVerify loaded: <CDLL '../lib/libcrypto.so', handle 2473350 at 7f6fcf1a6210>
+[2016-07-17 23:31:21,762] INFO     - OpenSSL loaded, version: 01000207F
+[2016-07-17 23:31:21,762] DEBUG    PluginManager New plugin registered to: UiWebsocket
+[2016-07-17 23:31:21,762] DEBUG    PluginManager New plugin registered to: User
+[2016-07-17 23:31:21,762] DEBUG    PluginManager Loading plugin: AnnounceZero
+[2016-07-17 23:31:21,763] DEBUG    PluginManager New plugin registered to: Site
+[2016-07-17 23:31:21,763] DEBUG    PluginManager Loading plugin: Stats
+[2016-07-17 23:31:21,763] DEBUG    PluginManager New plugin registered to: UiRequest
+[2016-07-17 23:31:21,764] DEBUG    PluginManager Loading plugin: Newsfeed
+[2016-07-17 23:31:21,764] DEBUG    PluginManager New plugin registered to: UiWebsocket
+[2016-07-17 23:31:21,764] DEBUG    PluginManager New plugin registered to: User
+[2016-07-17 23:31:21,764] DEBUG    PluginManager Loading plugin: Trayicon
+[2016-07-17 23:31:21,764] DEBUG    PluginManager Loading plugin: Sidebar
+[2016-07-17 23:31:21,764] DEBUG    PluginManager New plugin registered to: UiRequest
+[2016-07-17 23:31:21,764] DEBUG    PluginManager New plugin registered to: UiWebsocket
+[2016-07-17 23:31:21,765] DEBUG    - Config: Config(action='main', batch=False, coffeescript_compiler=None, config_file='phantom.conf', connected_limit=15, data_dir='data', debug=False, debug_gevent=False, debug_socket=False, disable_db=False, disable_encryption=False, disable_sslcompression=True, disable_udp=False, fileserver_ip='*', fileserver_port=15441, homepage='1CQTfYmebR1bP75PCUata417NffWyL6AXf', ip_external=None, keep_ssl_cert=False, log_dir='log', max_files_opened=2048, msgpack_purepython=True, open_browser=None, proxy=None, size_limit=10, stream_downloads=False, tor='disable', tor_controller='127.0.0.1:9051', tor_proxy='127.0.0.1:9050', trackers=['zero://boot3rdez4rzn36x.onion:15441', 'zero://boot.zeronet.io#f36ca555bee6ba216b14d10f38c16f7769ff064e0e37d887603548cc2e64191d:15441', 'udp://tracker.coppersurfer.tk:6969', 'udp://tracker.leechers-paradise.org:6969', 'udp://9.rarbg.com:2710', 'http://tracker.aletorrenty.pl:2710/announce', 'http://explodie.org:6969/announce', 'http://torrent.gresille.org/announce'], trackers_file=False, ui_ip='127.0.0.1', ui_port=53903, ui_restrict=False, use_openssl=True, use_tempfiles=False, verbose=False)
+[2016-07-17 23:31:21,765] INFO     - Version: 0.1a r1098, Python 2.7.11 |Continuum Analytics, Inc.| (default, Dec  6 2015, 18:08:32) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)], Gevent: 1.0.2
+[2016-07-17 23:31:21,770] DEBUG    PluginManager New class accepts plugins: Site (Loaded plugins: [<class 'AnnounceZero.AnnounceZeroPlugin.SitePlugin'>, <class 'Site.Site.Site'>])
+[2016-07-17 23:31:21,775] DEBUG    - Disabled SSL compression on <CDLL 'libssl.so.1.0.0', handle 2472ea0 at 7f6fcecae890>
+[2016-07-17 23:31:21,785] DEBUG    - Missing SSLwrap, readded.
+[2016-07-17 23:31:21,785] DEBUG    - Python SSL version: OpenSSL 1.0.2g  1 Mar 2016
+[2016-07-17 23:31:21,793] DEBUG    PluginManager New class accepts plugins: User (Loaded plugins: [<class 'Newsfeed.NewsfeedPlugin.UserPlugin'>, <class 'CryptMessage.CryptMessagePlugin.UserPlugin'>, <class 'User.User.User'>])
+[2016-07-17 23:31:21,794] DEBUG    PluginManager New class accepts plugins: UiWebsocket (Loaded plugins: [<class 'Sidebar.SidebarPlugin.UiWebsocketPlugin'>, <class 'Newsfeed.NewsfeedPlugin.UiWebsocketPlugin'>, <class 'CryptMessage.CryptMessagePlugin.UiWebsocketPlugin'>, <class 'Ui.UiWebsocket.UiWebsocket'>])
+[2016-07-17 23:31:21,794] DEBUG    PluginManager New class accepts plugins: UiRequest (Loaded plugins: [<class 'Sidebar.SidebarPlugin.UiRequestPlugin'>, <class 'Stats.StatsPlugin.UiRequestPlugin'>, <class 'Ui.UiRequest.UiRequest'>])
+[2016-07-17 23:31:21,795] INFO     - Creating FileServer....
+[2016-07-17 23:31:21,795] INFO     - Creating UiServer....
+[2016-07-17 23:31:21,795] DEBUG    - Loading sites...
+[2016-07-17 23:31:21,797] DEBUG    - Loaded site 1CQTfYmebR1bP75PCUata417NffWyL6AXf in 0.002s
+[2016-07-17 23:31:21,798] DEBUG    - SiteManager added 1 sites
+[2016-07-17 23:31:21,798] INFO     gshift Starting gshift...
+[2016-07-17 23:31:21,799] INFO     - Removing old SSL certs...
+[2016-07-17 23:31:21,800] INFO     - - Starting servers....
+[2016-07-17 23:31:21,871] DEBUG    - Generating RSA cert and key PEM files...Generating a 2048 bit RSA private key
+..............+++
+...............+++
+unable to write 'random state'
+writing new private key to 'data/key-rsa.pem'
+-----
+[2016-07-17 23:31:21,871] DEBUG    FileServer Binding to: *:15441, (msgpack: 0.4.6), supported crypt: ['tls-rsa']
+[2016-07-17 23:31:21,872] DEBUG    FileServer Checking sites...
+[2016-07-17 23:31:21,872] DEBUG    FileServer Conn# 1 boot.zeronet.io [?] > Connecting...
+[2016-07-17 23:31:21,944] DEBUG    Site:1CQTfY..6AXf Found 24 peers, new: 13
+[2016-07-17 23:31:21,973] DEBUG    Site:1CQTfY..6AXf Http tracker http://tracker.aletorrenty.pl:2710/announce?uploaded=0&downloaded=0&numwant=30&compact=1&event=started&peer_id=-ZN001a-F2fVLRCTyp3e&port=0&info_hash=m%07S%40%9C%1A%C7F%2F%2A%02%F5%C7%DD%D7%16%93%21%E8.&left=0 error: [Errno 104] Connection reset by peer
+[2016-07-17 23:31:22,872] INFO     FileServer Checking port 15441 using portchecker.co...
+[2016-07-17 23:31:23,049] DEBUG    Site:1CQTfY..6AXf Found 20 peers, new: 1
+[2016-07-17 23:31:23,219] INFO     FileServer [BAD :(] Port closed: Port 15441 is closed.
+[2016-07-17 23:31:23,219] INFO     FileServer Trying to open port using UpnpPunch...
+[2016-07-17 23:31:23,220] DEBUG    - Found local ips: ['192.168.1.12']
+[2016-07-17 23:31:23,220] DEBUG    - Trying using local ip: 192.168.1.12
+[2016-07-17 23:31:28,220] DEBUG    - UDP SSDP M-SEARCH send error using ip 192.168.1.12: timed out
+[2016-07-17 23:31:28,221] DEBUG    - No IGD response
+[2016-07-17 23:31:28,221] DEBUG    - Trying using local ip: 192.168.1.12
+[2016-07-17 23:31:30,982] INFO     Ui.UiServer --------------------------------------
+[2016-07-17 23:31:30,983] INFO     Ui.UiServer Web interface: http://127.0.0.1:53903/
+[2016-07-17 23:31:30,983] INFO     Ui.UiServer --------------------------------------
+[2016-07-17 23:31:30,983] DEBUG    - Current RLIMIT_NOFILE: 1024, changing to 2048...
+[2016-07-17 23:31:31,994] DEBUG    Site:1CQTfY..6AXf Announced types [] in mode startup to 4 trackers in 10.122s, errors: ['http://tracker.aletorrenty.pl:2710/announce'], slow: ['10s+ zero://boot.zeronet.io#f36ca555bee6ba216b14d10f38c16f7769ff064e0e37d887603548cc2e64191d:15441', '10s+ http://explodie.org:6969/announce', '1.17s http://torrent.gresille.org/announce']
+[2016-07-17 23:31:31,995] DEBUG    Site:1CQTfY..6AXf Try to get listModifications from peers: [<Peer:49.3.52.92  >, <Peer:188.129.183.137>, <Peer:86.5.90.211 >, <Peer:72.79.58.198>, <Peer:24.5.10.174 >] since: 1467308953.07
+[2016-07-17 23:31:31,995] DEBUG    FileServer Conn# 2 49.3.52.92   [?] > Connecting...
+[2016-07-17 23:31:31,995] DEBUG    FileServer Conn# 3 188.129.183.137 [?] > Connecting...
+[2016-07-17 23:31:31,996] DEBUG    FileServer Conn# 4 86.5.90.211  [?] > Connecting...
+[2016-07-17 23:31:32,106] DEBUG    FileServer Conn# 4 86.5.90.211  [v2] > Crypt out connection using: tls-rsa (server side: False)...
+[2016-07-17 23:31:32,213] DEBUG    FileServer Conn# 3 188.129.183.137 [v2] > Crypt out connection using: tls-rsa (server side: False)...
+[2016-07-17 23:31:32,275] DEBUG    FileServer Conn# 5 72.79.58.198 [?] > Connecting...
+[2016-07-17 23:31:32,729] DEBUG    FileServer Conn# 2 49.3.52.92   [v2] > Crypt out connection using: tls-rsa (server side: False)...
+[2016-07-17 23:31:33,222] DEBUG    - UDP SSDP M-SEARCH send error using ip 192.168.1.12: timed out
+[2016-07-17 23:31:33,222] DEBUG    - No IGD response
+[2016-07-17 23:31:33,222] DEBUG    - Trying using local ip: 192.168.1.12
+[2016-07-17 23:31:35,262] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:35] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/ HTTP/1.1" 200 2699 0.001041
+[2016-07-17 23:31:35,289] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:35] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/?wrapper_nonce=2f8a74fe8df75077c0d6935ab54fce8315a965f94c67490e3ee0bb3efb109054 HTTP/1.1" 200 5927 0.005111
+[2016-07-17 23:31:35,321] DEBUG    - UserManager added 1 users
+[2016-07-17 23:31:35,411] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:35] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/fonts/fonts/fontawesome-webfont.woff2?v=4.5.0 HTTP/1.1" 200 66970 0.000484
+[2016-07-17 23:31:35,469] DEBUG    Site:1CQTfY..6AXf Queried pex from 2 peers got 5 new peers.
+[2016-07-17 23:31:37,446] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:37] "POST / HTTP/1.1" 200 1606 2.001730
+[2016-07-17 23:31:37,452] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:37] "POST / HTTP/1.1" 200 180 0.000722
+[2016-07-17 23:31:38,223] DEBUG    - UDP SSDP M-SEARCH send error using ip 192.168.1.12: timed out
+[2016-07-17 23:31:38,224] DEBUG    - No IGD response
+[2016-07-17 23:31:38,224] INFO     FileServer Checking port 15441 using portchecker.co...
+[2016-07-17 23:31:38,673] INFO     FileServer [BAD :(] Port closed: Port 15441 is closed.
+[2016-07-17 23:31:38,673] INFO     FileServer Checking port 15441 using canyouseeme.org...
+[2016-07-17 23:31:39,045] INFO     FileServer [BAD :(] Port closed: Error: I could not see your service on 62.101.36.14 on port (15441) Reason: Connection refused
+[2016-07-17 23:31:39,046] INFO     FileServer Upnp mapping failed :( Please forward port 15441 on your router to your ipaddress
+[2016-07-17 23:31:39,459] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:39] "POST / HTTP/1.1" 200 204 2.001615
+[2016-07-17 23:31:41,470] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:41] "POST / HTTP/1.1" 200 199 2.001326
+[2016-07-17 23:31:42,096] DEBUG    Site:1CQTfY..6AXf Queried listModifications from: [<Peer:86.5.90.211 >, <Peer:188.129.183.137>, <Peer:49.3.52.92  >]
+[2016-07-17 23:31:42,109] DEBUG    Site:1CQTfY..6AXf Checked files in 0.01s... Found bad files: 0, Quick:True
+[2016-07-17 23:31:42,111] DEBUG    Site:1CQTfY..6AXf Need connections: 3, Current: 3, Total: 19
+[2016-07-17 23:31:43,483] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:43] "POST / HTTP/1.1" 200 196 2.003591
+[2016-07-17 23:31:46,891] DEBUG    Site:1CQTfY..6AXf Http tracker http://explodie.org:6969/announce?uploaded=0&downloaded=0&numwant=30&compact=1&event=started&peer_id=-ZN001a-F2fVLRCTyp3e&port=0&info_hash=m%07S%40%9C%1A%C7F%2F%2A%02%F5%C7%DD%D7%16%93%21%E8.&left=0 error: <urlopen error [Errno 101] Network is unreachable>
+[2016-07-17 23:31:55,985] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:55] "POST / HTTP/1.1" 200 182 3.115231
+[2016-07-17 23:31:56,599] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/home.html HTTP/1.1" 200 2708 0.000739
+[2016-07-17 23:31:56,624] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /Websocket?wrapper_key=a9a6d71296ad88f1168544d2a906d1a5e8701506150548fd15832345d50b365f HTTP/1.1" 101 129 21.303447
+[2016-07-17 23:31:56,626] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/home.html HTTP/1.1" 200 2708 0.001093
+[2016-07-17 23:31:56,677] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/home.html?wrapper_nonce=dc46765ed81fd0131ba023192ed241ee1f8d8a484d871aaf3f5a3f253a6237d6 HTTP/1.1" 200 25208 0.000499
+[2016-07-17 23:31:56,715] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/bootstrap.min.js HTTP/1.1" 200 37168 0.000487
+[2016-07-17 23:31:56,717] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/nicescroll/jquery.nicescroll.min.js HTTP/1.1" 200 57178 0.000525
+[2016-07-17 23:31:56,718] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/pace/pace.min.js HTTP/1.1" 200 12663 0.000357
+[2016-07-17 23:31:56,718] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/custom.js?v=0.1a HTTP/1.1" 200 11694 0.000381
+[2016-07-17 23:31:56,719] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/jquery.dataTables.min.css HTTP/1.1" 200 7989 0.000339
+[2016-07-17 23:31:56,720] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/flot/jquery.flot.js HTTP/1.1" 200 36953 0.000363
+[2016-07-17 23:31:56,721] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/odometer.js HTTP/1.1" 200 21375 0.000451
+[2016-07-17 23:31:56,722] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/css/odometer-theme-default.css HTTP/1.1" 200 4368 0.000333
+[2016-07-17 23:31:56,723] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/flot/jquery.flot.resize.js HTTP/1.1" 200 2732 0.000725
+[2016-07-17 23:31:56,724] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/fixedHeader.bootstrap.min.css HTTP/1.1" 200 613 0.000321
+[2016-07-17 23:31:56,724] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/buttons.bootstrap.min.css HTTP/1.1" 200 2020 0.000316
+[2016-07-17 23:31:56,765] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/responsive.bootstrap.min.css HTTP/1.1" 200 4171 0.000296
+[2016-07-17 23:31:56,766] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/scroller.bootstrap.min.css HTTP/1.1" 200 699 0.000379
+[2016-07-17 23:31:56,767] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/buttons.bootstrap.min.js HTTP/1.1" 200 1240 0.000292
+[2016-07-17 23:31:56,768] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/dataTables.buttons.min.js HTTP/1.1" 200 16375 0.000283
+[2016-07-17 23:31:56,768] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/dataTables.bootstrap.js HTTP/1.1" 200 2261 0.000272
+[2016-07-17 23:31:56,769] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/jquery.dataTables.min.js HTTP/1.1" 200 82799 0.000387
+[2016-07-17 23:31:56,804] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/jszip.min.js HTTP/1.1" 200 80335 0.000458
+[2016-07-17 23:31:56,805] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/buttons.html5.min.js HTTP/1.1" 200 11627 0.000355
+[2016-07-17 23:31:56,807] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/vfs_fonts.js HTTP/1.1" 200 568010 0.001022
+[2016-07-17 23:31:56,808] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/buttons.print.min.js HTTP/1.1" 200 1981 0.000431
+[2016-07-17 23:31:56,809] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/dataTables.keyTable.min.js HTTP/1.1" 200 7332 0.000297
+[2016-07-17 23:31:56,809] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/dataTables.fixedHeader.min.js HTTP/1.1" 200 6637 0.000277
+[2016-07-17 23:31:56,818] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/fonts/fonts/fontawesome-webfont.woff2?v=4.5.0 HTTP/1.1" 200 66970 0.000477
+[2016-07-17 23:31:56,844] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/dataTables.responsive.min.js HTTP/1.1" 200 10915 0.000341
+[2016-07-17 23:31:56,845] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/dataTables.scroller.min.js HTTP/1.1" 200 11571 0.000309
+[2016-07-17 23:31:56,846] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/datatables/responsive.bootstrap.min.js HTTP/1.1" 200 1452 0.000278
+[2016-07-17 23:31:56,846] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18366 0.000259
+[2016-07-17 23:31:56,848] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:56] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/img/picture.jpg HTTP/1.1" 200 23125 0.000301
+[2016-07-17 23:31:59,148] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:31:59] "POST / HTTP/1.1" 200 186 2.002283
+[2016-07-17 23:32:01,163] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:01] "POST / HTTP/1.1" 200 204 2.001821
+[2016-07-17 23:32:03,168] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:03] "POST / HTTP/1.1" 200 204 2.001094
+[2016-07-17 23:32:03,203] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:03] "POST / HTTP/1.1" 200 180 0.000672
+[2016-07-17 23:32:03,436] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:03] "POST / HTTP/1.1" 200 13131 0.176979
+[2016-07-17 23:32:08,062] DEBUG    Site:1CQTfY..6AXf Found 15 ip4, 0 onion peers, new: 1
+[2016-07-17 23:32:08,063] DEBUG    FileServer Removing Conn# 1 boot.zeronet.io [v2]...
+[2016-07-17 23:32:20,888] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:20] "POST / HTTP/1.1" 200 186 2.000828
+[2016-07-17 23:32:22,897] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:22] "POST / HTTP/1.1" 200 181 2.001414
+[2016-07-17 23:32:24,904] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:24] "POST / HTTP/1.1" 200 204 2.001858
+[2016-07-17 23:32:26,908] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:26] "POST / HTTP/1.1" 200 204 2.001165
+[2016-07-17 23:32:32,279] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:32] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/home.html HTTP/1.1" 200 2708 0.000442
+[2016-07-17 23:32:32,289] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:32] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/home.html HTTP/1.1" 200 2708 0.000417
+[2016-07-17 23:32:32,315] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:32] "GET /Websocket?wrapper_key=a9a6d71296ad88f1168544d2a906d1a5e8701506150548fd15832345d50b365f HTTP/1.1" 101 129 35.544985
+[2016-07-17 23:32:32,320] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:32] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/home.html HTTP/1.1" 200 2708 0.000512
+[2016-07-17 23:32:32,353] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:32] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/home.html?wrapper_nonce=8e3d5b6d31eb1ee58f9f8169e5423d4b8d42a5e1d6e3578e5ce2068e80c40e21 HTTP/1.1" 200 25208 0.000419
+[2016-07-17 23:32:32,475] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:32] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/fonts/fonts/fontawesome-webfont.woff2?v=4.5.0 HTTP/1.1" 200 66970 0.000500
+[2016-07-17 23:32:32,494] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:32] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18366 0.000349
+[2016-07-17 23:32:34,747] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:34] "POST / HTTP/1.1" 200 186 2.002107
+[2016-07-17 23:32:36,761] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:36] "POST / HTTP/1.1" 200 204 2.002241
+[2016-07-17 23:32:38,769] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:38] "POST / HTTP/1.1" 200 204 2.002675
+[2016-07-17 23:32:38,807] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:38] "POST / HTTP/1.1" 200 180 0.000840
+[2016-07-17 23:32:38,870] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:38] "POST / HTTP/1.1" 200 13131 0.001702
+[2016-07-17 23:32:43,350] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:43] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/contacts.html HTTP/1.1" 200 2716 0.000877
+[2016-07-17 23:32:43,384] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:43] "GET /Websocket?wrapper_key=a9a6d71296ad88f1168544d2a906d1a5e8701506150548fd15832345d50b365f HTTP/1.1" 101 129 10.995272
+[2016-07-17 23:32:43,386] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:43] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/contacts.html HTTP/1.1" 200 2716 0.000631
+[2016-07-17 23:32:43,429] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:43] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/contacts.html?wrapper_nonce=14cd7ddad7841ba5fe4009e2a3e1e4ef030ea0445a116acefc1f7d77486c47f8 HTTP/1.1" 200 14046 0.000521
+[2016-07-17 23:32:43,463] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:43] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/zero.js HTTP/1.1" 200 5521 0.000479
+[2016-07-17 23:32:43,464] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:43] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/custom.js HTTP/1.1" 200 11694 0.000348
+[2016-07-17 23:32:43,465] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:43] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/js/shift/hub.contacts.js HTTP/1.1" 200 4366 0.000355
+[2016-07-17 23:32:43,544] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:43] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/fonts/fonts/fontawesome-webfont.woff2?v=4.5.0 HTTP/1.1" 200 66970 0.000471
+[2016-07-17 23:32:43,566] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:43] "GET /1CQTfYmebR1bP75PCUata417NffWyL6AXf/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18366 0.000345
+[2016-07-17 23:32:43,660] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:43] "POST / HTTP/1.1" 200 180 0.000780
+[2016-07-17 23:32:51,997] DEBUG    Ui.UiServer 127.0.0.1 - - [2016-07-17 23:32:51] "GET /Websocket?wrapper_key=a9a6d71296ad88f1168544d2a906d1a5e8701506150548fd15832345d50b365f HTTP/1.1" 101 129 8.531791
+[2016-07-17 23:33:21,802] DEBUG    FileServer Conn# 5 72.79.58.198 [?] > [Cleanup] Connect timeout: 109.526952982
+[2016-07-17 23:33:21,802] DEBUG    FileServer Removing Conn# 5 72.79.58.198 [?]...
+[2016-07-17 23:33:21,803] DEBUG    FileServer 72.79.58.198 Connect error: error: [Errno 9] File descriptor was closed in another greenlet in ConnectionServer.py line 139 > Connection.py line 95 > socket.py line 349 > socket.py line 300 > hub.py line 348 > hub.py line 575 > hub.py line 338
+[2016-07-17 23:33:54,345] DEBUG    Site:1CQTfY..6AXf Announced types [] in mode update to 1 trackers in 0.466s, errors: [], slow: []
+[2016-07-17 23:33:54,345] DEBUG    Site:1CQTfY..6AXf Need connections: 3, Current: 3, Total: 20
+[2016-07-17 23:36:26,863] DEBUG    Site:1CQTfY..6AXf Announced types [] in mode update to 1 trackers in 0.513s, errors: [], slow: []
+[2016-07-17 23:36:26,864] DEBUG    Site:1CQTfY..6AXf Need connections: 3, Current: 3, Total: 20
+[2016-07-17 23:36:50,857] ERROR    - Unhandled exception
+None
+[2016-07-17 23:36:50,857] DEBUG    Ui.UiServer Stopping...
+[2016-07-17 23:36:50,857] INFO     gshift Stopping gshift...
+[2016-07-17 23:36:50,857] DEBUG    Ui.UiServer Socket closed: 0
+[2016-07-17 23:36:50,857] DEBUG    FileServer Stopped.
+[2016-07-17 23:36:51,376] DEBUG    Ui.UiServer Stopped.
+[2016-07-17 23:36:51,377] INFO     gshift Stopping gshift...
