@@ -35,27 +35,28 @@ class Phantom_Ui(object):
         from Site import Site
         import os
 
-        self.config.parse(silent=True)
-        if not self.config.arguments:
-            self.config.parse()
+        config.parse(silent=True)
+        if not config.arguments:
+            config.parse()
 
-        self.privatekey = CryptBitcoin.newPrivatekey()
-        address = CryptBitcoin.privatekeyToAddress(self.privatekey)
+        self.private_key = CryptBitcoin.newPrivatekey()
+        self.address = CryptBitcoin.privatekeyToAddress(self.private_key)
 
         try:
-            os.mkdir("%s/%s" % (self.config.data_dir, address))
-            open("%s/%s/index.html" % (self.config.data_dir, address), "w").write("Hello %s!" % address)
+            os.mkdir("%s/%s" % (config.data_dir, self.address))
+            open("%s/%s/index.html" % (config.data_dir, self.address), "w").write("Hello %s!" % self.address)
         except Exception as e:
             return self.error_msg.error_response("err_create_sitedir")
     
         try:
-            self.site = Site(address)
-            self.site.content_manager.sign(privatekey=self.privatekey, extend={"postmessage_nonce_security": True})
+            self.site = Site(self.address)
+            self.site.content_manager.sign(privatekey=self.private_key, extend={"postmessage_nonce_security": True})
             self.site.settings["own"] = True
             self.site.saveSettings()
         except Exception as e:
+            print e
             return self.error_msg.error_response("err_create_site")
-        return {"jsonrpc": "2.0", "id": "1", "result": ["true", str(address), str(privatekey)]}
+        return {"jsonrpc": "2.0", "id": "1", "result": ["true", str(self.address), str(self.private_key)]}
 
 
     def validate_postdata(self,postdata):
