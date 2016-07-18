@@ -161,6 +161,7 @@ class UiServer:
                 if not os.path.isfile(client.get_default_ipc_path()):
                     if i == 10: 
                         print "- Could not connect to gshift.ipc. Run gshift manually and verify functionality."
+                        config.open_browser = False
                         break
                 try:
                     self.ipc_connection = client.net_listening()
@@ -173,6 +174,7 @@ class UiServer:
                 time.sleep(1)
         else:
             print "- Could not find a running gshift process. Start gshift manually."
+            config.open_browser = False
 
         self.phantom_ui = Phantom_Ui.Phantom_Ui()
         res = self.phantom_ui.create_static_nodefile()
