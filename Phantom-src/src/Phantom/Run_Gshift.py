@@ -59,6 +59,26 @@ class Run_Gshift:
         return False
 
 
+    def verify_ipc_connection(self):
+
+        import os
+        from Shift_IPC import IPC_Client
+        self.check_file = IPC_Client.Client()
+        self.check_ipc = IPC_Client.Client()
+
+        for i in range(1,10):
+            try:
+                self.ipc_connection = self.check_ipc.net_listening()
+                if 'result' in self.ipc_connection:
+                    return True
+            except Exception as e:
+                 return False
+
+            if i == 10: break
+            time.sleep(1)
+        return False
+
+
     def stop(self):
         self.log.info("Stopping gshift...")
         try:
