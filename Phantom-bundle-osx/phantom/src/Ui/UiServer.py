@@ -143,6 +143,7 @@ class UiServer:
 
         import os
         from Shift_IPC import IPC_Client
+        import time
         client = IPC_Client.Client()
 
         handler = self.handleRequest
@@ -155,17 +156,25 @@ class UiServer:
         self.running = self.gshift.check_running_proc("gshift")
         if self.running:
             print "- Found running gshift process with process id: %i" % int(self.running[0])
-            print "- Checking if gshift.ipc exists..."
+            print "- Checking gshift.ipc connection..."
             for i in range(1,10):
                 if not os.path.isfile(client.get_default_ipc_path()):
                     if i == 10: 
-                        print "- Could not find gshift.ipc. Run gshift manually to initiate the directory and gshift.ipc."
-                    time.sleep(1)
-                else:
-                    break
-            print "- Found gshift.ipc. Creating static node file."
+                        print "- Could not connect to gshift.ipc. Run gshift manually and verify functionality."
+                        config.open_browser = False
+                        break
+                try:
+                    self.ipc_connection = client.net_listening()
+                    if 'result' in self.ipc_connection:
+                        print "- Got gshift.ipc connection. Creating static node file."
+                        break
+                except Exception as e:
+                    print e
+                    continue
+                time.sleep(1)
         else:
             print "- Could not find a running gshift process. Start gshift manually."
+            config.open_browser = False
 
         self.phantom_ui = Phantom_Ui.Phantom_Ui()
         res = self.phantom_ui.create_static_nodefile()
@@ -177,7 +186,6 @@ class UiServer:
         except Exception as e:
             print "- Could not initalize phantom database, exiting..."
             sys.exit(0)
-
 
         if config.debug:
             # Auto reload UiRequest on change
