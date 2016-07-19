@@ -46,6 +46,9 @@ class Run_Gshift:
                        if "gshift.exe" in i:
                            self.proclist = [x for x in i.split(" ") if x != '']
                            if len(self.proclist) >= 1: return [self.proclist[1]]
+                elif platform == 'darwin':
+                    self.pidlist = map(int, check_output(["pgrep", name]).split())
+                    if len(self.pidlist) > 0: return self.pidlist
                 else: 
                     self.pidlist = map(int, check_output(["pidof", name]).split())
                     if len(self.pidlist) > 0: return self.pidlist
@@ -72,7 +75,8 @@ class Run_Gshift:
                 if 'result' in self.ipc_connection:
                     return True
             except Exception as e:
-                 return False
+                print e
+                return False
 
             if i == 10: break
             time.sleep(1)

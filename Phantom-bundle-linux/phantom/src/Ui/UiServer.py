@@ -141,10 +141,6 @@ class UiServer:
     # Bind and run the server
     def start(self):
 
-        import os
-        from Shift_IPC import IPC_Client
-        import time
-        client = IPC_Client.Client()
 
         handler = self.handleRequest
 
@@ -155,23 +151,14 @@ class UiServer:
         print "- Checking if gshift is running..."
         self.running = self.gshift.check_running_proc("gshift")
         if self.running:
-            print "- Found running gshift process with process id: %i" % int(self.running[0])
-            print "- Checking gshift.ipc connection..."
-            for i in range(1,10):
-                if not os.path.isfile(client.get_default_ipc_path()):
-                    if i == 10: 
-                        print "- Could not connect to gshift.ipc. Run gshift manually and verify functionality."
-                        config.open_browser = False
-                        break
-                try:
-                    self.ipc_connection = client.net_listening()
-                    if 'result' in self.ipc_connection:
-                        print "- Got gshift.ipc connection. Creating static node file."
-                        break
-                except Exception as e:
-                    print e
-                    continue
-                time.sleep(1)
+            print "- Found a running gshift process with process id: %i" % self.running[0]
+            print "- Verifying IPC connection..."
+            self.ipc_conn = self.gshift.verify_ipc_connection()
+            if not self.ipc_conn: 
+                print "- Could not establish an IPC connection with gshift."
+                config.open_browser = False
+            else:
+                print "- Successfully established an IPC connection to gshift. Creating static node file..."
         else:
             print "- Could not find a running gshift process. Start gshift manually."
             config.open_browser = False
