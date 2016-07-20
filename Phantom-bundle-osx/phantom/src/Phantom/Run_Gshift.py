@@ -26,6 +26,8 @@ class Run_Gshift:
                 self.process = Popen(command, stdout=self.fnull, stderr=self.fnull, shell=True)
 
             atexit.register(self.stop)
+            import time
+            time.sleep(3)
             return self.process
 
         except Exception, err:
@@ -64,21 +66,19 @@ class Run_Gshift:
 
     def verify_ipc_connection(self):
 
-        import os
+        import time
         from Shift_IPC import IPC_Client
         self.check_file = IPC_Client.Client()
         self.check_ipc = IPC_Client.Client()
 
-        for i in range(1,10):
+        for i in range(1,20):
             try:
                 self.ipc_connection = self.check_ipc.net_listening()
                 if 'result' in self.ipc_connection:
                     return True
             except Exception as e:
-                print e
-                return False
+                pass
 
-            if i == 10: break
             time.sleep(1)
         return False
 

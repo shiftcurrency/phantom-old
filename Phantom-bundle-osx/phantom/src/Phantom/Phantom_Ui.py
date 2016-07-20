@@ -301,7 +301,7 @@ class Phantom_Ui(object):
                 return self.error_msg.error_response("invalid_wallet_addr")
 
             if not len(self.pd['from']) == 42 or not len(self.pd['to']) == 42:
-                self.error_msg.error_response("invalid_wallet_addr")
+                return self.error_msg.error_response("invalid_wallet_addr")
 
             try:
                 self.pd['amount'] = int(float(self.pd['amount'])*1000000000000000000)
@@ -335,7 +335,7 @@ class Phantom_Ui(object):
             try:
                 int(postparams['params'][0], 16)
             except Exception as e:
-                self.error_msg.error_response("invalid_hex_string")
+                return self.error_msg.error_response("invalid_hex_string")
         
             try:
                 self.res = self.client.send_transaction(postparams['params'][0])
@@ -384,7 +384,7 @@ class Phantom_Ui(object):
             try:
                 int(postparams['params'][0], 16)
             except:
-                self.error_msg.error_response("invalid_hex_string")
+                return self.error_msg.error_response("invalid_hex_string")
 
             self.client = IPC_Client.Client()
             try:
@@ -404,7 +404,7 @@ class Phantom_Ui(object):
                 try:
                     int(self.pd['to'], 16)
                 except:
-                    self.error_msg.error_response("invalid_hex_string")
+                    return self.error_msg.error_response("invalid_hex_string")
 
                 self.from_ident = self.new_message_ident({'params':''})
                 if 'result' in self.from_ident and len(self.from_ident['result']) == 2:
@@ -475,10 +475,10 @@ class Phantom_Ui(object):
             try:
                 int(postparams['params'][0], 16)
             except:
-                self.error_msg.error_response("invalid_hex_string")
+                return self.error_msg.error_response("invalid_hex_string")
 
             if not len(postparams['params'][0]) == 42: 
-                self.error_msg.error_response("invalid_wallet_addr")
+                return self.error_msg.error_response("invalid_wallet_addr")
 
             try:
                 self.phantomdb = Phantom_Db.PhantomDb()
@@ -497,10 +497,10 @@ class Phantom_Ui(object):
             try:
                 int(postparams['params'][0], 16)
             except:
-                self.error_msg.error_response("invalid_hex_string")
+                return self.error_msg.error_response("invalid_hex_string")
 
             if not len(postparams['params'][0]) == 42: 
-                self.error_msg.error_response("invalid_wallet_addr")
+                return self.error_msg.error_response("invalid_wallet_addr")
 
             if len(postparams['params'][1]) > 0:
                 try:
@@ -519,10 +519,10 @@ class Phantom_Ui(object):
             try:
                 int(postparams['params'][0], 16)
             except:
-                self.error_msg.error_response("invalid_hex_string")
+                return self.error_msg.error_response("invalid_hex_string")
 
             if not len(postparams['params'][0]) == 42:
-                self.error_msg.error_response("invalid_wallet_addr")
+                return self.error_msg.error_response("invalid_wallet_addr")
 
             try:
                 self.phantomdb = Phantom_Db.PhantomDb()
@@ -555,10 +555,10 @@ class Phantom_Ui(object):
             try:
                 int(self.postparams['params'][0], 16)
             except:
-                self.error_msg.error_response("invalid_hex_string")
+                return self.error_msg.error_response("invalid_hex_string")
 
             if not len(self.postparams['params'][0]) == 42:
-                self.error_msg.error_response("invalid_wallet_addr")
+                return self.error_msg.error_response("invalid_wallet_addr")
 
             if type(self.postparams['params'][1]) is not list:
                 return self.error_msg.error_response("missing_params")
@@ -569,7 +569,7 @@ class Phantom_Ui(object):
 
                 for block_number in postparams['params'][1]:
                     if type(postparams['params'][1][0]) is not int:
-                        self.error_msg.error_response("invalid_block_number")
+                        return self.error_msg.error_response("invalid_block_number")
 
                     self.res = self.phantomdb.get_balance_by_block(postparams['params'][0],block_number)
                     if self.res and len(self.res) >= 1:
