@@ -151,7 +151,7 @@ class UiServer:
         print "- Checking if gshift is running..."
         self.running = self.gshift.check_running_proc("gshift")
         if self.running:
-            print "- Found a running gshift process with process id: %i" % int(self.running[0])
+            print "- Found a running gshift process with process id: %i" % self.running[0]
             print "- Verifying IPC connection..."
             self.ipc_conn = self.gshift.verify_ipc_connection()
             if not self.ipc_conn: 

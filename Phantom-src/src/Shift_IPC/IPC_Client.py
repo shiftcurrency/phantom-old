@@ -100,14 +100,15 @@ class Client(object):
         return response
 
 
-    def send_transaction(self, sender, receiver, amount, nrg, data):
+    def send_transaction(self, params):
 
-        if nrg and not data:
-            trans_params = [{"from": sender, "to": receiver, "value": amount, "gas": hex(int(nrg))}]
-        elif nrg and data:
-            trans_params = [{"from": sender, "to": receiver, "value": amount, "gas": hex(int(nrg)), "data" : data}]
-        else:
-            trans_params = [{"from": sender, "to": receiver, "value": amount}]
+        if params['method'] == 'send_transaction':
+            trans_params = [{"from": params['from'], "to": params['to'], "value": params['amount'], "gas": hex(int(params['gas']))}]
+        elif params['method'] == 'create_contract':
+            trans_params = [{"from": params['from'], "gas": hex(int(params['gas'])), "data" : params['data']}]
+
+        print "in ipc"
+        print trans_params
 
         response = self._make_request("shf_sendTransaction", trans_params)
         return response
@@ -270,6 +271,8 @@ class Client(object):
 
     def ipc_socket(self, request):
 
+        print request
+
         for _ in range(3):
             try:
                 self._socket.sendall(request)
@@ -279,6 +282,7 @@ class Client(object):
 
             while True:
                 try:
+                    print response_raw
                     response_raw += self._socket.recv(4096)
                 except socket.timeout:
                     break
