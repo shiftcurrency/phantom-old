@@ -597,9 +597,9 @@ class Phantom_Ui(object):
             if not 'gas' in postparams['params'][0] or not len(postparams['params'][0]['gas']) > 0:
                 return self.error_msg.error_response("missing_params")
         
-            """ Password is needed to unlock the wallet and payfor the gas. """
+            """ Password is needed to unlock the wallet and pay for the gas. """
             if not 'password' in postparams['params'][0] or not len(postparams['params'][0]['password']) > 0:
-                return self.error_msg.error_response("missing_params")
+                return self.error_msg.error_response("empty_password")
 
             self.from_addr = postparams['params'][0]['from_account']
             self.source = postparams['params'][0]['source']
@@ -612,18 +612,43 @@ class Phantom_Ui(object):
                 self.contract_tx = self.contract.create_contract(self.from_addr, self.source, self.gas, self.passwd)
                 return {"jsonrpc": "2.0", "id": "1", "result": self.contract_tx}
             except Exception as e:
-                print e
                 return {"jsonrpc": "2.0", "id": "1", "result": e}
         return self.error_msg.error_response("missing_params")
 
 
     def set_contract_storage(self, postparams):
-        from Contract.Contract import ContractCall
-        self.contract = ContractCall()
 
-        contract_addr = contract.get_contract_address(contract_tx)
-        tx = contract.call_with_transaction("0xbc7a0213b78c4ee447c8dabb761f36c706ad3336", contract_addr, 'set_s(string)', ['Hello, world'])
-        print "Sleeping 20 seconds for the blocks to mine.."
+        if len(postparams['params']) == 1 and len(postparams['params'][0]) == 6:
+            if 'from' in postparams['params'][0] and 'to' in postparams['params'][0] \
+                and 'function_signature' in postparams['params'][0] and 'function_argument' in postparams['params'][0] and \
+                    'password' in postparams['params'][0] and 'gas' in postparams['params'][0]:
+
+                if not self.verify_wallet_addr(postparams['params'][0]['from']):
+                    return self.error_msg.error_response("invalid_wallet_addr")
+
+                if not self.verify_wallet_addr(postparams['params'][0]['to']):
+                    return self.error_msg.error_response("invalid_wallet_addr")
+
+                if not len(postparams['params'][0]['function_signature']) > 0:
+                    return self.error_msg.error_response("no_function_sign")
+
+                if not len(postparams['params'][0]['password']) > 0:
+                    return self.error_msg.error_response("empty_password")
+
+                if not len(postparams['params'][0]['gas']) > 0:
+                    return self.error_msg.error_response("err_gas")
+
+                try:
+                    from Contract.Contract import ContractCall
+                    self.contract = ContractCall()
+                    """ from_addr, contract_addr, 'set_s(string)', ['Hello, world'] """
+                    self.contract_call_res = self.contract.call_with_transaction(postparams['params'][0])
+                    return {"jsonrpc": "2.0", "id": "1", "result": self.contract_call_res}
+                except Exception as e:
+                    print e
+                    return {"jsonrpc": "2.0", "id": "1", "result": e}
+        return self.error_msg.error_response("missing_params")
+
 
     def get_contract_storage(self, postparams):
         from Contract.Contract import ContractCall
@@ -641,6 +666,19 @@ class Phantom_Ui(object):
             pass
         else:
             pass
+
+    def get_tx_receipt(self, postparams):
+        
+        if len(postparams['params']) == 1:
+            self.client = IPC_Client.Client()
+            try:
+                txrec = self.client.get_tx_reciept(postparams['params'][0])
+                if 'result' in txrec:
+                    return txrec
+                return {"jsonrpc": "2.0", "id": "1", "result": "false"}
+            except Exception as e:
+                return self.error_msg.error_response("err_get_txrec")
+        return self.error_msg.error_response("missing_params")
   
 
     def run(self,postdata):

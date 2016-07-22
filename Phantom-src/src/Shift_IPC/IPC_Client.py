@@ -91,6 +91,10 @@ class Client(object):
         response = self._make_request("shh_getFilterChanges", [params])
         return response
 
+    def get_tx_reciept(self, params):
+        response = self._make_request("shf_getTransactionReceipt", [params])
+        return response
+
     def get_block_data(self, blknum, fulldata):
         if fulldata == "true":
             response = self._make_request("shf_getBlockByNumber", [hex(int(blknum)), True])
@@ -106,9 +110,8 @@ class Client(object):
             trans_params = [{"from": params['from'], "to": params['to'], "value": params['amount'], "gas": hex(int(params['gas']))}]
         elif params['method'] == 'create_contract':
             trans_params = [{"from": params['from'], "gas": hex(int(params['gas'])), "data" : params['data']}]
-
-        print "in ipc"
-        print trans_params
+        elif params['method'] == 'call_contract':
+            trans_params = [{"from": params['from'], "to" : params['to'], "gas": hex(int(params['gas'])), "data" : params['data']}]
 
         response = self._make_request("shf_sendTransaction", trans_params)
         return response

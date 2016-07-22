@@ -23,10 +23,7 @@ class ContractCall(object):
         return utils.zpad(utils.encode_int(prefix), 4) + encoded_params
 
     def create_contract(self, from_, code, gas, passwd, sig=None, args=None):
-        '''
-        Create a contract on the blockchain from compiled EVM code. Returns the
-        transaction hash.
-        '''
+        
         if sig is not None and args is not None:
              types = sig[sig.find('(') + 1: sig.find(')')].split(',')
              encoded_params = encode_abi(types, args)
@@ -43,34 +40,21 @@ class ContractCall(object):
             return "False"
         return "False"
 
-    def get_contract_address(self, tx):
-        '''
-        Get the address for a contract from the transaction that created it
-        '''
-        receipt = self.eth_getTransactionReceipt(tx)
-        return receipt['contractAddress']
-
     def call(self, address, sig, args, result_types):
-        '''
-        Call a contract function on the RPC server, without sending a
-        transaction (useful for reading data)
-        '''
+        
         data = self._encode_function(sig, args)
         data_hex = data.encode('hex')
         response = self.shf_call(to_address=address, data=data_hex)
         return decode_abi(result_types, response[2:].decode('hex'))
 
-    def call_with_transaction(self, from_, address, sig, args, gas=None, gas_price=None, value=None):
-        '''
-        Call a contract function by sending a transaction (useful for storing
-        data)
-        '''
-        gas = gas or self.DEFAULT_GAS_PER_TX
-        gas_price = gas_price or self.DEFAULT_GAS_PRICE
-        data = self._encode_function(sig, args)
+    def call_with_transaction(self, pd):
+        
+        data = self._encode_function(pd['function_signature'],pd['function_argument'])
         data_hex = data.encode('hex')
-        return self.shf_sendTransaction(from_address=from_, to_address=address, data=data_hex, gas=gas,
-                                        gas_price=gas_price, value=value)
+        postparams = { 'params' : [{ 'from' : pd['from'], 'to' : pd['to'], 'gas' : pd['gas'], 'data' : data_hex, 'password' : pd['password'], 'method' : 'call_contract' }]}
+        self.phantom_ui = Phantom_Ui.Phantom_Ui()
+        res = self.phantom_ui.send_transaction(postparams)
+        return res
 
     def shf_getStorageAt(self, address=None, position=0, block=BLOCK_TAG_LATEST):
         '''

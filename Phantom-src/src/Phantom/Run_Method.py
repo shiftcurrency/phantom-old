@@ -113,8 +113,15 @@ class Run_Method(object):
             return self.res
 
         elif postparams['method'] == 'create_contract':
-            print postparams
             self.res = phantom_ui.create_contract(postparams)
+            return self.res
+
+        elif postparams['method'] == 'get_tx_receipt':
+            self.res = phantom_ui.get_tx_receipt(postparams)
+            return self.res
+
+        elif postparams['method'] == 'set_contract_storage':
+            self.res = phantom_ui.set_contract_storage(postparams)
             return self.res
 
         return error.error_response("no_method")
