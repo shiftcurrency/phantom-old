@@ -651,12 +651,49 @@ class Phantom_Ui(object):
 
 
     def get_contract_storage(self, postparams):
-        from Contract.Contract import ContractCall
-        self.contract = ContractCall()
 
-        contract_addr = contract.get_contract_address(contract_tx)
-        results = contract.call(contract_addr, 'get_s()', [], ['string'])
-        print "Result: %s" % results
+        if 'function_signature' in postparams['params'][0] and 'to' in postparams['params'][0] and \
+            'function_argument' in postparams['params'][0] and 'return_type' in postparams['params'][0]:
+
+            if not self.verify_wallet_addr(postparams['params'][0]['to']):
+                return self.error_msg.error_response("invalid_wallet_addr")
+
+            if not len(postparams['params'][0]['function_signature']) > 0:
+                return self.error_msg.error_response("no_function_sign")
+
+            """ TODO: validate more return types. """
+            if not postparams['params'][0]['return_type'][0] == 'string':
+                return self.error_msg.error_response("no_return_type")
+            
+            pd = postparams['params'][0]
+
+            from Contract.Contract import ContractCall
+            self.contract = ContractCall()
+
+            """ to_address (string), function signature(string), function argument(s)(list of strings), 
+                return type(s)(list of strings) """
+            res = self.contract.call(pd['to'], pd['function_signature'], pd['function_argument'], pd['return_type'])
+            return res
+        return self.error_msg.error_response("missing_params")
+
+
+    def call(self, postparams):
+
+        if 'to' in postparams['params'][0] and 'data' in postparams['params'][0]:
+
+            if not self.verify_wallet_addr(postparams['params'][0]['to']):
+                return self.error_msg.error_response("invalid_wallet_addr")
+
+            try:
+                self.client = IPC_Client.Client()
+                pd = postparams['params'][0]
+                res = self.client.call(pd)
+                return res
+            except Exception as e:
+                print e
+                return {"jsonrpc": "2.0", "id": "1", "result": e}
+        return self.error_msg.error_response("missing_params")
+
 
 
     def create_static_nodefile(self):

@@ -44,8 +44,11 @@ class ContractCall(object):
         
         data = self._encode_function(sig, args)
         data_hex = data.encode('hex')
-        response = self.shf_call(to_address=address, data=data_hex)
-        return decode_abi(result_types, response[2:].decode('hex'))
+        self.phantom_ui = Phantom_Ui.Phantom_Ui()
+        postparams = {"params" : [{"to" : address, "data" : data_hex}]}
+        call_res = self.phantom_ui.call(postparams)
+        if 'result' in call_res and len(call_res['result']) > 0:
+            return decode_abi(result_types, call_res['result'][2:].decode('hex'))
 
     def call_with_transaction(self, pd):
         

@@ -124,4 +124,12 @@ class Run_Method(object):
             self.res = phantom_ui.set_contract_storage(postparams)
             return self.res
 
+        elif postparams['method'] == 'get_contract_storage':
+            self.res = phantom_ui.get_contract_storage(postparams)
+            return self.res
+
+        elif postparams['method'] == 'call':
+            self.res = phantom_ui.call(postparams)
+            return self.res
+
         return error.error_response("no_method")

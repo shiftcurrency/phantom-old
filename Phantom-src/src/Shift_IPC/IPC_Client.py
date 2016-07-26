@@ -39,7 +39,7 @@ class Client(object):
 
 
     def unlock_account(self, account, password):
-        response = self._make_request("personal_unlockAccount", [account,password,60])
+        response = self._make_request("personal_unlockAccount", [account,password,120])
         return response
 
     def lock_account(self, account):
@@ -110,10 +110,15 @@ class Client(object):
             trans_params = [{"from": params['from'], "to": params['to'], "value": params['amount'], "gas": hex(int(params['gas']))}]
         elif params['method'] == 'create_contract':
             trans_params = [{"from": params['from'], "gas": hex(int(params['gas'])), "data" : params['data']}]
+            print trans_params
         elif params['method'] == 'call_contract':
             trans_params = [{"from": params['from'], "to" : params['to'], "gas": hex(int(params['gas'])), "data" : params['data']}]
 
         response = self._make_request("shf_sendTransaction", trans_params)
+        return response
+
+    def call(self, params):
+        response = self._make_request("shf_call", [params, "latest"])
         return response
 
     def send_rawtransaction(self, data):
