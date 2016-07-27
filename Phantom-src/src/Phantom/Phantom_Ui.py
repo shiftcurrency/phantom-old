@@ -491,7 +491,7 @@ class Phantom_Ui(object):
 
             try:
                 self.phantomdb = Phantom_Db.PhantomDb()
-                self.res = self.phantomdb.get_transaction_hist(postparams['params'][0])
+                self.res = self.phantomdb.get_transaction_hist(postparams['params'][0][2:])
                 if self.res and len(self.res) >= 1:
                     return {"jsonrpc": "2.0", "id": "1", "result": list(self.res)}
                 return {"jsonrpc": "2.0", "id": "1", "result": []}
@@ -510,8 +510,8 @@ class Phantom_Ui(object):
             if len(postparams['params'][1]) > 0:
                 try:
                     self.phantomdb = Phantom_Db.PhantomDb()
-                    res = self.phantomdb.store_address_book(postparams['params'][0], postparams['params'][1])
-                    if res:
+                    self.res = self.phantomdb.store_address_book(postparams['params'][0], postparams['params'][1])
+                    if self.res:
                         return {"jsonrpc": "2.0", "id": "1", "result": ["true"]}
                 except Exception as e:
                     return self.error_msg.error_response("err_store_addrbook")
@@ -527,7 +527,7 @@ class Phantom_Ui(object):
 
             try:
                 self.phantomdb = Phantom_Db.PhantomDb()
-                self.res = phantomdb.del_address_book(postparams['params'][0])
+                self.res = phantomdb.del_address_book(postparams['params'][0][2:])
                 if self.res:
                     return {"jsonrpc": "2.0", "id": "1", "result": ["true"]}
             except Exception as e:
