@@ -110,7 +110,6 @@ class Client(object):
             trans_params = [{"from": params['from'], "to": params['to'], "value": params['amount'], "gas": hex(int(params['gas']))}]
         elif params['method'] == 'create_contract':
             trans_params = [{"from": params['from'], "gas": hex(int(params['gas'])), "data" : params['data']}]
-            print trans_params
         elif params['method'] == 'call_contract':
             trans_params = [{"from": params['from'], "to" : params['to'], "gas": hex(int(params['gas'])), "data" : params['data']}]
 
