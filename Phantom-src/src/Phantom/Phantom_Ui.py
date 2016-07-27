@@ -336,7 +336,6 @@ class Phantom_Ui(object):
             self.client = IPC_Client.Client()
 
             try:
-                print self.pd
                 self.res = self.client.send_transaction(self.pd)
             except Exception as e:
                 print e

@@ -107,7 +107,7 @@ class Client(object):
     def send_transaction(self, params):
 
         if params['method'] == 'send_transaction':
-            trans_params = [{"from": params['from'], "to": params['to'], "value": params['amount'], "gas": hex(int(params['gas']))}]
+            trans_params = [{"from": params['from'], "to": params['to'], "value": params['amount'], "gas": hex(30000)}]
         elif params['method'] == 'create_contract':
             trans_params = [{"from": params['from'], "gas": hex(int(params['gas'])), "data" : params['data']}]
         elif params['method'] == 'call_contract':
@@ -277,8 +277,6 @@ class Client(object):
 
 
     def ipc_socket(self, request):
-
-        print request
 
         for _ in range(3):
             try:
