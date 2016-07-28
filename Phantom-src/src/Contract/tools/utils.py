@@ -2,7 +2,7 @@ try:
     from Crypto.Hash import keccak
     sha3_256 = lambda x: keccak.new(digest_bits=256, data=x).digest()
 except:
-    import sha3 as _sha3
+    from sha3 import sha3 as _sha3
     sha3_256 = lambda x: _sha3.sha3_256(x).digest()
 from bitcoin import privtopub
 import sys
@@ -119,7 +119,7 @@ def sha3(seed):
     sha3_count[0] += 1
     return sha3_256(to_string(seed))
 
-assert encode_hex(sha3(b'')) == b'c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
+#assert encode_hex(_sha3.sha3_256(b'')) == b'c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
 
 
 def privtoaddr(x, extended=False):
