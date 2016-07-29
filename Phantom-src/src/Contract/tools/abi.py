@@ -3,7 +3,8 @@ import ast
 import re
 import warnings
 
-import yaml  # use yaml instead of json to get non unicode (works with ascii only data)
+#import yaml  # use yaml instead of json to get non unicode (works with ascii only data)
+import json
 from rlp.utils import decode_hex, encode_hex
 
 import utils
@@ -12,7 +13,8 @@ from utils import isnumeric, TT256, TT255
 
 
 def json_decode(data):
-    return yaml.safe_load(data)
+    return json.decode(data)
+    #return yaml.safe_load(data)
 
 
 def split32(data):

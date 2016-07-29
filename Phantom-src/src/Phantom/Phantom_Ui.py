@@ -510,7 +510,7 @@ class Phantom_Ui(object):
             if len(postparams['params'][1]) > 0:
                 try:
                     self.phantomdb = Phantom_Db.PhantomDb()
-                    self.res = self.phantomdb.store_address_book(postparams['params'][0], postparams['params'][1])
+                    self.res = self.phantomdb.store_address_book(postparams['params'][0][2:], postparams['params'][1])
                     if self.res:
                         return {"jsonrpc": "2.0", "id": "1", "result": ["true"]}
                 except Exception as e:
