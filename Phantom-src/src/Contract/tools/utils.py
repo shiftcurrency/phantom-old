@@ -8,7 +8,7 @@ except:
     elif sys.platform == 'win32':
         from sha3_win32 import sha3 as _sha3
     sha3_256 = lambda x: _sha3.sha3_256(x).digest()
-from bitcoin import privtopub
+from lib.pybitcointools import bitcoin
 import rlp
 from rlp.sedes import big_endian_int, BigEndianInt, Binary
 from rlp.utils import decode_hex, encode_hex, ascii_chr, str_to_bytes
