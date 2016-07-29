@@ -112,4 +112,24 @@ class Run_Method(object):
             self.res = phantom_ui.get_balance_by_block(postparams)
             return self.res
 
+        elif postparams['method'] == 'create_contract':
+            self.res = phantom_ui.create_contract(postparams)
+            return self.res
+
+        elif postparams['method'] == 'get_tx_receipt':
+            self.res = phantom_ui.get_tx_receipt(postparams)
+            return self.res
+
+        elif postparams['method'] == 'set_contract_storage':
+            self.res = phantom_ui.set_contract_storage(postparams)
+            return self.res
+
+        elif postparams['method'] == 'get_contract_storage':
+            self.res = phantom_ui.get_contract_storage(postparams)
+            return self.res
+
+        elif postparams['method'] == 'call':
+            self.res = phantom_ui.call(postparams)
+            return self.res
+
         return error.error_response("no_method")

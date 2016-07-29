@@ -6,7 +6,12 @@ import sys
 
 
 def main():
-    print "- Phantom Started."
+    try:
+        with open ('VERSION', 'r') as x:
+            ver = x.read()
+        print "- Phantom Started (%s)" % ver.split('\n')[0]
+    except:
+        print "- Phantom Started"
 
     main = None
     try:

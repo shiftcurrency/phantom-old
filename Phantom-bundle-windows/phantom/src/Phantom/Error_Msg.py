@@ -67,5 +67,11 @@ class Error_Msg(object):
             return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not calculate balance"]}
         elif error_type == "invalid_block_number":
             return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Invalid block number. The block number must be a positive integer"]}
+        elif error_type == "err_get_txrec":
+            return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not get transaction receipt"]}
+        elif error_type == "no_function_sign":
+            return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Function signature must be provided. e.g. function_name()"]}
+        elif error_type == "err_gas":
+            return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Gas amount must be specified when creating or calling functions with a transaction"]}
         else:
             return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Unhandled exception. Please check the log file and report to Shift"]}
