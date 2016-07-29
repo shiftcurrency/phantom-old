@@ -68,6 +68,7 @@ class Phantom_Ui(object):
             """
             postparams = json.loads(postdata)
         except Exception as e:
+            print e
             return self.error_msg.error_response("invalid_json_req")
 
         if 'jsonrpc' in postparams and not postparams['jsonrpc'] == '2.0':
@@ -77,6 +78,7 @@ class Phantom_Ui(object):
             return self.error_msg.error_response("no_method")
 
         if not 'params' in postparams:
+            print "here"
             return self.error_msg.error_response("missing_params")
 
         return postparams
@@ -174,9 +176,7 @@ class Phantom_Ui(object):
             self.addr = postparams['params'][0]
             self.when = postparams['params'][1]
 
-            try:
-                int(self.addr, 16) 
-            except ValueError as e:
+            if not self.verify_wallet_addr(self.addr):
                 return self.error_msg.error_response("invalid_wallet_addr")
 
             if self.when == "latest" or self.when == "pending" or self.when == "earliest":
@@ -222,12 +222,7 @@ class Phantom_Ui(object):
 
     def unlock_account(self, addr, password):
 
-        try:
-            int(addr, 16)
-        except ValueError as e:
-            return self.error_msg.error_response("invalid_wallet_addr")
-
-        if not len(addr) == 42:
+        if not self.verify_wallet_addr(addr):
             return self.error_msg.error_response("invalid_wallet_addr")
 
         elif not len(password) > 0:
@@ -244,9 +239,7 @@ class Phantom_Ui(object):
 
     def lock_account(self, addr):
 
-        try:
-            int(addr, 16)
-        except ValueError as e:
+        if not self.verify_wallet_addr(addr):
             return self.error_msg.error_response("invalid_wallet_addr")
 
         try:
@@ -290,41 +283,62 @@ class Phantom_Ui(object):
         return self.error_msg.error_response("no_params_allowed")
 
 
+    def verify_wallet_addr(self, addr):
+        
+        try:
+            int(addr, 16) 
+        except ValueError as e:
+            return False
+
+        if not len(addr) >= 40: 
+            return False
+        
+        return True
+ 
+
     def send_transaction(self,postparams):
 
         if len(postparams['params']) == 1:
             self.pd = postparams['params'][0]
-            try:
-                int(self.pd['from'], 16)
-                int(self.pd['to'], 16)
-            except ValueError as e:
+            
+            if not self.verify_wallet_addr(postparams['params'][0]['from']):
                 return self.error_msg.error_response("invalid_wallet_addr")
 
-            if not len(self.pd['from']) == 42 or not len(self.pd['to']) == 42:
-                return self.error_msg.error_response("invalid_wallet_addr")
+            if not 'to' in self.pd:
+                self.pd['to'] = False
 
-            try:
-                self.pd['amount'] = int(float(self.pd['amount'])*1000000000000000000)
-                self.amount = "0x" + format(self.pd['amount'], 'x')
-            except Exception as e:
-                return self.error_msg.error_response("invalid_amount")
+            if 'amount' in self.pd:
+                try:
+                    self.pd['amount'] = int(float(self.pd['amount'])*1000000000000000000)
+                    self.pd['amount'] = "0x" + format(self.pd['amount'], 'x')
+                except Exception as e:
+                    print e
+                    return self.error_msg.error_response("invalid_amount")
 
-            if 'data' in self.pd and len(self.pd['data']) > 0: self.data = self.pd['data']
-            else: self.data = False
+            if 'data' in self.pd and len(self.pd['data']) == 0:
+                self.pd['data'] = False
 
-            if 'nrg' in self.pd and len(self.pd['nrg']) > 0: self.nrg = self.pd['nrg']
-            else: self.nrg = False
-
-            self.client = IPC_Client.Client()
+            if 'gas' in self.pd and len(self.pd['gas']) == 0:
+                """ Default gas amount for a transaction """
+                self.pd['gas'] = '30000'
 
             if 'password' in self.pd and len(self.pd['password']) == 0:
                 return self.error_msg.error_response("empty_password")
-            else:
-                self.res = self.client.unlock_account(self.pd['from'], self.pd['password'])
+
+            """ TODO: check unlock success """
+            self.res = self.unlock_account(self.pd['from'], self.pd['password'])
+
+            """ Tag the transaction with either create_contract or send_transaction.
+                create_contract does not have a reciever """
+            if 'method' not in self.pd:
+                self.pd['method'] = 'send_transaction'
+
+            self.client = IPC_Client.Client()
 
             try:
-                self.res = self.client.send_transaction(self.pd['from'], self.pd['to'], self.amount, self.nrg, self.data)
+                self.res = self.client.send_transaction(self.pd)
             except Exception as e:
+                print e
                 return self.error_msg.error_response("ipc_call_error")
 
             return self.res
@@ -350,10 +364,9 @@ class Phantom_Ui(object):
         if len(postparams['params']) == 1:
             self.pd = postparams['params'][0]
             if 'to' in self.pd and 'topics' in self.pd:
-                try:
-                    int(self.pd['to'], 16)
-                except:
-                    return self.error_msg.error_response("invalid_hex_string")
+
+                if not self.verify_wallet_addr(self.pd['to']):
+                    return self.error_msg.error_response("invalid_wallet_addr")
 
                 if self.pd['topics'] == "":
                     return self.error_msg.error_response("err_create_filter")
@@ -370,7 +383,7 @@ class Phantom_Ui(object):
     def new_message_ident(self,postparams):
 
         if len(postparams['params']) == 0:
-            self.client = self.IPC_Client.Client()
+            self.client = IPC_Client.Client()
             try:
                 self.res = client.new_message_ident()
                 return self.res
@@ -401,10 +414,10 @@ class Phantom_Ui(object):
             self.pd = postparams['params'][0]
 
             if 'to' in self.pd and 'message' in self.pd and self.pd['message'] != "":
-                try:
-                    int(self.pd['to'], 16)
-                except:
-                    return self.error_msg.error_response("invalid_hex_string")
+
+                if not self.verify_wallet_addr(self.pd['to']):
+                    return self.error_msg.error_response("invalid_wallet_addr")
+
 
                 self.from_ident = self.new_message_ident({'params':''})
                 if 'result' in self.from_ident and len(self.from_ident['result']) == 2:
@@ -472,17 +485,13 @@ class Phantom_Ui(object):
     def get_transaction_history(self,postparams):
     
         if len(postparams['params']) == 1:
-            try:
-                int(postparams['params'][0], 16)
-            except:
-                return self.error_msg.error_response("invalid_hex_string")
 
-            if not len(postparams['params'][0]) == 42: 
+            if not self.verify_wallet_addr(postparams['params'][0]):
                 return self.error_msg.error_response("invalid_wallet_addr")
 
             try:
                 self.phantomdb = Phantom_Db.PhantomDb()
-                self.res = self.phantomdb.get_transaction_hist(postparams['params'][0])
+                self.res = self.phantomdb.get_transaction_hist(postparams['params'][0][2:])
                 if self.res and len(self.res) >= 1:
                     return {"jsonrpc": "2.0", "id": "1", "result": list(self.res)}
                 return {"jsonrpc": "2.0", "id": "1", "result": []}
@@ -494,19 +503,15 @@ class Phantom_Ui(object):
     def store_address_book(self,postparams):
     
         if len(postparams['params']) == 2:
-            try:
-                int(postparams['params'][0], 16)
-            except:
-                return self.error_msg.error_response("invalid_hex_string")
 
-            if not len(postparams['params'][0]) == 42: 
+            if not self.verify_wallet_addr(postparams['params'][0]):
                 return self.error_msg.error_response("invalid_wallet_addr")
 
             if len(postparams['params'][1]) > 0:
                 try:
                     self.phantomdb = Phantom_Db.PhantomDb()
-                    res = self.phantomdb.store_address_book(postparams['params'][0], postparams['params'][1])
-                    if res:
+                    self.res = self.phantomdb.store_address_book(postparams['params'][0], postparams['params'][1])
+                    if self.res:
                         return {"jsonrpc": "2.0", "id": "1", "result": ["true"]}
                 except Exception as e:
                     return self.error_msg.error_response("err_store_addrbook")
@@ -516,17 +521,13 @@ class Phantom_Ui(object):
     def del_address_book(self,postparams):
     
         if len(postparams['params']) == 1:
-            try:
-                int(postparams['params'][0], 16)
-            except:
-                return self.error_msg.error_response("invalid_hex_string")
 
-            if not len(postparams['params'][0]) == 42:
+            if not self.verify_wallet_addr(postparams['params'][0]):
                 return self.error_msg.error_response("invalid_wallet_addr")
 
             try:
                 self.phantomdb = Phantom_Db.PhantomDb()
-                self.res = phantomdb.del_address_book(postparams['params'][0])
+                self.res = phantomdb.del_address_book(postparams['params'][0][2:])
                 if self.res:
                     return {"jsonrpc": "2.0", "id": "1", "result": ["true"]}
             except Exception as e:
@@ -552,12 +553,7 @@ class Phantom_Ui(object):
     
         if len(self.postparams['params']) == 2:
 
-            try:
-                int(self.postparams['params'][0], 16)
-            except:
-                return self.error_msg.error_response("invalid_hex_string")
-
-            if not len(self.postparams['params'][0]) == 42:
+            if not self.verify_wallet_addr(postparams['params'][0]):
                 return self.error_msg.error_response("invalid_wallet_addr")
 
             if type(self.postparams['params'][1]) is not list:
@@ -581,6 +577,124 @@ class Phantom_Ui(object):
         return self.error_msg.error_response("missing_params")
 
 
+    def create_contract(self, postparams):
+
+        if len(postparams['params']) == 1 and len(postparams['params'][0]) == 4:
+
+            if 'from_account' in postparams['params'][0]:
+                if not self.verify_wallet_addr(postparams['params'][0]['from_account']):
+                    return self.error_msg.error_response("invalid_wallet_addr")
+
+            else:
+                return self.error_msg.error_response("missing_params")
+
+            """ Source is the compiled EVM source of the contract. """
+            if not 'source' in postparams['params'][0] or not len(postparams['params'][0]['source']) > 0:
+                return self.error_msg.error_response("missing_params")
+
+            """ Since we do not estimate the gas needed for the contract to be create, every user must specify the amount of gas. """
+            if not 'gas' in postparams['params'][0] or not len(postparams['params'][0]['gas']) > 0:
+                return self.error_msg.error_response("missing_params")
+        
+            """ Password is needed to unlock the wallet and pay for the gas. """
+            if not 'password' in postparams['params'][0] or not len(postparams['params'][0]['password']) > 0:
+                return self.error_msg.error_response("empty_password")
+
+            self.from_addr = postparams['params'][0]['from_account']
+            self.source = postparams['params'][0]['source']
+            self.gas = postparams['params'][0]['gas']
+            self.passwd = postparams['params'][0]['password']
+
+            try:
+                from Contract.Contract import ContractCall
+                self.contract = ContractCall()
+                self.contract_tx = self.contract.create_contract(self.from_addr, self.source, self.gas, self.passwd)
+                return {"jsonrpc": "2.0", "id": "1", "result": self.contract_tx}
+            except Exception as e:
+                return {"jsonrpc": "2.0", "id": "1", "result": e}
+        return self.error_msg.error_response("missing_params")
+
+
+    def set_contract_storage(self, postparams):
+
+        if len(postparams['params']) == 1 and len(postparams['params'][0]) == 6:
+            if 'from' in postparams['params'][0] and 'to' in postparams['params'][0] \
+                and 'function_signature' in postparams['params'][0] and 'function_argument' in postparams['params'][0] and \
+                    'password' in postparams['params'][0] and 'gas' in postparams['params'][0]:
+
+                if not self.verify_wallet_addr(postparams['params'][0]['from']):
+                    return self.error_msg.error_response("invalid_wallet_addr")
+
+                if not self.verify_wallet_addr(postparams['params'][0]['to']):
+                    return self.error_msg.error_response("invalid_wallet_addr")
+
+                if not len(postparams['params'][0]['function_signature']) > 0:
+                    return self.error_msg.error_response("no_function_sign")
+
+                if not len(postparams['params'][0]['password']) > 0:
+                    return self.error_msg.error_response("empty_password")
+
+                if not len(postparams['params'][0]['gas']) > 0:
+                    return self.error_msg.error_response("err_gas")
+
+                try:
+                    from Contract.Contract import ContractCall
+                    self.contract = ContractCall()
+                    """ from_addr, contract_addr, 'set_s(string)', ['Hello, world'] """
+                    self.contract_call_res = self.contract.call_with_transaction(postparams['params'][0])
+                    return {"jsonrpc": "2.0", "id": "1", "result": self.contract_call_res}
+                except Exception as e:
+                    print e
+                    return {"jsonrpc": "2.0", "id": "1", "result": e}
+        return self.error_msg.error_response("missing_params")
+
+
+    def get_contract_storage(self, postparams):
+
+        if 'function_signature' in postparams['params'][0] and 'to' in postparams['params'][0] and \
+            'function_argument' in postparams['params'][0] and 'return_type' in postparams['params'][0]:
+
+            if not self.verify_wallet_addr(postparams['params'][0]['to']):
+                return self.error_msg.error_response("invalid_wallet_addr")
+
+            if not len(postparams['params'][0]['function_signature']) > 0:
+                return self.error_msg.error_response("no_function_sign")
+
+            """ TODO: validate more return types. """
+            if not postparams['params'][0]['return_type'][0] == 'string':
+                return self.error_msg.error_response("no_return_type")
+            
+            pd = postparams['params'][0]
+
+            from Contract.Contract import ContractCall
+            self.contract = ContractCall()
+
+            """ to_address (string), function signature(string), function argument(s)(list of strings), 
+                return type(s)(list of strings) """
+            res = self.contract.call(pd['to'], pd['function_signature'], pd['function_argument'], pd['return_type'])
+            return res
+        return self.error_msg.error_response("missing_params")
+
+
+    def call(self, postparams):
+
+        if 'to' in postparams['params'][0] and 'data' in postparams['params'][0]:
+
+            if not self.verify_wallet_addr(postparams['params'][0]['to']):
+                return self.error_msg.error_response("invalid_wallet_addr")
+
+            try:
+                self.client = IPC_Client.Client()
+                pd = postparams['params'][0]
+                res = self.client.call(pd)
+                return res
+            except Exception as e:
+                print e
+                return {"jsonrpc": "2.0", "id": "1", "result": e}
+        return self.error_msg.error_response("missing_params")
+
+
+
     def create_static_nodefile(self):
 
         self.client = IPC_Client.Client()
@@ -588,6 +702,19 @@ class Phantom_Ui(object):
             pass
         else:
             pass
+
+    def get_tx_receipt(self, postparams):
+        
+        if len(postparams['params']) == 1:
+            self.client = IPC_Client.Client()
+            try:
+                txrec = self.client.get_tx_reciept(postparams['params'][0])
+                if 'result' in txrec:
+                    return txrec
+                return {"jsonrpc": "2.0", "id": "1", "result": "false"}
+            except Exception as e:
+                return self.error_msg.error_response("err_get_txrec")
+        return self.error_msg.error_response("missing_params")
   
 
     def run(self,postdata):

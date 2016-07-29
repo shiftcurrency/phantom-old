@@ -39,7 +39,7 @@ class Client(object):
 
 
     def unlock_account(self, account, password):
-        response = self._make_request("personal_unlockAccount", [account,password,60])
+        response = self._make_request("personal_unlockAccount", [account,password,120])
         return response
 
     def lock_account(self, account):
@@ -91,6 +91,10 @@ class Client(object):
         response = self._make_request("shh_getFilterChanges", [params])
         return response
 
+    def get_tx_reciept(self, params):
+        response = self._make_request("shf_getTransactionReceipt", [params])
+        return response
+
     def get_block_data(self, blknum, fulldata):
         if fulldata == "true":
             response = self._make_request("shf_getBlockByNumber", [hex(int(blknum)), True])
@@ -100,16 +104,20 @@ class Client(object):
         return response
 
 
-    def send_transaction(self, sender, receiver, amount, nrg, data):
+    def send_transaction(self, params):
 
-        if nrg and not data:
-            trans_params = [{"from": sender, "to": receiver, "value": amount, "gas": hex(int(nrg))}]
-        elif nrg and data:
-            trans_params = [{"from": sender, "to": receiver, "value": amount, "gas": hex(int(nrg)), "data" : data}]
-        else:
-            trans_params = [{"from": sender, "to": receiver, "value": amount}]
+        if params['method'] == 'send_transaction':
+            trans_params = [{"from": params['from'], "to": params['to'], "value": params['amount'], "gas": hex(30000)}]
+        elif params['method'] == 'create_contract':
+            trans_params = [{"from": params['from'], "gas": hex(int(params['gas'])), "data" : params['data']}]
+        elif params['method'] == 'call_contract':
+            trans_params = [{"from": params['from'], "to" : params['to'], "gas": hex(int(params['gas'])), "data" : params['data']}]
 
         response = self._make_request("shf_sendTransaction", trans_params)
+        return response
+
+    def call(self, params):
+        response = self._make_request("shf_call", [params, "latest"])
         return response
 
     def send_rawtransaction(self, data):
@@ -279,6 +287,7 @@ class Client(object):
 
             while True:
                 try:
+                    print response_raw
                     response_raw += self._socket.recv(4096)
                 except socket.timeout:
                     break
