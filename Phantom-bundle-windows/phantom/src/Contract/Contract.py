@@ -61,76 +61,12 @@ class ContractCall(object):
         return res
 
     def shf_getStorageAt(self, address=None, position=0, block=BLOCK_TAG_LATEST):
-        '''
-        https://github.com/ethereum/wiki/wiki/JSON-RPC#shf_getstorageat
-
-        TESTED
-        '''
-        block = validate_block(block)
+        """ To be implemented """
         return self._call('shf_getStorageAt', [address, hex(position), block])
 
     def shf_getCode(self, address, default_block=BLOCK_TAG_LATEST):
-        '''
-        https://github.com/ethereum/wiki/wiki/JSON-RPC#shf_getcode
-
-        NEEDS TESTING
-        '''
+        """ To be implemented """
         if isinstance(default_block, basestring):
             if default_block not in BLOCK_TAGS:
                 raise ValueError
         return self._call('shf_getCode', [address, default_block])
-
-    def shf_sendTransaction(self, to_address=None, from_address=None, gas=None, gas_price=None, value=None, data=None,
-                            nonce=None):
-        '''
-        https://github.com/ethereum/wiki/wiki/JSON-RPC#shf_sendtransaction
-
-        NEEDS TESTING
-        '''
-        params = {}
-        params['from'] = from_address or self.shf_shiftbase()
-        if to_address is not None:
-            params['to'] = to_address
-        if gas is not None:
-            params['gas'] = hex(gas)
-        if gas_price is not None:
-            params['gasPrice'] = hex(gas_price)
-        if value is not None:
-            params['value'] = hex(value)
-        if data is not None:
-            params['data'] = data
-        if nonce is not None:
-            params['nonce'] = hex(nonce)
-        return self._call('shf_sendTransaction', [params])
-
-    def shf_sendRawTransaction(self, data):
-        '''
-        https://github.com/ethereum/wiki/wiki/JSON-RPC#shf_sendrawtransaction
-
-        NEEDS TESTING
-        '''
-        return self._call('shf_sendRawTransaction', [data])
-
-    def shf_call(self, to_address, from_address=None, gas=None, gas_price=None, value=None, data=None,
-                 default_block=BLOCK_TAG_LATEST):
-        '''
-        https://github.com/ethereum/wiki/wiki/JSON-RPC#shf_call
-
-        NEEDS TESTING
-        '''
-        if isinstance(default_block, basestring):
-            if default_block not in BLOCK_TAGS:
-                raise ValueError
-        obj = {}
-        obj['to'] = to_address
-        if from_address is not None:
-            obj['from'] = from_address
-        if gas is not None:
-            obj['gas'] = hex(gas)
-        if gas_price is not None:
-            obj['gasPrice'] = hex(gas_price)
-        if value is not None:
-            obj['value'] = value
-        if data is not None:
-            obj['data'] = data
-        return self._call('shf_call', [obj, default_block])
