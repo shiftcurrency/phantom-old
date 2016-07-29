@@ -437,7 +437,7 @@ class Phantom_Ui(object):
                 except:
                     return self.error_msg.error_response("err_create_filter")
 
-                self.phantomdb = self.Phantom_Db.PhantomDb()
+                self.phantomdb = Phantom_Db.PhantomDb()
                 self.store = {'to':self.pd['to'], 'filter_id' : int(self.res['result'], 16)}
                 res_datastore = phantomdb.store_filter(store)
                 if not self.res_datastore:
@@ -527,7 +527,7 @@ class Phantom_Ui(object):
 
             try:
                 self.phantomdb = Phantom_Db.PhantomDb()
-                self.res = phantomdb.del_address_book(postparams['params'][0][2:])
+                self.res = self.phantomdb.del_address_book(postparams['params'][0][2:])
                 if self.res:
                     return {"jsonrpc": "2.0", "id": "1", "result": ["true"]}
             except Exception as e:
