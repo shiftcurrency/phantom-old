@@ -2,11 +2,11 @@
   "1CQTfYmebR1bP75PCUata417NffWyL6AXf": {
     "added": 1467112218, 
     "auth_key": "f7a70cb3006d390ac1b88e6e95b626e06ae144ff9aea2a3476bbb672d59aacdc", 
-    "bytes_recv": 46387, 
+    "bytes_recv": 86323, 
     "bytes_sent": 6530, 
     "modified": 1467395353.069, 
     "own": true, 
-    "peers": 8, 
+    "peers": 6, 
     "permissions": [
       "ADMIN"
     ], 
