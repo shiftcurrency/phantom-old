@@ -180,6 +180,13 @@ class UiWebsocket(object):
         else:
             func(req["id"])
 
+    def actionBlockHeight(self, to):
+        from Phantom import Phantom_Ui
+        self.phantom_ui = Phantom_Ui.Phantom_Ui()
+        blockHeight = self.phantom_ui.get_blocknumber('{"params":[]}')
+        self.response(to, blockHeight)
+        
+
     # Format site info
     def formatSiteInfo(self, site, create_user=True):
         content = site.content_manager.contents.get("content.json")

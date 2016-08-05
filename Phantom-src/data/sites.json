@@ -1,4 +1,15 @@
 {
+  "1AsCWkkhh8BcmqbTYyqsKX2o9DquxEjetr": {
+    "added": 1470236109, 
+    "auth_key": "bd16112427b5652f0f4e412a6a0aab833bb1fc6e8c8707a04e5bd4d761af4ad5", 
+    "modified": 1470236110.056059, 
+    "own": true, 
+    "peers": 0, 
+    "permissions": [], 
+    "serving": true, 
+    "size": 55, 
+    "wrapper_key": "6b0f004b6473466f7f55f3a6e0c7699ce811780087eb99c5a9c6e7f03a437f86"
+  }, 
   "1CQTfYmebR1bP75PCUata417NffWyL6AXf": {
     "added": 1467112218, 
     "auth_key": "f7a70cb3006d390ac1b88e6e95b626e06ae144ff9aea2a3476bbb672d59aacdc", 
@@ -6,12 +17,36 @@
     "bytes_sent": 6530, 
     "modified": 1467395353.069, 
     "own": true, 
-    "peers": 6, 
+    "peers": 9, 
     "permissions": [
       "ADMIN"
     ], 
     "serving": true, 
     "size": 3894239, 
     "wrapper_key": "a9a6d71296ad88f1168544d2a906d1a5e8701506150548fd15832345d50b365f"
+  }, 
+  "1PLAYgDQboKojowD3kwdb3CtWmWaokXvfp": {
+    "added": 1470236847, 
+    "auth_key": "b321dccb7e83eb0fcb1ebde4fbd5f1dd8c82c9407dd4bdd64a4ec7a6c80cd9a5", 
+    "bytes_recv": 3451600, 
+    "modified": 1470416615.934418, 
+    "own": false, 
+    "peers": 167, 
+    "permissions": [], 
+    "serving": true, 
+    "size": 1516422, 
+    "wrapper_key": "7ee4ea3615ce07385a9269e1f5171e4ae39974cdcf5b08ec8060670c1d5b801b"
+  }, 
+  "1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG": {
+    "added": 1470132828, 
+    "auth_key": "6ec848b44e2f5594bc4d2b67e32439afdd1c95768e29d5f698f7658e1d98bcff", 
+    "bytes_recv": 100174, 
+    "modified": 1470230397.505, 
+    "own": false, 
+    "peers": 0, 
+    "permissions": [], 
+    "serving": true, 
+    "size": 4135589, 
+    "wrapper_key": "aa2a638fd946a729442eab9c2604891828e8f398c2674be940bbc0a18948f381"
   }
 }

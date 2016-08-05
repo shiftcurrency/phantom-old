@@ -9,7 +9,7 @@ class ContractCall(object):
     def _encode_function(self, signature, param_values):
 
         prefix = utils.big_endian_to_int(utils.sha3(signature)[:4])
-
+        
         if signature.find('(') == -1:
             raise RuntimeError('Invalid function signature. Missing "(" and/or ")"...')
 
@@ -17,6 +17,8 @@ class ContractCall(object):
             return utils.encode_int(prefix)
 
         types = signature[signature.find('(') + 1: signature.find(')')].split(',')
+        print "types: %s" % types
+        print "params values: %s" %param_values
         encoded_params = encode_abi(types, param_values)
         return utils.zpad(utils.encode_int(prefix), 4) + encoded_params
 
@@ -42,7 +44,6 @@ class ContractCall(object):
         
         data = self._encode_function(sig, args)
         data_hex = data.encode('hex')
-        print data_hex
         self.phantom_ui = Phantom_Ui.Phantom_Ui()
         postparams = {"params" : [{"to" : address, "data" : data_hex}]}
         call_res = self.phantom_ui.call(postparams)
