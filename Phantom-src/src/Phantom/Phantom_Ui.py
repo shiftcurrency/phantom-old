@@ -183,7 +183,7 @@ class Phantom_Ui(object):
 
         from Site import Site
 
-        if not len(postparams['params']) == 2 and not len(postparams['params'][0]) == 34:
+        if not len(postparams['params']) == 2 or not len(postparams['params'][0]) == 34:
             return self.error_msg.error_response("sign_missing_params")
 
 
@@ -263,8 +263,6 @@ class Phantom_Ui(object):
         return self.error_msg.error_response("no_params_allowed")
 
     def verify_wallet_addr(self, addr):
-        print "verify"
-        
         try:
             int(addr, 16) 
         except ValueError as e:
@@ -272,7 +270,6 @@ class Phantom_Ui(object):
 
         if not len(addr) >= 40: 
             return False
-        print "true" 
         return True 
 
     def send_transaction(self,postparams):
@@ -695,7 +692,6 @@ class Phantom_Ui(object):
             except Exception as e:
                 return self.error_msg.error_response("err_resolve_domain")
         return self.error_msg.error_response("missing_params")
-        
 
     def create_phantom_domain(self, postparams):
         if len(postparams['params'][0]) == 4:
@@ -714,10 +710,8 @@ class Phantom_Ui(object):
                 self.contract_addr = "0xa69818b38011e84dbc98bd0f180e6084855eae2e"
                 self.domain = postparams['params'][0]['domain']
                 self.addr = postparams['params'][0]['domain_address']
-
                 self.params = {"params":[{"from":self.from_acc, "to" : self.contract_addr, "function_signature" : "setRR(string,string)", 
-                "function_argument" : [str(self.domain), str(self.addr)], "gas" : "300000", "password" : self.passwd}]}
-                
+                "function_argument" : [str(self.domain), str(self.addr)], "gas" : "300000", "password" : self.passwd}]}                
                 result = self.set_contract_storage(self.params)
                 return {"jsonrpc": "2.0", "id": "1", "result": result}
             except Exception as e:

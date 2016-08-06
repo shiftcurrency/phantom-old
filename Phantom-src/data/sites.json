@@ -25,6 +25,28 @@
     "size": 3894239, 
     "wrapper_key": "a9a6d71296ad88f1168544d2a906d1a5e8701506150548fd15832345d50b365f"
   }, 
+  "1CmwyggrQYvTnkDiQLA9c6Y3LbEsYxPhbk": {
+    "added": 1470522212, 
+    "auth_key": "ca23c3253c3228554cbfaccb99aff00a0fd415a37f852e4df1cd89e0389ebf6d", 
+    "own": false, 
+    "peers": 0, 
+    "permissions": [], 
+    "serving": true, 
+    "size": 0, 
+    "wrapper_key": "8ea3e350bdab053d005ec2078f4979b9d851018760f4cb5b09bdf094c710fd5b"
+  }, 
+  "1Name2NXVi1RDPDgf5617UoW7xA6YrhM9F": {
+    "added": 1470514219, 
+    "auth_key": "9b31d825810e53e416d55e4999af5f96dd0b6c669d6421bbf80ccbf966d34192", 
+    "bytes_recv": 83686, 
+    "modified": 1470429149.142935, 
+    "own": false, 
+    "peers": 87, 
+    "permissions": [], 
+    "serving": true, 
+    "size": 223727, 
+    "wrapper_key": "9e69e938b72643a92bf54b5fd17a138c54772f42196e76f3452947076af531d9"
+  }, 
   "1PLAYgDQboKojowD3kwdb3CtWmWaokXvfp": {
     "added": 1470236847, 
     "auth_key": "b321dccb7e83eb0fcb1ebde4fbd5f1dd8c82c9407dd4bdd64a4ec7a6c80cd9a5", 
@@ -41,6 +63,7 @@
     "added": 1470132828, 
     "auth_key": "6ec848b44e2f5594bc4d2b67e32439afdd1c95768e29d5f698f7658e1d98bcff", 
     "bytes_recv": 100174, 
+    "domain": "devwallet.shift", 
     "modified": 1470230397.505, 
     "own": false, 
     "peers": 0, 
