@@ -24,7 +24,6 @@ class PhantomDb(object):
             return False
         return True
 
-
     def clear_database(self):
         try:
             self.c.execute('DELETE FROM messaging')
@@ -32,7 +31,6 @@ class PhantomDb(object):
         except Exception as e:
             return False
         return True
-
 
     def store_filter(self, store_dict):
         if len(store_dict) > 0 and 'to' in store_dict and 'filter_id' in store_dict and \
@@ -46,7 +44,6 @@ class PhantomDb(object):
                 return True
         return False
 
-
     def get_latest_filter(self):
 
         try:
@@ -56,7 +53,6 @@ class PhantomDb(object):
             return False
 
         return res
-
 
     def store_transaction_hist(self, from_account, to_account, amount):
         
@@ -103,7 +99,6 @@ class PhantomDb(object):
             return False
         return res
 
-
     def get_transaction_hist(self, account):
         
         try:
@@ -113,7 +108,6 @@ class PhantomDb(object):
         except Exception as e:
             return False
         return res
-
 
     def get_balance_by_block(self, account, blocknum):
 
