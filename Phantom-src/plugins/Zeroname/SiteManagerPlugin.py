@@ -4,6 +4,7 @@ import re
 from Config import config
 from Plugin import PluginManager
 from Phantom import Phantom_Ui
+from Phantom import Phantom_Db
 allow_reload = False  # No reload supported
 
 log = logging.getLogger("ZeronamePlugin")
@@ -34,11 +35,17 @@ class SiteManagerPlugin(object):
 
     def resolveDomain(self, domain):
         domain = domain.lower()
-        phantom_ui = Phantom_Ui.Phantom_Ui()
-        self.params = { "params":[{"domain":str(domain)}]}
-        res = phantom_ui.resolve_phantom_domain(self.params)
-        if 'result' in res and res['result'][0] != "false":
-            return  res['result'][0]
+        self.phantomdb = Phantom_Db.PhantomDb()
+        res = self.phantomdb.check_dns_cache(domain)
+        if res == None:
+            self.phantom_ui = Phantom_Ui.Phantom_Ui()
+            self.params = { "params":[{"domain":str(domain)}]}
+            res = self.phantom_ui.resolve_phantom_domain(self.params)
+            if 'result' in res and res['result'][0] != "false":
+                insert = self.phantomdb.insert_dns_cache(domain, res['result'][0])
+                return  res['result'][0]
+        elif res:
+            return res
         return None
 
     # Return or create site and start download site files

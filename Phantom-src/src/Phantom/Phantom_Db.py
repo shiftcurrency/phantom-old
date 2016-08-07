@@ -20,6 +20,8 @@ class PhantomDb(object):
             self.conn_phantom.commit()
             self.c.execute('CREATE TABLE IF NOT EXISTS address_book (toaddress TEXT PRIMARY KEY NOT NULL, alias TEXT)')
             self.conn_phantom.commit()
+            self.c.execute('CREATE TABLE IF NOT EXISTS dns_cache (domain TEXT PRIMARY KEY NOT NULL, address TEXT, timestamp INTERGER)')
+            self.conn_phantom.commit()
         except Exception as e:
             return False
         return True
@@ -58,7 +60,7 @@ class PhantomDb(object):
         
         try:
             self.c.execute('SELECT CURRENT_TIMESTAMP')
-            date = c.fetchall()
+            date = self.c.fetchall()
         except Exception as e:
             return False
         try:
@@ -108,6 +110,50 @@ class PhantomDb(object):
         except Exception as e:
             return False
         return res
+
+    def insert_dns_cache(self, domain, address):
+        try:
+            import time
+            sql = "INSERT INTO dns_cache (domain, address, timestamp) VALUES (\"%s\", \"%s\", \"%i\")" % (domain, address, int(time.time()))
+            self.c.execute(sql)
+            self.conn_phantom.commit()
+        except Exception as e:
+            return False
+        return True
+
+    def check_dns_cache(self, domain):
+
+        try:
+            sql = "SELECT timestamp FROM dns_cache WHERE domain = \"%s\"" % (domain)
+            self.c.execute(sql)
+            ttl = self.c.fetchall()
+            if len(ttl) == 0:
+                return None
+        except Exception as e:
+            return None
+
+        """ We have a cache record in database, check if it is out of bounds, if not return the cache record."""
+        try:
+            sql = "SELECT strftime('%s','now') - 3600"
+            self.c.execute(sql)
+            boundry = self.c.fetchall()
+        except Exception as e:
+            return None
+
+        try:
+            if int(ttl[0][0]) <= int(boundry[0][0]):
+                """ The cache record has expired, delete it and insert a new updated one. Return False."""
+                sql = "DELETE FROM dns_cache WHERE domain = \"%s\"" % (domain)
+                self.c.execute(sql)
+                self.conn_phantom.commit()
+                return None
+            """ The cache record is valid, return it. """
+            sql = "SELECT address FROM dns_cache WHERE domain = \"%s\"" % (domain)
+            self.c.execute(sql)
+            res = self.c.fetchall()
+            return res[0][0]
+        except Exception as e:
+            return None
 
     def get_balance_by_block(self, account, blocknum):
 

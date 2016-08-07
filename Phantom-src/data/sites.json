@@ -17,7 +17,7 @@
     "bytes_sent": 6530, 
     "modified": 1467395353.069, 
     "own": true, 
-    "peers": 4, 
+    "peers": 6, 
     "permissions": [
       "ADMIN"
     ], 
@@ -39,12 +39,12 @@
     "added": 1470514219, 
     "auth_key": "9b31d825810e53e416d55e4999af5f96dd0b6c669d6421bbf80ccbf966d34192", 
     "bytes_recv": 83686, 
-    "modified": 1470429149.142935, 
+    "modified": 1470563373.262424, 
     "own": false, 
-    "peers": 87, 
+    "peers": 99, 
     "permissions": [], 
     "serving": true, 
-    "size": 223727, 
+    "size": 223846, 
     "wrapper_key": "9e69e938b72643a92bf54b5fd17a138c54772f42196e76f3452947076af531d9"
   }, 
   "1PLAYgDQboKojowD3kwdb3CtWmWaokXvfp": {
@@ -66,7 +66,7 @@
     "domain": "devwallet.shift", 
     "modified": 1470230397.505, 
     "own": false, 
-    "peers": 0, 
+    "peers": 1, 
     "permissions": [], 
     "serving": true, 
     "size": 4135589, 
