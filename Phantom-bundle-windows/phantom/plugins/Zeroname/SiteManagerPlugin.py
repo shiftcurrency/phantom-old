@@ -3,7 +3,8 @@ import re
 
 from Config import config
 from Plugin import PluginManager
-
+from Phantom import Phantom_Ui
+from Phantom import Phantom_Db
 allow_reload = False  # No reload supported
 
 log = logging.getLogger("ZeronamePlugin")
@@ -31,19 +32,28 @@ class SiteManagerPlugin(object):
 
     # Resolve domain
     # Return: The address or None
+
     def resolveDomain(self, domain):
         domain = domain.lower()
-        if not self.site_zeroname:
-            self.site_zeroname = self.need(config.bit_resolver)
-        self.site_zeroname.needFile("data/names.json", priority=10)
-        db = self.site_zeroname.storage.loadJson("data/names.json")
-        return db.get(domain)
+        self.phantomdb = Phantom_Db.PhantomDb()
+        res = self.phantomdb.check_dns_cache(domain)
+        if res == None:
+            self.phantom_ui = Phantom_Ui.Phantom_Ui()
+            self.params = { "params":[{"domain":str(domain)}]}
+            res = self.phantom_ui.resolve_phantom_domain(self.params)
+            if 'result' in res and res['result'][0] != "false":
+                insert = self.phantomdb.insert_dns_cache(domain, res['result'][0])
+                return  res['result'][0]
+        elif res:
+            return res
+        return None
 
     # Return or create site and start download site files
     # Return: Site or None if dns resolve failed
     def need(self, address, all_file=True):
         if self.isDomain(address):  # Its looks like a domain
             address_resolved = self.resolveDomain(address)
+            print address_resolved
             if address_resolved:
                 address = address_resolved
             else:

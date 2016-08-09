@@ -32,11 +32,9 @@ class Client(object):
 
         super(Client, self).__init__(*args, **kwargs)
 
-
     def get_shiftbase(self):
         response = self._make_request("shf_shiftbase", [])
         return response
-
 
     def unlock_account(self, account, password):
         response = self._make_request("personal_unlockAccount", [account,password,120])
@@ -103,7 +101,6 @@ class Client(object):
             
         return response
 
-
     def send_transaction(self, params):
 
         if params['method'] == 'send_transaction':
@@ -124,11 +121,9 @@ class Client(object):
         response = self._make_request("shf_sendRawTransaction", data)
         return response
 
-
     def construct_json_request(self, method, params):
         request = json.dumps({"jsonrpc": "2.0","method": method, "params": params,"id": "1"})
         return request
-
 
     def create_static_nodefile(self):
 
@@ -147,7 +142,6 @@ class Client(object):
                 return False
         return True
 
-
     def get_default_node_path(self):
 
         ''' Return the path of the static node file depending on OS '''
@@ -164,8 +158,6 @@ class Client(object):
                 "supported.  You must specify the ipc_path"
             )   
         return node_path
-
-
 
     def get_default_ipc_path(self):
 
@@ -201,8 +193,6 @@ class Client(object):
             )
         return shiftdb
    
-
-
     def get_socket(self):
         try:
             _socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
@@ -213,7 +203,6 @@ class Client(object):
             return _socket
         except Exception as e:
             return False
-
 
     def _make_request(self, method, params):
 
@@ -226,7 +215,6 @@ class Client(object):
         elif sys.platform == 'darwin' or sys.platform == 'linux2':
             res = self.ipc_socket(request)
             return res
-
 
     def ipc_socket_windows(self, request):
 
@@ -274,7 +262,6 @@ class Client(object):
 
         windll.kernel32.CloseHandle(hPipe)
         return Error_Msg.error_response("ipc_err_write")
-
 
     def ipc_socket(self, request):
 
