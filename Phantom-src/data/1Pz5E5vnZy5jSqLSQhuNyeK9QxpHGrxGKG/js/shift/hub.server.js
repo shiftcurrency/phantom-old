@@ -55,6 +55,7 @@ var HUB = (function(HUB, $, undefined) {
 		}
 
 		if (data.result == true) {
+			window.Site.writeStorage('{ "activeAccount" : "" }'); // Clear
 			window.Site.cmd("wrapperNotification", ["done", "Logged out", 5000])
 		}
 

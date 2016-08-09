@@ -406,21 +406,21 @@
 	  });
 	  
 	  /* Prefix tx */
-	  console.log(queries);
 	  if (typeof queries.recipient != "undefined" && queries.recipient.length == 40) {
 		$('#tx-to').val('0x'+queries.recipient);	 		
 	  }
 	  
 	  Site.cmd("wrapperGetLocalStorage", [], function(json) {
-		var prefix = '0x',
-			len = prefix.length,
+		var len = HUB.prefix.length,
 			local_storage = $.parseJSON(json),
-			account = local_storage != null ? local_storage.activeAccount : '';
+			account = local_storage != null ? local_storage.activeAccount : false;
 				
-		if (account.length == 0) return false;	
-		else HUB.activeAccount = account;
+		if (account == false) {
+			window.location.href = './'; // Redirect to root
+			return false;
+		} else HUB.activeAccount = account;
 		
-		if (account.substring(0,len) == prefix) account = account.substring(len,account.length);
+		if (account.substring(0,len) == HUB.prefix) account = account.substring(len,account.length);
 		
 		var len = account.length;
 		$("#account-name").html(account.substr(0,len/2)+'<br/>'+account.substr(len/2,len));
@@ -429,7 +429,7 @@
 		HUB.startPolling();
 
 		/* Show current balances */
-		HUB.show_balances(prefix+''+account);
+		HUB.show_balances(HUB.prefix+''+account);
 
 		/* Show contacts */
 		HUB.adressbook();

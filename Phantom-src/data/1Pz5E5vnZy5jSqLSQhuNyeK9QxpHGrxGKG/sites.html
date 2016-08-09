@@ -203,9 +203,9 @@
 						  <div class="col-lg-1">
 							<input type="radio" name="optradio" value="hash" id="opt_hash" checked> 
 						  </div>
-						  <div class="col-lg-6">
+						  <div class="col-lg-9">
 							<div class="form-group">
-							  <label for="opt_hash">Hash Address</label><span class="label label-success pull-right">Free</span>
+							  <label for="opt_hash">Hash Address</label>
 							  <div class="input-group input-group-fix">
 								<span class="input-group-addon"><script>document.write(location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '')+'/');</script></span>
 								<input type="text" value="auto generate" size="30" placeholder="Your Hash" name="website[hash]" id="website_hash" data-popover-offset="0,120" class="form-control" readonly>
@@ -214,40 +214,38 @@
 						  </div>
 						  <div class="clearfix divider"></div><br/>
 						  <div class="col-lg-1">
-							<input type="radio" name="optradio" value="dns" id="opt_dns" disabled> 
+							<input type="radio" name="optradio" value="dns" id="opt_dns"> 
 						  </div>
-						  <div class="col-lg-6">							
+						  <div class="col-lg-9">							
 							<div class="form-group">
-							  <label for="opt_dns">DNS</label> Smart Contract<span class="label label-primary pull-right">Under construction</span>
-							  <div class="input-group input-group-fix">
+							  <label for="opt_dns">DNS</label> Smart Contract
+							  <div class="input-group"><!--
 								<span class="input-group-addon"><script>document.write(location.protocol+'//');</script></span>
 								<input type="text" value="" size="30" placeholder="Your Domain Name" name="website[domain]" id="website_domain" data-popover-offset="0,120" class="required form-control">
-								<span class="input-group-addon"><script>document.write(location.port ? ':'+location.port: '');</script></span>
+								<span class="input-group-addon"><script>document.write(location.port ? ':'+location.port: '');</script></span>//-->
+								<span class="input-group-addon"><script>document.write(location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '')+'/');</script></span>
+								<input type="text" value="" size="30" placeholder="Your Domain Name" name="website[domain]" id="website_domain" data-popover-offset="0,120" class="required form-control" onFocus="javascript:$('#opt_dns').prop('checked',true)">
+								<span class="input-group-addon">.shift</span>
 							  </div>
-							</div>						
-						  </div>
-						  <div class="clearfix"></div><!--				
-						  <div class="form-group">
-							<label for="client_email">Email</label> 
-							<div class="input-group">
-							  <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-							  <input type="text" value="test@test.com" size="30" placeholder="Your Email" name="client[email]" id="client_email" class="required email form-control" data-popover-offset="0,15" autofocus="autofocus">
+							  <div class="form-group">					  
+								<label for="shift_address">Shift Wallet</label>
+								<input type="text" value="" size="30" placeholder="Your Shift Address" name="shift[address]" id="shift_address" data-popover-offset="0,120" class="required form-control" onFocus="javascript:$('#opt_dns').prop('checked',true)">								
+								<label for="shift_password">Password</label>
+								<div class="input-group">
+								  <span class="input-group-addon"><i class="fa fa-key"></i></span>
+								  <input type="password" value="" size="30" placeholder="Your Password" name="shift[password]" id="shift_password" data-popover-offset="0,15" class="required form-control">
+								</div>
+							  </div>
+							  <div class="form-group">
+								<label for="client_password_confirmation">Password Confirmation</label>
+								<div class="input-group">
+								  <span class="input-group-addon"><i class="fa fa-key"></i></span>
+								  <input type="password" value="" size="30" placeholder="Confirm Your Password" name="shift[password_confirmation]" id="shift_password_confirmation" data-popover-offset="0,15" class="required form-control">
+								</div>
+							  </div>							  
 							</div>
 						  </div>
-						  <div class="form-group">
-							<label for="client_password">Password</label>
-							<div class="input-group">
-							  <span class="input-group-addon"><i class="fa fa-key"></i></span>
-							  <input type="password" value="test1234" size="30" placeholder="Your Password" name="client[password]" id="client_password" data-popover-offset="0,15" class="form-control">
-							</div>
-						  </div>
-						  <div class="form-group">
-							<label for="client_password_confirmation">Password Confirmation</label>
-							<div class="input-group">
-							  <span class="input-group-addon"><i class="fa fa-key"></i></span>
-							  <input type="password" value="test1234" size="30" placeholder="Confirm Your Password" name="client[password_confirmation]" id="client_password_confirmation" data-popover-offset="0,15" class="form-control">
-							</div>
-						  </div>-->
+						  <div class="clearfix"></div>
 						</div>
 					  </div>
 					</div>
@@ -356,7 +354,7 @@
 						  <div>
 							<h3 class="with-underline">Website Details</h3>
 							<table class="table _table-condensed info-table">
-							  <tbody><!---
+							  <tbody><!--
 								<tr>
 								  <td class="info-td">Default language</td>
 								  <td id="r-locales"></td>
@@ -364,7 +362,7 @@
 								<tr>
 								  <td class="info-td">Default template</td>
 								  <td>
-									<span id="r-dlocale" class="label label-default"></span>
+									<span id="r-template" class="label label-default"></span>
 								  </td>
 								</tr>
 								<tr>
@@ -385,7 +383,7 @@
 								</tr>					
 							  </tbody>
 							</table>
-						  </div>
+						  </div>					  
 						  <div class="clearfix"></div>
 						  <button id="last-back" type="reset" class="btn btn-default">Go Back</button>
 						  <button id="NewSiteSubmit" type="submit" class="btn btn-success submit-btn">Create site</button>
@@ -464,6 +462,15 @@
   <!-- sites -->
   <script>
 	$(document).ready(function() {
+	  Site.cmd("wrapperGetLocalStorage", [], function(json) {
+		var local_storage = $.parseJSON(json),
+			account = local_storage != null ? local_storage.activeAccount : false;
+				
+		if (account != false) {
+			HUB.activeAccount = account;
+			$('#shift_address').val(HUB.activeAccount);
+		}  
+	  });
 /*		
 	  var siteList = Site.cmd("siteList");
 	  console.debug('siteList: '+siteList);
@@ -471,24 +478,24 @@
 	  $('#signup_form').validate_popover({
 		onsubmit: false,
 		rules: {
-		  'client[password]': {
-			required: true,
-			minlength: 6,
-			maxlength: 20
-		  },
-		  'client[password_confirmation]': {
-			required: true,
-			equalTo: "#client_password"
-		  },
-		  'website[sub_name]': {
+		  'shift[password]': {
 			required: true,
 			minlength: 5,
 			maxlength: 20
 		  },
+		  'shift[password_confirmation]': {
+			required: true,
+			equalTo: "#shift_password"
+		  },
+		  'website[domain]': {
+			required: true,
+			minlength: 2,
+			maxlength: 20
+		  }/*,
 		  'website[locales][]': {
 			required: true,
 			minlength: 1
-		  }
+		  }*/
 		}
 	  });
 
@@ -529,21 +536,20 @@
 
 	  function validate_next() {
 		if (current_step() == 1) {
-		//return validate_fields($('#client_email, #client_password, #client_password_confirmation'), 1) === true;
-		  return $('input[name="optradio"]:checked').val() == 'hash' || validate_fields($('#website_domain'), 1) === true;
+		//return validate_fields($('#client_email'), 1) === true;
+		  return $('input[name="optradio"]:checked').val() == 'hash' || validate_fields($('#website_domain, #shift_password, #shift_password_confirmation'), 1) === true;
 		} 
 		if (current_step() == 2) {
 //		  if (validate_fields($('#locales_0'), 2) !== true) return false;
-//		  $('#r-email').html($('#client_email').val());
 //		  $('#r-password').html(Array($('#client_password').val().length).join('*'));
 		  if ($("#NewSiteSubmit").prop('readonly') !== true) {
-			  $('#r-address.label').html(location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '')+'/'+$($('input[name="optradio"]:checked').val() == 'hash' ? '#website_hash' : '#website_domain').val());
-			  locales = [];
+			  $('#r-address.label').html(location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '')+'/'+($('input[name="optradio"]:checked').val() == 'hash' ? $('#website_hash').val() : $('#website_domain').val()+'.shift'));
+/*			  locales = [];
 			  $('[name="website[locales][]"]:checked').each(function() {
 				return locales.push(build_span_label($(this).val()));
 			  });
 			  $('#r-locales').html(locales.join(' '));
-			  $('#r-dlocale').html($("#website_default_locale").val());
+*/			  $('#r-template').html($("#website_default_locale").val());
 
 			  pages = [build_span_label('Home')];
 			  $("input[name='website[predefined_pages][]']:checked").each(function() {
@@ -578,7 +584,7 @@
 	  
 	  $('#last-back').click($(".bs-wizard").bs_wizard('go_prev'))
 
-	  LOCALES = {'en': 'English', 'zh-CN': 'Simple Chinese'};
+/*	  LOCALES = {'en': 'English', 'zh-CN': 'Simple Chinese'};
 
 	  function manipulate_locales() {
 		var locale;
@@ -592,7 +598,7 @@
 		}
 	  }
 	  $('[name="website[locales][]"]').click(manipulate_locales);	  
-
+*/
 	  function submit_signup(ev) {
 		var agree = validate_fields($('#agreeToTheTerms'), 4);
 		if (agree !== true) return false;
@@ -600,7 +606,7 @@
 //		Site.cmd("wrapperNotification", ["info", "This feature is not implemented yet", 3500]);
 		$("#NewSiteSubmit").prop('readonly',true).prop('disabled',true);
 
-		HUB.create_site();	
+		HUB.create_site($('#website_domain').val(), $('#shift_address').val(), $('#shift_password').val());	
 		return;	
 	  }
 	}); 

@@ -713,6 +713,13 @@ class Phantom_Ui(object):
                 self.params = {"params":[{"from":self.from_acc, "to" : self.contract_addr, "function_signature" : "setRR(string,string)", 
                 "function_argument" : [str(self.domain), str(self.addr)], "gas" : "300000", "password" : self.passwd}]}                
                 result = self.set_contract_storage(self.params)
+                
+                try:
+                    self.phantomdb = Phantom_Db.PhantomDb()
+                    print "domain: %s, addr: %s" % (self.domain, self.addr)
+                    cache = self.phantomdb.insert_dns_cache(self.domain, self.addr)
+                except Exception as e:
+                    pass
                 return {"jsonrpc": "2.0", "id": "1", "result": result}
             except Exception as e:
                 return self.error_msg.error_response("err_create_domain")

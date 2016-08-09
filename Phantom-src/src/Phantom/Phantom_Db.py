@@ -142,7 +142,7 @@ class PhantomDb(object):
 
         try:
             if int(ttl[0][0]) <= int(boundry[0][0]):
-                """ The cache record has expired, delete it and insert a new updated one. Return False."""
+                """ The cache record has expired, delete it and insert a new updated one. Return None."""
                 sql = "DELETE FROM dns_cache WHERE domain = \"%s\"" % (domain)
                 self.c.execute(sql)
                 self.conn_phantom.commit()
