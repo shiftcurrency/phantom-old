@@ -15,13 +15,15 @@ var HUB = (function(HUB, $, undefined) {
 			address = data.result[1];
 			private_key = data.result[2];
 								
-			$('#step-3').find('tr.hidden, .btn.hidden').removeClass('hidden');		
 			$('#step-3').find('.label-default').toggleClass('label-default, label-success');
+			$('#step-3').find('tr.hidden').removeClass('hidden');			
 
 			$('#r-address, #r-folder').text(function(i, v) { return v.replace("auto generate",address) });
 			$('#r-private_key').text(private_key);			
 
-			$('#site_open').attr("href",'../'+address).attr("target",'_blank');
+			$('#site_open').attr("href",'../'+address).attr("target",'_blank').removeClass('hidden').click(function(){
+				$('#site_publish').removeClass('hidden');
+			});
 			$('#site_publish').click(function(){
 				HUB.publish_site(address, private_key);
 			});
@@ -91,7 +93,7 @@ var HUB = (function(HUB, $, undefined) {
 			} else if (typeof data.result != 'undefined' && data.result[0] == 'false') {
 				error = data.result[1];
 			}
-			return true;	
+			return true;
 		}
 		
 		return false;

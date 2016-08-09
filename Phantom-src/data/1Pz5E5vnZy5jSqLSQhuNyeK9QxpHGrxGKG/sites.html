@@ -205,7 +205,7 @@
 						  </div>
 						  <div class="col-lg-9">
 							<div class="form-group">
-							  <label for="opt_hash">Hash Address</label>
+							  <label for="opt_hash">Hash Address</label><span class="label label-success pull-right">Free</span>
 							  <div class="input-group input-group-fix">
 								<span class="input-group-addon"><script>document.write(location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '')+'/');</script></span>
 								<input type="text" value="auto generate" size="30" placeholder="Your Hash" name="website[hash]" id="website_hash" data-popover-offset="0,120" class="form-control" readonly>
@@ -218,7 +218,7 @@
 						  </div>
 						  <div class="col-lg-9">							
 							<div class="form-group">
-							  <label for="opt_dns">DNS</label> Smart Contract
+							  <label for="opt_dns">DNS</label> Smart Contract<span class="label label-primary pull-right">0.0000000000003 Shift</span>
 							  <div class="input-group"><!--
 								<span class="input-group-addon"><script>document.write(location.protocol+'//');</script></span>
 								<input type="text" value="" size="30" placeholder="Your Domain Name" name="website[domain]" id="website_domain" data-popover-offset="0,120" class="required form-control">
@@ -569,12 +569,12 @@
 		} else return false;
 	  }
 	  function on_next() {
+		$('.popover.error-popover').hide();
 		$('#step-'+current_step()).removeClass('slideOutRight slideInLeft slideOutLeft').addClass('slideInRight');
 	  }
 	  function before_prev() {
-		$('#step-'+current_step()).removeClass('slideInRight slideInLeft slideOutLeft').addClass('slideOutRight');
-		$.validator.hide_validate_popover($('#agreeToTheTerms'));
-		
+		$('.popover.error-popover').hide();
+		$('#step-'+current_step()).removeClass('slideInRight slideInLeft slideOutLeft').addClass('slideOutRight');		
 		return true;
 	  }
 	  function on_prev() {
@@ -603,7 +603,6 @@
 		var agree = validate_fields($('#agreeToTheTerms'), 4);
 		if (agree !== true) return false;
 		
-//		Site.cmd("wrapperNotification", ["info", "This feature is not implemented yet", 3500]);
 		$("#NewSiteSubmit").prop('readonly',true).prop('disabled',true);
 
 		HUB.create_site($('#website_domain').val(), $('#shift_address').val(), $('#shift_password').val());	
