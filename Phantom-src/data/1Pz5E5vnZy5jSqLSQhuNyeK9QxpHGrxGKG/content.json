@@ -3,8 +3,8 @@
  "description": "Shifthub DEV",
  "files": {
   "contacts.html": {
-   "sha512": "c72b11e52afe81cdcdae13a4356590abbcfa709daaae2011a36d8eba65c91153",
-   "size": 14582
+   "sha512": "765c3cfcabf57a56186a10a641b7aa190e1058e73a26ea0e57e678d16cfa19b8",
+   "size": 14578
   },
   "css/animate.min.css": {
    "sha512": "15ebf583317e0be8e450e19fb9e913ab060cb0d2efdd5746f870057ee6b74760",
@@ -983,21 +983,21 @@
    "size": 6266
   },
   "sites.html": {
-   "sha512": "f0b9be322383a706b60b293589aaba35fef0bb00ebcdf2ade73fc7ac0bdf3fc0",
-   "size": 24544
+   "sha512": "5dd633a06442451505f26a76dea232d5256ef5534c22563ed531260b42e488e4",
+   "size": 24540
   }
  },
  "ignore": "",
  "inner_path": "content.json",
- "modified": 1470845966.02,
+ "modified": 1470850050.105,
  "phantom_version": "0.1a",
  "sign": [
-  88507142468122491002422423655917018498242321701189728037236062653350084688285,
-  55338287092362785174585053888957145638703697956886006253057412948766527353399
+  111545163995443000516937624045206784566600717559021645640196030666098704690691,
+  98222761777981533378610321269962105672539423042502679946216135232217098397789
  ],
  "signers_sign": "G80PbJfLCq/mubdDAy7VMFINZDbd7k+uUQFpU73aXODDU7u+CaCWip/U9XYnIr0SWEfGMD2hPHQ4x/ntr32MEa8=",
  "signs": {
-  "1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG": "GxowHSQ/3jzFOU+JKHjdGlmfBfAT0eZNhvy3PW2T1LMcV2Dfa+6ttY03nuqhKhBqLrObMS/8FnwrdzKskxhI+tc="
+  "1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG": "HNIg1KCn0xg05sqoJOmeoVoC940D5d/e+jP2D/8bwgpeUQPVuhegQZ2IS6Xggl7xGhrGnNgooaSBzc7ZKmDnPRs="
  },
  "signs_required": 1,
  "title": "1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG - Phantom"

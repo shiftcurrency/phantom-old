@@ -2,11 +2,11 @@
   "1CQTfYmebR1bP75PCUata417NffWyL6AXf": {
     "added": 1467112218, 
     "auth_key": "f7a70cb3006d390ac1b88e6e95b626e06ae144ff9aea2a3476bbb672d59aacdc", 
-    "bytes_recv": 86323, 
+    "bytes_recv": 106291, 
     "bytes_sent": 6530, 
     "modified": 1467395353.069, 
     "own": true, 
-    "peers": 15, 
+    "peers": 14, 
     "permissions": [
       "ADMIN"
     ], 
@@ -19,12 +19,12 @@
     "auth_key": "6ec848b44e2f5594bc4d2b67e32439afdd1c95768e29d5f698f7658e1d98bcff", 
     "bytes_recv": 100174, 
     "domain": "devwallet.shift", 
-    "modified": 1470230397.505, 
+    "modified": 1470850050.105, 
     "own": false, 
-    "peers": 1, 
+    "peers": 0, 
     "permissions": [], 
     "serving": true, 
-    "size": 4135589, 
+    "size": 4140793, 
     "wrapper_key": "aa2a638fd946a729442eab9c2604891828e8f398c2674be940bbc0a18948f381"
   }
 }
