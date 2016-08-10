@@ -328,9 +328,35 @@
   <script src="js/custom.js"></script> 
   <script src="js/shift/hub.contacts.js?v=0.2a"></script> 
   
+  <!-- odometer -->
+  <link rel="stylesheet" href="css/odometer-theme-default.css" />
+  <style>.odometer { 
+	-webkit-transform: translateZ(0); 
+	-moz-transform: translateZ(0);
+	transform: translateZ(0);
+  }</style>
+  <script>window.odometerOptions = { auto: true, format: '(,ddd).dddddddd', duration: 500 };</script>
+  <script src="js/odometer.js"></script>  
+  
   <!-- contacts -->
   <script>
 	$(document).ready(function() {
+	  Site.cmd("wrapperGetLocalStorage", [], function(json) {
+		var local_storage = $.parseJSON(json),
+			account = local_storage != null ? local_storage.activeAccount : false;
+				
+		if (account != false) {
+			HUB.activeAccount = account;
+			$('#shift_address').val(HUB.activeAccount);
+			
+			var account = HUB.format_address(account), len = account.length;
+			$("#account-name").html(account.substr(0,len/2)+'<br/>'+account.substr(len/2,len));
+		}  
+	  
+		/* Start interval */
+		HUB.startPolling(true);
+	  });
+	  
 	  HUB.loadContacts();
 	}); 
   </script> 

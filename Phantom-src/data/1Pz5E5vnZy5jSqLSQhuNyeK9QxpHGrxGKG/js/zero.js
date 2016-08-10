@@ -129,23 +129,51 @@
     __extends(ZeroShift, _super);
 
     function ZeroShift() {
-//      this.onOpenWebsocket = __bind(this.onOpenWebsocket, this);
+      this.onOpenWebsocket = __bind(this.onOpenWebsocket, this);
       return ZeroShift.__super__.constructor.apply(this, arguments);
     }
 
     ZeroShift.prototype.init = function() {
       return this.log("inited!");
-    };
+    };	
+	
+    ZeroShift.prototype.loadMessages = function(call, params) {
+		this.cmd('ShiftIPC', {'call': call, 'params': params}, (function(_this) {
+          return function(result) {			
+//			_this.log("socket call response", result);
+			if (call == 'netListening'){
+			} else if (call == 'blockHeight'){
+				HUB.blocknumber = result;
+				$("#current_blocknumber").text(HUB.blocknumber);
+			} else if (call == 'peerCount'){
+				HUB.peercount = result;
+				$("#net_peercount").text(HUB.peercount); 
+			} else if (call == 'getBalance'){
+				HUB.latest = result.latest;
+				HUB.pending = result.pending;
+				HUB.balance = HUB.latest + HUB.pending;
+				HUB.show_balances(HUB.activeAccount, false);
+			}
+          };
+		})(this));
+
+		return false;
+	};	
 
     ZeroShift.prototype.onOpenWebsocket = function(e) {
       this.cmd("serverInfo", {}, (function(_this) {
         return function(serverInfo) {
-          return _this.log("mysite serverInfo response", serverInfo);
+          return _this.log("serverInfo response", serverInfo);
         };
       })(this));
+/*	
+      window.setTimeout((function(_this) {
+		_this.loadMessages();
+      })(this), 0); 
+*/	  
       return this.cmd("siteInfo", {}, (function(_this) {
         return function(siteInfo) {
-          return _this.log("mysite siteInfo response", siteInfo);
+          return _this.log("siteInfo response", siteInfo);
         };
       })(this));
     };
@@ -170,8 +198,8 @@
 		return true;
     }; 
 
-	ZeroShift.prototype.readStorage = function() {	
-		Site.cmd("wrapperGetLocalStorage", [], function(json) {
+	ZeroShift.prototype.readStorage = function() {	  
+		this.cmd("wrapperGetLocalStorage", [], function(json) {
 			return $.parseJSON(json);
 		});	
     }; 

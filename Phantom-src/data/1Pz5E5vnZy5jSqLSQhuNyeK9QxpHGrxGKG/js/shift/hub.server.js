@@ -1,11 +1,9 @@
 var HUB = (function(HUB, $, undefined) {
     HUB.numofrequests = 0;
     HUB.polling = false;
-    HUB.numofpolls = 0;
-    HUB.numoffails = 0;
-    HUB.blocknumber = 0
-    HUB.peercount = 0
-	HUB.balance = 0;
+    HUB.numofpolls = HUB.numoffails = 0;
+    HUB.blocknumber = HUB.peercount = 0;
+	HUB.balance = HUB.latest = HUB.pending = HUB.earliest = 0;
 	 
     HUB.startRequest = function(method, params){
         HUB.numofrequests++;
@@ -88,30 +86,45 @@ var HUB = (function(HUB, $, undefined) {
     }	
 	
 	var last_balance = HUB.balance;
-	HUB.callPolling = function() {
+	HUB.callPolling = function(balances=false) {
 	  HUB.numofpolls++;
-	  
+
+//	  Current blockheight	  
+/*	  Site.cmd("blockHeight", {}, function(result) {
+		console.log("blockheight = "+ HUB.blocknumber + "/" + result.blockheight);
+		HUB.blocknumber = result.blockheight;	  
+
+		if (HUB.blocknumber == false) HUB.numoffails++;
+		else $("#current_blocknumber").text(HUB.blocknumber);
+	  });
+
 	  HUB.blocknumber = HUB.getBlocknumber(); 
 	  if (HUB.blocknumber == false) HUB.numoffails++;
 	  else $("#current_blocknumber").text(HUB.blocknumber);
-	  
+*/	  Site.loadMessages('blockHeight');
+
 	  // Call every x time we get here  
 	  var modulo = HUB.numofpolls > 5 ? 10 : 2;
-	  if (HUB.numofpolls % modulo == 1) {
+	  if (HUB.numofpolls == 1 || HUB.numofpolls % modulo == 1) {
 		console.log('Polling called, nr: '+HUB.numofpolls);
 		
 		// Number of peers
-		data = HUB.startRequest("net_peercount",'[]'); 
+/*		data = HUB.startRequest("net_peercount",'[]'); 
 		if (typeof data.result == 'string' || data.result instanceof String) HUB.peercount = data.result;
 		else HUB.numoffails++;
 		$("#net_peercount").text(HUB.peercount);  
-		
+*/		Site.loadMessages('peerCount');
+
 		// Detect balance changes
-		HUB.show_balances(HUB.activeAccount);
-		if (false && HUB.balance != last_balance) { // Disabled for now: syncing not yet implemented in gshift
-		  HUB.show_txs(HUB.activeAccount);
+		if (!balances) return;
+		Site.loadMessages('getBalance', {'address': HUB.activeAccount, 'when': 'earliest'});
+
+		if (HUB.balance != last_balance) { 
+		  HUB.show_balances(HUB.activeAccount, false);
 		  last_balance = HUB.balance;
-		  console.log('Last known balance:' +last_balance);
+//		  console.log('Last known balance:' +last_balance);
+		  
+		  if (false) HUB.show_txs(HUB.activeAccount); // Disabled for now: db syncing not yet implemented in gshift
 		} 
 	  }
 	   
@@ -123,11 +136,10 @@ var HUB = (function(HUB, $, undefined) {
 	  
 	}
 	
-	HUB.startPolling = function() {
+	HUB.startPolling = function(balances) {
 	  if (window.pollinterval) return;
 	  
-	  HUB.numofpolls = 1;
-	  HUB.callPolling();
+	  HUB.callPolling(balances);
 	  window.pollinterval = window.setInterval(HUB.callPolling, 15000);	
 	  
 	  console.log('Polling started, id:' +window.pollinterval);

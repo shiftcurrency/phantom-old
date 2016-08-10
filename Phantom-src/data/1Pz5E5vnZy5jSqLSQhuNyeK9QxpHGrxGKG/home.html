@@ -409,8 +409,8 @@
 	  if (typeof queries.recipient != "undefined" && queries.recipient.length == 40) {
 		$('#tx-to').val('0x'+queries.recipient);	 		
 	  }
-	  
-	  Site.cmd("wrapperGetLocalStorage", [], function(json) {
+
+      Site.cmd("wrapperGetLocalStorage", [], function(json) {
 		var len = HUB.prefix.length,
 			local_storage = $.parseJSON(json),
 			account = local_storage != null ? local_storage.activeAccount : false;
@@ -420,25 +420,20 @@
 			return false;
 		} else HUB.activeAccount = account;
 		
-		if (account.substring(0,len) == HUB.prefix) account = account.substring(len,account.length);
-		
-		var len = account.length;
+		account = HUB.format_address(account), len = account.length;
 		$("#account-name").html(account.substr(0,len/2)+'<br/>'+account.substr(len/2,len));
 	  
-		/* Start interval */
-		HUB.startPolling();
-
-		/* Show current balances */
-		HUB.show_balances(HUB.prefix+''+account);
+		/* Start interval + show current balances */
+		HUB.startPolling(true);
 
 		/* Show contacts */
 		HUB.adressbook();
 
 		/* Load transaction history */
-		HUB.show_txs(account); 
-		
-	  }); 
-	  
+		HUB.show_txs(account);
+       
+		return;
+	  });
 	}); 
 
   </script> 
