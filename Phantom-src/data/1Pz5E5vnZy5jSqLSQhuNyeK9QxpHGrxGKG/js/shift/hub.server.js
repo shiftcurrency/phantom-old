@@ -86,7 +86,7 @@ var HUB = (function(HUB, $, undefined) {
     }	
 	
 	var last_balance = HUB.balance;
-	HUB.callPolling = function(balances=false) {
+	HUB.callPolling = function() {
 	  HUB.numofpolls++;
 
 //	  Current blockheight	  
@@ -116,11 +116,9 @@ var HUB = (function(HUB, $, undefined) {
 */		Site.loadMessages('peerCount');
 
 		// Detect balance changes
-		if (!balances) return;
-		Site.loadMessages('getBalance', {'address': HUB.activeAccount, 'when': 'earliest'});
+		Site.loadMessages('getBalance', {'address': HUB.activeAccount});
 
 		if (HUB.balance != last_balance) { 
-		  HUB.show_balances(HUB.activeAccount, false);
 		  last_balance = HUB.balance;
 //		  console.log('Last known balance:' +last_balance);
 		  
@@ -136,10 +134,10 @@ var HUB = (function(HUB, $, undefined) {
 	  
 	}
 	
-	HUB.startPolling = function(balances) {
+	HUB.startPolling = function() {
 	  if (window.pollinterval) return;
 	  
-	  HUB.callPolling(balances);
+	  HUB.callPolling();
 	  window.pollinterval = window.setInterval(HUB.callPolling, 15000);	
 	  
 	  console.log('Polling started, id:' +window.pollinterval);

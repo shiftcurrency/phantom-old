@@ -53,11 +53,7 @@
     };
 
     ZeroFrame.prototype.route = function(cmd, message) {
-	  if (cmd === "setSiteInfo") {
-		return true; //this.actionSetSiteInfo(message);
-	  } else {	
-		return this.log("Unknown command", message);
-	  }
+	  return this.log("Unknown command", message);
     };
 
     ZeroFrame.prototype.response = function(to, result) {
@@ -130,6 +126,7 @@
 
     function ZeroShift() {
       this.onOpenWebsocket = __bind(this.onOpenWebsocket, this);
+      this.loadMessages = __bind(this.loadMessages, this);
       return ZeroShift.__super__.constructor.apply(this, arguments);
     }
 
@@ -138,7 +135,13 @@
     };	
 	
     ZeroShift.prototype.loadMessages = function(call, params) {
-		this.cmd('ShiftIPC', {'call': call, 'params': params}, (function(_this) {
+		if (call == null) {
+			call = 'netListening';
+		}
+		this.cmd('ShiftIPC', {
+		  'call': call, 
+		  'params': params
+		}, (function(_this) {
           return function(result) {			
 //			_this.log("socket call response", result);
 			if (call == 'netListening'){
@@ -152,27 +155,28 @@
 				HUB.latest = result.latest;
 				HUB.pending = result.pending;
 				HUB.balance = HUB.latest + HUB.pending;
-				HUB.show_balances(HUB.activeAccount, false);
+				if ($('#balance_confirmed, #balance_unconfirmed, #balance_total').length == 3) HUB.show_balances(HUB.activeAccount, false);
 			}
+			return true;
           };
 		})(this));
-
 		return false;
 	};	
 
     ZeroShift.prototype.onOpenWebsocket = function(e) {
       this.cmd("serverInfo", {}, (function(_this) {
         return function(serverInfo) {
+          return _this.server_info = serverInfo;
           return _this.log("serverInfo response", serverInfo);
         };
       })(this));
 /*	
       window.setTimeout((function(_this) {
-		_this.loadMessages();
       })(this), 0); 
 */	  
       return this.cmd("siteInfo", {}, (function(_this) {
         return function(siteInfo) {
+          return _this.site_info = siteInfo;
           return _this.log("siteInfo response", siteInfo);
         };
       })(this));

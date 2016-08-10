@@ -423,14 +423,17 @@
 		account = HUB.format_address(account), len = account.length;
 		$("#account-name").html(account.substr(0,len/2)+'<br/>'+account.substr(len/2,len));
 	  
-		/* Start interval + show current balances */
-		HUB.startPolling(true);
+		/* Start interval */
+		HUB.startPolling();
+
+		/* Show current balances */
+//		HUB.show_balances(HUB.prefix+''+account);
 
 		/* Show contacts */
 		HUB.adressbook();
 
 		/* Load transaction history */
-		HUB.show_txs(account);
+		HUB.show_txs(account); 
        
 		return;
 	  });
