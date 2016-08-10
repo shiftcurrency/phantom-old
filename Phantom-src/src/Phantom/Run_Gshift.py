@@ -33,7 +33,6 @@ class Run_Gshift:
             self.log.error("Error starting gshift: %s" % Debug.formatException(err))
             return False
 
-
     def check_running_proc(self,name):
         
         import time
@@ -58,7 +57,6 @@ class Run_Gshift:
 
         return False
 
-
     def verify_ipc_connection(self):
 
         import os
@@ -77,7 +75,6 @@ class Run_Gshift:
             if i == 10: break
             time.sleep(1)
         return False
-
 
     def stop(self):
         self.log.info("Stopping gshift...")
