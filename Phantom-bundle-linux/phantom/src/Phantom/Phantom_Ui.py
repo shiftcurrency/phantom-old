@@ -58,7 +58,6 @@ class Phantom_Ui(object):
             return self.error_msg.error_response("err_create_site")
         return {"jsonrpc": "2.0", "id": "1", "result": ["true", str(self.address), str(self.private_key)]}
 
-
     def validate_postdata(self,postdata):
 
 
@@ -78,17 +77,14 @@ class Phantom_Ui(object):
             return self.error_msg.error_response("no_method")
 
         if not 'params' in postparams:
-            print "here"
             return self.error_msg.error_response("missing_params")
 
         return postparams
-
 
     def run_method(self,postparams):
 
         self.res = self.run_method.execute(postparams)
         return self.res
-
 
     def get_shiftbase(self,postparams):
 
@@ -100,7 +96,6 @@ class Phantom_Ui(object):
             except Exception as e:
                 return self.error_msg.error_response("ipc_call_error")
         return self.error_msg.error_response("no_params_allowed")
-
 
     def get_peercount(self,postparams):
     
@@ -116,8 +111,6 @@ class Phantom_Ui(object):
                 return self.error_msg.error_response("ipc_call_error")
         return self.error_msg.error_response("no_params_allowed")
 
-
-
     def get_blocknumber(self,postparams):
 
         if len(postparams['params']) == 0:
@@ -132,7 +125,6 @@ class Phantom_Ui(object):
                 return self.error_msg.error_response("ipc_call_error")
         return self.error_msg.error_response("no_params_allowed")
 
-
     def get_block_data(self,postparams):
 
         if len(postparams['params']) == 2:
@@ -146,17 +138,14 @@ class Phantom_Ui(object):
             return self.error_msg.error_response("invalid_parameters")
         return self.error_msg.error_response("missing_params")
 
+    def validate_domain(self,domain):
 
-    def rr_ptr(self,postparams):
-
-        if len(postparams['params']) == 1:
-            if not postparams['params'][0][:-6].isalnum() and not postparams[param].endswith('.shift'):
-                return self.error_msg.error_response("invalid_domain")
-            else:
-                pass
-
-        return self.error_msg.error_response("")
-
+        try:
+            if not domain.endswith('.shift') or not domain[:-6].isalnum():
+                return False
+        except Exception as e:
+            return False
+        return True
 
     def get_accounts(self,postparams):
 
@@ -168,7 +157,6 @@ class Phantom_Ui(object):
             except Exception as e:
                 return self.error_msg.error_response("ipc_call_error")
         return self.error_msg.error_response("no_params_allowed")
-
 
     def get_balance(self,postparams):
 
@@ -190,14 +178,12 @@ class Phantom_Ui(object):
                 except Exception as e:
                     return self.error_msg.error_response("ipc_call_error")
         return self.error_msg.error_response("missing_params")
-            
- 
 
     def sign_publish_site(self,postparams):
 
         from Site import Site
 
-        if not len(postparams['params']) == 2 and not len(postparams['params'][0]) == 34:
+        if not len(postparams['params']) == 2 or not len(postparams['params'][0]) == 34:
             return self.error_msg.error_response("sign_missing_params")
 
 
@@ -218,8 +204,6 @@ class Phantom_Ui(object):
 
         return {"jsonrpc": "2.0", "id": "1", "result": ["true", str(address)]}
 
-
-
     def unlock_account(self, addr, password):
 
         if not self.verify_wallet_addr(addr):
@@ -236,7 +220,6 @@ class Phantom_Ui(object):
             except Exception as e:
                 return self.error_msg.error_response("ipc_call_error")
 
-
     def lock_account(self, addr):
 
         if not self.verify_wallet_addr(addr):
@@ -249,14 +232,12 @@ class Phantom_Ui(object):
         except Exception as e:
             return self.error_msg.error_response("ipc_call_error")
 
-
     def create_site(self,postparams):
 
         if len(postparams['params']) == 0:
             return self.create_phantom_site()
 
         return self.error_msg.error_response("")
-
 
     def create_account(self,postparams):
 
@@ -270,7 +251,6 @@ class Phantom_Ui(object):
             except Exception as e:
                 return self.error_msg.error_response("ipc_call_error")
 
-
     def net_listening(self,postparams):
 
         if len(postparams['params']) == 0:
@@ -282,9 +262,7 @@ class Phantom_Ui(object):
                 return self.error_msg.error_response("ipc_call_error")
         return self.error_msg.error_response("no_params_allowed")
 
-
     def verify_wallet_addr(self, addr):
-        
         try:
             int(addr, 16) 
         except ValueError as e:
@@ -292,9 +270,7 @@ class Phantom_Ui(object):
 
         if not len(addr) >= 40: 
             return False
-        
-        return True
- 
+        return True 
 
     def send_transaction(self,postparams):
 
@@ -358,7 +334,6 @@ class Phantom_Ui(object):
                 return self.error_msg.error_response("ipc_call_error")
         return self.error_msg.error_response("invalid_parameters")
 
-
     def create_shh_filter(self,postparams):
     
         if len(postparams['params']) == 1:
@@ -379,7 +354,6 @@ class Phantom_Ui(object):
                     return self.error_msg.error_response("ipc_call_error")
         return self.error_msg.error_response("missing_params")
 
-
     def new_message_ident(self,postparams):
 
         if len(postparams['params']) == 0:
@@ -390,7 +364,6 @@ class Phantom_Ui(object):
             except Exception as e:
                 return self.error_msg.error_response("ipc_call_error")
         return self.error_msg.error_response("no_params_allowed")
-
 
     def message_ident_exists(self,postparams):
         if len(postparams['params']) == 1:
@@ -406,7 +379,6 @@ class Phantom_Ui(object):
             except Exception as e:
                 return self.error_msg.error_response("ipc_call_error")
         return self.error_msg.error_response("missing_params")
-
 
     def send_message(self,postparams):
 
@@ -451,7 +423,6 @@ class Phantom_Ui(object):
                     return self.error_msg.error_response("ipc_call_error")
         return self.error_msg.error_response("missing_params")
 
-
     def get_shh_messages(self,postparams):
     
         if len(postparams['params']) == 1:
@@ -481,7 +452,6 @@ class Phantom_Ui(object):
                 return self.error_msg.error_response("ipc_call_error")
         return self.error_msg.error_response("missing_params")
 
-
     def get_transaction_history(self,postparams):
     
         if len(postparams['params']) == 1:
@@ -498,7 +468,6 @@ class Phantom_Ui(object):
             except Exception as e:
                 return self.error_msg.error_response("err_trans_hist")
         return self.error_msg.error_response("missing_params")
-
 
     def store_address_book(self,postparams):
     
@@ -517,7 +486,6 @@ class Phantom_Ui(object):
                     return self.error_msg.error_response("err_store_addrbook")
         return self.error_msg.error_response("missing_params")
 
-
     def del_address_book(self,postparams):
     
         if len(postparams['params']) == 1:
@@ -534,7 +502,6 @@ class Phantom_Ui(object):
                 return self.error_msg.error_response("err_del_addrbook")
         return self.error_msg.error_response("missing_params")
 
-
     def get_address_book(self,postparams):
     
         if len(postparams['params']) == 0:
@@ -547,7 +514,6 @@ class Phantom_Ui(object):
             except Exception as e:
                 return self.error_msg.error_response("err_addr_book")
         return self.error_msg.error_response("no_params_allowed")
-
 
     def get_balance_by_block(self,postparams):
     
@@ -575,7 +541,6 @@ class Phantom_Ui(object):
 
             return {"jsonrpc": "2.0", "id": "1", "result": self.results}
         return self.error_msg.error_response("missing_params")
-
 
     def create_contract(self, postparams):
 
@@ -614,7 +579,6 @@ class Phantom_Ui(object):
                 return {"jsonrpc": "2.0", "id": "1", "result": e}
         return self.error_msg.error_response("missing_params")
 
-
     def set_contract_storage(self, postparams):
 
         if len(postparams['params']) == 1 and len(postparams['params'][0]) == 6:
@@ -648,7 +612,6 @@ class Phantom_Ui(object):
                     return {"jsonrpc": "2.0", "id": "1", "result": e}
         return self.error_msg.error_response("missing_params")
 
-
     def get_contract_storage(self, postparams):
 
         if 'function_signature' in postparams['params'][0] and 'to' in postparams['params'][0] and \
@@ -675,7 +638,6 @@ class Phantom_Ui(object):
             return res
         return self.error_msg.error_response("missing_params")
 
-
     def call(self, postparams):
 
         if 'to' in postparams['params'][0] and 'data' in postparams['params'][0]:
@@ -692,8 +654,6 @@ class Phantom_Ui(object):
                 print e
                 return {"jsonrpc": "2.0", "id": "1", "result": e}
         return self.error_msg.error_response("missing_params")
-
-
 
     def create_static_nodefile(self):
 
@@ -715,8 +675,56 @@ class Phantom_Ui(object):
             except Exception as e:
                 return self.error_msg.error_response("err_get_txrec")
         return self.error_msg.error_response("missing_params")
-  
 
+    def resolve_phantom_domain(self, postparams):
+        if len(postparams['params'][0]) == 1:
+            if 'domain' not in postparams['params'][0] or not self.validate_domain(postparams['params'][0]['domain']):
+                return self.error_msg.error_response("invalid_domain")
+
+            self.contract_addr = "0xa69818b38011e84dbc98bd0f180e6084855eae2e"
+            self.domain = postparams['params'][0]['domain']
+
+            try:
+                self.params = { "params":[{"to" : self.contract_addr, "function_signature" : "getRR(string)", "function_argument" : [str(self.domain)], 
+                                "return_type" : ["string"]}]}
+                result = self.get_contract_storage(self.params)
+                return {"jsonrpc": "2.0", "id": "1", "result": result}
+            except Exception as e:
+                return self.error_msg.error_response("err_resolve_domain")
+        return self.error_msg.error_response("missing_params")
+
+    def create_phantom_domain(self, postparams):
+        if len(postparams['params'][0]) == 4:
+            if 'password' not in postparams['params'][0] or len(postparams['params'][0]['password']) == 0:
+                return self.error_msg.error_response("empty_password")
+            if 'from' not in postparams['params'][0] or not self.verify_wallet_addr(postparams['params'][0]['from']):
+                return self.error_msg.error_response("invalid_wallet_addr")
+            if 'domain' not in postparams['params'][0] or not self.validate_domain(postparams['params'][0]['domain']):
+                return self.error_msg.error_response("invalid_domain")
+            if 'domain_address' not in postparams['params'][0] or not len(postparams['params'][0]['domain_address']) == 34:
+                return self.error_msg.error_response("invalid_domain")
+                    
+            try:
+                self.passwd = postparams['params'][0]['password']
+                self.from_acc = postparams['params'][0]['from']
+                self.contract_addr = "0xa69818b38011e84dbc98bd0f180e6084855eae2e"
+                self.domain = postparams['params'][0]['domain']
+                self.addr = postparams['params'][0]['domain_address']
+                self.params = {"params":[{"from":self.from_acc, "to" : self.contract_addr, "function_signature" : "setRR(string,string)", 
+                "function_argument" : [str(self.domain), str(self.addr)], "gas" : "300000", "password" : self.passwd}]}                
+                result = self.set_contract_storage(self.params)
+                
+                try:
+                    self.phantomdb = Phantom_Db.PhantomDb()
+                    print "domain: %s, addr: %s" % (self.domain, self.addr)
+                    cache = self.phantomdb.insert_dns_cache(self.domain, self.addr)
+                except Exception as e:
+                    pass
+                return {"jsonrpc": "2.0", "id": "1", "result": result}
+            except Exception as e:
+                return self.error_msg.error_response("err_create_domain")
+        return self.error_msg.error_response("missing_params")
+  
     def run(self,postdata):
         self.res = self.validate_postdata(postdata)
 

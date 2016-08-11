@@ -6,12 +6,10 @@ from tools.abi import encode_abi, decode_abi
 
 class ContractCall(object):
 
-    BLOCK_TAG_LATEST="latest"
-
     def _encode_function(self, signature, param_values):
 
         prefix = utils.big_endian_to_int(utils.sha3(signature)[:4])
-
+        
         if signature.find('(') == -1:
             raise RuntimeError('Invalid function signature. Missing "(" and/or ")"...')
 
@@ -44,7 +42,6 @@ class ContractCall(object):
         
         data = self._encode_function(sig, args)
         data_hex = data.encode('hex')
-        print data_hex
         self.phantom_ui = Phantom_Ui.Phantom_Ui()
         postparams = {"params" : [{"to" : address, "data" : data_hex}]}
         call_res = self.phantom_ui.call(postparams)
@@ -59,14 +56,3 @@ class ContractCall(object):
         self.phantom_ui = Phantom_Ui.Phantom_Ui()
         res = self.phantom_ui.send_transaction(postparams)
         return res
-
-    def shf_getStorageAt(self, address=None, position=0, block=BLOCK_TAG_LATEST):
-        """ To be implemented """
-        return self._call('shf_getStorageAt', [address, hex(position), block])
-
-    def shf_getCode(self, address, default_block=BLOCK_TAG_LATEST):
-        """ To be implemented """
-        if isinstance(default_block, basestring):
-            if default_block not in BLOCK_TAGS:
-                raise ValueError
-        return self._call('shf_getCode', [address, default_block])
