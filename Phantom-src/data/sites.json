@@ -21,10 +21,10 @@
     "domain": "devwallet.shift", 
     "modified": 1470850050.105, 
     "own": false, 
-    "peers": 0, 
+    "peers": 1, 
     "permissions": [], 
     "serving": true, 
-    "size": 4140793, 
+    "size": 4140785, 
     "wrapper_key": "aa2a638fd946a729442eab9c2604891828e8f398c2674be940bbc0a18948f381"
   }
 }

@@ -3,11 +3,13 @@ try:
     from Crypto.Hash import keccak
     sha3_256 = lambda x: keccak.new(digest_bits=256, data=x).digest()
 except:
-    print sys.platform
     if 'linux' in sys.platform:
         from sha3_linux64 import sha3 as _sha3
     elif 'win' in sys.platform:
         from sha3_win32 import sha3 as _sha3
+    elif 'darwin' in sys.platform:
+        from sha3_osx import sha3 as _sha3
+
     sha3_256 = lambda x: _sha3.sha3_256(x).digest()
 from lib.pybitcointools import bitcoin
 import rlp
