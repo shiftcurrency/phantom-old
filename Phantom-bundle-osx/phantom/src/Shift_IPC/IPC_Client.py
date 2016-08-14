@@ -29,6 +29,7 @@ class Client(object):
 
         self.ipc_path = ipc_path
         self._socket = self.get_socket()
+        self.response_raw = ""
 
         super(Client, self).__init__(*args, **kwargs)
 
@@ -269,14 +270,13 @@ class Client(object):
         for _ in range(3):
             try:
                 self._socket.sendall(request)
-                self.response_raw = ""
             except Exception as e:
                 pass
 
             while True:
                 try:
-                    print self.response_raw
                     self.response_raw += self._socket.recv(4096)
+                    print self.response_raw
                 except socket.timeout:
                     break
 
