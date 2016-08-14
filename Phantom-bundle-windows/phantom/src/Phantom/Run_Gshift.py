@@ -45,11 +45,13 @@ class Run_Gshift:
                        if "gshift.exe" in i:
                            self.proclist = [x for x in i.split(" ") if x != '']
                            if len(self.proclist) >= 1: return [self.proclist[1]]
-                else: 
-                    self.pidlist = map(int, check_output(["pidof", name]).split())
-                    if len(self.pidlist) > 0: return self.pidlist
-
+                else:
+                    import subprocess
+                    process = subprocess.Popen('pgrep gshift', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                    self.pidlist, err = process.communicate()
+                    if len(self.pidlist) > 0: return [self.pidlist.replace('\n','')]
             except Exception as e:
+                print e
                 return False
 
             if i == 10: break
@@ -70,7 +72,8 @@ class Run_Gshift:
                 if 'result' in self.ipc_connection:
                     return True
             except Exception as e:
-                 return False
+                print e
+                return False
 
             if i == 10: break
             time.sleep(1)

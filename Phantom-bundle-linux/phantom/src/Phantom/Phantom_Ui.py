@@ -716,7 +716,6 @@ class Phantom_Ui(object):
                 
                 try:
                     self.phantomdb = Phantom_Db.PhantomDb()
-                    print "domain: %s, addr: %s" % (self.domain, self.addr)
                     cache = self.phantomdb.insert_dns_cache(self.domain, self.addr)
                 except Exception as e:
                     pass

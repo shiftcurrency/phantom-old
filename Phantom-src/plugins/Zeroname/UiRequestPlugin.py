@@ -46,6 +46,6 @@ class UiRequestPlugin(object):
 class ConfigPlugin(object):
     def createArguments(self):
         group = self.parser.add_argument_group("Zeroname plugin")
-        group.add_argument('--bit_resolver', help='Phantom site to resolve .shift domains', default="1CQTfYmebR1bP75PCUata417NffWyL6AXf", metavar="address")
+        group.add_argument('--bit_resolver', help='Phantom site to resolve .shift domains', default="12qXcMkQMRjcbBhTpDot4frbnXsbtevgeU", metavar="address")
 
         return super(ConfigPlugin, self).createArguments()

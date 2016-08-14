@@ -59,7 +59,6 @@ class Client(object):
 
     def net_listening(self):
         response = self._make_request("net_listening", [])
-        print response
         return response
 
     def get_blocknumber(self):
@@ -269,18 +268,17 @@ class Client(object):
         for _ in range(3):
             try:
                 self._socket.sendall(request)
-                response_raw = ""
+                self.response_raw = ""
             except Exception as e:
                 pass
 
             while True:
                 try:
-                    print response_raw
-                    response_raw += self._socket.recv(4096)
+                    self.response_raw += self._socket.recv(4096)
                 except socket.timeout:
                     break
 
-            if response_raw == "":
+            if self.response_raw == "":
                 self._socket.close()
                 self._socket = self.get_socket()
                 continue
@@ -289,7 +287,7 @@ class Client(object):
         else:
             raise ValueError("No JSON returned by socket")
 
-        self.response = json.loads(response_raw)
+        self.response = json.loads(self.response_raw)
 
         if "error" in self.response:
             raise ValueError(self.response["error"]["message"])

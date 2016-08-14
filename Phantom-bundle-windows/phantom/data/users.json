@@ -10,6 +10,10 @@
       "1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG": {
         "auth_address": "1Nxez68D3fpnvwhXfqBJjNKbVtRdkNviAK", 
         "auth_privatekey": "5JGi7pCc3wQmSoSayFXJdQJWce5BWG2zRk6aNeKmNsTGa4LUigP"
+      }, 
+      "12qXcMkQMRjcbBhTpDot4frbnXsbtevgeU": {
+        "auth_address": "1NWvKBVkfuo6kuamRhPK61eUkCPzajDBXh", 
+        "auth_privatekey": "5JYsKMkvVQQ69zopKoYoxkB1ejSFfjcpm86buSmkiEm7fydZrmP"
       }
     }
   }
