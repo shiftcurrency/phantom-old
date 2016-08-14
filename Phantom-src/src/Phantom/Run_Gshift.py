@@ -26,6 +26,8 @@ class Run_Gshift:
                 self.process = Popen(command, stdout=self.fnull, stderr=self.fnull, shell=True)
 
             atexit.register(self.stop)
+            import time
+            time.sleep(3)
             return self.process
 
         except Exception, err:
@@ -47,6 +49,8 @@ class Run_Gshift:
                            if len(self.proclist) >= 1: return [self.proclist[1]]
                 else: 
                     self.pidlist = map(int, check_output(["pidof", name]).split())
+                    print self.pidlist
+                    print len(self.pidlist)
                     if len(self.pidlist) > 0: return self.pidlist
 
             except Exception as e:
@@ -61,7 +65,6 @@ class Run_Gshift:
 
         import os
         from Shift_IPC import IPC_Client
-        self.check_file = IPC_Client.Client()
         self.check_ipc = IPC_Client.Client()
 
         for i in range(1,10):
@@ -70,7 +73,8 @@ class Run_Gshift:
                 if 'result' in self.ipc_connection:
                     return True
             except Exception as e:
-                 return False
+                print e
+                return False
 
             if i == 10: break
             time.sleep(1)

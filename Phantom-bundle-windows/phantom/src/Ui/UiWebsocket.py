@@ -95,6 +95,7 @@ class UiWebsocket(object):
 
             if message:
                 try:
+                    self.log.error("Message debug: %s" % message)
                     self.handleRequest(message)
                 except Exception, err:
                     if config.debug:  # Allow websocket errors to appear on /Debug
@@ -178,14 +179,7 @@ class UiWebsocket(object):
         elif params:
             func(req["id"], params)
         else:
-            func(req["id"])
-
-    def actionBlockHeight(self, to):
-        from Phantom import Phantom_Ui
-        self.phantom_ui = Phantom_Ui.Phantom_Ui()
-        blockHeight = self.phantom_ui.get_blocknumber('{"params":[]}')
-        self.response(to, blockHeight)
-        
+            func(req["id"])        
 
     # Format site info
     def formatSiteInfo(self, site, create_user=True):
@@ -257,6 +251,46 @@ class UiWebsocket(object):
     # Send a simple pong answer
     def actionPing(self, to):
         self.response(to, "pong")
+
+    # Get Shift details
+    def actionShiftIPC(self, to, call='net_listening', params=None):
+        from Shift_IPC import IPC_Client
+        self.client = IPC_Client.Client()
+        ret = False
+
+        if call == 'netListening': 
+            ret = self.client.net_listening()
+		
+        if call == 'blockHeight': 
+            response = self.client.get_blocknumber()
+            if 'result' in response:
+                ret = str(int(response['result'], 16))
+
+        if call == 'peerCount': 
+            response = self.client.get_peercount()
+            if 'result' in response:
+                ret = str(int(response['result'], 16))	
+			
+        if call == 'getBalance': 
+            latest = 0
+            response = self.client.get_balance(params['address'], 'latest')
+            if 'result' in response:
+                latest = str(int(response['result'], 16))
+
+            pending = 0
+            response = self.client.get_balance(params['address'], 'pending')
+            if 'result' in response:
+                pending = str(int(response['result'], 16))
+		
+            earliest = 0
+			
+            ret = {
+                "latest": latest, 
+                "pending": pending,
+                "earliest": earliest
+            }
+		
+        self.response(to, ret)
 
     # Send site details
     def actionSiteInfo(self, to, file_status=None):

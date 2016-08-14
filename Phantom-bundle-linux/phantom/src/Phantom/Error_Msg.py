@@ -73,5 +73,9 @@ class Error_Msg(object):
             return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Function signature must be provided. e.g. function_name()"]}
         elif error_type == "err_gas":
             return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Gas amount must be specified when creating or calling functions with a transaction"]}
+        elif error_type == "err_create_domain":
+            return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not create phantom domain"]}
+        elif error_type == "err_resolve_domain":
+            return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Could not resolve phantom domain"]}
         else:
             return {"jsonrpc": "2.0", "id": "1", "result": ["false", "Unhandled exception. Please check the log file and report to Shift"]}
