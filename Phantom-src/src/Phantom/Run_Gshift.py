@@ -69,6 +69,7 @@ class Run_Gshift:
         for i in range(1,10):
             try:
                 self.ipc_connection = self.check_ipc.net_listening()
+                print self.ipc_connection
                 if 'result' in self.ipc_connection:
                     return True
             except Exception as e:
