@@ -59,6 +59,7 @@ class Client(object):
 
     def net_listening(self):
         response = self._make_request("net_listening", [])
+        print response
         return response
 
     def get_blocknumber(self):

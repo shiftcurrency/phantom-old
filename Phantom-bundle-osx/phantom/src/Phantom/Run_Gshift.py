@@ -49,9 +49,9 @@ class Run_Gshift:
                     import subprocess
                     process = subprocess.Popen('pgrep gshift', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                     self.pidlist, err = process.communicate()
-                    print self.pidlist
                     if len(self.pidlist) > 0: return [self.pidlist.replace('\n','')]
             except Exception as e:
+                print e
                 return False
 
             if i == 10: break
@@ -69,10 +69,12 @@ class Run_Gshift:
         for i in range(1,10):
             try:
                 self.ipc_connection = self.check_ipc.net_listening()
+                print self.ipc_connection
                 if 'result' in self.ipc_connection:
                     return True
             except Exception as e:
-                 return False
+                print e
+                return False
 
             if i == 10: break
             time.sleep(1)
