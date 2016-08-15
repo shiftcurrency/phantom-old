@@ -17,8 +17,6 @@ class ContractCall(object):
             return utils.encode_int(prefix)
 
         types = signature[signature.find('(') + 1: signature.find(')')].split(',')
-        print "types: %s" % types
-        print "params values: %s" %param_values
         encoded_params = encode_abi(types, param_values)
         return utils.zpad(utils.encode_int(prefix), 4) + encoded_params
 

@@ -66,7 +66,7 @@ var HUB = (function(HUB, $, undefined) {
 			
 		    Site.cmd("wrapperGetLocalStorage", [], function(json) {
 				var local_storage = $.parseJSON(json),
-					address = typeof local_storage!= 'undefined' ? local_storage.activeAccount : '';
+					address = local_storage != null ? local_storage.activeAccount : '';
 				
 				selectAccount("#LoginAccounts li a", address);
 			});

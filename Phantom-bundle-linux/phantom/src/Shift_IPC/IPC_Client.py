@@ -265,26 +265,25 @@ class Client(object):
 
     def ipc_socket(self, request):
 
+        response_raw = ""
+
         for _ in range(3):
             try:
                 self._socket.sendall(request)
-                response_raw = ""
             except Exception as e:
                 pass
 
-            while True:
-                try:
-                    print response_raw
-                    response_raw += self._socket.recv(4096)
-                except socket.timeout:
-                    break
+            try:
+                 response_raw += self._socket.recv(4096)
+            except socket.timeout:
+                break
 
             if response_raw == "":
                 self._socket.close()
                 self._socket = self.get_socket()
                 continue
-
-            break
+            else:
+                break
         else:
             raise ValueError("No JSON returned by socket")
 

@@ -159,6 +159,7 @@ class UiServer:
                 config.open_browser = False
             else:
                 print "- Successfully established an IPC connection to gshift. Creating static node file..."
+                config.open_browser = "default_browser"
         else:
             print "- Could not find a running gshift process. Start gshift manually."
             config.open_browser = False

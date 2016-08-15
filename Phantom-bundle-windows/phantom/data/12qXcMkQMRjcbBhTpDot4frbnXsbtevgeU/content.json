@@ -491,16 +491,16 @@
    "size": 719
   },
   "js/shift/hub.login.js": {
-   "sha512": "557456e265356bb5dce40c7febd0c613c61ce84c68c7f705b65df5eca50697a7",
-   "size": 6640
+   "sha512": "c12a252be23b435e58e37513f9de06a5cde7a8a55d4726e5c618cf2aa13a1710",
+   "size": 6627
   },
   "js/shift/hub.server.js": {
    "sha512": "104a6e0dd0a94782f8aeb97461a116518831e98796d82381effc0e2cc398d9eb",
    "size": 4795
   },
   "js/shift/hub.sites.js": {
-   "sha512": "6230f7cab4542e7a944f07a5a9e635e1067f1fbb99df000ab4fef5a3f468c4ad",
-   "size": 3519
+   "sha512": "3c283e75e21c188b1ab88f3f20e4e9189418f95ebce28b8f91636b6b68b6f143",
+   "size": 3497
   },
   "js/validate/jquery.bs-validate.min.js": {
    "sha512": "bd547b3a915f84747ac9ef338ae358480937f7a62762e177d2444ac13890520e",
@@ -975,25 +975,25 @@
    "size": 453
   },
   "js/zero.js": {
-   "sha512": "81c3029b4448c32b31bba332743606208da22e3cb12ef222be340f7e35f69b62",
-   "size": 6909
+   "sha512": "c80d2ea5676a3fd53795ef1150cd4974b141b6491144b98f2e1b5f0acd744b5c",
+   "size": 6865
   },
   "sites.html": {
-   "sha512": "7b463b3c66513d512c3891f4b93dce9f739f9c6129b2faa53d86d33ca620b644",
-   "size": 25333
+   "sha512": "d29f93d92bc5ddbd373d38683b3add8c5fe40d05984b8d950b4329909c2cc6ea",
+   "size": 25323
   }
  },
  "ignore": "",
  "inner_path": "content.json",
- "modified": 1471205385.398,
+ "modified": 1471276099.637,
  "phantom_version": "0.1a",
  "sign": [
-  38450812288871240492514975472840492668598364651680476770579357229078825851585,
-  104356778215438614160998587355701754263697874252699427294356759380558319481247
+  2500481250721723553591124327681277313342989139123499806322343595023903389788,
+  70776205937032447491011275070759490824649087962548206158404918961364620487892
  ],
  "signers_sign": "GxBh8RYDjjqJHWSbbNDC75DqYZqlONaqgAMwL8eXfey/nfAwnSLTV33lPNrKq4UXhIZJYky8tpZbvVAATlzrWCw=",
  "signs": {
-  "12qXcMkQMRjcbBhTpDot4frbnXsbtevgeU": "G4PO8hMlEPtAEqEf0IJzMXBwRxIdMLsCvAEAxEbkodxNEpVwTggciWJpbl0EG0Qttjm8VeavvG+B4oIEgIj/yFs="
+  "12qXcMkQMRjcbBhTpDot4frbnXsbtevgeU": "G1Loa1bmzkGphvdjQ9E+4HvbI45Zk201DMTfrl8RSIZDxGfJnejn9hq+0OE3d2VDTnrp5SZrvncDNoVxL/f9Cxk="
  },
  "signs_required": 1,
  "title": "12qXcMkQMRjcbBhTpDot4frbnXsbtevgeU - Phantom_"

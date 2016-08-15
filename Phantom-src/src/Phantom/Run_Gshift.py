@@ -49,8 +49,6 @@ class Run_Gshift:
                            if len(self.proclist) >= 1: return [self.proclist[1]]
                 else: 
                     self.pidlist = map(int, check_output(["pidof", name]).split())
-                    print self.pidlist
-                    print len(self.pidlist)
                     if len(self.pidlist) > 0: return self.pidlist
 
             except Exception as e:
