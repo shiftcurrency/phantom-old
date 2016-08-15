@@ -3,30 +3,37 @@
 var HUB = (function(HUB, $, undefined) {
     "use strict";
         
-	HUB.show_balances = function(account){
+	HUB.show_balances = function(account, lookup){
 		if (!account) return;
 		
 		var error,
 			confirmed_balance = 0,
 			pending_balance = 0, 
 			bigfloat = new BigNumber(0), // BigNumber, for now quick alternative to: web3.Convert.FromWei()
-			data = HUB.startRequest("get_balance",'["'+account+'", "latest"]'); // earliest	
-				
-		if (typeof data.error != 'undefined') {
-			error = data.error.message;
-		} else if (typeof data.result != 'undefined' && data.result.length > 0) {
-			error = data.result[1]+".\n"+HUB.runError;
-		}
+			data;
 
-		if (typeof data.result != 'undefined' && data.result[0] != 'false' && !isNaN(data.result)) {
-			confirmed_balance = data.result * 1;
+		if (!lookup) {
+			confirmed_balance = this.latest * 1;
+			pending_balance = this.pending * 1;
 		} else {
-			Site.cmd("wrapperNotification", ["error", error, 5000]);
-		} 
-		
-		data = HUB.startRequest("get_balance",'["'+account+'", "pending"]');
-		if (typeof data.result != 'undefined' && data.result[0] != 'false' && !isNaN(data.result)) {
-			pending_balance = data.result * 1;
+			data = HUB.startRequest("get_balance",'["'+account+'", "latest"]'); // earliest	
+					
+			if (typeof data.error != 'undefined') {
+				error = data.error.message;
+			} else if (typeof data.result != 'undefined' && data.result.length > 0) {
+				error = data.result[1]+".\n"+HUB.runError;
+			}
+
+			if (typeof data.result != 'undefined' && data.result[0] != 'false' && !isNaN(data.result)) {
+				confirmed_balance = data.result * 1;
+			} else {
+				Site.cmd("wrapperNotification", ["error", error, 5000]);
+			} 
+			
+			data = HUB.startRequest("get_balance",'["'+account+'", "pending"]');
+			if (typeof data.result != 'undefined' && data.result[0] != 'false' && !isNaN(data.result)) {
+				pending_balance = data.result * 1;
+			}
 		}
 					
 		if (confirmed_balance > 0 || pending_balance > 0) {

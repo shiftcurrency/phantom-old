@@ -62,7 +62,8 @@ $(function () {
 
 /* Sidebar Menu active class */
 $(function () {
-    var url = window.location;
+    var tmp = window.location+'',
+		url = tmp.split('?')[0];
     $('#sidebar-menu a[href="' + url + '"]').parent('li').addClass('current-page');
     $('#sidebar-menu a').filter(function () {
         return this.href == url;
