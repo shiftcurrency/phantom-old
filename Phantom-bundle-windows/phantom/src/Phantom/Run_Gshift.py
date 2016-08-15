@@ -27,7 +27,7 @@ class Run_Gshift:
 
             atexit.register(self.stop)
             import time
-            time.sleep(3)
+            time.sleep(5)
             return self.process
 
         except Exception, err:

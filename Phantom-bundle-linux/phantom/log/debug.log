@@ -1,1 +1,69 @@
-
+[2016-08-15 13:25:03,085] DEBUG    PluginManager Loading plugin: CryptMessage
+[2016-08-15 13:25:03,126] DEBUG    - opensslVerify loaded: <CDLL '../lib/libcrypto.so', handle 17c1c10 at 7f56a4063c10>
+[2016-08-15 13:25:03,127] INFO     - OpenSSL loaded, version: 01000207F
+[2016-08-15 13:25:03,128] DEBUG    PluginManager New plugin registered to: UiWebsocket
+[2016-08-15 13:25:03,128] DEBUG    PluginManager New plugin registered to: User
+[2016-08-15 13:25:03,128] DEBUG    PluginManager Loading plugin: Zeroname
+[2016-08-15 13:25:03,129] DEBUG    PluginManager New plugin registered to: UiRequest
+[2016-08-15 13:25:03,129] DEBUG    PluginManager New plugin registered to: ConfigPlugin
+[2016-08-15 13:25:03,137] DEBUG    PluginManager New plugin registered to: SiteManager
+[2016-08-15 13:25:03,137] DEBUG    PluginManager Loading plugin: AnnounceZero
+[2016-08-15 13:25:03,141] DEBUG    PluginManager New plugin registered to: Site
+[2016-08-15 13:25:03,141] DEBUG    PluginManager Loading plugin: Stats
+[2016-08-15 13:25:03,146] DEBUG    PluginManager New plugin registered to: UiRequest
+[2016-08-15 13:25:03,146] DEBUG    PluginManager Loading plugin: Newsfeed
+[2016-08-15 13:25:03,147] DEBUG    PluginManager New plugin registered to: UiWebsocket
+[2016-08-15 13:25:03,147] DEBUG    PluginManager New plugin registered to: User
+[2016-08-15 13:25:03,147] DEBUG    PluginManager Loading plugin: Trayicon
+[2016-08-15 13:25:03,148] DEBUG    PluginManager Loading plugin: Sidebar
+[2016-08-15 13:25:03,151] DEBUG    PluginManager New plugin registered to: UiRequest
+[2016-08-15 13:25:03,151] DEBUG    PluginManager New plugin registered to: UiWebsocket
+[2016-08-15 13:25:03,151] DEBUG    PluginManager New class accepts plugins: ConfigPlugin (Loaded plugins: [<class 'Zeroname.UiRequestPlugin.ConfigPlugin'>, <class 'Config.ConfigPlugin'>])
+[2016-08-15 13:25:03,152] DEBUG    - Config: Config(action='main', batch=False, bit_resolver='12qXcMkQMRjcbBhTpDot4frbnXsbtevgeU', coffeescript_compiler=None, config_file='phantom.conf', connected_limit=15, data_dir='data', debug=False, debug_gevent=False, debug_socket=False, disable_db=False, disable_encryption=False, disable_sslcompression=True, disable_udp=False, fileserver_ip='*', fileserver_port=15441, homepage='12qXcMkQMRjcbBhTpDot4frbnXsbtevgeU', ip_external=None, keep_ssl_cert=False, log_dir='log', max_files_opened=2048, msgpack_purepython=True, open_browser=None, proxy=None, size_limit=10, stream_downloads=False, tor='disable', tor_controller='127.0.0.1:9051', tor_proxy='127.0.0.1:9050', trackers=['zero://boot3rdez4rzn36x.onion:15441', 'zero://boot.zeronet.io#f36ca555bee6ba216b14d10f38c16f7769ff064e0e37d887603548cc2e64191d:15441', 'udp://tracker.coppersurfer.tk:6969', 'udp://tracker.leechers-paradise.org:6969', 'udp://9.rarbg.com:2710', 'http://tracker.aletorrenty.pl:2710/announce', 'http://explodie.org:6969/announce', 'http://torrent.gresille.org/announce'], trackers_file=False, ui_ip='127.0.0.1', ui_port=53903, ui_restrict=False, use_openssl=True, use_tempfiles=False, verbose=False)
+[2016-08-15 13:25:03,152] INFO     - Version: 0.1a r1098, Python 2.7.11 |Continuum Analytics, Inc.| (default, Dec  6 2015, 18:08:32) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)], Gevent: 1.0.2
+[2016-08-15 13:25:03,186] DEBUG    PluginManager New class accepts plugins: SiteManager (Loaded plugins: [<class 'Zeroname.SiteManagerPlugin.SiteManagerPlugin'>, <class 'Site.SiteManager.SiteManager'>])
+[2016-08-15 13:25:03,186] DEBUG    PluginManager New class accepts plugins: Site (Loaded plugins: [<class 'AnnounceZero.AnnounceZeroPlugin.SitePlugin'>, <class 'Site.Site.Site'>])
+[2016-08-15 13:25:03,197] DEBUG    - Disabled SSL compression on <CDLL 'libssl.so.1.0.0', handle 17c1760 at 7f56a3658fd0>
+[2016-08-15 13:25:03,206] DEBUG    - Missing SSLwrap, readded.
+[2016-08-15 13:25:03,206] DEBUG    - Python SSL version: OpenSSL 1.0.2g  1 Mar 2016
+[2016-08-15 13:25:03,233] DEBUG    PluginManager New class accepts plugins: User (Loaded plugins: [<class 'Newsfeed.NewsfeedPlugin.UserPlugin'>, <class 'CryptMessage.CryptMessagePlugin.UserPlugin'>, <class 'User.User.User'>])
+[2016-08-15 13:25:03,239] DEBUG    PluginManager New class accepts plugins: UiWebsocket (Loaded plugins: [<class 'Sidebar.SidebarPlugin.UiWebsocketPlugin'>, <class 'Newsfeed.NewsfeedPlugin.UiWebsocketPlugin'>, <class 'CryptMessage.CryptMessagePlugin.UiWebsocketPlugin'>, <class 'Ui.UiWebsocket.UiWebsocket'>])
+[2016-08-15 13:25:03,239] DEBUG    PluginManager New class accepts plugins: UiRequest (Loaded plugins: [<class 'Sidebar.SidebarPlugin.UiRequestPlugin'>, <class 'Stats.StatsPlugin.UiRequestPlugin'>, <class 'Zeroname.UiRequestPlugin.UiRequestPlugin'>, <class 'Ui.UiRequest.UiRequest'>])
+[2016-08-15 13:25:03,239] INFO     - Creating FileServer....
+[2016-08-15 13:25:03,240] INFO     - Creating UiServer....
+[2016-08-15 13:25:03,241] DEBUG    - Loading sites...
+[2016-08-15 13:25:03,243] DEBUG    - Loaded site 12qXcMkQMRjcbBhTpDot4frbnXsbtevgeU in 0.002s
+[2016-08-15 13:25:03,245] DEBUG    - Loaded site 1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG in 0.002s
+[2016-08-15 13:25:03,246] DEBUG    - Loaded site 1CQTfYmebR1bP75PCUata417NffWyL6AXf in 0.001s
+[2016-08-15 13:25:03,246] DEBUG    - SiteManager added 3 sites
+[2016-08-15 13:25:03,246] INFO     gshift Starting gshift...
+[2016-08-15 13:25:08,252] INFO     - Removing old SSL certs...
+[2016-08-15 13:25:08,253] INFO     - - Starting servers....
+[2016-08-15 13:25:08,396] DEBUG    - Generating RSA cert and key PEM files...Generating a 2048 bit RSA private key
+....................+++
+.........................................................+++
+unable to write 'random state'
+writing new private key to 'data/key-rsa.pem'
+-----
+[2016-08-15 13:25:08,396] DEBUG    FileServer Binding to: *:15441, (msgpack: 0.4.6), supported crypt: ['tls-rsa']
+[2016-08-15 13:25:08,397] DEBUG    FileServer Checking sites...
+[2016-08-15 13:25:09,397] INFO     FileServer Checking port 15441 using portchecker.co...
+[2016-08-15 13:25:09,747] INFO     FileServer [BAD :(] Port closed: Port 15441 is closed.
+[2016-08-15 13:25:09,747] INFO     FileServer Trying to open port using UpnpPunch...
+[2016-08-15 13:25:09,748] DEBUG    - Found local ips: ['192.168.1.12']
+[2016-08-15 13:25:09,748] DEBUG    - Trying using local ip: 192.168.1.12
+[2016-08-15 13:25:10,398] DEBUG    Site:1Pz5E5..xGKG Need connections: 0, Current: 0, Total: 0
+[2016-08-15 13:25:10,479] INFO     Ui.UiServer --------------------------------------
+[2016-08-15 13:25:10,479] INFO     Ui.UiServer Web interface: http://127.0.0.1:53903/
+[2016-08-15 13:25:10,479] INFO     Ui.UiServer --------------------------------------
+[2016-08-15 13:25:10,480] DEBUG    - Current RLIMIT_NOFILE: 1024, changing to 2048...
+[2016-08-15 13:25:12,399] DEBUG    Site:1CQTfY..6AXf Need connections: 0, Current: 0, Total: 0
+[2016-08-15 13:25:13,139] ERROR    - Unhandled exception
+None
+[2016-08-15 13:25:13,139] DEBUG    Ui.UiServer Stopping...
+[2016-08-15 13:25:13,140] INFO     gshift Stopping gshift...
+[2016-08-15 13:25:13,140] DEBUG    Ui.UiServer Socket closed: 0
+[2016-08-15 13:25:13,140] DEBUG    FileServer Stopped.
+[2016-08-15 13:25:13,319] DEBUG    Ui.UiServer Stopped.
+[2016-08-15 13:25:13,319] INFO     gshift Stopping gshift...
