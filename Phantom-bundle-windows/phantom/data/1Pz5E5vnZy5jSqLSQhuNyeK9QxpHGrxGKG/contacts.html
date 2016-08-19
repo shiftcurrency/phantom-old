@@ -96,12 +96,13 @@
                     <li><a href="#" disabled>Settings</a></li>
                   </ul>
                 </li> 
+				<li><a href="sites.html"><i class="fa fa-laptop"></i> My sites <span class="label label-success pull-right">New</span></a></li>              
               </ul>
             </div>
             <div class="menu_section">
               <h3>PUBLIC</h3>
               <ul class="nav side-menu">                
-				<li><a href="sites.html"><i class="fa fa-laptop"></i> Development <span class="label label-success pull-right">New</span></a></li>              
+                <li><a href="#" disabled><i class="fa fa-laptop"></i> Development <span class="label label-primary pull-right">Coming Soon</span></a></li>
                 <li><a href="#" disabled><i class="fa fa-laptop"></i> Documentation <span class="label label-primary pull-right">Coming Soon</span></a></li>
 				<li><a href="#" disabled><i class="fa fa-laptop"></i> Statistics <span class="label label-primary pull-right">Coming Soon</span></a></li>
               </ul>
@@ -282,7 +283,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12 animated fadeInDown" id="contact-dummy" style="display:none">
                       <div class="well profile_view">
                         <div class="col-sm-12">
-                          <h4 class="brief"><i>Address</i></h4>
+                          <h4 class="brief"><input type="text" class="form-control input-sm contact-address" value="" placeholder="Address" style="border:0;box-shadow:none"></h4>
                           <div class="left col-xs-7">
                             <h2><i class="fa fa-tag"></i> <span class="alias">Alias</span></h2>
                           </div>
@@ -292,9 +293,10 @@
                         </div>
                         <div class="col-xs-12 bottom text-center">                          
                           <div class="col-xs-12 emphasis"><!--
-                            <button type="button" class="btn btn-success btn-msg"> <i class="fa fa-comments-o"></i> </button> //-->
-                          <button type="button" class="btn btn-primary btn-xs contact-view"> <i class="fa fa-user"></i> Edit Profile </button>
-                          <button type="button" class="btn btn-default btn-xs contact-tx"> <i class="fa fa-paper-plane"></i> Send Shift </button>
+							<button type="button" class="btn btn-success btn-msg"> <i class="fa fa-comments-o"></i> </button> //-->
+							<button type="button" class="btn btn-primary btn-xs contact-view"> <i class="fa fa-user"></i> Edit Profile </button>
+							<button type="button" class="btn btn-default btn-xs contact-tx"> <i class="fa fa-paper-plane"></i> Send Shift </button>
+							<button type="button" class="btn btn-default btn-xs contact-copy" data-toggle="tooltip" data-placement="top" title="Address to Clipboard"><i class="fa fa-clipboard"></i> Copy </button>			  
                           </div>
                         </div>
                       </div>
@@ -355,6 +357,33 @@
 	  
 		/* Start interval */
 		HUB.startPolling();
+		
+		/* Copy to clipboard */
+		$('.contact-copy').tooltip().bind('click', function() {
+			var input = $(this).parents('.profile_view').find('.contact-address').focus()[0];
+			input.setSelectionRange(0, input.value.length + 1);
+			try {
+			  var success = document.execCommand('copy');
+			  if (success) {
+				$(this).trigger('copied', ['Copied!']);
+			  } else {
+				$(this).trigger('copied', ['Copy with Ctrl-c']);
+			  }
+			} catch (err) {
+			  $(this).trigger('copied', ['Copy with Ctrl-c']);
+			}
+			$(this).focus();
+		});
+
+		// Handler for updating the tooltip message.
+		$('.contact-copy').bind('copied', function(event, message) {
+		  $(this).attr('title', message)
+			.tooltip('fixTitle')
+			.tooltip('show')
+			.attr('title', "Address to Clipboard")
+			.tooltip('fixTitle');
+		});
+		
 	  });
 	  
 	  HUB.loadContacts();

@@ -125,16 +125,19 @@
     __extends(ZeroShift, _super);
 
     function ZeroShift() {
+      this.reloadServerInfo = __bind(this.reloadServerInfo, this);
+      this.reloadSiteInfo = __bind(this.reloadSiteInfo, this);
       this.onOpenWebsocket = __bind(this.onOpenWebsocket, this);
-      this.loadMessages = __bind(this.loadMessages, this);
       return ZeroShift.__super__.constructor.apply(this, arguments);
     }
 
     ZeroShift.prototype.init = function() {
+      this.server_info = null;
+      this.site_info = null;
       return this.log("inited!");
     };	
 	
-    ZeroShift.prototype.loadMessages = function(call, params) {
+    ZeroShift.prototype.loadMessages = function(call, params, callback=function(){}) {
 		if (call == null) {
 			call = 'netListening';
 		}
@@ -155,31 +158,46 @@
 				HUB.latest = result.latest;
 				HUB.pending = result.pending;
 				HUB.balance = HUB.latest + HUB.pending;
-				if ($('#balance_confirmed, #balance_unconfirmed, #balance_total').length == 3) HUB.show_balances(HUB.activeAccount, false);
 			}
-			return true;
+			return callback();
           };
 		})(this));
 		return false;
 	};	
-
+	
     ZeroShift.prototype.onOpenWebsocket = function(e) {
-      this.cmd("serverInfo", {}, (function(_this) {
-        return function(serverInfo) {
-          return _this.server_info = serverInfo;
-          return _this.log("serverInfo response", serverInfo);
-        };
-      })(this));
-/*	
-      window.setTimeout((function(_this) {
-      })(this), 0); 
-*/	  
+      this.reloadSiteInfo();
+      return this.reloadServerInfo();
+    };
+	
+    ZeroShift.prototype.reloadSiteInfo = function() {
       return this.cmd("siteInfo", {}, (function(_this) {
-        return function(siteInfo) {
-          return _this.site_info = siteInfo;
-          return _this.log("siteInfo response", siteInfo);
+        return function(site_info) {
+          return _this.setSiteInfo(site_info);
         };
       })(this));
+    };
+
+    ZeroShift.prototype.reloadServerInfo = function() {
+      return this.cmd("serverInfo", {}, (function(_this) {
+        return function(server_info) {
+          return _this.setServerInfo(server_info);
+        };
+      })(this));
+    };
+
+    ZeroShift.prototype.setSiteInfo = function(site_info) {
+	  this.site_info = site_info;
+
+/*	  if (site_info.settings.domain != '') this.site_info.content.title = site_info.settings.domain;
+	  else if (site_info.content.description != '') this.site_info.content.title = site_info.content.description;
+	  console.log('Setting title to: '+this.site_info.content.title);
+*/
+      return this.site_info = site_info;
+    };
+
+    ZeroShift.prototype.setServerInfo = function(server_info) {
+      return this.server_info = server_info;
     };
 	
 	ZeroShift.prototype.loadData = function(inner_path) {

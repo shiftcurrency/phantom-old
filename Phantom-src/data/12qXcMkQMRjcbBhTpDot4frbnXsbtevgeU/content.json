@@ -3,8 +3,8 @@
  "description": "Shifthub wallet",
  "files": {
   "contacts.html": {
-   "sha512": "a69566f2173136d061b7c6c2fcae4e24b28400ac8450c6465b25b110eeabfe8c",
-   "size": 15095
+   "sha512": "a5d98a96206b6937fa197a3ae865e8c037bf3eeee388e47173755d41078224dd",
+   "size": 16169
   },
   "css/animate.min.css": {
    "sha512": "8e10a82fc49a4d6ba30e2b657f9ebc0487c7a9db6177774e4b2745adeb465a28",
@@ -327,8 +327,8 @@
    "size": 135178
   },
   "index.html": {
-   "sha512": "ca0c5b0c06d3426b9842dbb7c148c6da677dee1df505b14377bdf39b106cb090",
-   "size": 5765
+   "sha512": "bf93a9f7324297588fdfb9bdb5b6bd0b559d542ee2c97df8a6ee20ca39f29651",
+   "size": 6686
   },
   "js/bootstrap.min.js": {
    "sha512": "ddcff973930485feaef0476731caf0d210e4e9be47c6271fe5a9175a885f2750",
@@ -483,16 +483,16 @@
    "size": 25107
   },
   "js/shift/hub.contacts.js": {
-   "sha512": "a22854cb61923928d9e0c23e83a112f0b383b24dd75112523c760508276bc3f1",
-   "size": 4216
+   "sha512": "f2759f0c749993d52f2a33ea1db76d5be65a52e15f7b6dcdfd8ff970b9afb1e4",
+   "size": 4208
   },
   "js/shift/hub.js": {
    "sha512": "ab4f367a24a1c108efe4d9a90cd9e5d08183626708806e8fd4265446f6c25834",
    "size": 719
   },
   "js/shift/hub.login.js": {
-   "sha512": "c12a252be23b435e58e37513f9de06a5cde7a8a55d4726e5c618cf2aa13a1710",
-   "size": 6627
+   "sha512": "ba8a3b90be1c17d19464fe933b4e2c9018b98670388e4c495cceb79b846d7de2",
+   "size": 7019
   },
   "js/shift/hub.server.js": {
    "sha512": "104a6e0dd0a94782f8aeb97461a116518831e98796d82381effc0e2cc398d9eb",
@@ -975,8 +975,8 @@
    "size": 453
   },
   "js/zero.js": {
-   "sha512": "c80d2ea5676a3fd53795ef1150cd4974b141b6491144b98f2e1b5f0acd744b5c",
-   "size": 6865
+   "sha512": "0a8c41f7dee4ad6dc761b5c6e765973946d146d13f1517ae1e2877cf702d913b",
+   "size": 6867
   },
   "sites.html": {
    "sha512": "d29f93d92bc5ddbd373d38683b3add8c5fe40d05984b8d950b4329909c2cc6ea",
@@ -985,15 +985,15 @@
  },
  "ignore": "",
  "inner_path": "content.json",
- "modified": 1471276099.637,
+ "modified": 1471517632.542,
  "phantom_version": "0.1a",
  "sign": [
-  2500481250721723553591124327681277313342989139123499806322343595023903389788,
-  70776205937032447491011275070759490824649087962548206158404918961364620487892
+  103807839167374436038730640159831849834674314021960687437929667943101342808554,
+  100102323789396927151104691692871462210477953419093916476359432841697544082985
  ],
  "signers_sign": "GxBh8RYDjjqJHWSbbNDC75DqYZqlONaqgAMwL8eXfey/nfAwnSLTV33lPNrKq4UXhIZJYky8tpZbvVAATlzrWCw=",
  "signs": {
-  "12qXcMkQMRjcbBhTpDot4frbnXsbtevgeU": "G1Loa1bmzkGphvdjQ9E+4HvbI45Zk201DMTfrl8RSIZDxGfJnejn9hq+0OE3d2VDTnrp5SZrvncDNoVxL/f9Cxk="
+  "12qXcMkQMRjcbBhTpDot4frbnXsbtevgeU": "HKlFX/nuBcOhh662AK1LBT7mWZGCGM+kZvj1KRzuzG7zohy8IERUFZbxL+CqnZN/59oxDFIKMdvOPZPVhC1iEDk="
  },
  "signs_required": 1,
  "title": "12qXcMkQMRjcbBhTpDot4frbnXsbtevgeU - Phantom_"
