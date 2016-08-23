@@ -37,14 +37,14 @@ class SiteManagerPlugin(object):
         domain = domain.lower()
         self.phantomdb = Phantom_Db.PhantomDb()
         res = self.phantomdb.check_dns_cache(domain)
-        if res == None:
+        if res == None or res == "":
             self.phantom_ui = Phantom_Ui.Phantom_Ui()
             self.params = { "params":[{"domain":str(domain)}]}
             res = self.phantom_ui.resolve_phantom_domain(self.params)
             if 'result' in res and res['result'][0] != "false":
                 insert = self.phantomdb.insert_dns_cache(domain, res['result'][0])
                 return  res['result'][0]
-        elif res:
+        elif res != None or res != "":
             return res
         return None
 

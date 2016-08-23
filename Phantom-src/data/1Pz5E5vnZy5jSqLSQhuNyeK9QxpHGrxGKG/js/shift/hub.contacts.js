@@ -27,7 +27,7 @@ var HUB = (function(HUB, $, undefined) {
 		var contact = edit ? $("#"+address) : $("#contact-dummy").clone();
 		
 		$(contact).attr("id",address);
-		$(contact).find('h4.brief').html('<i>'+address+'</i>');
+		$(contact).find('h4.brief input').val(address);
 		$(contact).find('h2 span.alias').html(alias);
 		$(contact).find("button.contact-view").click(function() {
 			HUB.switchForm(address, alias, true);

@@ -188,12 +188,11 @@
 
     ZeroShift.prototype.setSiteInfo = function(site_info) {
 	  this.site_info = site_info;
-	  this.site_info.content.title = 'Yeah!';
 
-	  if (site_info.settings.domain != '') this.site_info.content.title = site_info.settings.domain;
+/*	  if (site_info.settings.domain != '') this.site_info.content.title = site_info.settings.domain;
 	  else if (site_info.content.description != '') this.site_info.content.title = site_info.content.description;
-//	  console.log('Setting title to: '+this.site_info.content.title);
-
+	  console.log('Setting title to: '+this.site_info.content.title);
+*/
       return this.site_info = site_info;
     };
 

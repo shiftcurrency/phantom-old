@@ -116,7 +116,12 @@ var HUB = (function(HUB, $, undefined) {
 */		Site.loadMessages('peerCount');
 
 		// Detect balance changes
-		Site.loadMessages('getBalance', {'address': HUB.activeAccount});
+		Site.loadMessages('getBalance', {'address': HUB.activeAccount}, function(){ 
+			if (typeof HUB.show_balances != 'undefined') {
+				HUB.show_balances(HUB.activeAccount, false);
+			}
+			return; 
+		});
 
 		if (HUB.balance != last_balance) { 
 		  last_balance = HUB.balance;

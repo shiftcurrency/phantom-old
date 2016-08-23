@@ -3,6 +3,18 @@
     "certs": {}, 
     "master_seed": "8cce771a9c4643e80d52356d14587fba84fad7fa0e4a57acd491986c9dee4cb2", 
     "sites": {
+      "12qXcMkQMRjcbBhTpDot4frbnXsbtevgeU": {
+        "auth_address": "1NWvKBVkfuo6kuamRhPK61eUkCPzajDBXh", 
+        "auth_privatekey": "5JYsKMkvVQQ69zopKoYoxkB1ejSFfjcpm86buSmkiEm7fydZrmP"
+      }, 
+      "17Naoh1AL3a9KMy4AJESwKasadRfVZsMij": {
+        "auth_address": "1Vm5p7LibZd7M9T21kCRxvMD2kfZqLhk1", 
+        "auth_privatekey": "5JZNK4BajZzcvSD6m99DFRqK6xSB5LucsA8FHh27QMV6mUvSbi7"
+      }, 
+      "1AQJwrz9VHuV5JEwPnFcP7dGAM9zFRETAU": {
+        "auth_address": "1A2DcFbkrTsqh6NFyGa5zCWmL8v55buTRg", 
+        "auth_privatekey": "5HzCJGRJhaBSKEz8eP3HPNb6A7P4ZtSb4FoZQo2NsP3PVmZfrwt"
+      }, 
       "1CQTfYmebR1bP75PCUata417NffWyL6AXf": {
         "auth_address": "1MUTo65j6F3ZmNSXPtvhMcChiMNekdUyeu", 
         "auth_privatekey": "5Kh6kvBJdhhgGPkAc1D33VRv6V5gE1viCiGk6n84B9tLrP6weUF"
@@ -10,10 +22,6 @@
       "1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG": {
         "auth_address": "1Nxez68D3fpnvwhXfqBJjNKbVtRdkNviAK", 
         "auth_privatekey": "5JGi7pCc3wQmSoSayFXJdQJWce5BWG2zRk6aNeKmNsTGa4LUigP"
-      }, 
-      "12qXcMkQMRjcbBhTpDot4frbnXsbtevgeU": {
-        "auth_address": "1NWvKBVkfuo6kuamRhPK61eUkCPzajDBXh", 
-        "auth_privatekey": "5JYsKMkvVQQ69zopKoYoxkB1ejSFfjcpm86buSmkiEm7fydZrmP"
       }
     }
   }

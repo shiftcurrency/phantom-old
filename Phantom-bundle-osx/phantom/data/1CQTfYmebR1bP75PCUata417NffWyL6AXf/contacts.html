@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SHIFTHUB - Home</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/animate.min.css" rel="stylesheet">
+
+  <!-- Custom styling plus plugins -->
+  <link href="css/custom.css" rel="stylesheet">
+  <link href="css/icheck/flat/green.css" rel="stylesheet" />
+
+  <script src="js/jquery-2.2.4.js"></script>
+
+  <script src="js/shift/hub.js?v=0.1a"></script>
+  <script src="js/shift/hub.server.js?v=0.1a"></script> 
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/nicescroll/jquery.nicescroll.min.js"></script>
+    
+  <!--[if lt IE 9]>
+        <script src="js/ie8-responsive-file-warning.js"></script>
+        <![endif]-->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+  <style>
+  h4 i {
+	font-size: .8em;
+  }
+  </style>
+</head>
+
+
+<body class="nav-md">
+
+  <div class="container body">
+
+
+    <div class="main_container">
+
+      <div class="col-md-3 left_col">
+        <div id="leftpage" class="left_col scroll-view">
+          <div class="navbar nav_title" style="border:0;">
+            <a href="index.html" class="site_title">
+				<div class="logo_pic">
+				  <img src="img/picture.jpg" class="img-circle">
+				</div>
+				<span>SHIFTHUB</span>
+			</a>
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- menu profile quick info -->
+          <div class="profile">
+            <div class="profile_pic">
+			  <i class="fa fa-user img-circle profile_img" style="font-size:5.5em" aria-hidden="true"></i>
+            </div>
+            <div class="profile_info">
+              <span>Welcome,</span>
+              <h2 id="account-name" style="font-size:.9em">Shift User</h2>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <!-- /menu profile quick info -->
+
+          <br />
+
+          <!-- sidebar menu -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+            <div class="menu_section">
+              <h3>Personal</h3>
+              <ul class="nav side-menu">
+                <li><a><i class="fa fa-home"></i> Wallet <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><a href="home.html">Transactions</a></li>
+                  </ul>
+                </li>
+                <li><a><i class="fa fa-edit"></i> Profile <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><a href="contacts.html">Contacts</a></li>
+                    <li><a href="#" disabled>Settings</a></li>
+                  </ul>
+                </li> 
+              </ul>
+            </div>
+            <div class="menu_section">
+              <h3>PUBLIC</h3>
+              <ul class="nav side-menu">                
+                <li><a href="#" disabled><i class="fa fa-laptop"></i> Documentation <span class="label label-primary pull-right">Coming Soon</span></a>
+                </li>
+				<li><a href="#" disabled><i class="fa fa-laptop"></i> Statistics <span class="label label-primary pull-right">Coming Soon</span></a>
+                </li>
+				<li><a href="#" disabled><i class="fa fa-laptop"></i> Development <span class="label label-primary pull-right">Coming Soon</span></a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <!-- /sidebar menu -->
+
+          <!-- /menu footer buttons -->
+          <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" data-placement="top" title="Settings" disabled>
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="FullScreen" disabled>
+              <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Lock" disabled>
+              <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a href="index.html" data-toggle="tooltip" data-placement="top" title="Logout">
+              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+          </div>
+          <!-- /menu footer buttons -->
+        </div>
+     </div>
+
+      <!-- top navigation -->
+      <div id="toppage" class="top_nav">
+        <div class="nav_menu">
+          <nav class="" role="navigation">
+            <div class="nav toggle">
+              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+			  <li class="">
+                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <img src="img/picture.jpg" alt="">Account
+                  <span class="fa fa-angle-down"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+                  <li><a href="javascript:;" disabled>Profile</a></li>
+                  <li>
+                    <a href="javascript:;" disabled>
+                      <span class="badge bg-red pull-right">50%</span>
+                      <span>Settings</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;" disabled>Help</a>
+                  </li>
+                  <li><a href="index.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  </li>
+                </ul>
+              </li>
+			  <li class="netinfo">
+				<label>Current blocknumber</label> <span class="odometer" id="current_blocknumber">0</span><br style="clear:both" />
+				<label>Net peer count</label> <span class="odometer" id="net_peercount">0</span>
+			  </li>
+            </ul>
+          </nav>
+        </div>
+	  
+      </div>
+      <!-- /top navigation -->	  
+	  
+      <!-- page content -->
+      <div class="right_col" role="main">
+		
+		<div class="">
+
+          <div class="page-title">
+            <div class="title_left">
+              <h3>Your Contacts</h3>
+            </div>
+            <div class="title_right">
+              <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+					<button class="btn btn-default" type="button" disabled>Ok</button>
+				  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+
+          <div id="contact-edit" class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 animated fadeInDown">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>New Contact <small>Add a new contact</small></h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <br />
+                  <form name="contacts" action="?" data-parsley-validate class="form-horizontal form-label-left">
+					<div class="form-group">
+                      <label for="contact-alias" class="control-label col-md-3 col-sm-3 col-xs-12">Alias<span class="required">*</span></label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input class="form-control col-md-7 col-xs-12" type="text" id="contact-alias" name="contact-alias" required="required">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="wallet-address">Wallet Address<span class="required">*</span></label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="wallet-address" name="wallet-address" required="required" class="form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>					
+	                <div id="ContactRequiredError" class="error"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <span>You need to provide a wallet address and an alias</span></div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button type="button" class="btn btn-default" id="ContactReset">Clear</button>
+                        <button type="submit" class="btn btn-success" id="ContactSubmit">Add</button>
+                        <button type="button" class="btn btn-primary" id="ContactDelete">Delete</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+		  
+          <div class="clearfix"></div>
+		  
+          <div class="row">
+            <div class="col-md-12">
+              <div class="x_panel">
+                <div class="x_content">
+
+                  <div class="row">
+<!--
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:center;">
+                      <ul class="pagination pagination-split">
+                        <li><a href="#">A</a>
+                        </li>
+                        <li><a href="#">B</a>
+                        </li>
+                        <li><a href="#">C</a>
+                        </li>
+                        <li><a href="#">D</a>
+                        </li>
+                        <li><a href="#">E</a>
+                        </li>
+                        <li>...</li>
+                        <li><a href="#">W</a>
+                        </li>
+                        <li><a href="#">X</a>
+                        </li>
+                        <li><a href="#">Y</a>
+                        </li>
+                        <li><a href="#">Z</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="clearfix"></div>
+//-->
+
+                    <div class="col-md-4 col-sm-4 col-xs-12 animated fadeInDown" id="contact-dummy" style="display:none">
+                      <div class="well profile_view">
+                        <div class="col-sm-12">
+                          <h4 class="brief"><i>Address</i></h4>
+                          <div class="left col-xs-7">
+                            <h2><i class="fa fa-tag"></i> <span class="alias">Alias</span></h2>
+                          </div>
+                          <div class="right col-xs-5 text-center">
+                            <img src="img/picture.jpg" alt="" class="img-circle img-responsive">
+                          </div>
+                        </div>
+                        <div class="col-xs-12 bottom text-center">                          
+                          <div class="col-xs-12 emphasis"><!--
+                            <button type="button" class="btn btn-success btn-msg"> <i class="fa fa-comments-o"></i> </button> //-->
+                          <button type="button" class="btn btn-primary btn-xs contact-view"> <i class="fa fa-user"></i> Edit Profile </button>
+                          <button type="button" class="btn btn-default btn-xs contact-tx"> <i class="fa fa-paper-plane"></i> Send Shift </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       </div>
+      <!-- /page content -->
+	  </div>
+	</div>
+  </div>
+
+  <div id="custom_notifications" class="custom-notifications dsp_none">
+    <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+    </ul>
+    <div class="clearfix"></div>
+    <div id="notif-group" class="tabbed_notifications"></div>
+  </div>
+  
+  <!-- zeronet -->
+  <script src="js/zero.js"></script>
+ 
+  <!-- includes -->
+  <script src="js/custom.js"></script> 
+  <script src="js/shift/hub.contacts.js"></script> 
+  
+  <!-- contacts -->
+  <script>
+	$(document).ready(function() {
+	  HUB.loadContacts();
+	}); 
+  </script> 
+  
+</body>
+</html>

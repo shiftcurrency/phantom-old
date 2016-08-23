@@ -1,0 +1,1004 @@
+{
+ "address": "1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG",
+ "description": "Shifthub DEV",
+ "files": {
+  "contacts.html": {
+   "sha512": "5365c4f4d9a4c8007e1c528cbfc874cc3ec3d0c70e7242b610060de5490f2f48",
+   "size": 13706
+  },
+  "css/animate.min.css": {
+   "sha512": "15ebf583317e0be8e450e19fb9e913ab060cb0d2efdd5746f870057ee6b74760",
+   "size": 52792
+  },
+  "css/bootstrap.min.css": {
+   "sha512": "2fb945eed8476b5aaec35b6000be386ee7c4f1222dd6cea7beaacafd60e264bf",
+   "size": 121260
+  },
+  "css/bs-wizard.min.css": {
+   "sha512": "60ad2037ad164a0b6f8b724964ae8b5475a8c47a8f5546740f00bfcc11571f33",
+   "size": 1366
+  },
+  "css/custom.css": {
+   "sha512": "d450aad55fcb9b0cc151690a88a326e83591878fb9403b6d3fc0cd114ff74199",
+   "size": 114031
+  },
+  "css/icheck/flat/Thumbs.db": {
+   "sha512": "61757fad9ca3e42e6ec98c22089705ec81d5164b593b19ff2092fc9ce323d469",
+   "size": 19968
+  },
+  "css/icheck/flat/_all.css": {
+   "sha512": "c72d317f0fc1a450e6b6d61b746704b9b4415427de4dc88f0cab58edb0667eff",
+   "size": 12513
+  },
+  "css/icheck/flat/aero.css": {
+   "sha512": "62bd63540e56d8d70c30746eec8fb3b08c0e944277afa3d458dbb13c37c204ec",
+   "size": 1302
+  },
+  "css/icheck/flat/aero.png": {
+   "sha512": "e535a494e84d49682e73c9473730c59e0e9abd0063d003ca3e915b53156af9e0",
+   "size": 1520
+  },
+  "css/icheck/flat/aero@2x.png": {
+   "sha512": "eadedc2968a8e872764d9e0aa1b475931054963a3627ed5da01f1d927d013247",
+   "size": 3218
+  },
+  "css/icheck/flat/blue.css": {
+   "sha512": "298ea327819685c033224b30e47ef5c6ef000b32169b3148a5876c927857e1eb",
+   "size": 1302
+  },
+  "css/icheck/flat/blue.png": {
+   "sha512": "b8207bcde197b823d1c6c8066afbe32f34e12b457f350d88c6851e169fe1788f",
+   "size": 1518
+  },
+  "css/icheck/flat/blue@2x.png": {
+   "sha512": "0402644c2cd7134843edb62e327ed082367fb84d131e1461016d69a742b0cbc8",
+   "size": 3217
+  },
+  "css/icheck/flat/flat.css": {
+   "sha512": "277c34683acc1f83b746eec5cb9f79816c5a358d8edda2e59aa108754b21072e",
+   "size": 1243
+  },
+  "css/icheck/flat/flat.png": {
+   "sha512": "38f24b282b08cbbe4c5b22f737d26c4c059ca92e085d10fe96901d63cf353e3c",
+   "size": 1515
+  },
+  "css/icheck/flat/flat@2x.png": {
+   "sha512": "1ede09bdbec35a6fc3e75a1cd1c4321955def817aa4a219ba30e48068664e221",
+   "size": 3217
+  },
+  "css/icheck/flat/green.css": {
+   "sha512": "c27b85f2d0d471547b4304f8d61f4c5c517e0fb688062d157abee6640d58c169",
+   "size": 1317
+  },
+  "css/icheck/flat/green.png": {
+   "sha512": "ca38e77dd58a0ecc94bffa0eab42166824abc0c7a5d123f3de53d03f27a7e14d",
+   "size": 30033
+  },
+  "css/icheck/flat/green@2x.png": {
+   "sha512": "08325d5e39c82125f55ab8c6f58ae1c1b8dc2fc975af737c01db20a5abf86164",
+   "size": 76519
+  },
+  "css/icheck/flat/grey.css": {
+   "sha512": "20515c04336dea415f042a5f5dc64082fa92be4e39967bace8e43de42e4e1671",
+   "size": 1302
+  },
+  "css/icheck/flat/grey.png": {
+   "sha512": "2381d4a8fccc0ea48a524b5e3f20516c9729f6061135ec2ad74ff274337690f4",
+   "size": 1516
+  },
+  "css/icheck/flat/grey@2x.png": {
+   "sha512": "63a59352fd60cd370af829b8a478966074e4bcda4d608c96955efe2fc3f385a4",
+   "size": 3217
+  },
+  "css/icheck/flat/orange.css": {
+   "sha512": "144526f261eae863e737852a272bc503c8b2f13f815b13c317ebec536f7988ec",
+   "size": 1332
+  },
+  "css/icheck/flat/orange.png": {
+   "sha512": "500d7c79db4afddc9faae095353d0ca07badcb6d58ab57ad7ea637684d253fdd",
+   "size": 1518
+  },
+  "css/icheck/flat/orange@2x.png": {
+   "sha512": "c7793a6ea45788132d941bb52dd3dc49db59e21d96fab219cf95d84b3e60206c",
+   "size": 3275
+  },
+  "css/icheck/flat/pink.css": {
+   "sha512": "fd2e32d0203b1e77e0df15001b577ac5997d9dee455413f8e59886362b4d2b44",
+   "size": 1302
+  },
+  "css/icheck/flat/pink.png": {
+   "sha512": "55a6c63fc9dca3d1df8b33844832a77649affa7e550919e2fa2de4ccc0aa78a1",
+   "size": 1522
+  },
+  "css/icheck/flat/pink@2x.png": {
+   "sha512": "06fafedfe263d3a6ff8fbcd796b3d37e914144ee698bc1b70f51a3ad27e21395",
+   "size": 3218
+  },
+  "css/icheck/flat/purple.css": {
+   "sha512": "b5b3bfefacafb12de62cd591622ef83f90e72e6c5c49f58eb3b214494634745f",
+   "size": 1332
+  },
+  "css/icheck/flat/purple.png": {
+   "sha512": "d96e03c3635cda69519911c8ede018b89b4d349ba37ebb304f6d240aaf837c22",
+   "size": 1519
+  },
+  "css/icheck/flat/purple@2x.png": {
+   "sha512": "a0b47a193e74908686a83f6f0f23099b4caed251335e8b6d01e9127c96218574",
+   "size": 3218
+  },
+  "css/icheck/flat/red.css": {
+   "sha512": "0bf3b617d26b9a073ed248bf8f37f84d0b351198f167ec9ec472339d50f81c55",
+   "size": 1287
+  },
+  "css/icheck/flat/red.png": {
+   "sha512": "0bebcaef4226c0d50393047928cb96a3b044bff39d6a1c9842faab9cd6c75814",
+   "size": 1516
+  },
+  "css/icheck/flat/red@2x.png": {
+   "sha512": "61d8e91a2c2081cc23b7a3655421f8a9b0a798cffd6a504e4f951b038fa99ce6",
+   "size": 3276
+  },
+  "css/icheck/flat/yellow.css": {
+   "sha512": "f1e368bd85dabf4fa373a3095b352d19d1c41c668f8b56f0003fa40f0eba568c",
+   "size": 1332
+  },
+  "css/icheck/flat/yellow.png": {
+   "sha512": "1bbfabf74cdae20b339544d72bfb59b76bd8a8c3d998b6d70e31f2517eb77510",
+   "size": 1516
+  },
+  "css/icheck/flat/yellow@2x.png": {
+   "sha512": "bcb80b8afdadf47c32583574a162da11e5f026d24457e56b629498eb26fd77e4",
+   "size": 3216
+  },
+  "css/odometer-theme-default.css": {
+   "sha512": "b095a531ea63613d2a06fad0f55097e9774d38975a1893446ecf08754e579ee5",
+   "size": 4083
+  },
+  "fonts/css/font-awesome.css": {
+   "sha512": "11a6a5760819b780cf28c6016b5e37bf15d0a8bab92c4dbd0c6ff43a855e9e8c",
+   "size": 33233
+  },
+  "fonts/css/font-awesome.min.css": {
+   "sha512": "f8be32cba15170319b5c9f663c6f0c4ffdd4083cf047d80f7b214d302b489eca",
+   "size": 27466
+  },
+  "fonts/fonts/FontAwesome.otf": {
+   "sha512": "4c46571059f4e4cbe17afd1a046ef21f151f0776624ad04a108b67225cc24703",
+   "size": 109688
+  },
+  "fonts/fonts/fontawesome-webfont.eot": {
+   "sha512": "47f19282f19cfc7a40a31c6af428f100c7011167858b46b415556fd9b65d48da",
+   "size": 70807
+  },
+  "fonts/fonts/fontawesome-webfont.svg": {
+   "sha512": "e13afecebf1c4519f325a589d0ec953c4b4e9418dc259e98496282ea7ee9b3c5",
+   "size": 365616
+  },
+  "fonts/fonts/fontawesome-webfont.ttf": {
+   "sha512": "94a693ab2ce3c59f7a1d35b4bcc0fd08322dad24ce84203060ceceaf3dac44c4",
+   "size": 142072
+  },
+  "fonts/fonts/fontawesome-webfont.woff": {
+   "sha512": "0b9bdac9f99cc9f9e95039213f6c265a39f53f880792015b43b224661f253da9",
+   "size": 83588
+  },
+  "fonts/fonts/fontawesome-webfont.woff2": {
+   "sha512": "17222f02957b3335849e3fe277b17c21c4aaf0c76cd3da01a4ca39c035629695",
+   "size": 66624
+  },
+  "fonts/glyphicons-halflings-regular.eot": {
+   "sha512": "efc910c96b9f5c58ea11a84577cf60ae995503b1ee670bb7e7d4a413b7403769",
+   "size": 20127
+  },
+  "fonts/glyphicons-halflings-regular.svg": {
+   "sha512": "c2e77eab327af1469097c31bc0daf820c066b0222059d8ff0ecebca974b62b75",
+   "size": 108738
+  },
+  "fonts/glyphicons-halflings-regular.ttf": {
+   "sha512": "2b066e06506ef20d69698d37cdec552176ef3f64a1151a99a1d02d72d39ce12c",
+   "size": 45404
+  },
+  "fonts/glyphicons-halflings-regular.woff": {
+   "sha512": "f5366ab255afefe3fe06150e8509e776b5618ff50fe3e0fa8e4d715d645b1e44",
+   "size": 23424
+  },
+  "fonts/glyphicons-halflings-regular.woff2": {
+   "sha512": "3811804f56ec3c82f0bef35de0a9250e546a1e357fb59e2784f610d638fec355",
+   "size": 18028
+  },
+  "fonts/less/animated.less": {
+   "sha512": "285de8b339ae691c8c95230462b8760949850ecbd1a4f8b98b0f85347f1187ca",
+   "size": 713
+  },
+  "fonts/less/bordered-pulled.less": {
+   "sha512": "666a33697b525aa25d773c94360b96dd6ff833dedf99178af931b040aa93239c",
+   "size": 585
+  },
+  "fonts/less/core.less": {
+   "sha512": "88b310200bdd13129f343e8f9b581e3a376fd5aec4c7a604815101774d31ca3f",
+   "size": 452
+  },
+  "fonts/less/fixed-width.less": {
+   "sha512": "b7bf0de65815043012e95e8b1bac895e85c9a07c047c99ba4f5c132a00ace5ae",
+   "size": 119
+  },
+  "fonts/less/font-awesome.less": {
+   "sha512": "e4e4e36f349e9cc0c6aecaac8ffbf8339ddd05c64ae3d3109f19783ea94a04b2",
+   "size": 465
+  },
+  "fonts/less/icons.less": {
+   "sha512": "36681dab950c4f3a370a5fb9c327a06e54e56aed8d690561850e1dbb7de6646d",
+   "size": 43859
+  },
+  "fonts/less/larger.less": {
+   "sha512": "5ba01d3b3c917dfcc0bf20a283397e677d420addb83c74d29f81d77658105c8d",
+   "size": 370
+  },
+  "fonts/less/list.less": {
+   "sha512": "a13c48c3ab87469b5e720287f5f1720f0588bb45a0700968879cbba7ba008d07",
+   "size": 377
+  },
+  "fonts/less/mixins.less": {
+   "sha512": "365476ecd1a9bcb0f10172c01fe855bbcb2aa03b67ff670d76e352ab880ac860",
+   "size": 926
+  },
+  "fonts/less/path.less": {
+   "sha512": "5aedb307ec6cf9bb8f83a5654f6da30274e510640f3731415145d3669ebb7650",
+   "size": 770
+  },
+  "fonts/less/rotated-flipped.less": {
+   "sha512": "a906cde529bac0abc118201866c6e81ceed53ea5859795ebe87e52e1d04f1c32",
+   "size": 622
+  },
+  "fonts/less/spinning.less": {
+   "sha512": "fd2dfd61dd8148214252fb9b33158d383aa6a4888d5db1bfdc3edc679674b6d2",
+   "size": 582
+  },
+  "fonts/less/stacked.less": {
+   "sha512": "0f07e1507d430c8ade9cbf2460c8148d69fdce6b5b7c659247953e0e0235c512",
+   "size": 476
+  },
+  "fonts/less/variables.less": {
+   "sha512": "4a9e14d4ac1f9f1e0b741cefc0c98e763b81abb3360f8fbe08c1d7d3261ecdac",
+   "size": 19778
+  },
+  "fonts/scss/_animated.scss": {
+   "sha512": "5d8be64ce5136d02dcc2dc38341491c2cafca5633a8bbcf6bc6931da2ec95e2e",
+   "size": 715
+  },
+  "fonts/scss/_bordered-pulled.scss": {
+   "sha512": "01095953afd37d399f8715168a67a2e60c23623f3ead4eb4360f8800e30cb957",
+   "size": 592
+  },
+  "fonts/scss/_core.scss": {
+   "sha512": "78b807ddc8ac17eebfd4f59eb923a7f8bac8e7b76bc83985d593382b1964f1d9",
+   "size": 459
+  },
+  "fonts/scss/_fixed-width.scss": {
+   "sha512": "27392694f9bd1a671cd21517721a86c24725c51fcad4acaf09cb75a9e36bea34",
+   "size": 120
+  },
+  "fonts/scss/_icons.scss": {
+   "sha512": "e8d5d9c9093cd0b2ef0f9d9ea5ca8cc8de98c7cfcaca7e9d269be23d7bfa703f",
+   "size": 44553
+  },
+  "fonts/scss/_larger.scss": {
+   "sha512": "ed6e63e7cdc9bae34810146c3dfd52b912f7b20219555994249f6f3dbd528673",
+   "size": 375
+  },
+  "fonts/scss/_list.scss": {
+   "sha512": "d8b110a513c41ba8a00620143aa01b2bca59f21306b64e96cb82e4739ea88bed",
+   "size": 378
+  },
+  "fonts/scss/_mixins.scss": {
+   "sha512": "d1b8762d284b021502fbaf52ed48a0b2f84149dae1bf7b21468a75cf9c628db5",
+   "size": 946
+  },
+  "fonts/scss/_path.scss": {
+   "sha512": "9eaa7d29bb402c790bf1ad40ee849e26743d198bff3cfce0182c2320afd9d47f",
+   "size": 783
+  },
+  "fonts/scss/_rotated-flipped.scss": {
+   "sha512": "89a2a4009628540c88c9375c7f04bade6bb9b901575c12fe22d0031c10011f4c",
+   "size": 672
+  },
+  "fonts/scss/_spinning.scss": {
+   "sha512": "0fb5466cf27a0d8f4a21ab14b27c62431dbee2f587932a0f77060b956c3cb861",
+   "size": 583
+  },
+  "fonts/scss/_stacked.scss": {
+   "sha512": "25492b5ff68a6d2c8f9ddcebbea75b1f14a7f47d599bea5d75e1f5fabdb5e3d4",
+   "size": 482
+  },
+  "fonts/scss/_variables.scss": {
+   "sha512": "b86626ea361115c6705283854f0065a03f8e71051cf641e9650ebf57ea74fc34",
+   "size": 19859
+  },
+  "fonts/scss/font-awesome.scss": {
+   "sha512": "a64a2878822db68ce3b087bdc73a45d6d8afb5f830fb5907829f3e2524f3a98e",
+   "size": 405
+  },
+  "home.html": {
+   "sha512": "d9884ca802d34e11d504bf5771567e1460ce240769e493c7e7e6908b3d3e7c0f",
+   "size": 24922
+  },
+  "img/picture.jpg": {
+   "sha512": "8bab7785951d0d068e47e379ed0ff378632f9b1aa31b8bec792d76a94982b823",
+   "size": 22837
+  },
+  "img/user.png": {
+   "sha512": "c85304d65e2b5a6c91cb93270f1b826a34a46b057955875cf029d18ea6f5ca25",
+   "size": 135178
+  },
+  "index.html": {
+   "sha512": "80d7578e7b6ddf3dc15867401a87d49468f170f5180f7d68b597087213433a04",
+   "size": 5621
+  },
+  "js/bootstrap.min.js": {
+   "sha512": "d9ef2aab411371f5912381c9073422037528c8593ab5b3721bea926880592f25",
+   "size": 36868
+  },
+  "js/bs-wizard.min.js": {
+   "sha512": "52169c67b0149362c50908d29302e0579b798ff0ff8f3e451a83e9374b4b18aa",
+   "size": 2908
+  },
+  "js/custom.js": {
+   "sha512": "982725ab3a97a21099db229866fbd3bfc59fe806000ab45d1b1818e725fd41b1",
+   "size": 11394
+  },
+  "js/datatables/buttons.bootstrap.min.css": {
+   "sha512": "170cf3d4e6b03874935be70a1cbaca0ef07481e8334b1e9769f8c0ea71d0751d",
+   "size": 1735
+  },
+  "js/datatables/buttons.bootstrap.min.js": {
+   "sha512": "619682d99758da78101953e657a1e692c31ebbcd2df74e3dffa25aaf409e76b8",
+   "size": 941
+  },
+  "js/datatables/buttons.html5.min.js": {
+   "sha512": "b8bec07fe86a1d8b628818c810c092ebb258c4d6146795877416c4a11d968fc7",
+   "size": 11327
+  },
+  "js/datatables/buttons.print.min.js": {
+   "sha512": "4d3cbad372d6cd0b16583610c417ba0ce86ab6d0ad34efb9da953afd9983babe",
+   "size": 1682
+  },
+  "js/datatables/dataTables.bootstrap.js": {
+   "sha512": "55847d644b3ece8be8c250a866debc6913178ffef2a110a8b1f9b77bcdc8457b",
+   "size": 1962
+  },
+  "js/datatables/dataTables.buttons.min.js": {
+   "sha512": "7e9462ca0a384da60d4f35648d0f1d7f72c8bf405a2860e561a2dcd9395f267c",
+   "size": 16075
+  },
+  "js/datatables/dataTables.fixedHeader.min.js": {
+   "sha512": "a3d885d74dc67417ca66e57451f3cd95efd7892e752e84d54a52fa9867fae275",
+   "size": 6337
+  },
+  "js/datatables/dataTables.keyTable.min.js": {
+   "sha512": "5a6b02e70dfde271c1051c4d93bfcae5c703a21cdfefedb2a8d0a3114fb30f40",
+   "size": 7032
+  },
+  "js/datatables/dataTables.responsive.min.js": {
+   "sha512": "6c0f8547ad5810186a3c50e7aec41da84dc9dab75a9ec389436f26abf754415d",
+   "size": 10615
+  },
+  "js/datatables/dataTables.scroller.min.js": {
+   "sha512": "738492b6c9d6cf074384bdac006bad43127aedf1e6a52f7ce2398d8f0348df39",
+   "size": 11271
+  },
+  "js/datatables/fixedHeader.bootstrap.min.css": {
+   "sha512": "537ea44e443bda6cc8f2239a964ebad065d14874e8ebf3d9a0ce66a4f27ffba9",
+   "size": 328
+  },
+  "js/datatables/jquery.dataTables.min.css": {
+   "sha512": "ba7137d94c1601ce68360f87b567edcab7cbec721ce0bf3e58704db2aeae74dc",
+   "size": 7703
+  },
+  "js/datatables/jquery.dataTables.min.js": {
+   "sha512": "a5151794d57d975a11e3f2498671ac9737edb5591e681512238812af0972429f",
+   "size": 82490
+  },
+  "js/datatables/json/scroller-demo.json": {
+   "sha512": "1fad974eb2ea68e603df942cf37714022de13943e5b11e657e37dd2bb6175f78",
+   "size": 142087
+  },
+  "js/datatables/jszip.min.js": {
+   "sha512": "e2c89c3d5cd8a324228fe43ef777e571f32321ad9b8272be92af7c06b547af41",
+   "size": 80026
+  },
+  "js/datatables/pdfmake.min.js": {
+   "sha512": "79d4c58480a037c145e87ef4b4ac9c6ebd35c5dbbadd4abcdb9f7a7295e819df",
+   "size": 419939
+  },
+  "js/datatables/responsive.bootstrap.min.css": {
+   "sha512": "cca8a352a71b5fdd30c88c99a5b7d7560f7d35f424e6c3a9d5e5f7b547bb17e2",
+   "size": 3886
+  },
+  "js/datatables/responsive.bootstrap.min.js": {
+   "sha512": "9d1939f49e20e015ead20b3c9a7bef68cbb320d25e5e382537b82ad2f8462b32",
+   "size": 1153
+  },
+  "js/datatables/scroller.bootstrap.min.css": {
+   "sha512": "7aa7dd070999d2a8adf7cec5f01e2b45e6fa8feb45828ae3cd9ba24a5751d884",
+   "size": 414
+  },
+  "js/datatables/vfs_fonts.js": {
+   "sha512": "f328eaac8ff685f947027346f9acecfbdbd3fa322c515314260b3801fd95ddbb",
+   "size": 567638
+  },
+  "js/flot/curvedLines.js": {
+   "sha512": "13790da98dd98459e91f19cb8a09310bd327d6633c35398f8018646d3f447a0d",
+   "size": 16821
+  },
+  "js/flot/date.js": {
+   "sha512": "ad89eeb47e3d3f03c8b1d4389112ab4fc89d7f937fb5bd2164f6198e7f90348a",
+   "size": 25809
+  },
+  "js/flot/jquery.flot.js": {
+   "sha512": "e4008ffe2065ae96c534ea513194a0d5527d5599afc7c42ab543b71e847e5a98",
+   "size": 36653
+  },
+  "js/flot/jquery.flot.orderBars.js": {
+   "sha512": "f2e2f4f01dcf703da3e10acc60e0e8fb2a76ce7e9a1786400a80fecef81dd02f",
+   "size": 6919
+  },
+  "js/flot/jquery.flot.pie.js": {
+   "sha512": "bec1f9334452ba8cb399c16e4ba9122aca38e4aa85ec9ba10e9d5a899a07724e",
+   "size": 23802
+  },
+  "js/flot/jquery.flot.resize.js": {
+   "sha512": "da4db9b7131e8d7e6c441d5b0cf08ac75002ebba7254f635e69784b5b70a29fd",
+   "size": 2433
+  },
+  "js/flot/jquery.flot.spline.js": {
+   "sha512": "944dd22816d3076bf623142990cd806ba6932a57dcbe5a9fc47356ddd1e19c57",
+   "size": 6464
+  },
+  "js/flot/jquery.flot.stack.js": {
+   "sha512": "a42fc09ae3958d8489535ad369cfe7ef70315d39c09cc51f2ef3ce354c60e3bc",
+   "size": 7090
+  },
+  "js/flot/jquery.flot.time.min.js": {
+   "sha512": "e96f29b9dc6ab2dc3e8722b04c680cc4a7e5600a9be579149e00e5576f33bcac",
+   "size": 4343
+  },
+  "js/flot/jquery.flot.tooltip.min.js": {
+   "sha512": "f3bc1745ee607605bd6f0c968ccde3f64d4a3fcfabf3ba6d5d764c4ec822020e",
+   "size": 3539
+  },
+  "js/jquery-2.2.4.js": {
+   "sha512": "38ab8bda4a62f337de5dca925e719b2fab4a73d2715a6a69258e263929f512c9",
+   "size": 257551
+  },
+  "js/nicescroll/jquery.nicescroll.min.js": {
+   "sha512": "2eafc0e7ebf3ade25a067c4d6ffc6381bdaf42af9db01d7a49f63bac88cd3064",
+   "size": 56878
+  },
+  "js/odometer.js": {
+   "sha512": "bf7f6b62654629ab96940fef3e6dec49c6763f6ec2acf2e3259acbe68bd07f5a",
+   "size": 21075
+  },
+  "js/pace/pace.min.js": {
+   "sha512": "38308eb206ba526cee6eec184848681f26c71e60cc86bc3f64911ce53939df1a",
+   "size": 12363
+  },
+  "js/shift/hub.balances.js": {
+   "sha512": "6fdbc4a34074f1723f97f5d1e7186a24d453d2bc3355ce9d2a41cb136e6bc245",
+   "size": 24750
+  },
+  "js/shift/hub.contacts.js": {
+   "sha512": "50aeb08c978ec71052e5472be0d68fae946c54802f83d14240ade83423f15fba",
+   "size": 4086
+  },
+  "js/shift/hub.js": {
+   "sha512": "0d3ae0d19bb2cb2a6f4b595894cccfe82d697dac726c33367f85d924e9f44491",
+   "size": 694
+  },
+  "js/shift/hub.login.js": {
+   "sha512": "b7ddb0302f71114cb1755a6af588b8d20c739838a350b8fa5bcd8f137265d84f",
+   "size": 6449
+  },
+  "js/shift/hub.server.js": {
+   "sha512": "e3c44beb0e32581835cf4f69914e2b4e2e7623087a5c5283efab27d0e4c6635a",
+   "size": 3982
+  },
+  "js/shift/hub.sites.js": {
+   "sha512": "eebb48d4ec0a45e65dab979866bbf8756fdf434043bc299ac2fb068568ccade2",
+   "size": 2186
+  },
+  "js/validate/jquery.bs-validate.min.js": {
+   "sha512": "bd547b3a915f84747ac9ef338ae358480937f7a62762e177d2444ac13890520e",
+   "size": 3561
+  },
+  "js/validate/jquery.validate.min.js": {
+   "sha512": "194266e5bfcd2c6a2f6f013b2ed382fefb33ed64474695e1b79418771916a0b5",
+   "size": 22691
+  },
+  "js/validate/localization/messages_ar.js": {
+   "sha512": "30986aec8e17602431a738179b269990d23b6245813ba707657aff29c3a2407a",
+   "size": 1690
+  },
+  "js/validate/localization/messages_ar.min.js": {
+   "sha512": "c3555fd4b31b18bd0e701582aa0126dd7cbcb22a60fc20ef20ff87f2f2d3bb98",
+   "size": 1550
+  },
+  "js/validate/localization/messages_bg.js": {
+   "sha512": "3fa5c73aaf062bde0a7f9628126f25114890a3187fc3b99b9997bf94622bf30c",
+   "size": 1934
+  },
+  "js/validate/localization/messages_bg.min.js": {
+   "sha512": "13a165028a0885214ad08bc4440a20268cd36c33897bc17a2f8963d97615dcdf",
+   "size": 1778
+  },
+  "js/validate/localization/messages_bn_BD.js": {
+   "sha512": "309f2c90f798d495eb132d115186a303bf7a835be261f305025342f510d325e3",
+   "size": 2284
+  },
+  "js/validate/localization/messages_bn_BD.min.js": {
+   "sha512": "8068227c9d68de27b5271f205f73f15e8bd21211b0854421b32d2af6f92c7012",
+   "size": 2144
+  },
+  "js/validate/localization/messages_ca.js": {
+   "sha512": "682636da774443b1ae0af9753ed768a3791556c5c9faeddbd51d37cdc6a8c892",
+   "size": 1537
+  },
+  "js/validate/localization/messages_ca.min.js": {
+   "sha512": "bf5e8e2bd1be626de2a9416a19f48e0b767ac4cb9a71eded51dab750363fd925",
+   "size": 1403
+  },
+  "js/validate/localization/messages_cs.js": {
+   "sha512": "c3b8e67ca95c00a4d580d959271d2db44980fd789a78192f95a88cbb3c180b3f",
+   "size": 1440
+  },
+  "js/validate/localization/messages_cs.min.js": {
+   "sha512": "2f660c54c0410984f5418d0680df65c5dcc96a723667832e66015721f7372c1f",
+   "size": 1291
+  },
+  "js/validate/localization/messages_da.js": {
+   "sha512": "45a5794d64aa40a35b37f803b8b23885b6dd8beed29ac29884b87565c25b66d2",
+   "size": 1148
+  },
+  "js/validate/localization/messages_da.min.js": {
+   "sha512": "a6738441e856e10b0e00da792ab22c1c37ad546042753699fdfc3ecc1e8a56b5",
+   "size": 1026
+  },
+  "js/validate/localization/messages_de.js": {
+   "sha512": "7b64e5193459204d559fe885e64d0252a557f3ea884d27841674c64d1a08210e",
+   "size": 1376
+  },
+  "js/validate/localization/messages_de.min.js": {
+   "sha512": "92344acc3f4dbbe89f96dea232536500be2cc644f3a06f6309058f7ec20ba84c",
+   "size": 1252
+  },
+  "js/validate/localization/messages_el.js": {
+   "sha512": "fdbc62b5c4ad75a1ed18d28abfbadae568745ce67d97d0e094ce4ab94f5923f6",
+   "size": 2174
+  },
+  "js/validate/localization/messages_el.min.js": {
+   "sha512": "bfd9f4a866b2b325a7295c0ad45f33b61ec6d060c5d6c2c4a7f9eb32818a048e",
+   "size": 2033
+  },
+  "js/validate/localization/messages_es.js": {
+   "sha512": "fe737484ba5f4e9adaf607592436362935780a80296ca3288e4c4e4a53039257",
+   "size": 1675
+  },
+  "js/validate/localization/messages_es.min.js": {
+   "sha512": "4c9e2a2d3f962a4245f20b6284fcab91180d123c1b6f260c52e8dee8a26c6ea9",
+   "size": 1531
+  },
+  "js/validate/localization/messages_es_AR.js": {
+   "sha512": "51e2262e2aa44e8323e2abc70884e3b1434f24922f4b582c399c06ee3504db8a",
+   "size": 1726
+  },
+  "js/validate/localization/messages_es_AR.min.js": {
+   "sha512": "ea651645f6b8eea5853dce52fff8f4aaa07494e9c11ebf6cccd4e4354ca89c75",
+   "size": 1556
+  },
+  "js/validate/localization/messages_es_PE.js": {
+   "sha512": "b1e890b3254d27dd19dfccfaebd152631a495f25289cfd2eef043490ebf28ad8",
+   "size": 1692
+  },
+  "js/validate/localization/messages_es_PE.min.js": {
+   "sha512": "e2a8b4773f74e88a989fa3a41797181bf9bd123425d7624dcb40cfd59a776cbb",
+   "size": 1526
+  },
+  "js/validate/localization/messages_et.js": {
+   "sha512": "0f51922314b23a6a5465c32f6debea8fa31e6529bfcd7be3a91dbd21af9958e3",
+   "size": 1450
+  },
+  "js/validate/localization/messages_et.min.js": {
+   "sha512": "262518ebc5413cdb20010600da96a55108884c5e5835a5a58c8b2096ad8ecd5a",
+   "size": 1311
+  },
+  "js/validate/localization/messages_eu.js": {
+   "sha512": "33fa449d83de6e40b0e38192997b47521631126c47e11b1c57a1cafd5a2546cf",
+   "size": 1508
+  },
+  "js/validate/localization/messages_eu.min.js": {
+   "sha512": "f6092342a7ac5a7d28b15c5b09eb825d4ebac56adc2c3f0c046773749419aed1",
+   "size": 1366
+  },
+  "js/validate/localization/messages_fa.js": {
+   "sha512": "135417eda8d1aa1109d51d8652f2ceb04c6645eb2ef50cf8af734f9a0c958b56",
+   "size": 1948
+  },
+  "js/validate/localization/messages_fa.min.js": {
+   "sha512": "a3a88443ff12296dd542437e655049dfbbb6d6eb0e9308daefb6a0d05004341b",
+   "size": 1798
+  },
+  "js/validate/localization/messages_fi.js": {
+   "sha512": "943290cce59b25af2df5892f92ad271e35e9c960ae28902fc0287afaae2dd8ad",
+   "size": 1561
+  },
+  "js/validate/localization/messages_fi.min.js": {
+   "sha512": "2ccdf35635940f8bc2bc2cd232d64e386dda4294b48c0bcc20888927ebce9bac",
+   "size": 1421
+  },
+  "js/validate/localization/messages_fr.js": {
+   "sha512": "570ba2f5ca29d174b44f6bd15a1c83f06f0ce3730d767143a248f9ea68006492",
+   "size": 3296
+  },
+  "js/validate/localization/messages_fr.min.js": {
+   "sha512": "8b07bdc2c5466317cc90504d905dd19821e46b1295939ce87ed8c4f038b59796",
+   "size": 3075
+  },
+  "js/validate/localization/messages_ge.js": {
+   "sha512": "444b57217705a58762b7972c963e8397dafe0139ce381e801d37f2f8c6208b4a",
+   "size": 2311
+  },
+  "js/validate/localization/messages_ge.min.js": {
+   "sha512": "f76ad503ab6e405c7d709f108f9a2a7965f91657649f040e399eb0e106993530",
+   "size": 2116
+  },
+  "js/validate/localization/messages_gl.js": {
+   "sha512": "7a77ae61ffba0c772c02de8b5a9c103883ae6e73e91695303c354f99838ed55b",
+   "size": 1728
+  },
+  "js/validate/localization/messages_gl.min.js": {
+   "sha512": "73c5826c2be61b92b3d1811c020a8961452c9a910f2f8398f3ca7fd91a56ac87",
+   "size": 1552
+  },
+  "js/validate/localization/messages_he.js": {
+   "sha512": "bbce3b7294399aa5bb094e8a8edcbde0c4c1a1b2040b352b4ae117a2f5dd9d93",
+   "size": 1509
+  },
+  "js/validate/localization/messages_he.min.js": {
+   "sha512": "b0a1fa177dc195665d13798edfc30f8438681e7dcd336aa6c650ea7a19817906",
+   "size": 1372
+  },
+  "js/validate/localization/messages_hr.js": {
+   "sha512": "b52f777565109d7f15856c452debfbf323fa51af8fc731ac90e6ab0f7cb7024b",
+   "size": 1348
+  },
+  "js/validate/localization/messages_hr.min.js": {
+   "sha512": "18536ffffcb68bbfc47daee9ebd23780dc1d024d1a054db842c0fce53eaca19f",
+   "size": 1207
+  },
+  "js/validate/localization/messages_hu.js": {
+   "sha512": "2a64befaf90ff7682211b245352482544cdac2bb7653105ce53dbea4210a38e9",
+   "size": 1325
+  },
+  "js/validate/localization/messages_hu.min.js": {
+   "sha512": "bd893adb8280b133bd335e0bb28ce65be1175e58a0a27affbc88d313305d1a70",
+   "size": 1193
+  },
+  "js/validate/localization/messages_hy_AM.js": {
+   "sha512": "c41bc77df2c2e7fabca789ef339585f9710e166d962debcd3923ffca022a81c5",
+   "size": 1763
+  },
+  "js/validate/localization/messages_hy_AM.min.js": {
+   "sha512": "284a28bc42bbb0008b2f303560b55a5aa43977fd5ee428bf5cfc656680d0c601",
+   "size": 1607
+  },
+  "js/validate/localization/messages_id.js": {
+   "sha512": "2eb6504a34c064e9900e1f38ed867b7717c3f06a38dbe497bcf349c951318994",
+   "size": 1440
+  },
+  "js/validate/localization/messages_id.min.js": {
+   "sha512": "a590feebfecfc2848ff8cf3fa83504c13dff4191e0a5dc2463c404189e06ae0c",
+   "size": 1304
+  },
+  "js/validate/localization/messages_is.js": {
+   "sha512": "0d68cf7bd5cd46d51c9a4dcdff7d2ff20ec07f6252a21c8bbb2c5cea0decddfb",
+   "size": 1270
+  },
+  "js/validate/localization/messages_is.min.js": {
+   "sha512": "19a4eb51c85f7c91d6e50b30893ed8a35bf3ea893017035cb682a103d4681d21",
+   "size": 1138
+  },
+  "js/validate/localization/messages_it.js": {
+   "sha512": "9e6238be2913d0c44ea434a38d9212d90ab47d85ede763538f3260a43ac6273d",
+   "size": 1532
+  },
+  "js/validate/localization/messages_it.min.js": {
+   "sha512": "aedd744cfe3f67d36ab71868358d8ba066a2850631bc89edc718c13474c728df",
+   "size": 1385
+  },
+  "js/validate/localization/messages_ja.js": {
+   "sha512": "64fce6b44e3a5d14b7c460c6b9bc4b8af54dbf515dabd2f6bb544172393f3f4c",
+   "size": 1677
+  },
+  "js/validate/localization/messages_ja.min.js": {
+   "sha512": "661d371a8b76059ff784643e683d3a42f8330fabae04ee42e819ec37feffa3f6",
+   "size": 1540
+  },
+  "js/validate/localization/messages_ka.js": {
+   "sha512": "a8dd1447b3e02295da01a249be28243c6e45f0496f86525daba2e6b120dfc8c0",
+   "size": 2645
+  },
+  "js/validate/localization/messages_ka.min.js": {
+   "sha512": "a3044f022c6ebe73298a890d50d83e32395a48828aaeb6d99c3ea0584d630dfe",
+   "size": 2496
+  },
+  "js/validate/localization/messages_kk.js": {
+   "sha512": "9c31b076fdf816f2a6427d57ca6820bcd5ff56ac4632d484c6ad6f5b0d4a4130",
+   "size": 2144
+  },
+  "js/validate/localization/messages_kk.min.js": {
+   "sha512": "f8d4164ded03aaa037ed42e680d54c80236cbb251287dc77a63f6fd076acec21",
+   "size": 1999
+  },
+  "js/validate/localization/messages_ko.js": {
+   "sha512": "ba5ddc5ce77a3c63e6c18e359a3cb2379d6395cb63e52590f75c8985dfb0268e",
+   "size": 1444
+  },
+  "js/validate/localization/messages_ko.min.js": {
+   "sha512": "23e1a9b30e9d9c1d625809534390840e6078eaca847c2f4d8a5672de0daf05b0",
+   "size": 1309
+  },
+  "js/validate/localization/messages_lt.js": {
+   "sha512": "9f0361cf2218c5d29402f644a5d9dc0f4401de0b4e2aecbcd801a0a924d5154a",
+   "size": 1550
+  },
+  "js/validate/localization/messages_lt.min.js": {
+   "sha512": "8fb742eb799a339c7c5e4b5d28c741cbe787901c48ed90f9366fb075b33fab25",
+   "size": 1405
+  },
+  "js/validate/localization/messages_lv.js": {
+   "sha512": "1c444d314dc9a603f8d2dbad4fffbdbf9102d59b78dc1ac93c888e3b884807a4",
+   "size": 1511
+  },
+  "js/validate/localization/messages_lv.min.js": {
+   "sha512": "1eb64edc80e8992f0a0f3e71ac5fb5a75fe789dfd36613cc278eb44c96db4d40",
+   "size": 1368
+  },
+  "js/validate/localization/messages_mk.js": {
+   "sha512": "1f1659a5c7ec8ae0ba0c6cc7383f090dbe73d0d1b5fe467ea41a60b3db682ba3",
+   "size": 1786
+  },
+  "js/validate/localization/messages_mk.min.js": {
+   "sha512": "f547d037a70ae9ec748fc2573e3be3d97ad56170b5cc2672645067bccc3ee0c3",
+   "size": 1625
+  },
+  "js/validate/localization/messages_my.js": {
+   "sha512": "b719c460d490e9496d9805c83da3bee47dcad6c6a2a6e8fbc3cf40ccbd5a4273",
+   "size": 1452
+  },
+  "js/validate/localization/messages_my.min.js": {
+   "sha512": "9ec8fd24c26dd0e70070692cabab736431149a4db3d1ce1af64dbd7794e0e259",
+   "size": 1321
+  },
+  "js/validate/localization/messages_nl.js": {
+   "sha512": "d30615f46040d671e3209a6a940d9f1e3dd103ad1d5ff8f39e896e6e61cd692e",
+   "size": 1957
+  },
+  "js/validate/localization/messages_nl.min.js": {
+   "sha512": "fee78b29701bbb8699a078f713abb03eef7b51a14d13fbd398375b875d149508",
+   "size": 1744
+  },
+  "js/validate/localization/messages_no.js": {
+   "sha512": "a890804e664ff1ee72e5f4c3335bbf4f47e63f1acb8f316d374b2e8f7bb63deb",
+   "size": 1291
+  },
+  "js/validate/localization/messages_no.min.js": {
+   "sha512": "41881f88fb4d8c942aa1e78259141c17eb3824f212d4f62f96b13f28a8e37af7",
+   "size": 1157
+  },
+  "js/validate/localization/messages_pl.js": {
+   "sha512": "59c00544afb976008270876839234f064b316204f267617663cec17e4cc87cf7",
+   "size": 1648
+  },
+  "js/validate/localization/messages_pl.min.js": {
+   "sha512": "ee41764a04d0361dfcb0393d66035f98412be9ad3127064de220402abee0f24d",
+   "size": 1491
+  },
+  "js/validate/localization/messages_pt_BR.js": {
+   "sha512": "e25cb22bfe517f650b49ad8cfd2d8a715332d0226b72df6dc9d8f85f52c38aba",
+   "size": 5682
+  },
+  "js/validate/localization/messages_pt_BR.min.js": {
+   "sha512": "7c2abeda0379eff2b7ec50cc7724b1ceb9013a6fad961eeb84ae25ccdcf07f16",
+   "size": 5332
+  },
+  "js/validate/localization/messages_pt_PT.js": {
+   "sha512": "a68cd7638f2114e8930df605add524065c24ce1bb73857dedbcfe946ff82d64e",
+   "size": 1876
+  },
+  "js/validate/localization/messages_pt_PT.min.js": {
+   "sha512": "98f911de5dbec6f5bd530683ab7e20e0512d9ab4e238a859796780494bbcbd37",
+   "size": 1702
+  },
+  "js/validate/localization/messages_ro.js": {
+   "sha512": "9a588a8874145c050d445b10bc28f2db68d9a35af91e668df07c2723273806d6",
+   "size": 1639
+  },
+  "js/validate/localization/messages_ro.min.js": {
+   "sha512": "97db3c39e5a76fd20e80b618a920fb4de0eb0cdeccab343f093a5d228626dbcb",
+   "size": 1497
+  },
+  "js/validate/localization/messages_ru.js": {
+   "sha512": "83627a42f4e3308f64da526c92d81c8d6eebd27aeeb759d5865c5fa9088cb490",
+   "size": 2157
+  },
+  "js/validate/localization/messages_ru.min.js": {
+   "sha512": "3a4519fc5aa2537db34a62d236a9af9edd636073f4b816e93ec16eac163b4928",
+   "size": 2007
+  },
+  "js/validate/localization/messages_si.js": {
+   "sha512": "f48b382187c6f0f4ec098c9fc84ff40e628b362fa7bccc9fe9436565acbff31b",
+   "size": 1428
+  },
+  "js/validate/localization/messages_si.min.js": {
+   "sha512": "5597f5644b20c43da00cb547863c1d0615aaf11c4cfcd868977204b09bb17b77",
+   "size": 1301
+  },
+  "js/validate/localization/messages_sk.js": {
+   "sha512": "67d8da91898175bb362f3325ef58f0e9a14ab072996a3c500ad3e4a73f6b84e8",
+   "size": 1165
+  },
+  "js/validate/localization/messages_sk.min.js": {
+   "sha512": "e9eba7a48d4e6ebbc5727ff2935c6121f6eddf0bb8c0544e362df77c77a38b9c",
+   "size": 1019
+  },
+  "js/validate/localization/messages_sl.js": {
+   "sha512": "b364d056860439175fbd8f063cf8282727a45a3f5b463e2ca7744bcbb20289a7",
+   "size": 1452
+  },
+  "js/validate/localization/messages_sl.min.js": {
+   "sha512": "d11389df75fba8eb6cd581fd45cd3b3b00f7d5e2ec17a2bc5b782d2746fabf0b",
+   "size": 1306
+  },
+  "js/validate/localization/messages_sr.js": {
+   "sha512": "7d53cb6b70b3cf3c0fe538fd0d5cc565087c093b65beb7bc0b7c7fc02ea4922c",
+   "size": 1737
+  },
+  "js/validate/localization/messages_sr.min.js": {
+   "sha512": "7adfe0d667dd9073d93d3d4c32092c53d92381dc9beb69517d9232234a5eeaf3",
+   "size": 1587
+  },
+  "js/validate/localization/messages_sr_lat.js": {
+   "sha512": "4e215e92f16df861c86a90dbd16433afc0ad15b5cb3e6d40ba02a840419684bd",
+   "size": 1359
+  },
+  "js/validate/localization/messages_sr_lat.min.js": {
+   "sha512": "968fcd1224a34e62062f7f29756a2c63533105f94087b9304230d000a0a0d90f",
+   "size": 1192
+  },
+  "js/validate/localization/messages_sv.js": {
+   "sha512": "5675d53759c47dcaeea83b90669edb4bf424324ae89af26f0144c795ba0cfb26",
+   "size": 1323
+  },
+  "js/validate/localization/messages_sv.min.js": {
+   "sha512": "c52c910f6fe3df62fbe5656e7a8cd5010559177079cba96297acd203b11170d8",
+   "size": 1195
+  },
+  "js/validate/localization/messages_th.js": {
+   "sha512": "9bba0a8ba4b482bb0959f46be542900d2630515b3fca33863f5bd87d7e659551",
+   "size": 2203
+  },
+  "js/validate/localization/messages_th.min.js": {
+   "sha512": "6f2acc2d271fbc0e1ee93e659464c4f605aecb2595de8d1d60bd0d2951e20b3b",
+   "size": 2070
+  },
+  "js/validate/localization/messages_tj.js": {
+   "sha512": "2d60950ec236854b52c701ef0f462e96e51f7677dedeb9e1f79891c5180f186f",
+   "size": 2056
+  },
+  "js/validate/localization/messages_tj.min.js": {
+   "sha512": "9b5e4763289eee85b043c422d9762f5d054f4485b46745d8c717ed96dc8d4aa7",
+   "size": 1901
+  },
+  "js/validate/localization/messages_tr.js": {
+   "sha512": "8e2aa3c40737ce455e05670b9891c0c4bda1f57349a70a1951f9c1035410eaef",
+   "size": 1702
+  },
+  "js/validate/localization/messages_tr.min.js": {
+   "sha512": "0c36ef0f929bc147bd942c1e7f8b6aa156e4f8ff6615aa5d03258e9801e1fbf9",
+   "size": 1564
+  },
+  "js/validate/localization/messages_uk.js": {
+   "sha512": "099b2a57a76cc7f5e920dc1d103e55f825f0dc8dc7628185e77aaf027c5dfa5b",
+   "size": 2112
+  },
+  "js/validate/localization/messages_uk.min.js": {
+   "sha512": "2ad68c262b1330efe086389034bc6fa45563f472cf22105195166d84688b2129",
+   "size": 1954
+  },
+  "js/validate/localization/messages_vi.js": {
+   "sha512": "22625e98ba728d2e6d31f097db7f114d3a8137ac1ede6d5c5077a117c5fa69da",
+   "size": 1288
+  },
+  "js/validate/localization/messages_vi.min.js": {
+   "sha512": "2334df155e5fa5fd98dc65008ed87ba09ac21e5fe333ed6996184b85e4337a18",
+   "size": 1144
+  },
+  "js/validate/localization/messages_zh.js": {
+   "sha512": "7974d89ac358e628997cd1fb4e0e22ad0a607846246cc8eb986f35703817c8d7",
+   "size": 1330
+  },
+  "js/validate/localization/messages_zh.min.js": {
+   "sha512": "8b87c9c726d9998d97792fbab7fb304685338445b67be02c8ab70d44a262ff08",
+   "size": 1168
+  },
+  "js/validate/localization/messages_zh_TW.js": {
+   "sha512": "1b4b2d7588dc1b397f82fe1aca46fc176dc5e490100f236aa460e0f6c517ec3d",
+   "size": 1302
+  },
+  "js/validate/localization/messages_zh_TW.min.js": {
+   "sha512": "fbcd6064215db84d462795bcbfd324749432d82ab2dbfe1ebb9423eff3b817d4",
+   "size": 1117
+  },
+  "js/validate/localization/methods_de.js": {
+   "sha512": "efb6a180adb6f542df80b45db023b525d134d3035b565f3a25a2c7ec156ca6ff",
+   "size": 679
+  },
+  "js/validate/localization/methods_de.min.js": {
+   "sha512": "dff3b4573379907c3e2b28dba23b97e6e0316f78fea6deb582d83bd4a6c37b35",
+   "size": 551
+  },
+  "js/validate/localization/methods_es_CL.js": {
+   "sha512": "ff8474ca319ef36927a5e9324bcebf137cd36b2ada4826065ed11f802ac0f5b0",
+   "size": 682
+  },
+  "js/validate/localization/methods_es_CL.min.js": {
+   "sha512": "d6400b642554268fa6bbda3a80dfc27624e06482ea4d2cdb9b74aef28eec0ce1",
+   "size": 551
+  },
+  "js/validate/localization/methods_fi.js": {
+   "sha512": "11e2999dd03305170e2781afe6db48517e51698061319cf7713cb10a7cd42cc6",
+   "size": 658
+  },
+  "js/validate/localization/methods_fi.min.js": {
+   "sha512": "8d3c1b49428410d17d0781440458a315d78e6bcaef8fb0c6f601b2e4496577f1",
+   "size": 530
+  },
+  "js/validate/localization/methods_nl.js": {
+   "sha512": "7c65472c56c4cec90a3c351e50e5fd35e437bac725642d2133ecafc1c23ce03d",
+   "size": 554
+  },
+  "js/validate/localization/methods_nl.min.js": {
+   "sha512": "d9bd541e2571e2bdf35b0981da2d070bb3a7225baefaddec4e5a0c34f7d0b1bd",
+   "size": 465
+  },
+  "js/validate/localization/methods_pt.js": {
+   "sha512": "8a2a192cacafb676bb8c2143dcb89d54533cb9e7c791404f4b10b9697143bf02",
+   "size": 545
+  },
+  "js/validate/localization/methods_pt.min.js": {
+   "sha512": "03d350c693de07e2d7fe810d4d93e6e392e4b22a554baa4bced85ef3fb096d96",
+   "size": 453
+  },
+  "js/zero.js": {
+   "sha512": "4631a8357115146636e37a035abb9ec39d736ac52ff40fdc025e31b9c78d1e14",
+   "size": 5221
+  },
+  "sites.html": {
+   "sha512": "1f6d9dc3dc6f1a946f0eb29726e3e4c446858ea61a0ae53f5e29ff1708604657",
+   "size": 23266
+  }
+ },
+ "ignore": "",
+ "inner_path": "content.json",
+ "modified": 1470230397.505,
+ "phantom_version": "0.1a",
+ "sign": [
+  96466554125524594087290921990819733862587982581695222915828956034794281206162,
+  11728359864726626694345322288557724207974037380134844527617105420049434199758
+ ],
+ "signers_sign": "G80PbJfLCq/mubdDAy7VMFINZDbd7k+uUQFpU73aXODDU7u+CaCWip/U9XYnIr0SWEfGMD2hPHQ4x/ntr32MEa8=",
+ "signs": {
+  "1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG": "HPtFYyy6g1qbaUjEKeHpli2MqLfwfayH8yh3/nCBymGi1gD/7+r2wYOYaG2aib0C1tq8yhM1pKa5jDU7BDwWjj0="
+ },
+ "signs_required": 1,
+ "title": "1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG - Phantom"
+}

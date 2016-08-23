@@ -37,8 +37,7 @@ var HUB = (function(HUB, $, undefined) {
 				}
 			}
 								
-			$("#NewSiteSubmit").text('Done');
-			$("#agreeToTheTerms, #termsLabel").hide();
+			$("#NewSiteSubmit, #agreeToTheTerms, #termsLabel").hide();
 
 			window.Site.cmd("wrapperNotification", ["done", "Site succesfully created", 5000]);
 			

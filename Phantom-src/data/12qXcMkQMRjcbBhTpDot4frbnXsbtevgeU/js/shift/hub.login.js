@@ -8,6 +8,7 @@ var HUB = (function(HUB, $, undefined) {
 			balances = [],
 			accounts = [],
 			aliasses = [],
+			copybtn = '<button type="button" class="btn btn-default btn-xs contact-copy pull-right" data-toggle="tooltip" data-placement="left" title="Address to Clipboard"><i class="fa fa-clipboard"></i></button>', 
 			bigfloat = new BigNumber(0);
 		
 		accounts = HUB.startRequest("get_accounts");
@@ -37,7 +38,7 @@ var HUB = (function(HUB, $, undefined) {
 				}
 
 				$("#LoginAccount").hide().append('<option value="'+account+'">'+account+'</option>'); 
-				$("#LoginAccounts").append('<li role="presentation"'+(false && counter == 1 ? ' class="active"' : '')+'><a href="#" id="a-'+counter+'">'+(alias ? '<strong>- '+alias+' -</strong> ' : '')+account+' <span class="badge"></span></a></li>'); 
+				$("#LoginAccounts").append('<li role="presentation"'+(false && counter == 1 ? ' class="active"' : '')+'><a href="#" id="a-'+counter+'">'+(alias ? '<strong>- '+alias+' -</strong> ' : '')+'<input type="text" class="input-sm contact-address" value="'+account+'" placeholder="Address" style="border:0;box-shadow:none" onclick="this.blur()"">'+copybtn+' <span class="badge"></span></a></li>'); 
 
 				if (counter <= 3) { // Limit API calls for optimal performance
 					balances = HUB.startRequest("get_balance",'["'+account+'", "latest"]');
@@ -46,15 +47,14 @@ var HUB = (function(HUB, $, undefined) {
 						$('#a-'+counter).find(".badge").text(bigfloat.toFixed() / 1000000000000000000);
 					}
 				}
-				
             });
-			
+						
 			var selectAccount = function(elem, account) {
 				$(elem).each(function(){
-					var address = $(this).contents().filter(function(){
+/*					var address = $(this).contents().filter(function(){
 						return this.nodeType !== 1;
 					}).text().trim();
-					
+*/					var address = $(this).find('.contact-address').val();
 					if (account == false || account == address) $(this).parent('li').addClass('active').siblings().removeClass('active');					
 					$('#LoginAccount').val(address).change();
 				});		
@@ -64,9 +64,11 @@ var HUB = (function(HUB, $, undefined) {
 				selectAccount(this, false);	 
 			});	
 			
+			copyToClipboard();
+			
 		    Site.cmd("wrapperGetLocalStorage", [], function(json) {
 				var local_storage = $.parseJSON(json),
-					address = typeof local_storage!= 'undefined' ? local_storage.activeAccount : '';
+					address = local_storage != null ? local_storage.activeAccount : '';
 				
 				selectAccount("#LoginAccounts li a", address);
 			});
@@ -177,11 +179,18 @@ var HUB = (function(HUB, $, undefined) {
 		e.preventDefault();
 		if (!$(this).attr('readonly') && !$(this).attr('disabled')) $('form[name="login"]').submit();
     });
-	
+		
 	$('form[name="login"]').on("submit", function(e) {
 		$("#LoginSubmit").prop('readonly',true).prop('disabled',true);
 
 		return HUB.login($("#LoginAccount").val(),$("#LoginPassword").val(),$("#LoginKeepAccountUnlocked").is(":checked"));
+	});	
+	
+	$('#LoginPassword').keypress(function (e) {
+	  if (e.which == 13) {
+		$('form[name="login"]').submit();
+		e.preventDefault();
+	  }
 	});	
    
     $("#PasswordError").hide();

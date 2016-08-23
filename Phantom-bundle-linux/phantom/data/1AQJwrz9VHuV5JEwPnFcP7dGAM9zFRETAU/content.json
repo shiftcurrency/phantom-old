@@ -1,0 +1,25 @@
+{
+ "address": "1AQJwrz9VHuV5JEwPnFcP7dGAM9zFRETAU",
+ "description": "",
+ "files": {
+  "index.html": {
+   "sha512": "43fac08ee0def05a7c5e2913b8e6b9b7a8cb4c26f2955c8b631df215dee06bf5",
+   "size": 41
+  }
+ },
+ "ignore": "",
+ "inner_path": "content.json",
+ "modified": 1471288711.320419,
+ "phantom_version": "0.1a",
+ "postmessage_nonce_security": true,
+ "sign": [
+  18382671538656098009329282885803474188832956571025113638061121356230315309578,
+  109003653344607966744220264037274509963856795700625203955271615566164182550199
+ ],
+ "signers_sign": "G2AzqKNwYXxo4OYb4qj/dzyGOLfhkY1Xrg/sUdyX6r0jRZdZumNTvcIrpBbnUPN3wHWQSXai5fS1fJSyhVZ9YPg=",
+ "signs": {
+  "1AQJwrz9VHuV5JEwPnFcP7dGAM9zFRETAU": "HLPZHX1J9OQQ/sVw1DsiffTN1YWy71QyT9JVCzeDqi1qiV2xXV0zPcBZLVn1sIfMLjbPaFQSDAr9JS6aKEnbeZU="
+ },
+ "signs_required": 1,
+ "title": "1AQJwrz9VHuV5JEwPnFcP7dGAM9zFRETAU - Phantom_"
+}

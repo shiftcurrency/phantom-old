@@ -125,74 +125,108 @@
     __extends(ZeroShift, _super);
 
     function ZeroShift() {
+      this.reloadServerInfo = __bind(this.reloadServerInfo, this);
+      this.reloadSiteInfo = __bind(this.reloadSiteInfo, this);
+      this.setSiteInfo = __bind(this.setSiteInfo, this);
       this.onOpenWebsocket = __bind(this.onOpenWebsocket, this);
-      this.loadMessages = __bind(this.loadMessages, this);
+      this.onErrorWebsocket = __bind(this.onErrorWebsocket, this);
       return ZeroShift.__super__.constructor.apply(this, arguments);
     }
 
     ZeroShift.prototype.init = function() {
+      this.server_info = null;
+      this.site_info = null;
       return this.log("inited!");
     };	
 	
-    ZeroShift.prototype.loadMessages = function(call, params) {
+    ZeroShift.prototype.loadMessages = function(call, params, callback) {
 		if (call == null) {
 			call = 'netListening';
 		}
-		this.cmd('ShiftIPC', {
+		if (callback == null) {
+			callback = function(){};
+		}
+		return this.cmd('ShiftIPC', {
 		  'call': call, 
 		  'params': params
 		}, (function(_this) {
-          return function(result) {			
+          return function(result) {	
 //			_this.log("socket call response", result);
 			if (call == 'netListening'){
 			} else if (call == 'blockHeight'){
 				HUB.blocknumber = result;
-				$("#current_blocknumber").text(HUB.blocknumber);
 			} else if (call == 'peerCount'){
 				HUB.peercount = result;
-				$("#net_peercount").text(HUB.peercount); 
 			} else if (call == 'getBalance'){
 				HUB.latest = result.latest;
 				HUB.pending = result.pending;
 				HUB.balance = HUB.latest + HUB.pending;
-				if ($('#balance_confirmed, #balance_unconfirmed, #balance_total').length == 3) HUB.show_balances(HUB.activeAccount, false);
 			}
-			return true;
+			return callback();
           };
 		})(this));
-		return false;
 	};	
 
     ZeroShift.prototype.onOpenWebsocket = function(e) {
-      this.cmd("serverInfo", {}, (function(_this) {
-        return function(serverInfo) {
-          return _this.server_info = serverInfo;
-          return _this.log("serverInfo response", serverInfo);
-        };
-      })(this));
-/*	
-      window.setTimeout((function(_this) {
-      })(this), 0); 
-*/	  
+      this.reloadSiteInfo();
+      this.reloadServerInfo();
+      return HUB.numoffails = 0;
+    };
+	
+    ZeroShift.prototype.onErrorWebsocket = function(e) {
+      return HUB.numoffails++;
+    };
+	
+    ZeroShift.prototype.reloadSiteInfo = function() {
       return this.cmd("siteInfo", {}, (function(_this) {
-        return function(siteInfo) {
-          return _this.site_info = siteInfo;
-          return _this.log("siteInfo response", siteInfo);
+        return function(site_info) {
+          return _this.setSiteInfo(site_info);
         };
       })(this));
     };
+
+    ZeroShift.prototype.reloadServerInfo = function() {
+      return this.cmd("serverInfo", {}, (function(_this) {
+        return function(server_info) {
+          return _this.setServerInfo(server_info);
+        };
+      })(this));
+    };
+
+    ZeroShift.prototype.setSiteInfo = function(site_info) {
+	  this.site_info = site_info;
+
+/*	  if (site_info.settings.domain != '') this.site_info.content.title = site_info.settings.domain;
+	  else if (site_info.content.description != '') this.site_info.content.title = site_info.content.description;
+	  console.log('Setting title to: '+this.site_info.content.title);
+*/
+      return this.site_info = site_info;
+    };
+
+    ZeroShift.prototype.setServerInfo = function(server_info) {
+      return this.server_info = server_info;
+    };
 	
-	ZeroShift.prototype.loadData = function(inner_path) {
+	ZeroShift.prototype.loadData = function(inner_path, target_elem, callback) {
+	  if (callback == null) {
+		callback = function(){};
+	  }	
 	  return this.cmd("fileGet", {
 		"inner_path": inner_path,
 		"required": true
 	  }, (function(_this) {
 		return function(html) {
-			document.open();
-			document.write(html);
-			document.close();			
+			if (target_elem == null) {
+				document.open();
+				document.write(html);
+				document.close();
+			} else {
+				$target_elem = typeof target_elem == 'string' ? $(target_elem) : target_elem;
+				$target_elem.html(html);
+			}
+			return callback();
 		};
-	  })(this));	
+	  })(this));
     };
 
 	ZeroShift.prototype.writeStorage = function(str) {
