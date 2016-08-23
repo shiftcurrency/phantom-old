@@ -5,13 +5,35 @@
     "domain": "wallet.shift", 
     "modified": 1471276099.637, 
     "own": true, 
-    "peers": 2, 
+    "peers": 3, 
     "permissions": [
       "ADMIN"
     ], 
     "serving": true, 
     "size": 4154337, 
     "wrapper_key": "551b14e265cd0ba89dabf66e0c0463d44152a2a63e8e3cce4a346108efc18913"
+  }, 
+  "17Naoh1AL3a9KMy4AJESwKasadRfVZsMij": {
+    "added": 1471288162, 
+    "auth_key": "4fcf56bf2070052d177a2621e6944c5bc310b98525718236fd3286cb4ba0784d", 
+    "own": false, 
+    "peers": 0, 
+    "permissions": [], 
+    "serving": true, 
+    "size": 0, 
+    "wrapper_key": "0a98035c0ad7ba16c00c12da9d3cdd8a86108ba7ad393905603b862a960f1e66"
+  }, 
+  "1AQJwrz9VHuV5JEwPnFcP7dGAM9zFRETAU": {
+    "added": 1471288711, 
+    "auth_key": "e39c895f5cab303c5be525184c92dc16bec472e9d4d33b61766e4290d3719c3e", 
+    "domain": "joey.shift", 
+    "modified": 1471288711.320419, 
+    "own": true, 
+    "peers": 1, 
+    "permissions": [], 
+    "serving": true, 
+    "size": 55, 
+    "wrapper_key": "56481fe1b5daeacab383fb571da8082c7f867395059441b5ac3e9193b4da00ef"
   }, 
   "1CQTfYmebR1bP75PCUata417NffWyL6AXf": {
     "added": 1467112218, 
@@ -20,7 +42,7 @@
     "bytes_sent": 6530, 
     "modified": 1467395353.069, 
     "own": true, 
-    "peers": 7, 
+    "peers": 6, 
     "permissions": [
       "ADMIN"
     ], 
