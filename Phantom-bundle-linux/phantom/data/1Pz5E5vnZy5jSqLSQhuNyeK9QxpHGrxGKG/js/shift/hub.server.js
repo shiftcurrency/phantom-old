@@ -1,6 +1,6 @@
 var HUB = (function(HUB, $, undefined) {
-    HUB.numofrequests = 0;
     HUB.polling = false;
+    HUB.numofrequests = 0;
     HUB.numofpolls = HUB.numoffails = 0;
     HUB.blocknumber = HUB.peercount = 0;
 	HUB.balance = HUB.latest = HUB.pending = HUB.earliest = 0;
@@ -93,37 +93,40 @@ var HUB = (function(HUB, $, undefined) {
 /*	  Site.cmd("blockHeight", {}, function(result) {
 		console.log("blockheight = "+ HUB.blocknumber + "/" + result.blockheight);
 		HUB.blocknumber = result.blockheight;	  
-
-		if (HUB.blocknumber == false) HUB.numoffails++;
-		else $("#current_blocknumber").text(HUB.blocknumber);
 	  });
 
 	  HUB.blocknumber = HUB.getBlocknumber(); 
 	  if (HUB.blocknumber == false) HUB.numoffails++;
-	  else $("#current_blocknumber").text(HUB.blocknumber);
-*/	  Site.loadMessages('blockHeight');
+*/	  var result = Site.loadMessages('blockHeight', {}, function(){ 
+		if (HUB.blocknumber != false) {
+			$("#current_blocknumber").text(HUB.blocknumber);
+		}
+	  });
 
 	  // Call every x time we get here  
 	  var modulo = HUB.numofpolls > 5 ? 10 : 2;
-	  if (HUB.numofpolls == 1 || HUB.numofpolls % modulo == 1) {
-		console.log('Polling called, nr: '+HUB.numofpolls);
+	  if (HUB.numofpolls <= 1 || HUB.numofpolls % modulo == 1) {
+		console.log('Polling called, nr: '+HUB.numofpolls+', fails: '+HUB.numoffails);
 		
 		// Number of peers
 /*		data = HUB.startRequest("net_peercount",'[]'); 
 		if (typeof data.result == 'string' || data.result instanceof String) HUB.peercount = data.result;
 		else HUB.numoffails++;
 		$("#net_peercount").text(HUB.peercount);  
-*/		Site.loadMessages('peerCount');
+*/		Site.loadMessages('peerCount', {'address': HUB.activeAccount}, function(){ 
+			if (HUB.peercount != false) {
+				$("#net_peercount").text(HUB.peercount);
+			}
+		});
 
 		// Detect balance changes
 		Site.loadMessages('getBalance', {'address': HUB.activeAccount}, function(){ 
 			if (typeof HUB.show_balances != 'undefined') {
 				HUB.show_balances(HUB.activeAccount, false);
 			}
-			return; 
 		});
 
-		if (HUB.balance != last_balance) { 
+		if (HUB.balance != last_balance) {
 		  last_balance = HUB.balance;
 //		  console.log('Last known balance:' +last_balance);
 		  

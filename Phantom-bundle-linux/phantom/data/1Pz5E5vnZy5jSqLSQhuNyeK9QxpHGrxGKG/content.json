@@ -3,8 +3,8 @@
  "description": "Shifthub DEV",
  "files": {
   "contacts.html": {
-   "sha512": "a5d98a96206b6937fa197a3ae865e8c037bf3eeee388e47173755d41078224dd",
-   "size": 16169
+   "sha512": "5576de8adbd97c9e7c53aff7232a290af816151fee1edab25f9900925de319bc",
+   "size": 11412
   },
   "css/animate.min.css": {
    "sha512": "8e10a82fc49a4d6ba30e2b657f9ebc0487c7a9db6177774e4b2745adeb465a28",
@@ -319,8 +319,8 @@
    "size": 422
   },
   "home.html": {
-   "sha512": "d923d93c61b927455f46e9d9bf78d3ebffcaa153d4259e15beab4c963cf020ba",
-   "size": 25730
+   "sha512": "6d33385f1ca542db976ef1d1ef5388512bf3ad849bf9014e7ced2b8bf07703b1",
+   "size": 20888
   },
   "img/picture.jpg": {
    "sha512": "8bab7785951d0d068e47e379ed0ff378632f9b1aa31b8bec792d76a94982b823",
@@ -331,7 +331,7 @@
    "size": 135178
   },
   "index.html": {
-   "sha512": "bf93a9f7324297588fdfb9bdb5b6bd0b559d542ee2c97df8a6ee20ca39f29651",
+   "sha512": "2645976beaba6ae3475673412ab28d3af3959a05c9c3d31634bf6e91d9390449",
    "size": 6686
   },
   "js/bootstrap.min.js": {
@@ -499,8 +499,8 @@
    "size": 7019
   },
   "js/shift/hub.server.js": {
-   "sha512": "104a6e0dd0a94782f8aeb97461a116518831e98796d82381effc0e2cc398d9eb",
-   "size": 4795
+   "sha512": "26ed158b1c649f197482d1a0d959bceb315a1ddcf29d26e2e8d7a49d8c9acc59",
+   "size": 4907
   },
   "js/shift/hub.sites.js": {
    "sha512": "3c283e75e21c188b1ab88f3f20e4e9189418f95ebce28b8f91636b6b68b6f143",
@@ -979,25 +979,33 @@
    "size": 453
   },
   "js/zero.js": {
-   "sha512": "0a8c41f7dee4ad6dc761b5c6e765973946d146d13f1517ae1e2877cf702d913b",
-   "size": 6867
+   "sha512": "62b9af77c02518fc670f8805631af08a43da9f199a5ecfb0a1351366cd73cac6",
+   "size": 7326
+  },
+  "left.html": {
+   "sha512": "747e077ce12020a894b1f481c21716fbdc773194158322ae23335b8952d7d13d",
+   "size": 3470
   },
   "sites.html": {
-   "sha512": "d29f93d92bc5ddbd373d38683b3add8c5fe40d05984b8d950b4329909c2cc6ea",
-   "size": 25323
+   "sha512": "5e28540faead40f926239ccb4d52f6ec39ec5a7860ba49c4fddbb367d2c4de6c",
+   "size": 20576
+  },
+  "top.html": {
+   "sha512": "7e877222fdc9570add4d8d434185a6bc5e8713c976ebba1ac79680cb1d5a40cd",
+   "size": 1529
   }
  },
  "ignore": "",
  "inner_path": "content.json",
- "modified": 1471517561.989,
+ "modified": 1471946041.964,
  "phantom_version": "0.1a",
  "sign": [
-  105677893319115021558827125970380853352380307538247058407809023819232121704134,
-  51318788069175601681812776497053345678014626502034757572421796496889409720202
+  23696280389315060360594149303743083449696034572112020241618777532845286599866,
+  105501154780125787684834018741655427081450616643370834894118023473698574889991
  ],
  "signers_sign": "G80PbJfLCq/mubdDAy7VMFINZDbd7k+uUQFpU73aXODDU7u+CaCWip/U9XYnIr0SWEfGMD2hPHQ4x/ntr32MEa8=",
  "signs": {
-  "1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG": "HJyp2xnzM4JmCAHRgdG+MLN8XBscedfJgcp8e+Y4Bfro/oB0GY3AA4Gwpu42IFG842MAwdwcuZuhtTK43hvApIw="
+  "1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG": "GxJPW7lyC54QqTFwIWl6xl6/DZtQ5etbhnLK9uYI0d6BCQZELhf/bUU5Ioxtft2KompcXHAoNNpT4UocXaEtNio="
  },
  "signs_required": 1,
  "title": "1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG - Phantom"

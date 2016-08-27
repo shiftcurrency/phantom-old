@@ -2,15 +2,16 @@
   "12qXcMkQMRjcbBhTpDot4frbnXsbtevgeU": {
     "added": 1471187446, 
     "auth_key": "94bd0b86f729dd2c20e375ea3dd091e35d964443b24ab0e051b64d58e818c165", 
+    "bytes_recv": 61647, 
     "domain": "wallet.shift", 
-    "modified": 1471276099.637, 
+    "modified": 1471945800.321, 
     "own": true, 
-    "peers": 3, 
+    "peers": 6, 
     "permissions": [
       "ADMIN"
     ], 
     "serving": true, 
-    "size": 4154337, 
+    "size": 4156673, 
     "wrapper_key": "551b14e265cd0ba89dabf66e0c0463d44152a2a63e8e3cce4a346108efc18913"
   }, 
   "17Naoh1AL3a9KMy4AJESwKasadRfVZsMij": {
@@ -29,7 +30,7 @@
     "domain": "joey.shift", 
     "modified": 1471288711.320419, 
     "own": true, 
-    "peers": 1, 
+    "peers": 0, 
     "permissions": [], 
     "serving": true, 
     "size": 55, 
@@ -38,29 +39,29 @@
   "1CQTfYmebR1bP75PCUata417NffWyL6AXf": {
     "added": 1467112218, 
     "auth_key": "f7a70cb3006d390ac1b88e6e95b626e06ae144ff9aea2a3476bbb672d59aacdc", 
-    "bytes_recv": 106291, 
+    "bytes_recv": 2543525, 
     "bytes_sent": 6530, 
-    "modified": 1467395353.069, 
+    "modified": 1471945819.829, 
     "own": true, 
-    "peers": 6, 
+    "peers": 8, 
     "permissions": [
       "ADMIN"
     ], 
     "serving": true, 
-    "size": 3894239, 
+    "size": 3923758, 
     "wrapper_key": "a9a6d71296ad88f1168544d2a906d1a5e8701506150548fd15832345d50b365f"
   }, 
   "1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG": {
     "added": 1470132828, 
     "auth_key": "6ec848b44e2f5594bc4d2b67e32439afdd1c95768e29d5f698f7658e1d98bcff", 
-    "bytes_recv": 100174, 
+    "bytes_recv": 2664161, 
     "domain": "devwallet.shift", 
-    "modified": 1471275740.36, 
+    "modified": 1471946041.964, 
     "own": false, 
-    "peers": 2, 
+    "peers": 4, 
     "permissions": [], 
     "serving": true, 
-    "size": 4140740, 
+    "size": 4167910, 
     "wrapper_key": "aa2a638fd946a729442eab9c2604891828e8f398c2674be940bbc0a18948f381"
   }
 }

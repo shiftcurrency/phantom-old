@@ -2,26 +2,20 @@
 
 contract ShiftDNS {
 
-    uint256[] domains;
-
     struct RR {
         string addr;
         address owner;
         bool exist;
     }   
- 
+
+    struct SiteIndex {
+        string domain;
+        string siteAddr;
+        bool exist;
+    }
+
     mapping( string => RR ) rrs;
-    address creator = msg.sender;
-
-    // On registration of a Phantom domain we index the domain
-    // in an array to be searchable by Phantom network.
-    function addDomainList(uint256 domain) returns(uint) {
-        domains.push(domain);
-    }
-
-    function getDomainList() returns (uint256[]) {
-        return domains;
-    }
+    mapping( string => SiteIndex ) index;
 
     function setRR(string _domain, string _address) returns (bool){
         // Check if the domain exists, else register it. 
@@ -30,17 +24,28 @@ contract ShiftDNS {
             rrs[_domain].owner = msg.sender;
             rrs[_domain].exist = true;
             return true;
-        }   
+        }
         return false;
-    }   
+    }
+
+    function indexSite(string owner, string _domain, string _phantom_addr) returns (bool) {
+        if(index[owner].exist == false) {
+            index[owner].exist = true;
+            index[owner].domain = _domain;
+            index[owner].siteAddr = _phantom_addr;
+            return true;
+        }
+        return false;
+    }
+
+    function searchIndex(string addr) returns (string) {
+        if(index[addr].exist == true) {
+            return index[addr].domain;
+        }
+        return "false";
+    }
 
     function getRR(string _domain) returns (string) {
         return rrs[_domain].addr;
     }   
-
-    // kills this contract
-    function kill() { 
-        if (msg.sender == creator)
-            suicide(creator);
-    }
 }
