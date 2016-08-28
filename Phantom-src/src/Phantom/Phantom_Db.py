@@ -155,6 +155,22 @@ class PhantomDb(object):
         except Exception as e:
             return None
 
+    def get_wallet_addresses(self):
+
+        try:
+            sql = 'SELECT sender FROM txs WHERE sender != "NULL" UNION SELECT recipient FROM txs WHERE recipient != "NULL"'
+            self.x.execute(sql)
+            res = self.x.fetchall()
+        except Exception as e:
+            return e
+
+        if len(res[0]) > 0:
+            list_of_tuples = [list(i) for i in res]
+            addrs = [item for sublist in list_of_tuples for item in sublist]
+            return addrs
+        return False
+ 
+
     def get_balance_by_block(self, account, blocknum):
 
         try:

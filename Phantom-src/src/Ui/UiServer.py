@@ -158,7 +158,7 @@ class UiServer:
                 print "- Could not establish an IPC connection with gshift."
                 config.open_browser = False
             else:
-                print "- Successfully established an IPC connection to gshift. Creating static node file..."
+                print "- Successfully established an IPC connection to gshift. Creating static node file."
                 config.open_browser = "default_browser"
         else:
             print "- Could not find a running gshift process. Start gshift manually."
@@ -174,6 +174,16 @@ class UiServer:
         except Exception as e:
             print "- Could not initalize phantom database, exiting..."
             sys.exit(0)
+
+        print "- Fetching wallet addresses for full mesh sync of Phantom sites."
+        try:
+            phantom_db = Phantom_Db.PhantomDb()
+            wallet_addresses = phantom_db.get_wallet_addresses()
+        except Exception as e:
+            print "- Could not fetch wallet addresses. Will not be able to sync sites. Reason(%s)." % str(e)
+            pass
+            
+
 
         if config.debug:
             # Auto reload UiRequest on change
