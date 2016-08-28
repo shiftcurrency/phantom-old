@@ -127,7 +127,9 @@
     function ZeroShift() {
       this.reloadServerInfo = __bind(this.reloadServerInfo, this);
       this.reloadSiteInfo = __bind(this.reloadSiteInfo, this);
+      this.setSiteInfo = __bind(this.setSiteInfo, this);
       this.onOpenWebsocket = __bind(this.onOpenWebsocket, this);
+      this.onErrorWebsocket = __bind(this.onErrorWebsocket, this);
       return ZeroShift.__super__.constructor.apply(this, arguments);
     }
 
@@ -137,23 +139,24 @@
       return this.log("inited!");
     };	
 	
-    ZeroShift.prototype.loadMessages = function(call, params, callback=function(){}) {
+    ZeroShift.prototype.loadMessages = function(call, params, callback) {
 		if (call == null) {
 			call = 'netListening';
 		}
-		this.cmd('ShiftIPC', {
+		if (callback == null) {
+			callback = function(){};
+		}
+		return this.cmd('ShiftIPC', {
 		  'call': call, 
 		  'params': params
 		}, (function(_this) {
-          return function(result) {			
+          return function(result) {	
 //			_this.log("socket call response", result);
 			if (call == 'netListening'){
 			} else if (call == 'blockHeight'){
 				HUB.blocknumber = result;
-				$("#current_blocknumber").text(HUB.blocknumber);
 			} else if (call == 'peerCount'){
 				HUB.peercount = result;
-				$("#net_peercount").text(HUB.peercount); 
 			} else if (call == 'getBalance'){
 				HUB.latest = result.latest;
 				HUB.pending = result.pending;
@@ -162,12 +165,16 @@
 			return callback();
           };
 		})(this));
-		return false;
 	};	
-	
+
     ZeroShift.prototype.onOpenWebsocket = function(e) {
       this.reloadSiteInfo();
-      return this.reloadServerInfo();
+      this.reloadServerInfo();
+      return HUB.numoffails = 0;
+    };
+	
+    ZeroShift.prototype.onErrorWebsocket = function(e) {
+      return HUB.numoffails++;
     };
 	
     ZeroShift.prototype.reloadSiteInfo = function() {
@@ -200,17 +207,26 @@
       return this.server_info = server_info;
     };
 	
-	ZeroShift.prototype.loadData = function(inner_path) {
+	ZeroShift.prototype.loadData = function(inner_path, target_elem, callback) {
+	  if (callback == null) {
+		callback = function(){};
+	  }	
 	  return this.cmd("fileGet", {
 		"inner_path": inner_path,
 		"required": true
 	  }, (function(_this) {
 		return function(html) {
-			document.open();
-			document.write(html);
-			document.close();			
+			if (target_elem == null) {
+				document.open();
+				document.write(html);
+				document.close();
+			} else {
+				$target_elem = typeof target_elem == 'string' ? $(target_elem) : target_elem;
+				$target_elem.html(html);
+			}
+			return callback();
 		};
-	  })(this));	
+	  })(this));
     };
 
 	ZeroShift.prototype.writeStorage = function(str) {
