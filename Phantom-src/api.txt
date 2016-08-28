@@ -93,3 +93,11 @@ Shift Domain Name System
 curl -g -X POST --data '{"jsonrpc":"2.0","method": "resolve_phantom_domain","params":[{"domain" : "walletdev.shift"}], "id":"1"}' http://localhost:53903
 
 curl -g -X POST --data '{"jsonrpc":"2.0","method": "create_phantom_domain","params":[{"from":"0x82b5f6de85e6d5982992ee467808682b01a95e24", "contract_address" : "0xa69818b38011e84dbc98bd0f180e6084855eae2e", "domain" : "wallet_dev.shift", "domain_address" : "1Pz5E5vnZy5jSqLSQhuNyeK9QxpHGrxGKG", "password" : "xxxx"}], "id":"1"}' http://localhost:53903
+
+Index a domain on Phantom (this enables full redudant backup of your site)
+
+curl -g -X POST --data '{"jsonrpc":"2.0","method": "index_phantom_domain", "params":[{"from": "0x82b5f6de85e6d5982992ee467808682b01a95e24", "password": "xxx", "domain": "test1.shift", "site_address":"1CQTfYmebR1bP75PCUata417NffWyL6AXf", "wallet_address":"619f79b01cc1f14316b0edb91e714979787b58ee"}], "id":"1"}' http://localhost:53903
+
+curl -g -X POST --data '{"jsonrpc":"2.0","method": "search_domain_index","params":[{"wallet_address" : "619f79b01cc1f14316b0edb91e714979787b58ee"}], "id":"1"}' http://localhost:53903
+
+result: {"jsonrpc": "2.0", "id": "1", "result": ["test1.shift"]}

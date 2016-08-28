@@ -676,6 +676,59 @@ class Phantom_Ui(object):
                 return self.error_msg.error_response("err_get_txrec")
         return self.error_msg.error_response("missing_params")
 
+    def index_phantom_domain(self, postparams):
+
+        if len(postparams['params'][0]) == 5:
+            if 'password' not in postparams['params'][0] or len(postparams['params'][0]['password']) == 0:
+                return self.error_msg.error_response("empty_password")
+            if 'from' not in postparams['params'][0] or not self.verify_wallet_addr(postparams['params'][0]['from']):
+                return self.error_msg.error_response("invalid_wallet_addr")
+            if 'site_address' not in postparams['params'][0] or not len(postparams['params'][0]['site_address']) == 34: 
+                return self.error_msg.error_response("invalid_domain")
+            if 'wallet_address' not in postparams['params'][0] or not len(postparams['params'][0]['wallet_address']) >= 40:
+                return self.error_msg.error_response("invalid_wallet_addr")
+            if 'domain' not in postparams['params'][0] or not self.validate_domain(postparams['params'][0]['domain']):
+                return self.error_msg.error_response("invalid_domain")
+
+
+
+            try:
+                self.passwd = postparams['params'][0]['password']
+                self.from_acc = postparams['params'][0]['from']
+                self.contract_addr = "0x57b487502392a3f9142c9bebccd6439fce87dd51"
+                self.domain = postparams['params'][0]['domain']
+                self.site_addr = postparams['params'][0]['site_address']
+                self.wallet_addr = postparams['params'][0]['wallet_address']
+                self.params = {"params":[{"from":self.from_acc, "to" : self.contract_addr, "function_signature" : "indexSite(string,string,string)",
+                                "function_argument" : [str(self.wallet_addr), str(self.domain), str(self.site_addr)], "gas" : "300000", "password" : self.passwd}]}
+
+                result = self.set_contract_storage(self.params)
+                return {"jsonrpc": "2.0", "id": "1", "result": result}
+            except Exception as e:
+                print e
+                self.error_msg.error_response("err_index_site")
+
+        return self.error_msg.error_response("missing_params")
+
+    def search_domain_index(self, postparams):
+
+        if len(postparams['params'][0]) == 1:
+            if 'wallet_address' not in postparams['params'][0] or not self.verify_wallet_addr(postparams['params'][0]['wallet_address']):
+                return self.error_msg.error_response("invalid_wallet_addr")
+
+            self.wallet_address = postparams['params'][0]['wallet_address']
+            self.contract_address = "0x57b487502392a3f9142c9bebccd6439fce87dd51"
+
+            try:
+                self.params = { "params":[{"to" : self.contract_address, "function_signature" : "searchIndex(string)", 
+                                "function_argument" : [str(self.wallet_address)],"return_type" : ["string"]}]}
+                result = self.get_contract_storage(self.params)
+                return {"jsonrpc": "2.0", "id": "1", "result": result}
+
+            except Exception as e:
+                return self.error_msg.error_response("err_resolve_domain")
+            return self.error_msg.error_response("missing_params")
+                    
     def resolve_phantom_domain(self, postparams):
         if len(postparams['params'][0]) == 1:
             if 'domain' not in postparams['params'][0] or not self.validate_domain(postparams['params'][0]['domain']):
@@ -711,7 +764,7 @@ class Phantom_Ui(object):
                 self.domain = postparams['params'][0]['domain']
                 self.addr = postparams['params'][0]['domain_address']
                 self.params = {"params":[{"from":self.from_acc, "to" : self.contract_addr, "function_signature" : "setRR(string,string)", 
-                "function_argument" : [str(self.domain), str(self.addr)], "gas" : "300000", "password" : self.passwd}]}                
+                                "function_argument" : [str(self.domain), str(self.addr)], "gas" : "300000", "password" : self.passwd}]}                
                 result = self.set_contract_storage(self.params)
                 
                 try:
