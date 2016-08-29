@@ -175,10 +175,10 @@ class UiServer:
             print "- Could not initalize phantom database, exiting..."
             sys.exit(0)
 
-        print "- Fetching wallet addresses for full mesh sync of Phantom sites."
+        print "- Checking Phantom Network sites for which to enable full mesh syncronization..."
         try:
-            phantom_db = Phantom_Db.PhantomDb()
-            wallet_addresses = phantom_db.get_wallet_addresses()
+            wallet_addresses = self.phantom_ui.check_index()
+            print "- Found %i site(s)." % (len(wallet_addresses))
         except Exception as e:
             print "- Could not fetch wallet addresses. Will not be able to sync sites. Reason(%s)." % str(e)
             pass

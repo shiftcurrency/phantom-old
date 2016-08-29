@@ -690,8 +690,6 @@ class Phantom_Ui(object):
             if 'domain' not in postparams['params'][0] or not self.validate_domain(postparams['params'][0]['domain']):
                 return self.error_msg.error_response("invalid_domain")
 
-
-
             try:
                 self.passwd = postparams['params'][0]['password']
                 self.from_acc = postparams['params'][0]['from']
@@ -776,6 +774,20 @@ class Phantom_Ui(object):
             except Exception as e:
                 return self.error_msg.error_response("err_create_domain")
         return self.error_msg.error_response("missing_params")
+
+    def check_index(self):
+
+        self.phantomdb = Phantom_Db.PhantomDb()
+        address_list = self.phantomdb.get_wallet_addresses()
+        found_domains = []
+        if address_list:
+            for address in address_list:
+                if self.verify_wallet_addr(address):
+                    postparams = {"params":[{"wallet_address" : str(address)}]}
+                    res = self.search_domain_index(postparams)
+                    if 'result' in res and len(res['result'][0]) > 0 and res['result'][0] != "false":
+                        found_domains.append(res['result'][0])
+        return found_domains
   
     def run(self,postdata):
         self.res = self.validate_postdata(postdata)
