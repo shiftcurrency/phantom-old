@@ -148,20 +148,20 @@ class UiServer:
         if not self.gshift_process:
             print "- Could not start gshift. Try to start it manually."
 
-        print "- Checking if gshift is running..."
+        print "- Checking if gshift is running...",
         self.running = self.gshift.check_running_proc("gshift")
         if self.running:
-            print "- Found a running gshift process with process id: %i" % int(self.running[0])
-            print "- Verifying IPC connection..."
+            print "found a running gshift process with process id: %i." % int(self.running[0])
+            print "- Verifying IPC connection...",
             self.ipc_conn = self.gshift.verify_ipc_connection()
             if not self.ipc_conn: 
-                print "- Could not establish an IPC connection with gshift."
+                print "could not establish an IPC connection with gshift."
                 config.open_browser = False
             else:
-                print "- Successfully established an IPC connection to gshift. Creating static node file."
+                print "successfully established an IPC connection to gshift. Creating static node file."
                 config.open_browser = "default_browser"
         else:
-            print "- Could not find a running gshift process. Start gshift manually."
+            print "could not find a running gshift process. Start gshift manually."
             config.open_browser = False
 
         self.phantom_ui = Phantom_Ui.Phantom_Ui()
@@ -175,12 +175,12 @@ class UiServer:
             print "- Could not initalize phantom database, exiting..."
             sys.exit(0)
 
-        print "- Checking Phantom Network sites for which to enable full mesh syncronization..."
+        print "- Checking Phantom Network sites for which to enable full mesh syncronization...",
         try:
             wallet_addresses = self.phantom_ui.check_index()
-            print "- Found %i site(s)." % (len(wallet_addresses))
+            print "found %i site(s)." % (len(wallet_addresses))
         except Exception as e:
-            print "- Could not fetch wallet addresses. Will not be able to sync sites. Reason(%s)." % str(e)
+            print "could not fetch wallet addresses. Will not be able to sync sites. Reason(%s)." % str(e)
             pass
             
 
