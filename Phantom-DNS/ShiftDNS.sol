@@ -28,14 +28,21 @@ contract ShiftDNS {
         return false;
     }
 
-    function indexSite(string owner, string _domain, string _phantom_addr) returns (bool) {
-        if(index[owner].exist == false) {
-            index[owner].exist = true;
-            index[owner].domain = _domain;
-            index[owner].siteAddr = _phantom_addr;
-            return true;
+    function indexSite(string owner, string _domain, string _phantom_addr) returns (uint) {
+
+        address sndr = msg.sender;
+        uint balance = sndr.balance;
+
+        if(balance >= 4000000000000000000000) {
+            if(index[owner].exist == false) {
+                index[owner].exist = true;
+                index[owner].domain = _domain;
+                index[owner].siteAddr = _phantom_addr;
+                return 0;
+            }
+            return 1;
         }
-        return false;
+        return 2;
     }
 
     function searchIndex(string addr) returns (string) {

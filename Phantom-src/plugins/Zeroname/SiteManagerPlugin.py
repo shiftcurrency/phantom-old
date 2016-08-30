@@ -53,7 +53,6 @@ class SiteManagerPlugin(object):
     def need(self, address, all_file=True):
         if self.isDomain(address):  # Its looks like a domain
             address_resolved = self.resolveDomain(address)
-            print address_resolved
             if address_resolved:
                 address = address_resolved
             else:

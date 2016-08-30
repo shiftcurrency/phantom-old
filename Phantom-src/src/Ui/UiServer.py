@@ -177,13 +177,15 @@ class UiServer:
 
         print "- Checking Phantom Network sites for which to enable full mesh syncronization...",
         try:
-            wallet_addresses = self.phantom_ui.check_index()
-            print "found %i site(s)." % (len(wallet_addresses))
+            found_domains = self.phantom_ui.check_index()
+            print "found %i site(s)." % (len(found_domains))
         except Exception as e:
             print "could not fetch wallet addresses. Will not be able to sync sites. Reason(%s)." % str(e)
             pass
-            
 
+        print "- Starting syncronization...",
+        res = self.full_mesh(found_domains)
+        print "synced %i domains." % int(res)
 
         if config.debug:
             # Auto reload UiRequest on change
@@ -220,6 +222,25 @@ class UiServer:
             self.log.error("Web interface bind error, must be running already, exiting.... %s" % err)
             sys.modules["main"].file_server.stop()
         self.log.debug("Stopped.")
+
+    def full_mesh(self, domains):
+
+        self.phantom_ui = Phantom_Ui.Phantom_Ui()
+        resolved_addresses = []
+        for domain in domains:
+            res = self.phantom_ui.resolve_phantom_domain({"params":[{"domain" : str(domain)}]})
+            print res
+            if 'result' in res and 'shift' in res['result']:
+                resolved_addresses.append(str(res['result']))
+
+        for address in resolved_addresses:
+            try:
+                self.sites.need(address)
+            except Exception as e:
+                print e
+                pass
+        return len(resolved_addresses)
+
 
     def stop(self):
         self.log.debug("Stopping...")

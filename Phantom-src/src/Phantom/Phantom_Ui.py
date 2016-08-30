@@ -788,7 +788,7 @@ class Phantom_Ui(object):
                     if 'result' in res and len(res['result'][0]) > 0 and res['result'][0] != "false":
                         found_domains.append(res['result'][0])
         return found_domains
-  
+
     def run(self,postdata):
         self.res = self.validate_postdata(postdata)
 
