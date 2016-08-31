@@ -81,6 +81,9 @@ contract ShiftDNS {
 
     // Return the Phantom bitcoin hash address for the site.
     function getRR(string _domain) returns (string) {
-        return rrs[_domain].addr;
+        if(rrs[_domain].exist == true) {
+            return rrs[_domain].addr;
+        }
+        return "false";
     }   
 }
