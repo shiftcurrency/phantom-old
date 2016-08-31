@@ -38,7 +38,7 @@ contract ShiftDNS {
 
     function indexSite(string owner, string _domain, string _phantom_addr) returns (uint) {
 
-        // OBSERVE: You need a registered domain to be able to your site to the global mesh index.
+        // OBSERVE: You need a registered domain to be able to add your site to the global mesh index.
 
         // The account that calls the contract.
         address sndr = msg.sender;
