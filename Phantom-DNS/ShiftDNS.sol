@@ -17,7 +17,7 @@ contract ShiftDNS {
     mapping( string => RR ) rrs;
     mapping( string => SiteIndex ) index;
     address address1 = 0x82b5f6de85e6d5982992ee467808682b01a95e24;
-    uint = accountBalance;
+    uint accountBalance;
 
     function siteIndexBalance(uint balance) returns (uint){
         if (msg.sender == address1) {
