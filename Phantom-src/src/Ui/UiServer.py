@@ -83,9 +83,8 @@ class UiServer:
     # After WebUI started
     def afterStarted(self):
         from util import Platform
-        Platform.setMaxfilesopened(config.max_files_opened)
 
-    # Handle WSGI request
+# Handle WSGI request
     def handleRequest(self, env, start_response):
        
         path = env["PATH_INFO"]
@@ -175,18 +174,6 @@ class UiServer:
             print "- Could not initalize phantom database, exiting..."
             sys.exit(0)
 
-        print "- Checking Phantom Network sites for which to enable full mesh syncronization...",
-        try:
-            found_domains = self.phantom_ui.check_index()
-            print "found %i site(s)." % (len(found_domains))
-        except Exception as e:
-            print "could not fetch wallet addresses. Will not be able to sync sites. Reason(%s)." % str(e)
-            pass
-
-        print "- Starting syncronization...",
-        res = self.full_mesh(found_domains)
-        print "synced %i domains." % int(res)
-
         if config.debug:
             # Auto reload UiRequest on change
             from Debug import DebugReloader
@@ -215,6 +202,18 @@ class UiServer:
 
         self.server = WSGIServer((self.ip.replace("*", ""), self.port), handler, handler_class=UiWSGIHandler, log=self.log)
         self.server.sockets = {}
+        print "- Notice: for full mesh syncronization(in alpha) the shift_txs.db in your gshift user directory must be fully synced."
+        print "- Checking Phantom Network sites for which to enable full mesh syncronization...",
+        try:
+            found_domains = self.phantom_ui.check_index()
+            print "found %i site(s)."% (len(found_domains))
+        except Exception as e:
+            print "could not fetch wallet addresses. Will not be able to sync sites. Reason(%s)." % str(e)
+            pass
+        print "- Starting syncronization...",
+        res = self.full_mesh(found_domains)
+        print "synced %i domains." % int(res)
+
         self.afterStarted()
         try:
             self.server.serve_forever()
@@ -229,7 +228,6 @@ class UiServer:
         resolved_addresses = []
         for domain in domains:
             res = self.phantom_ui.resolve_phantom_domain({"params":[{"domain" : str(domain)}]})
-            print res
             if 'result' in res and 'shift' in res['result']:
                 resolved_addresses.append(str(res['result']))
 
