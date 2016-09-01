@@ -6,7 +6,7 @@
     "domain": "wallet.shift", 
     "modified": 1471945800.321, 
     "own": true, 
-    "peers": 12, 
+    "peers": 6, 
     "permissions": [
       "ADMIN"
     ], 
@@ -21,7 +21,7 @@
     "bytes_sent": 6530, 
     "modified": 1471945819.829, 
     "own": true, 
-    "peers": 14, 
+    "peers": 6, 
     "permissions": [
       "ADMIN"
     ], 
@@ -36,7 +36,7 @@
     "domain": "devwallet.shift", 
     "modified": 1471946041.964, 
     "own": false, 
-    "peers": 12, 
+    "peers": 5, 
     "permissions": [], 
     "serving": true, 
     "size": 4167910, 

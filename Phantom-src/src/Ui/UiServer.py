@@ -191,15 +191,6 @@ class UiServer:
         self.log.info("Web interface: http://%s:%s/" % (config.ui_ip, config.ui_port))
         self.log.info("--------------------------------------")
 
-        if config.open_browser:
-            logging.info("Opening browser: %s...", config.open_browser)
-            import webbrowser
-            if config.open_browser == "default_browser":
-                browser = webbrowser.get()
-            else:
-                browser = webbrowser.get(config.open_browser)
-            browser.open("http://%s:%s/%s" % (config.ui_ip if config.ui_ip != "*" else "127.0.0.1", config.ui_port, config.homepage), new=2)
-
         self.server = WSGIServer((self.ip.replace("*", ""), self.port), handler, handler_class=UiWSGIHandler, log=self.log)
         self.server.sockets = {}
         print "- Notice: for full mesh syncronization(in alpha) the shift_txs.db in your gshift user directory must be fully synced."
@@ -213,6 +204,15 @@ class UiServer:
         print "- Starting syncronization...",
         res = self.full_mesh(found_domains)
         print "synced %i domains." % int(res)
+
+        if config.open_browser:
+            logging.info("Opening browser: %s...", config.open_browser)
+            import webbrowser
+            if config.open_browser == "default_browser":
+                browser = webbrowser.get()
+            else:
+                browser = webbrowser.get(config.open_browser)
+            browser.open("http://%s:%s/%s" % (config.ui_ip if config.ui_ip != "*" else "127.0.0.1", config.ui_port, config.homepage), new=2)
 
         self.afterStarted()
         try:

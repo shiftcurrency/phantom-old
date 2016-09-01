@@ -775,6 +775,15 @@ class Phantom_Ui(object):
                 return self.error_msg.error_response("err_create_domain")
         return self.error_msg.error_response("missing_params")
 
+    def get_indexed_domains(self, postparams):
+        if len(postparams['params']) == 0:
+            try:
+                self.domains = self.check_index()
+                return {"jsonrpc": "2.0", "id": "1", "result": self.domains}
+            except Exception as e:
+                print e
+        return self.error_msg.error_response("missing_params")
+
     def check_index(self):
 
         self.phantomdb = Phantom_Db.PhantomDb()

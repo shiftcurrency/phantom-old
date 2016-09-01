@@ -114,4 +114,7 @@ class Run_Method(object):
         elif postparams['method'] == 'index_phantom_domain':
              self.res = phantom_ui.index_phantom_domain(postparams)
              return self.res
+        elif postparams['method'] == 'get_indexed_domains':
+            self.res = phantom_ui.get_indexed_domains(postparams)
+            return self.res
         return error.error_response("no_method")
