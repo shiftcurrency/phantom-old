@@ -101,3 +101,7 @@ curl -g -X POST --data '{"jsonrpc":"2.0","method": "index_phantom_domain", "para
 curl -g -X POST --data '{"jsonrpc":"2.0","method": "search_domain_index","params":[{"wallet_address" : "619f79b01cc1f14316b0edb91e714979787b58ee"}], "id":"1"}' http://localhost:53903
 
 result: {"jsonrpc": "2.0", "id": "1", "result": ["test1.shift"]}
+
+Search the intire index database
+
+curl -g -X POST --data '{"jsonrpc":"2.0","method": "get_indexed_domains","params":[], "id":"1"}' http://localhost:53903
