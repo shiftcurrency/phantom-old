@@ -239,10 +239,11 @@
   
   <!-- load page sections -->
   <script type="text/javascript">
-    Site.loadData('top.html', $('#toppage'));
-    Site.loadData('left.html', $('#leftpage'), function(){
-		console.log('sections loaded');
+	$(document).ready(function() {
+      Site.loadData('top.html', $('#toppage'));
+      Site.loadData('left.html', $('#leftpage'), function(){
 		$.getScript('js/custom.js');
+	  });
 	});
   </script>  
  

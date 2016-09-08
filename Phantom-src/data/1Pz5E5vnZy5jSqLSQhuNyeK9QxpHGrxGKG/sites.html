@@ -290,7 +290,7 @@
 				</form>
 			  </div>
 			</div>
-          <div class="clearfix"></div><!--
+          <div class="clearfix"></div>
 		  
           <div class="row">
             <div class="col-md-12">
@@ -299,12 +299,12 @@
 
                   <div class="row">
 
-                    <div class="col-md-4 col-sm-4 col-xs-12 animated fadeInDown" id="contact-dummy" style="display:none">
+                    <div class="col-md-4 col-sm-4 col-xs-12 animated fadeInDown" id="site-dummy" style="display:none">
                       <div class="well profile_view">
                         <div class="col-sm-12">
-                          <h4 class="brief"><i>Address</i></h4>
+                          <h4 class="brief"><input type="text" class="form-control input-sm site-address" value="" placeholder="Address" style="border:0;box-shadow:none"></h4>
                           <div class="left col-xs-7">
-                            <h2><i class="fa fa-tag"></i> <span class="alias">Alias</span></h2>
+                            <h2><i class="fa fa-external-link"></i> <span class="domain">Domain</span></h2>
                           </div>
                           <div class="right col-xs-5 text-center">
                             <img src="img/picture.jpg" alt="" class="img-circle img-responsive">
@@ -312,9 +312,9 @@
                         </div>
                         <div class="col-xs-12 bottom text-center">                          
                           <div class="col-xs-12 emphasis">
-                            <button type="button" class="btn btn-success btn-msg"> <i class="fa fa-comments-o"></i> </button>
-							<button type="button" class="btn btn-primary btn-xs contact-view"> <i class="fa fa-user"></i> Edit Profile </button>
-							<button type="button" class="btn btn-default btn-xs contact-tx"> <i class="fa fa-paper-plane"></i> Send Shift </button>
+							<button type="button" class="btn btn-primary btn-xs site-edit"> <i class="fa fa-pencil-square-o"></i> Edit Site </button>
+							<button type="button" class="btn btn-success btn-xs site-publish"> <i class="fa fa-cloud-upload"></i> Publish </button>
+                            <a href="javascript:void(0)" target="_blank" style="float:left" class="btn btn-default btn-xs site-visit"> <i class="fa fa-link"></i> Visit site</a>
                           </div>
                         </div>
                       </div>
@@ -325,7 +325,7 @@
                 </div>
               </div>
             </div>
-          </div> //-->
+          </div> 
         </div>
 
        </div>
@@ -346,9 +346,11 @@
   
   <!-- load page sections -->
   <script type="text/javascript">
-    Site.loadData('top.html', $('#toppage'));
-    Site.loadData('left.html', $('#leftpage'), function(){
+	$(document).ready(function() {
+      Site.loadData('top.html', $('#toppage'));
+      Site.loadData('left.html', $('#leftpage'), function(){
 		$.getScript('js/custom.js');
+	  });
 	});
   </script>
   
@@ -388,11 +390,10 @@
 		/* Start interval */
 		HUB.startPolling();
 	  });
-	  
-/*		
-	  var siteList = Site.cmd("siteList");
-	  console.debug('siteList: '+siteList);
-*/	
+
+
+	  HUB.loadSites();
+
 	  $('#signup_form').validate_popover({
 		onsubmit: false,
 		rules: {

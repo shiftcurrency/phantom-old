@@ -289,7 +289,10 @@ class UiWebsocket(object):
                 "pending": pending,
                 "earliest": earliest
             }
-		
+			
+        if call == 'siteList': 
+            self.actionSiteList(to)
+
         self.response(to, ret)
 
     # Send site details

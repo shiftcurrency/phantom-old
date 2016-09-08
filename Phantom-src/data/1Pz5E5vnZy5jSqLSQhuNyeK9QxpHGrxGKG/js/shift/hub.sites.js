@@ -1,6 +1,38 @@
 var HUB = (function(HUB, $, undefined) {
     "use strict";
 	
+    HUB.loadSites = function(){
+//	  var site_rows = Site.siteListing();
+	  Site.loadMessages('siteList', {}, function(site_rows){
+		$.each(site_rows, function( k, v ) {
+//		  console.log( v.settings.domain+'/'+v.address ); 
+		  if (v.settings.own == true) {
+			HUB.generate(v.address, v.settings.domain, false); // v.content.description
+		  }
+		});	
+	  });	
+    }
+	
+	HUB.generate = function(address, domain, edit){
+		var site = edit ? $("#"+address) : $("#site-dummy").clone();
+		
+		$(site).attr("id",address);
+		$(site).find('h4.brief input').val(address);
+		$(site).find('h2 span.domain').html(domain != null ? domain : 'Unknown');
+		$(site).find("a.site-visit").prop('href', '/'+(domain != null ? domain : address));
+		$(site).find("button.site-edit").hide().click(function() {
+//			HUB.switchForm(address, domain, true);
+		});
+		$(site).find("button.site-publish").click(function() {
+			Site.cmd("wrapperPrompt", ["Please supply your private key"], function(private_key){
+				HUB.publish_site(address, private_key);
+			});
+		});
+		if (!edit) $(site).appendTo($("#site-dummy").parent()).show();
+		
+		$('#ContactReset').click();
+	}	
+	
     HUB.create_site = function(domain, wallet, password){
 		var error, result, 
 			address, private_key, 

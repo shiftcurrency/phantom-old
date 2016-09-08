@@ -106,7 +106,7 @@ var HUB = (function(HUB, $, undefined) {
 	  // Call every x time we get here  
 	  var modulo = HUB.numofpolls > 5 ? 10 : 2;
 	  if (HUB.numofpolls <= 1 || HUB.numofpolls % modulo == 1) {
-		console.log('Polling called, nr: '+HUB.numofpolls+', fails: '+HUB.numoffails);
+		console.log('Polling called: '+HUB.numofpolls+', fails: '+HUB.numoffails);
 		
 		// Number of peers
 /*		data = HUB.startRequest("net_peercount",'[]'); 

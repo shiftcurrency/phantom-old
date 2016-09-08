@@ -127,7 +127,7 @@
     function ZeroShift() {
       this.reloadServerInfo = __bind(this.reloadServerInfo, this);
       this.reloadSiteInfo = __bind(this.reloadSiteInfo, this);
-      this.setSiteInfo = __bind(this.setSiteInfo, this);
+//      this.setSiteInfo = __bind(this.setSiteInfo, this);
       this.onOpenWebsocket = __bind(this.onOpenWebsocket, this);
       this.onErrorWebsocket = __bind(this.onErrorWebsocket, this);
       return ZeroShift.__super__.constructor.apply(this, arguments);
@@ -153,6 +153,7 @@
           return function(result) {	
 //			_this.log("socket call response", result);
 			if (call == 'netListening'){
+			} else if (call == 'siteList') {
 			} else if (call == 'blockHeight'){
 				HUB.blocknumber = result;
 			} else if (call == 'peerCount'){
@@ -162,7 +163,7 @@
 				HUB.pending = result.pending;
 				HUB.balance = HUB.latest + HUB.pending;
 			}
-			return callback();
+			return callback(result);
           };
 		})(this));
 	};	
@@ -228,6 +229,17 @@
 		};
 	  })(this));
     };
+	
+    ZeroShift.prototype.siteListing = function() {
+      var sites = [];
+	  Site.cmd("siteList", {}, (function(_this) {
+        return function(site_rows) {
+//          console.log(site_rows);
+		  sites = site_rows;
+        };
+      })(this));
+      return sites;
+    };	
 
 	ZeroShift.prototype.writeStorage = function(str) {
 		Site.local_storage = str;
